@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glendell S. Dia - Data Analyst & Software Engineer</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+ <div class="bg-3d">
+  <div class="shape sphere"></div>
+  <div class="shape cube"></div>
+  <div class="shape pyramid"></div>
+  <div class="shape sphere2"></div>
+  <div class="shape cube2"></div>
+  <div class="shape pyramid2"></div>
+  <div class="shape diamond"></div>
+  <div class="shape disc"></div>
+</div>
+<div class="top-banner">
+  <div class="code-line">SELECT * FROM insights WHERE value > 0.95;</div>
+  <div class="code-line">Analyzing Trends → Predicting Outcomes → Delivering Clarity</div>
+  <div class="code-line"># Data is the new oil, but refined by analytics ⚙️</div>
+</div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+  <div class="hero__container">
+    <!-- Left side: Photo -->
+    <div class="hero__avatar-wrapper">
+      <img src="1762154153959.jpg" alt="Glendell Dia" class="hero__avatar" />
+    </div>
+
+    <!-- Right side: Text -->
+    <div class="hero__content">
+      <h1 class="hero__name">Glendell S. Dia</h1>
+      <p class="hero__education">
+        Computer Engineer, <br />
+        University of San Jose – Recoletos
+      </p>
+      <p class="hero__title">Aspiring Data Analyst</p>
+
+      <!-- Quote below name -->
+      <div class="hero__quote">
+        <p class="quote__text">
+          “Dedication is turning small, daily choices into meaningful progress.”
+        </p>
+        <p class="quote__explanation">
+          I apply the same dedication to data analytics — methodically cleaning,
+          exploring, and modeling data to deliver clear business insights.
+        </p>
+      </div>
+
+      <!-- Skills below quote -->
+      <div class="hero__skills">
+        <span class="skill-pill">C# / .NET</span>
+        <span class="skill-pill">SQL</span>
+        <span class="skill-pill">Node.js</span>
+        <span class="skill-pill">Tableau</span>
+        <span class="skill-pill">Power BI</span>
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">Excel</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      <!-- Navigation Tabs -->
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <button 
+          class="nav__tab nav__tab--active" 
+          data-tab="projects" 
+          aria-selected="true"
+          aria-controls="projects-panel"
+        >
+          <i class="fas fa-project-diagram"></i>
+          <span>Projects</span>
+        </button>
+        <button 
+          class="nav__tab" 
+          data-tab="about" 
+          aria-selected="false"
+          aria-controls="about-panel"
+        >
+          <i class="fas fa-user"></i>
+          <span>About</span>
+        </button>
+        <!-- Add this inside your nav -->
+        <button class="nav__tab" data-tab="pets">
+          <i class="fas fa-paw"></i><span>Pets</span>
+        </button>
+
+        <button 
+          class="nav__tab" 
+          data-tab="contact" 
+          aria-selected="false"
+          aria-controls="contact-panel"
+        >
+          <i class="fas fa-envelope"></i>
+          <span>Contact</span>
+        </button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Projects Tab -->
+    <section id="projects-panel" class="tab-panel tab-panel--active" role="tabpanel" aria-labelledby="projects">
+      <h2 class="tab-panel__title">Projects</h2>
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card" data-project-id="1">
+          <div class="project-card__header">
+            <h3 class="project-card__title">Machine Learning Market Trends Product Prediction</h3>
+            <button class="project-card__expand" aria-label="Expand project details" aria-expanded="false">
+              <i class="fas fa-chevron-down"></i>
+            </button>
+          </div>
+          <p class="project-card__objective">Predict trending products and demand spikes using historical listing and engagement data.</p>
+          
+          <div class="project-card__tools">
+            <span class="tool-badge">Python</span>
+            <span class="tool-badge">SQL</span>
+            <span class="tool-badge">Power BI</span>
+            <span class="tool-badge">scikit-learn</span>
+          </div>
+
+          <div class="project-card__details" hidden>
+            <div class="project-card__details-content">
+              <h4>Project Overview</h4>
+              <p>TikTok Shop / Shopee market trend analysis using machine learning to identify emerging products and demand patterns.</p>
+              
+              <h4>Key Steps</h4>
+              <ul>
+                <li>Data collection and cleaning from e-commerce APIs</li>
+                <li>Feature engineering: engagement metrics, seasonality, trends</li>
+                <li>Model training: Random Forest & XGBoost for prediction</li>
+                <li>Dashboard creation in Power BI for stakeholder visualization</li>
+              </ul>
+
+              <h4>Datasets & Links</h4>
+              <div class="project-links">
+                <a href="#" class="project-link">
+                  <i class="fab fa-github"></i> View GitHub Repo
+                </a>
+                <a href="#" class="project-link">
+                  <i class="fas fa-database"></i> Dataset Source
+                </a>
+              </div>
+
+              <div class="project-card__visual">
+                <img src="https://via.placeholder.com/300x150?text=Market+Trends+Dashboard" alt="Market trends visualization">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card" data-project-id="2">
+          <div class="project-card__header">
+            <h3 class="project-card__title">E-commerce Customer Segmentation & Churn Analysis</h3>
+            <button class="project-card__expand" aria-label="Expand project details" aria-expanded="false">
+              <i class="fas fa-chevron-down"></i>
+            </button>
+          </div>
+          <p class="project-card__objective">Segment customers and identify high-risk churn cohorts to recommend retention actions.</p>
+          
+          <div class="project-card__tools">
+            <span class="tool-badge">SQL</span>
+            <span class="tool-badge">Python</span>
+            <span class="tool-badge">Power BI</span>
+            <span class="tool-badge">Clustering</span>
+          </div>
+
+          <div class="project-card__details" hidden>
+            <div class="project-card__details-content">
+              <h4>Project Overview</h4>
+              <p>Customer segmentation using clustering algorithms to identify at-risk groups and develop targeted retention strategies.</p>
+              
+              <h4>Key Steps</h4>
+              <ul>
+                <li>Customer data aggregation and RFM analysis</li>
+                <li>K-means clustering for customer segmentation</li>
+                <li>Churn prediction modeling with classification algorithms</li>
+                <li>Power BI dashboards for business intelligence</li>
+              </ul>
+
+              <h4>Datasets & Links</h4>
+              <div class="project-links">
+                <a href="#" class="project-link">
+                  <i class="fab fa-github"></i> View GitHub Repo
+                </a>
+                <a href="#" class="project-link">
+                  <i class="fas fa-database"></i> Dataset Source
+                </a>
+              </div>
+
+              <div class="project-card__visual">
+                <img src="https://via.placeholder.com/300x150?text=Customer+Segments" alt="Customer segmentation visualization">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card" data-project-id="3">
+          <div class="project-card__header">
+            <h3 class="project-card__title">Retail Inventory Demand Forecasting</h3>
+            <button class="project-card__expand" aria-label="Expand project details" aria-expanded="false">
+              <i class="fas fa-chevron-down"></i>
+            </button>
+          </div>
+          <p class="project-card__objective">Forecast SKU-level demand to reduce stockouts and overstock for retail environments.</p>
+          
+          <div class="project-card__tools">
+            <span class="tool-badge">Python</span>
+            <span class="tool-badge">Prophet</span>
+            <span class="tool-badge">SQL</span>
+            <span class="tool-badge">Power BI</span>
+          </div>
+
+          <div class="project-card__details" hidden>
+            <div class="project-card__details-content">
+              <h4>Project Overview</h4>
+              <p>Time-series forecasting for retail inventory management using advanced statistical and ML techniques.</p>
+              
+              <h4>Key Steps</h4>
+              <ul>
+                <li>Historical sales data extraction and preparation</li>
+                <li>Seasonality and trend decomposition</li>
+                <li>Prophet & ARIMA model training and validation</li>
+                <li>Forecast integration into Power BI dashboards</li>
+              </ul>
+
+              <h4>Datasets & Links</h4>
+              <div class="project-links">
+                <a href="#" class="project-link">
+                  <i class="fab fa-github"></i> View GitHub Repo
+                </a>
+                <a href="#" class="project-link">
+                  <i class="fas fa-database"></i> Dataset Source
+                </a>
+              </div>
+
+              <div class="project-card__visual">
+                <img src="https://via.placeholder.com/300x150?text=Demand+Forecast" alt="Demand forecast visualization">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Tab -->
+    <section id="about-panel" class="tab-panel" role="tabpanel" aria-labelledby="about" hidden>
+      <h2 class="tab-panel__title">About</h2>
+      <div class="about-content">
+        <div class="about-section">
+          <h3>Professional Background</h3>
+          <p>
+            I am a Computer Engineer from the University of San Jose – Recoletos with a passion for turning complex data into actionable insights. My foundation in software engineering has equipped me with production-grade coding skills, deep backend knowledge, and a systematic approach to problem-solving. Now, I'm channeling this expertise into data analytics, where I combine technical rigor with analytical thinking to drive business decisions.
+          </p>
+        </div>
+
+        <div class="about-section">
+          <h3>What I Bring to Data Analytics</h3>
+          <ul class="skills-list">
+            <li><strong>Production Code Quality:</strong> Years of software engineering experience ensure clean, maintainable, and well-documented code.</li>
+            <li><strong>API & Backend Knowledge:</strong> Deep understanding of data pipelines, ETL processes, and system integrations.</li>
+            <li><strong>Database Expertise:</strong> Proficiency in SQL optimization, query design, and relational database architecture.</li>
+            <li><strong>End-to-End Thinking:</strong> Ability to design solutions that work seamlessly from data collection to visualization.</li>
+            <li><strong>Attention to Detail:</strong> Meticulous data validation and quality assurance practices.</li>
+          </ul>
+        </div>
+
+        <div class="about-section case-study">
+          <h3>Case Study: Power BI Visualization for Local Pharmacy</h3>
+          <div class="case-study__details">
+            <div class="case-study__item">
+              <strong>Problem:</strong>
+              <p>The pharmacy struggled with inventory tracking and couldn't identify which products drove revenue. Decision-makers relied on manual reports that were outdated within days.</p>
+            </div>
+            <div class="case-study__item">
+              <strong>My Approach:</strong>
+              <p>I designed and built an interactive Power BI dashboard that connected to their sales database, automated daily data refreshes, and provided real-time insights into product performance, stock levels, and revenue trends.</p>
+            </div>
+            <div class="case-study__item">
+              <strong>Tools Used:</strong>
+              <p>SQL (data extraction), Python (data transformation), Power BI (dashboard design and deployment)</p>
+            </div>
+            <div class="case-study__item">
+              <strong>Impact:</strong>
+              <p>Decision-making time reduced by 70%, inventory accuracy improved to 95%, and revenue-driving products identified, resulting in a 15% increase in focused promotions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- PETS TAB -->
+    <section id="pets-panel" class="tab-panel" role="tabpanel" aria-labelledby="pets" hidden>
+      <h2 class="tab-panel__title">My Pets</h2>
+      <div class="pets-grid">
+        <div class="pet-card">
+          <img src="assets/pet1-placeholder.jpg" alt="Pet 1" class="pet-card__image" />
+          <h3 class="pet-card__name">Buta</h3>
+          <p class="pet-card__desc">A blind cat that is timid but very clingy.</p>
+        </div>
+        <div class="pet-card">
+          <img src="cat2.jpg" alt="Pet 2" class="pet-card__image" />
+          <h3 class="pet-card__name">Garfield</h3>
+          <p class="pet-card__desc">A playful, curious cat who enjoys naps beside my laptop during coding.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Tab -->
+    <section id="contact-panel" class="tab-panel" role="tabpanel" aria-labelledby="contact" hidden>
+      <h2 class="tab-panel__title">Contact</h2>
+      <div class="contact-content">
+        <div class="contact-card">
+          <h3>Let's Connect</h3>
+          <p>I'm always open to discussing data analytics, machine learning, and exciting projects. Feel free to reach out!</p>
+          
+          <div class="contact-links">
+            <a href="mailto:glendelldia28@gmail.com" class="contact-link" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+              <span>glendelldia28@gmail.com</span>
+            </a>
+            <a href="https://www.linkedin.com/in/glendell-dia-49760828b/" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/PL0e" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+              <span>GitHub</span>
+            </a>
+          </div>
+
+          <button class="btn btn--primary" data-action="download-resume">
+            <i class="fas fa-download"></i>
+            Download Resume
+          </button>
+        </div>
+
+        
+
+  <script src="script.js"></script>
+</body>
+</html>
