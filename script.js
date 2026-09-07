@@ -71,15 +71,24 @@ projectCards.forEach((card) => {
   })
 })
 
-// Resume Download Handler
+// Resume handlers
+const resumeUrl = "assets/resume_diaglendell_.pdf"
+
+const viewResumeBtn = document.querySelector('[data-action="view-resume"]')
+if (viewResumeBtn) {
+  viewResumeBtn.addEventListener("click", (event) => {
+    event.preventDefault()
+    window.open(resumeUrl, "_blank", "noopener,noreferrer")
+  })
+}
+
 const downloadBtn = document.querySelector('[data-action="download-resume"]')
 if (downloadBtn) {
   downloadBtn.addEventListener("click", () => {
-    // Replace with actual resume file path
-    const resumeUrl = "/assets/resume.pdf"
     const link = document.createElement("a")
     link.href = resumeUrl
-    link.download = "Glendell_S_Dia_Resume.pdf"
+    link.download = "resume_diaglendell_.pdf"
+    link.target = "_blank"
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
