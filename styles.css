@@ -411,7 +411,7 @@ strong {
   width: min(640px, 80vw);
   aspect-ratio: 1;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(32, 201, 151, 0.18), transparent 65%);
+  background: radial-gradient(circle, rgba(32, 201, 151, 0.1), transparent 65%);
   filter: blur(20px);
   pointer-events: none;
 }
@@ -559,28 +559,20 @@ strong {
 
 .hero__photo-frame {
   position: relative;
-  padding: 10px;
   border-radius: 28px;
-  background: linear-gradient(160deg, var(--surface-3), var(--surface) 60%);
-  border: 1px solid var(--border-strong);
-  box-shadow: var(--shadow-card);
-  transform: rotate(2deg);
-  transition: transform var(--t-base);
+  overflow: hidden;
+  /* Soft-fade every edge so the portrait melts into the page background */
+  -webkit-mask-image: radial-gradient(ellipse 72% 70% at 50% 42%, #000 55%, transparent 100%);
+  mask-image: radial-gradient(ellipse 72% 70% at 50% 42%, #000 55%, transparent 100%);
 }
 
-.hero__photo-frame::before {
+.hero__photo-frame::after {
+  /* Gentle dark tint so the photo sits back instead of popping */
   content: "";
   position: absolute;
-  inset: -1px;
-  z-index: -1;
-  border-radius: inherit;
-  background: linear-gradient(160deg, var(--accent), transparent 45%);
-  opacity: 0.6;
-  filter: blur(18px);
-}
-
-.hero__photo:hover .hero__photo-frame {
-  transform: rotate(0deg);
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.05) 0%, rgba(10, 10, 10, 0.35) 100%);
+  pointer-events: none;
 }
 
 .hero__photo-frame img {
@@ -588,7 +580,7 @@ strong {
   height: auto;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  border-radius: 20px;
+  filter: saturate(0.82) brightness(0.9) contrast(0.95);
 }
 
 .hero__badge {
@@ -597,12 +589,12 @@ strong {
   align-items: center;
   gap: 0.5rem;
   padding: 0.55rem 0.9rem;
-  border: 1px solid var(--border-strong);
+  border: 1px solid var(--border);
   border-radius: var(--radius-full);
-  background: rgba(25, 25, 25, 0.88);
+  background: rgba(20, 20, 20, 0.8);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
-  box-shadow: var(--shadow-card);
+  color: var(--text-muted);
   font-size: 0.82rem;
   font-weight: 500;
   white-space: nowrap;
@@ -1016,9 +1008,10 @@ strong {
 /* ============================================
    PROJECTS
    ============================================ */
-.case-study {
+.feature {
   display: grid;
-  grid-template-columns: 1fr 1.25fr;
+  grid-template-columns: 1fr 1.15fr;
+  align-items: center;
   gap: clamp(1.5rem, 4vw, 3rem);
   margin-bottom: 2rem;
   padding: clamp(1.5rem, 4vw, 2.5rem);
@@ -1029,73 +1022,76 @@ strong {
     var(--surface);
 }
 
-.case-study__intro h3 {
+.feature__intro h3 {
   margin: 1rem 0 0.75rem;
   font-size: clamp(1.4rem, 3vw, 1.8rem);
 }
 
-.case-study__intro p {
-  margin-bottom: 1.25rem;
+.feature__intro > p {
   color: var(--text-muted);
 }
 
-.case-study__grid {
+.feature__points {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-.case-study__item {
-  padding: 1.1rem 1.2rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  background: rgba(10, 10, 10, 0.45);
-}
-
-.case-study__item--wide {
-  grid-column: 1 / -1;
-}
-
-.case-study__item dt {
-  display: flex;
-  align-items: center;
   gap: 0.5rem;
-  margin-bottom: 0.4rem;
-  font-weight: 600;
+  margin: 1.25rem 0;
 }
 
-.case-study__item dt i {
-  color: var(--accent);
-}
-
-.case-study__item dd {
+.feature__points li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
   color: var(--text-muted);
   font-size: 0.93rem;
 }
 
-.impact {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.75rem;
-  margin-top: 0.3rem;
-}
-
-.impact li {
-  display: flex;
-  flex-direction: column;
-}
-
-.impact strong {
+.feature__points i {
   color: var(--accent);
-  font-size: clamp(1.4rem, 3vw, 1.8rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.15;
+  font-size: 0.8rem;
 }
 
-.impact span {
-  color: var(--text-muted);
-  font-size: 0.85rem;
+.feature__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.feature__preview {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--surface-2);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--t-base), border-color var(--t-base);
+}
+
+.feature__preview:hover {
+  border-color: var(--accent-line);
+  transform: translateY(-4px);
+}
+
+.feature__bar {
+  display: flex;
+  gap: 6px;
+  padding: 0.6rem 0.8rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.feature__bar span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border-strong);
+}
+
+.feature__preview img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
 }
 
 .projects {
@@ -1154,6 +1150,32 @@ strong {
 .project__cover--c { background: linear-gradient(135deg, #4a2b5f, #9b5fc0); }
 .project__cover--d { background: linear-gradient(135deg, #5f3a1f, #d08a3b); }
 .project__cover--e { background: linear-gradient(135deg, #2b4a1f, #6aa84f); }
+.project__cover--f { background: linear-gradient(135deg, #0f4c5c, #20c997); }
+.project__cover--g { background: linear-gradient(135deg, #5c4a0f, #c9a227); }
+
+/* Wide card: spans two columns on desktop with the cover beside the text */
+@media (min-width: 961px) {
+  .project--wide {
+    grid-column: span 2;
+    flex-direction: row;
+  }
+
+  .project--wide .project__cover {
+    flex: 0 0 38%;
+    height: auto;
+    border-bottom: 0;
+    border-right: 1px solid var(--border);
+  }
+
+  .project--wide .project__body {
+    justify-content: center;
+    padding: 1.75rem 2rem;
+  }
+
+  .project--wide .project__body .tags {
+    margin-top: 0.75rem;
+  }
+}
 
 .project__body {
   display: flex;
@@ -1539,7 +1561,7 @@ strong {
 @media (max-width: 960px) {
   .hero__inner,
   .about,
-  .case-study,
+  .feature,
   .contact {
     grid-template-columns: 1fr;
   }
@@ -1654,7 +1676,6 @@ strong {
     margin-left: 0;
   }
 
-  .case-study__grid,
   .projects {
     grid-template-columns: 1fr;
   }
@@ -1694,8 +1715,8 @@ strong {
     padding: 0.9rem 1rem;
   }
 
-  .impact {
-    grid-template-columns: 1fr;
+  .feature__actions .btn {
+    width: 100%;
   }
 
   .cta__actions,
