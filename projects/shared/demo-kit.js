@@ -197,44 +197,66 @@
   }
 
   // ---------------------------------------------------------------------------
-  // SEO audit (reads this page's own markup)
+  // Site audit (Semrush-style): issues by severity, Site Health, thematic scores.
+  // Everything is computed from this page's own markup and this browser's
+  // measurements. No search volume, ranking, traffic, or backlink data exists
+  // for a noindexed concept site, so none is shown.
   // ---------------------------------------------------------------------------
+  const SEVERITY_WEIGHT = { error: 3, warning: 2, notice: 1 }
+  const isPanel = (el) => !!el.closest(".dk, .dk-toast")
+
+  function visibleText() {
+    return $$("body > *")
+      .filter((el) => !isPanel(el) && el.tagName !== "SCRIPT")
+      .map((el) => el.innerText || "")
+      .join(" ")
+      .replace(/\s+/g, " ")
+      .trim()
+  }
+
   function audit() {
-    const checks = []
-    const add = (label, ok, value, info = false) => checks.push({ label, status: info ? "info" : ok ? "pass" : "warn", value })
+    const issues = []
+    const add = (label, severity, category, ok, value) => issues.push({ label, severity, category, ok: !!ok, value: String(value) })
     const meta = (sel) => ($(sel) || {}).content || ""
+    const name = (el) => (el.getAttribute("aria-label") || el.textContent || el.title || "").trim()
 
-    const title = doc.title.trim()
-    add("Title length (30–65)", title.length >= 30 && title.length <= 65, `${title.length} chars`)
-    const desc = meta('meta[name="description"]')
-    add("Meta description (70–160)", desc.length >= 70 && desc.length <= 160, `${desc.length} chars`)
-    const canonical = ($('link[rel="canonical"]') || {}).href || ""
-    add("Canonical URL", /^https?:\/\//.test(canonical), canonical ? new URL(canonical).pathname : "missing")
-    add("Language attribute", !!doc.documentElement.lang, doc.documentElement.lang || "missing")
-    add("Mobile viewport", !!$('meta[name="viewport"]'), $('meta[name="viewport"]') ? "set" : "missing")
-
+    // Crawlability & indexing
     const robots = meta('meta[name="robots"]')
-    add("Robots", true, robots.includes("noindex") ? "noindex (intentional: fictional brand)" : robots || "index", robots.includes("noindex"))
+    add("Language declared", "error", "Crawlability", doc.documentElement.lang, doc.documentElement.lang || "missing")
+    add("Mobile viewport", "error", "Crawlability", $('meta[name="viewport"]'), $('meta[name="viewport"]') ? "set" : "missing")
+    const canonical = ($('link[rel="canonical"]') || {}).href || ""
+    add("Canonical URL", "warning", "Crawlability", /^https?:\/\//.test(canonical), canonical ? new URL(canonical).pathname : "missing")
+    const ids = $$("[id]").filter((el) => !isPanel(el)).map((el) => el.id)
+    const dupIds = ids.filter((v, i) => ids.indexOf(v) !== i)
+    add("No duplicate IDs", "error", "Crawlability", dupIds.length === 0, dupIds.length ? [...new Set(dupIds)].join(", ") : "0 duplicates")
+    issues.push({ label: "Indexing", severity: "info", category: "Crawlability", ok: true, value: robots.includes("noindex") ? "noindex (intentional: fictional brand)" : "indexable" })
 
+    // On-page content
+    const title = doc.title.trim()
+    add("Title tag present", "error", "On-page", title, title ? "set" : "missing")
+    add("Title length 30–65", "warning", "On-page", title.length >= 30 && title.length <= 65, `${title.length} chars`)
+    const desc = meta('meta[name="description"]')
+    add("Meta description present", "error", "On-page", desc, desc ? "set" : "missing")
+    add("Meta description 70–160", "warning", "On-page", desc.length >= 70 && desc.length <= 160, `${desc.length} chars`)
     const h1s = $$("h1")
-    add("Exactly one H1", h1s.length === 1, `${h1s.length} found`)
-    const levels = $$("h1, h2, h3, h4, h5, h6").map((h) => Number(h.tagName[1]))
-    const skipped = levels.some((l, i) => i > 0 && l > levels[i - 1] + 1)
-    add("Heading order (no skipped levels)", !skipped, `${levels.length} headings`)
+    add("H1 present", "error", "On-page", h1s.length > 0, `${h1s.length} found`)
+    add("Single H1", "notice", "On-page", h1s.length === 1, `${h1s.length} found`)
+    add("H1 differs from title", "notice", "On-page", h1s[0] && h1s[0].textContent.trim() !== title, h1s[0] ? "unique" : "n/a")
+    const levels = $$("h1, h2, h3, h4, h5, h6").filter((h) => !isPanel(h)).map((h) => Number(h.tagName[1]))
+    add("Heading order", "warning", "On-page", !levels.some((l, i) => i > 0 && l > levels[i - 1] + 1), `${levels.length} headings`)
+    const text = visibleText()
+    const words = text.split(" ").filter(Boolean).length
+    add("Word count ≥ 200", "warning", "On-page", words >= 200, `${words} words`)
+    const panelHtml = $$(".dk, .dk-toast").reduce((t, el) => t + el.outerHTML.length, 0)
+    const htmlLen = doc.documentElement.outerHTML.length - panelHtml
+    const ratio = (text.length / htmlLen) * 100
+    add("Text-to-HTML ratio ≥ 10%", "notice", "On-page", ratio >= 10, `${ratio.toFixed(1)}%`)
 
-    const imgs = $$("img")
-    const missingAlt = imgs.filter((i) => !i.hasAttribute("alt")).length
-    add("Images have alt text", missingAlt === 0, `${imgs.length - missingAlt}/${imgs.length}`)
-
-    const og = ["og:title", "og:description", "og:image", "og:url"].filter((p) => meta(`meta[property="${p}"]`))
-    add("Open Graph tags", og.length === 4, `${og.length}/4`)
-    add("Twitter card", !!meta('meta[name="twitter:card"]'), meta('meta[name="twitter:card"]') || "missing")
-
+    // Markup
     const types = []
     let ldValid = true
     $$('script[type="application/ld+json"]').forEach((s) => {
       try {
-        const data = JSON.parse(s.textContent)
         const walk = (n) => {
           if (Array.isArray(n)) return n.forEach(walk)
           if (n && typeof n === "object") {
@@ -242,26 +264,102 @@
             Object.values(n).forEach(walk)
           }
         }
-        walk(data)
+        walk(JSON.parse(s.textContent))
       } catch {
         ldValid = false
       }
     })
-    const uniqueTypes = [...new Set(types.flat())]
-    add("Structured data (JSON-LD)", ldValid && uniqueTypes.length > 0, ldValid ? uniqueTypes.join(", ") || "none" : "invalid JSON")
+    const schemaTypes = [...new Set(types.flat())]
+    add("Structured data valid", "error", "Markup", ldValid && schemaTypes.length > 0, ldValid ? `${schemaTypes.length} types` : "invalid JSON")
+    const og = ["og:title", "og:description", "og:image", "og:url"].filter((p) => meta(`meta[property="${p}"]`))
+    add("Open Graph tags", "warning", "Markup", og.length === 4, `${og.length}/4`)
+    add("Twitter card", "notice", "Markup", meta('meta[name="twitter:card"]'), meta('meta[name="twitter:card"]') || "missing")
+    add("Favicon", "notice", "Markup", $('link[rel~="icon"]'), $('link[rel~="icon"]') ? "set" : "missing")
 
-    const name = (el) => (el.getAttribute("aria-label") || el.textContent || el.title || "").trim()
-    const badLinks = $$("a[href]").filter((a) => !name(a) && !$("img[alt]:not([alt=''])", a)).length
-    add("Links have accessible names", badLinks === 0, `${$$("a[href]").length - badLinks}/${$$("a[href]").length}`)
-    const badButtons = $$("button").filter((b) => !name(b)).length
-    add("Buttons have accessible names", badButtons === 0, `${$$("button").length - badButtons}/${$$("button").length}`)
-    const fields = $$("input:not([type=hidden]), select, textarea")
-    const unlabeled = fields.filter((f) => !(f.id && $(`label[for="${f.id}"]`)) && !f.getAttribute("aria-label")).length
-    add("Form fields have labels", unlabeled === 0, `${fields.length - unlabeled}/${fields.length}`)
-    add("Favicon", !!$('link[rel~="icon"]'), $('link[rel~="icon"]') ? "set" : "missing")
+    // Links & accessibility
+    const anchors = $$("a[href]").filter((a) => !isPanel(a))
+    const brokenHash = anchors.filter((a) => {
+      const h = a.getAttribute("href")
+      return h.length > 1 && h.startsWith("#") && !doc.getElementById(decodeURIComponent(h.slice(1)))
+    })
+    add("No broken internal anchors", "error", "Links", brokenHash.length === 0, `${anchors.length - brokenHash.length}/${anchors.length} OK`)
+    const unnamed = anchors.filter((a) => !name(a) && !$("img[alt]:not([alt=''])", a))
+    add("Links have text", "warning", "Links", unnamed.length === 0, `${anchors.length - unnamed.length}/${anchors.length}`)
+    const unsafeBlank = anchors.filter((a) => a.target === "_blank" && !/noopener|noreferrer/.test(a.rel))
+    add("External links use rel=noopener", "notice", "Links", unsafeBlank.length === 0, `${unsafeBlank.length} unsafe`)
+    const buttons = $$("button").filter((b) => !isPanel(b))
+    add("Buttons have names", "warning", "Links", buttons.every(name), `${buttons.filter(name).length}/${buttons.length}`)
+    const imgs = $$("img").filter((i) => !isPanel(i))
+    add("Images have alt text", "warning", "Links", imgs.every((i) => i.hasAttribute("alt")), `${imgs.filter((i) => i.hasAttribute("alt")).length}/${imgs.length}`)
+    const fields = $$("input:not([type=hidden]), select, textarea").filter((f) => !isPanel(f))
+    const labeled = fields.filter((f) => (f.id && $(`label[for="${f.id}"]`)) || f.getAttribute("aria-label"))
+    add("Form fields labeled", "warning", "Links", labeled.length === fields.length, `${labeled.length}/${fields.length}`)
 
-    const scored = checks.filter((c) => c.status !== "info")
-    return { checks, passed: scored.filter((c) => c.status === "pass").length, total: scored.length, schemaTypes: uniqueTypes }
+    // Performance & Core Web Vitals (only scored once measured)
+    const w = pageWeight()
+    add("Page weight < 2 MB", "warning", "Performance", w.kb < 2048, `${w.kb} KB`)
+    if (vitals.lcp != null) add("LCP ≤ 2.5 s", "warning", "Performance", vitals.lcp <= 2500, `${Math.round(vitals.lcp)} ms`)
+    add("CLS ≤ 0.1", "warning", "Performance", vitals.cls <= 0.1, vitals.cls.toFixed(3))
+
+    // Scores
+    const scored = issues.filter((i) => i.severity !== "info")
+    const weight = (list) => list.reduce((t, i) => t + SEVERITY_WEIGHT[i.severity], 0)
+    const health = Math.round((weight(scored.filter((i) => i.ok)) / weight(scored)) * 100)
+    const counts = { error: 0, warning: 0, notice: 0 }
+    scored.filter((i) => !i.ok).forEach((i) => counts[i.severity]++)
+    const categories = [...new Set(scored.map((i) => i.category))].map((c) => {
+      const list = scored.filter((i) => i.category === c)
+      return { name: c, score: Math.round((weight(list.filter((i) => i.ok)) / weight(list)) * 100) }
+    })
+    return {
+      issues,
+      health,
+      counts,
+      categories,
+      passed: scored.filter((i) => i.ok).length,
+      total: scored.length,
+      schemaTypes,
+      words,
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // On-page keyword analysis for the page's declared target keywords
+  // (<html data-target-keywords="kw one|kw two">). Placement, count, density,
+  // plus the most frequent terms on the page. No search-volume data.
+  // ---------------------------------------------------------------------------
+  const STOPWORDS = new Set("a an and are as at be by for from has have i in is it its of on or our so that the their them they this to was we what when where which will with you your can all any into more not one out over than then there these those up us very just each every how get got made make per also only".split(" "))
+  const norm = (s) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "")
+
+  function keywords() {
+    const targets = (doc.documentElement.dataset.targetKeywords || "").split("|").map((k) => k.trim()).filter(Boolean)
+    const text = norm(visibleText())
+    const words = text.match(/[a-z0-9]+(?:[-'][a-z0-9]+)*/g) || []
+    const first100 = words.slice(0, 100).join(" ")
+    const count = (hay, kw) => (hay.match(new RegExp(`\\b${kw.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "g")) || []).length
+    const inText = (sel) => $$(sel).filter((el) => !isPanel(el)).map((el) => norm(el.textContent)).join(" ")
+
+    const places = {
+      Title: norm(doc.title),
+      Description: norm(($('meta[name="description"]') || {}).content || ""),
+      H1: inText("h1"),
+      H2: inText("h2"),
+      "First 100 words": first100,
+    }
+    const report = targets.map((kw) => {
+      const k = norm(kw)
+      const hits = count(text, k)
+      const found = Object.fromEntries(Object.entries(places).map(([p, hay]) => [p, count(hay, k) > 0]))
+      const score = Object.values(found).filter(Boolean).length
+      return { keyword: kw, hits, density: words.length ? ((hits * k.split(" ").length) / words.length) * 100 : 0, found, score, max: Object.keys(places).length }
+    })
+
+    const freq = {}
+    words.filter((w) => w.length > 2 && !STOPWORDS.has(w) && !/^\d+$/.test(w)).forEach((w) => (freq[w] = (freq[w] || 0) + 1))
+    const top = Object.entries(freq)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 8)
+    return { report, top, totalWords: words.length }
   }
 
   // ---------------------------------------------------------------------------
@@ -282,11 +380,13 @@
           <button class="dk-close" type="button" aria-label="Close panel">×</button>
         </header>
         <div class="dk-tabs" role="group" aria-label="Panel views">
-          <button type="button" class="dk-tab is-active" data-tab="seo" aria-pressed="true">SEO audit</button>
-          <button type="button" class="dk-tab" data-tab="vitals" aria-pressed="false">Web vitals</button>
+          <button type="button" class="dk-tab is-active" data-tab="audit" aria-pressed="true">Site audit</button>
+          <button type="button" class="dk-tab" data-tab="keywords" aria-pressed="false">Keywords</button>
+          <button type="button" class="dk-tab" data-tab="vitals" aria-pressed="false">Vitals</button>
           <button type="button" class="dk-tab" data-tab="events" aria-pressed="false">Events <span class="dk-count">0</span></button>
         </div>
-        <div class="dk-body" data-view="seo"></div>
+        <div class="dk-body" data-view="audit"></div>
+        <div class="dk-body" data-view="keywords" hidden></div>
         <div class="dk-body" data-view="vitals" hidden></div>
         <div class="dk-body" data-view="events" hidden></div>
         <p class="dk-foot">${gaId ? `Sending to GA4 property <code>${gaId.replace(/</g, "")}</code>` : "GA4 ID not set: events stay in <code>dataLayer</code> (demo mode)."}</p>
@@ -296,12 +396,14 @@
     const box = $(".dk-panel", root)
     const views = Object.fromEntries($$(".dk-body", root).map((v) => [v.dataset.view, v]))
     const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c])
+    const ICON = { pass: "✓", error: "×", warning: "!", notice: "i", info: "i", fail: "!" }
 
     const open = (state) => {
       box.hidden = !state
       fab.setAttribute("aria-expanded", String(state))
       if (state) {
-        renderSeo()
+        renderAudit()
+        renderKeywords()
         renderVitals()
         renderEvents()
       }
@@ -328,21 +430,71 @@
       }),
     )
 
-    function renderSeo() {
+    const row = (status, label, value) =>
+      `<li class="dk-${status}"><span class="dk-ico" aria-hidden="true">${ICON[status]}</span><span>${esc(label)}</span><em>${esc(value)}</em></li>`
+
+    function renderAudit() {
       if (box.hidden) return
       const r = audit()
-      views.seo.innerHTML = `
-        <div class="dk-score"><span>${r.passed}/${r.total}</span> checks passed</div>
-        <ul class="dk-list">${r.checks
-          .map((c) => `<li class="dk-${c.status}"><span class="dk-ico" aria-hidden="true">${c.status === "pass" ? "✓" : c.status === "warn" ? "!" : "i"}</span><span>${esc(c.label)}</span><em>${esc(c.value)}</em></li>`)
-          .join("")}</ul>`
+      const failing = r.issues.filter((i) => !i.ok)
+      const passed = r.issues.filter((i) => i.ok && i.severity !== "info")
+      const info = r.issues.filter((i) => i.severity === "info")
+      const tone = r.health >= 90 ? "pass" : r.health >= 70 ? "warning" : "error"
+      views.audit.innerHTML = `
+        <div class="dk-health">
+          <div class="dk-gauge dk-gauge--${tone}" style="--v:${r.health}" role="img" aria-label="Site Health ${r.health}%"><span>${r.health}%</span></div>
+          <div>
+            <p class="dk-health__label">Site Health</p>
+            <ul class="dk-counts">
+              <li class="dk-counts--error"><strong>${r.counts.error}</strong> Errors</li>
+              <li class="dk-counts--warning"><strong>${r.counts.warning}</strong> Warnings</li>
+              <li class="dk-counts--notice"><strong>${r.counts.notice}</strong> Notices</li>
+            </ul>
+          </div>
+        </div>
+        <h3 class="dk-h">Thematic reports</h3>
+        <ul class="dk-bars">${r.categories
+          .map((c) => `<li><span>${esc(c.name)}</span><span class="dk-bar"><span style="width:${c.score}%"></span></span><em>${c.score}%</em></li>`)
+          .join("")}</ul>
+        <h3 class="dk-h">Issues</h3>
+        ${failing.length ? `<ul class="dk-list">${failing.map((i) => row(i.severity, i.label, i.value)).join("")}</ul>` : `<p class="dk-note dk-note--ok">No errors, warnings, or notices.</p>`}
+        <ul class="dk-list">${info.map((i) => row("info", i.label, i.value)).join("")}</ul>
+        <details class="dk-more"><summary>Passed checks (${passed.length})</summary>
+          <ul class="dk-list">${passed.map((i) => row("pass", i.label, i.value)).join("")}</ul>
+        </details>
+        <p class="dk-note">Semrush-style audit computed from this page in your browser (${r.total} checks, weighted by severity). Search volume, rankings, traffic, and backlinks need real search data, which a noindexed concept site doesn't have.</p>`
+    }
+
+    function renderKeywords() {
+      if (box.hidden) return
+      const k = keywords()
+      views.keywords.innerHTML = `
+        <h3 class="dk-h">Target keywords · on-page placement</h3>
+        ${
+          k.report.length
+            ? `<ul class="dk-kws">${k.report
+                .map(
+                  (r) => `<li>
+                    <div class="dk-kw__top"><strong>${esc(r.keyword)}</strong><em>${r.score}/${r.max}</em></div>
+                    <div class="dk-kw__meta">${r.hits}× on page · ${r.density.toFixed(2)}% density</div>
+                    <ul class="dk-chips">${Object.entries(r.found)
+                      .map(([p, ok]) => `<li class="${ok ? "is-ok" : "is-miss"}">${ok ? "✓" : "–"} ${esc(p)}</li>`)
+                      .join("")}</ul>
+                  </li>`,
+                )
+                .join("")}</ul>`
+            : `<p class="dk-note">No target keywords declared on this page.</p>`
+        }
+        <h3 class="dk-h">Top terms on this page</h3>
+        <ol class="dk-terms">${k.top.map(([w, n]) => `<li><span>${esc(w)}</span><em>${n}</em></li>`).join("")}</ol>
+        <p class="dk-note">${k.totalWords} words analyzed. Placement and density are measured from the live page; no search-volume data.</p>`
     }
 
     function renderVitals() {
       if (box.hidden) return
       const w = pageWeight()
       const ms = (v) => (v == null ? "n/a" : `${Math.round(v)} ms`)
-      const grade = (v, good, poor) => (v == null ? "info" : v <= good ? "pass" : v <= poor ? "warn" : "fail")
+      const grade = (v, good, poor) => (v == null ? "info" : v <= good ? "pass" : v <= poor ? "warning" : "error")
       const rows = [
         ["LCP · Largest Contentful Paint", ms(vitals.lcp), grade(vitals.lcp, 2500, 4000)],
         ["CLS · Cumulative Layout Shift", vitals.cls.toFixed(3), grade(vitals.cls, 0.1, 0.25)],
@@ -352,7 +504,7 @@
         ["Transferred", `${w.kb} KB`, "info"],
       ]
       views.vitals.innerHTML = `
-        <ul class="dk-list">${rows.map(([l, v, s]) => `<li class="dk-${s}"><span class="dk-ico" aria-hidden="true">${s === "pass" ? "✓" : s === "info" ? "i" : "!"}</span><span>${l}</span><em>${v}</em></li>`).join("")}</ul>
+        <ul class="dk-list">${rows.map(([l, v, s]) => row(s, l, v)).join("")}</ul>
         <p class="dk-note">Measured live in this browser. Thresholds follow Google's "good" ranges.</p>`
     }
 
@@ -369,7 +521,7 @@
     }
 
     doc.body.appendChild(root)
-    return { renderSeo, renderVitals, renderEvents }
+    return { renderAudit, renderKeywords, renderVitals, renderEvents }
   })()
 
   // ---------------------------------------------------------------------------
@@ -398,5 +550,5 @@
   )
 
   // Exposed for testing and for the portfolio's audit script.
-  window.DemoKit = { audit, vitals, events, pageWeight, track }
+  window.DemoKit = { audit, keywords, vitals, events, pageWeight, track }
 })()

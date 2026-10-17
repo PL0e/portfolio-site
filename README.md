@@ -71,8 +71,17 @@ All four load `projects/shared/demo-kit.js`, which provides:
 - **GA4 events:** `page_view`, `view_item_list`, `select_content`, `add_to_cart`, `view_cart`, `generate_lead`,
   and `scroll`, pushed to `window.dataLayer`. To send them to Google Analytics, put a measurement ID in the page's
   `<meta name="ga-measurement-id" content="G-XXXXXXXXXX">` tag. It is empty by default, so there is no tracking.
-- **SEO & Analytics panel:** the floating button opens a live audit of the page's own SEO markup (15 checks),
-  Core Web Vitals measured in the browser (LCP, CLS, FCP, TTFB), and a log of every analytics event.
+- **SEO & Analytics panel:** the floating button opens four tabs, all computed from the live page:
+  - **Site audit** (Semrush-style): Site Health score from 27 checks weighted by severity (errors ×3, warnings ×2,
+    notices ×1), error/warning/notice counts, and thematic scores for Crawlability, On-page, Markup, Links, and
+    Performance.
+  - **Keywords:** each target keyword from `<html data-target-keywords="kw one|kw two">`, with its placement in the
+    title, meta description, H1, H2s, and first 100 words, plus count, density, and the page's most frequent terms.
+  - **Vitals:** LCP, CLS, FCP, and TTFB measured in the browser, plus requests and transfer size.
+  - **Events:** every GA4 event as it fires.
+
+  Search volume, rankings, traffic, and backlinks are deliberately not shown: they need real search data, which a
+  noindexed concept site doesn't have.
 
 ## Contact form
 

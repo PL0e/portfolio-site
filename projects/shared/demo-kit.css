@@ -86,8 +86,8 @@
   z-index: 9999;
   display: flex;
   flex-direction: column;
-  width: min(380px, calc(100vw - 2rem));
-  max-height: min(560px, calc(100vh - 6rem));
+  width: min(410px, calc(100vw - 2rem));
+  max-height: min(620px, calc(100vh - 6rem));
   overflow: hidden;
   border: 1px solid var(--dk-border);
   border-radius: 16px;
@@ -218,9 +218,212 @@
 }
 
 .dk-pass .dk-ico { background: rgba(74, 222, 128, 0.15); color: var(--dk-pass); }
-.dk-warn .dk-ico { background: rgba(251, 191, 36, 0.15); color: var(--dk-warn); }
-.dk-fail .dk-ico { background: rgba(248, 113, 113, 0.15); color: var(--dk-fail); }
+.dk-warning .dk-ico { background: rgba(251, 191, 36, 0.15); color: var(--dk-warn); }
+.dk-error .dk-ico { background: rgba(248, 113, 113, 0.15); color: var(--dk-fail); }
+.dk-notice .dk-ico,
 .dk-info .dk-ico { background: rgba(139, 156, 255, 0.15); color: var(--dk-accent); }
+
+/* Site Health gauge + issue counts */
+.dk-health {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--dk-surface);
+}
+
+.dk-gauge {
+  --tone: var(--dk-pass);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background:
+    radial-gradient(closest-side, var(--dk-bg) 76%, transparent 78%),
+    conic-gradient(var(--tone) calc(var(--v) * 1%), var(--dk-surface) 0);
+}
+
+.dk-gauge--warning { --tone: var(--dk-warn); }
+.dk-gauge--error { --tone: var(--dk-fail); }
+
+.dk-gauge span {
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.dk-health__label {
+  margin: 0 0 0.4rem;
+  color: var(--dk-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.dk-counts {
+  display: flex;
+  gap: 0.9rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--dk-muted);
+  font-size: 0.75rem;
+}
+
+.dk-counts strong {
+  display: block;
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+.dk-counts--error strong { color: var(--dk-fail); }
+.dk-counts--warning strong { color: var(--dk-warn); }
+.dk-counts--notice strong { color: var(--dk-accent); }
+
+.dk-h {
+  margin: 0.9rem 0 0.4rem;
+  color: var(--dk-muted);
+  font-family: inherit;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Thematic report bars */
+.dk-bars {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dk-bars li {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr 2.6rem;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dk-bar {
+  height: 6px;
+  overflow: hidden;
+  border-radius: 3px;
+  background: var(--dk-surface);
+}
+
+.dk-bar span {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+  background: var(--dk-pass);
+}
+
+.dk-bars em {
+  color: var(--dk-muted);
+  font-style: normal;
+  text-align: right;
+}
+
+.dk-more {
+  margin-top: 0.5rem;
+}
+
+.dk-more summary {
+  padding: 0.4rem 0;
+  color: var(--dk-accent);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dk-note--ok {
+  color: var(--dk-pass);
+}
+
+/* Keyword report */
+.dk-kws {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dk-kws > li {
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--dk-surface);
+  border-radius: 10px;
+}
+
+.dk-kw__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.dk-kw__top em {
+  color: var(--dk-pass);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.dk-kw__meta {
+  margin: 0.1rem 0 0.4rem;
+  color: var(--dk-muted);
+  font-size: 0.75rem;
+}
+
+.dk-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dk-chips li {
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+}
+
+.dk-chips .is-ok {
+  background: rgba(74, 222, 128, 0.12);
+  color: var(--dk-pass);
+}
+
+.dk-chips .is-miss {
+  background: var(--dk-surface);
+  color: var(--dk-muted);
+}
+
+.dk-terms {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.25rem 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dk-terms li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.2rem 0;
+  border-bottom: 1px solid var(--dk-surface);
+}
+
+.dk-terms em {
+  color: var(--dk-muted);
+  font-style: normal;
+}
 
 .dk-events {
   margin: 0;
