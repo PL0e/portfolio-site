@@ -13,7 +13,7 @@ Live: https://pl0e.github.io/portfolio-site/
 | Tech marquee | Tools and technologies (auto-scrolling, pauses on hover) |
 | About | Intro, key stats, skill areas, education |
 | Experience | Work timeline, newest first |
-| Projects | Featured Hinabi concept store + project cards |
+| Projects | Concept storefront gallery (4 demos) + project cards |
 | Certificates | Awards and certifications |
 | Off the clock | Pets |
 | Contact | Contact details + a form that opens the visitor's email app |
@@ -35,7 +35,11 @@ portfolio-site/
 ├── styles.css            # Design tokens (top of file), layout, responsive rules
 ├── script.js             # Nav, scroll-spy, reveal animations, typewriter, marquee, contact form
 ├── projects/
-│   └── hinabi/           # Concept e-commerce demo (fictional Filipino handwoven goods brand)
+│   ├── shared/           # demo-kit.js/.css: cart, filters, GA4 events, SEO & Analytics panel
+│   ├── hinabi/           # Filipino handwoven goods store
+│   ├── kitchen-line/     # Pickleball shop (paddle finder, FAQ rich results)
+│   ├── glowform/         # Lamp shop (light switch, color-temperature slider)
+│   └── bean-and-brass/   # Coffee shop: beans, machines, café menu, brew calculator
 └── assets/
     ├── resume_diaglendell_.pdf   # The CV linked from the site
     └── img/                      # Web-optimized images (profile, og-image, pets)
@@ -54,12 +58,21 @@ portfolio-site/
   as `<symbol id="octo">` (used by the header, footer, and background) and in the favicon data URI, so update all three
   together. The drifting background octopi and bubbles are the `.bg-play` elements right after `<body>`.
 
-## Hinabi concept store
+## Concept storefronts
 
-`projects/hinabi/` is a self-contained demo: a storefront for a **fictional** brand selling Filipino handwoven
-goods (abaca bags, inabel, banig, piña-seda). It demonstrates Product/ItemList/Organization JSON-LD, Open Graph,
-canonical tags, SVG-based product art, category filters, and a demo cart. Because the brand and prices are made up,
-the page uses `noindex` so it never shows up in search results as a real store.
+`projects/` holds four self-contained demos for **fictional** brands: Hinabi (handwoven goods), Kitchen Line
+(pickleball), Glowform (lamps), and Bean & Brass (coffee). Each has its own design, Open Graph tags, canonical URL,
+and JSON-LD (store type, products with offers, plus FAQPage / BreadcrumbList / Menu where relevant). Because the
+brands and prices are made up, every demo uses `noindex` so none appears in search results as a real store.
+
+All four load `projects/shared/demo-kit.js`, which provides:
+
+- **Store behavior:** category filters, demo cart, newsletter form (nothing is stored).
+- **GA4 events:** `page_view`, `view_item_list`, `select_content`, `add_to_cart`, `view_cart`, `generate_lead`,
+  and `scroll`, pushed to `window.dataLayer`. To send them to Google Analytics, put a measurement ID in the page's
+  `<meta name="ga-measurement-id" content="G-XXXXXXXXXX">` tag. It is empty by default, so there is no tracking.
+- **SEO & Analytics panel:** the floating button opens a live audit of the page's own SEO markup (15 checks),
+  Core Web Vitals measured in the browser (LCP, CLS, FCP, TTFB), and a log of every analytics event.
 
 ## Contact form
 

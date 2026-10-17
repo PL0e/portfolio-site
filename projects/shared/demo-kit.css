@@ -1,0 +1,312 @@
+/* Shared styles for the demo kit: toast + SEO & Analytics panel.
+   Neutral dark "dev tool" look so it sits on top of any storefront theme. */
+.dk-toast,
+.dk {
+  --dk-bg: #18181b;
+  --dk-surface: #232328;
+  --dk-border: #3a3a42;
+  --dk-text: #f4f4f5;
+  --dk-muted: #a8a8b3;
+  --dk-accent: #8b9cff;
+  --dk-pass: #4ade80;
+  --dk-warn: #fbbf24;
+  --dk-fail: #f87171;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.dk-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 1.25rem;
+  z-index: 9998;
+  max-width: calc(100% - 2rem);
+  padding: 0.75rem 1.2rem;
+  border-radius: 999px;
+  background: var(--dk-bg);
+  color: var(--dk-text);
+  font-size: 0.9rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 12px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.dk-toast.is-show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.dk-fab {
+  position: fixed;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--dk-border);
+  border-radius: 999px;
+  background: var(--dk-bg);
+  color: var(--dk-text);
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.dk-fab:hover {
+  border-color: var(--dk-accent);
+  transform: translateY(-2px);
+}
+
+.dk-fab:focus-visible,
+.dk button:focus-visible {
+  outline: 2px solid var(--dk-accent);
+  outline-offset: 2px;
+}
+
+.dk-fab__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--dk-pass);
+  box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.25);
+}
+
+.dk-panel {
+  position: fixed;
+  left: 1rem;
+  bottom: 4.25rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  width: min(380px, calc(100vw - 2rem));
+  max-height: min(560px, calc(100vh - 6rem));
+  overflow: hidden;
+  border: 1px solid var(--dk-border);
+  border-radius: 16px;
+  background: var(--dk-bg);
+  color: var(--dk-text);
+  font-size: 0.85rem;
+  line-height: 1.45;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+.dk-panel[hidden] {
+  display: none;
+}
+
+.dk-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--dk-border);
+}
+
+.dk-close {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--dk-muted);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.dk-close:hover {
+  background: var(--dk-surface);
+  color: var(--dk-text);
+}
+
+.dk-tabs {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--dk-border);
+}
+
+.dk-tab {
+  flex: 1;
+  padding: 0.45rem 0.5rem;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--dk-muted);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dk-tab.is-active {
+  background: var(--dk-surface);
+  color: var(--dk-text);
+}
+
+.dk-count {
+  display: inline-block;
+  min-width: 1.4em;
+  padding: 0 0.35em;
+  border-radius: 999px;
+  background: var(--dk-accent);
+  color: #11142e;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.dk-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.75rem 1rem;
+}
+
+.dk-body[hidden] {
+  display: none;
+}
+
+.dk-score {
+  margin-bottom: 0.6rem;
+  color: var(--dk-muted);
+}
+
+.dk-score span {
+  margin-right: 0.35rem;
+  color: var(--dk-pass);
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.dk-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dk-list li {
+  display: grid;
+  grid-template-columns: 1.4rem 1fr auto;
+  align-items: start;
+  gap: 0.5rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--dk-surface);
+}
+
+.dk-list em {
+  max-width: 11rem;
+  color: var(--dk-muted);
+  font-style: normal;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.dk-ico {
+  display: grid;
+  place-items: center;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.dk-pass .dk-ico { background: rgba(74, 222, 128, 0.15); color: var(--dk-pass); }
+.dk-warn .dk-ico { background: rgba(251, 191, 36, 0.15); color: var(--dk-warn); }
+.dk-fail .dk-ico { background: rgba(248, 113, 113, 0.15); color: var(--dk-fail); }
+.dk-info .dk-ico { background: rgba(139, 156, 255, 0.15); color: var(--dk-accent); }
+
+.dk-events {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dk-events li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--dk-surface);
+}
+
+.dk-events div {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.dk-events strong {
+  color: var(--dk-accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.dk-events time {
+  color: var(--dk-muted);
+  font-size: 0.75rem;
+}
+
+.dk-events code,
+.dk-foot code {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--dk-muted);
+  font-size: 0.72rem;
+  overflow-wrap: anywhere;
+}
+
+.dk-foot code {
+  display: inline;
+}
+
+.dk-note,
+.dk-foot {
+  margin: 0.5rem 0 0;
+  color: var(--dk-muted);
+  font-size: 0.75rem;
+}
+
+.dk-foot {
+  padding: 0.6rem 1rem;
+  border-top: 1px solid var(--dk-border);
+}
+
+.dk-fab__icon {
+  display: none;
+}
+
+/* Phones: shrink to a round icon button so it doesn't cover page content */
+@media (max-width: 640px) {
+  .dk-fab {
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+  }
+
+  .dk-fab__text,
+  .dk-fab__dot {
+    display: none;
+  }
+
+  .dk-fab__icon {
+    display: block;
+  }
+
+  .dk-panel {
+    left: 0.5rem;
+    right: 0.5rem;
+    bottom: 4.5rem;
+    width: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dk-toast,
+  .dk-fab {
+    transition: none;
+  }
+}

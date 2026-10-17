@@ -204,7 +204,7 @@
             </p>
 
             <dl class="stats">
-              <div class="stats__item"><dt>Projects built</dt><dd>10</dd></div>
+              <div class="stats__item"><dt>Projects built</dt><dd>13</dd></div>
               <div class="stats__item"><dt>Certifications</dt><dd>6</dd></div>
               <div class="stats__item"><dt>Professional roles</dt><dd>5</dd></div>
               <div class="stats__item"><dt>Accuracy on data work</dt><dd>99.8%</dd></div>
@@ -354,35 +354,95 @@
           <h2 class="section__title" id="projects-title">Some cool stuff I've <span class="accent">worked on</span>.</h2>
         </header>
 
-        <!-- Featured project -->
-        <article class="feature reveal">
-          <div class="feature__intro">
-            <span class="tag tag--accent"><i class="fas fa-star" aria-hidden="true"></i> Featured · Concept design</span>
-            <h3>Hinabi: Filipino Handwoven Goods Store</h3>
-            <p>A concept e-commerce front end for Filipino handwoven products: abaca bags, inabel weaves, pandan banig mats, and piña-seda scarves. I designed and built it from scratch with an SEO-first, mobile-first approach.</p>
-            <ul class="feature__points">
-              <li><i class="fas fa-check" aria-hidden="true"></i> Product, ItemList &amp; Organization structured data (JSON-LD)</li>
-              <li><i class="fas fa-check" aria-hidden="true"></i> Semantic landmarks, meta, Open Graph &amp; canonical tags</li>
-              <li><i class="fas fa-check" aria-hidden="true"></i> Hand-drawn SVG weave patterns, so there are no heavy product photos</li>
-              <li><i class="fas fa-check" aria-hidden="true"></i> Category filters, demo cart &amp; accessible live announcements</li>
-            </ul>
-            <ul class="tags" aria-label="Technologies">
-              <li class="tag">HTML5</li><li class="tag">CSS3</li><li class="tag">JavaScript</li><li class="tag">SVG</li><li class="tag">SEO</li>
-            </ul>
-            <div class="feature__actions">
-              <a class="btn btn--primary" href="projects/hinabi/">
-                <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> View live demo
-              </a>
+        <!-- Concept storefronts -->
+        <div class="stores reveal">
+          <div class="stores__head">
+            <div>
+              <p class="stores__label"><i class="fas fa-store" aria-hidden="true"></i> Concept storefronts</p>
+              <p class="stores__intro">Four e-commerce front ends I designed and built from scratch, each with its own brand and full SEO and analytics setup. Open a demo and click <strong>SEO &amp; Analytics</strong> to see a live audit, Core Web Vitals, and every GA4 event as it fires.</p>
             </div>
+            <ul class="stores__legend" aria-label="Included in every storefront">
+              <li><i class="fas fa-check" aria-hidden="true"></i> JSON-LD structured data</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> GA4 e-commerce events</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> Live Core Web Vitals</li>
+            </ul>
           </div>
-          <a class="feature__preview" href="projects/hinabi/" aria-label="Open the Hinabi live demo">
-            <span class="feature__bar" aria-hidden="true"><span></span><span></span><span></span></span>
-            <picture>
-              <source srcset="assets/img/hinabi-preview.webp" type="image/webp">
-              <img src="assets/img/hinabi-preview.jpg" alt="Hinabi store homepage with a woven abaca tote illustration and the headline 'Every strand tells a story of where it was woven.'" width="960" height="600" loading="lazy">
-            </picture>
-          </a>
-        </article>
+
+          <ul class="stores__grid">
+            <li class="store">
+              <a class="store__shot" href="projects/kitchen-line/" aria-label="Open the Kitchen Line demo">
+                <picture>
+                  <source srcset="assets/img/kitchen-line-preview.webp" type="image/webp">
+                  <img src="assets/img/kitchen-line-preview.jpg" alt="Kitchen Line pickleball store homepage with the headline 'Own the kitchen line'" width="960" height="600" loading="lazy">
+                </picture>
+              </a>
+              <div class="store__body">
+                <h3 class="store__title">Kitchen Line <span>Pickleball shop</span></h3>
+                <p>Paddles, balls, and gear, with a paddle-finder quiz and an FAQ marked up for rich results.</p>
+                <ul class="store__seo" aria-label="SEO and analytics">
+                  <li class="store__score"><strong>15/15</strong> SEO checks</li>
+                  <li>SportingGoodsStore · Product · FAQPage</li>
+                  <li>7 GA4 event types</li>
+                </ul>
+                <a class="store__link" href="projects/kitchen-line/">View live demo <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </li>
+            <li class="store">
+              <a class="store__shot" href="projects/glowform/" aria-label="Open the Glowform demo">
+                <picture>
+                  <source srcset="assets/img/glowform-preview.webp" type="image/webp">
+                  <img src="assets/img/glowform-preview.jpg" alt="Glowform lamp store homepage with a glowing floor lamp and a light switch" width="960" height="600" loading="lazy">
+                </picture>
+              </a>
+              <div class="store__body">
+                <h3 class="store__title">Glowform <span>Lamp shop</span></h3>
+                <p>A moody lighting store with a working light switch and a warmth slider that re-tints every lamp.</p>
+                <ul class="store__seo" aria-label="SEO and analytics">
+                  <li class="store__score"><strong>15/15</strong> SEO checks</li>
+                  <li>HomeGoodsStore · Product · BreadcrumbList</li>
+                  <li>7 GA4 event types</li>
+                </ul>
+                <a class="store__link" href="projects/glowform/">View live demo <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </li>
+            <li class="store">
+              <a class="store__shot" href="projects/bean-and-brass/" aria-label="Open the Bean and Brass demo">
+                <picture>
+                  <source srcset="assets/img/bean-and-brass-preview.webp" type="image/webp">
+                  <img src="assets/img/bean-and-brass-preview.jpg" alt="Bean and Brass coffee homepage with an espresso machine illustration" width="960" height="600" loading="lazy">
+                </picture>
+              </a>
+              <div class="store__body">
+                <h3 class="store__title">Bean &amp; Brass <span>Coffee shop</span></h3>
+                <p>Philippine beans, espresso machines, grinders, a café menu, and a brew-ratio calculator.</p>
+                <ul class="store__seo" aria-label="SEO and analytics">
+                  <li class="store__score"><strong>15/15</strong> SEO checks</li>
+                  <li>CafeOrCoffeeShop · Menu · Product</li>
+                  <li>7 GA4 event types</li>
+                </ul>
+                <a class="store__link" href="projects/bean-and-brass/">View live demo <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </li>
+            <li class="store">
+              <a class="store__shot" href="projects/hinabi/" aria-label="Open the Hinabi demo">
+                <picture>
+                  <source srcset="assets/img/hinabi-preview.webp" type="image/webp">
+                  <img src="assets/img/hinabi-preview.jpg" alt="Hinabi handwoven goods store homepage with a woven abaca tote illustration" width="960" height="600" loading="lazy">
+                </picture>
+              </a>
+              <div class="store__body">
+                <h3 class="store__title">Hinabi <span>Filipino handwoven goods</span></h3>
+                <p>Abaca bags, inabel weaves, and banig mats, with hand-drawn SVG weave patterns instead of photos.</p>
+                <ul class="store__seo" aria-label="SEO and analytics">
+                  <li class="store__score"><strong>15/15</strong> SEO checks</li>
+                  <li>Organization · WebSite · Product</li>
+                  <li>7 GA4 event types</li>
+                </ul>
+                <a class="store__link" href="projects/hinabi/">View live demo <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </li>
+          </ul>
+        </div>
 
         <ul class="projects">
           <li class="project project--wide project--shot reveal">

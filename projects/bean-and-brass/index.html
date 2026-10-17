@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en-PH" data-currency="PHP">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bean &amp; Brass Coffee | Beans, Espresso Machines &amp; Café</title>
+  <meta name="description" content="Bean &amp; Brass roasts Philippine coffee beans and sells espresso machines, grinders, and brew gear. Visit the café in Cebu City or brew it your way at home.">
+  <!-- Concept project by Glendell S. Dia. Fictional brand, so it is kept out of search results. -->
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#2b1d16">
+  <!-- GA4: put a measurement ID (G-XXXXXXXXXX) here to send the demo's events to Google Analytics -->
+  <meta name="ga-measurement-id" content="">
+  <link rel="canonical" href="https://pl0e.github.io/portfolio-site/projects/bean-and-brass/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Bean &amp; Brass Coffee">
+  <meta property="og:title" content="Bean &amp; Brass Coffee | Roasted in Cebu">
+  <meta property="og:description" content="Philippine single-origin beans, espresso machines, grinders, and a café in Cebu City.">
+  <meta property="og:url" content="https://pl0e.github.io/portfolio-site/projects/bean-and-brass/">
+  <meta property="og:image" content="https://pl0e.github.io/portfolio-site/projects/bean-and-brass/og-image.jpg">
+  <meta property="og:locale" content="en_PH">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232b1d16'/%3E%3Cellipse cx='32' cy='32' rx='13' ry='18' fill='%23c08a3e' transform='rotate(30 32 32)'/%3E%3Cpath d='M26 20c8 6 4 18 12 24' stroke='%232b1d16' stroke-width='3' fill='none'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../shared/demo-kit.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CafeOrCoffeeShop",
+        "@id": "https://pl0e.github.io/portfolio-site/projects/bean-and-brass/#cafe",
+        "name": "Bean & Brass Coffee",
+        "url": "https://pl0e.github.io/portfolio-site/projects/bean-and-brass/",
+        "description": "Concept café and roastery for Philippine coffee, espresso machines, and brew gear.",
+        "servesCuisine": "Coffee",
+        "priceRange": "₱₱",
+        "address": { "@type": "PostalAddress", "addressLocality": "Cebu City", "addressRegion": "Cebu", "addressCountry": "PH" },
+        "openingHoursSpecification": [
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "07:00", "closes": "21:00" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday", "Sunday"], "opens": "08:00", "closes": "22:00" }
+        ],
+        "hasMenu": {
+          "@type": "Menu",
+          "name": "Café menu",
+          "hasMenuSection": {
+            "@type": "MenuSection",
+            "name": "Coffee",
+            "hasMenuItem": [
+              { "@type": "MenuItem", "name": "Espresso", "offers": { "@type": "Offer", "price": "110", "priceCurrency": "PHP" } },
+              { "@type": "MenuItem", "name": "Cortado", "offers": { "@type": "Offer", "price": "140", "priceCurrency": "PHP" } },
+              { "@type": "MenuItem", "name": "Spanish Latte", "offers": { "@type": "Offer", "price": "170", "priceCurrency": "PHP" } },
+              { "@type": "MenuItem", "name": "Benguet Pour-Over", "offers": { "@type": "Offer", "price": "180", "priceCurrency": "PHP" } },
+              { "@type": "MenuItem", "name": "Iced Barako Black", "offers": { "@type": "Offer", "price": "150", "priceCurrency": "PHP" } }
+            ]
+          }
+        }
+      },
+      {
+        "@type": "ItemList",
+        "name": "Shop: beans, machines, and gear",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "item": { "@type": "Product", "name": "Benguet Arabica, Light Roast (250 g)", "category": "Coffee beans", "brand": { "@id": "https://pl0e.github.io/portfolio-site/projects/bean-and-brass/#cafe" }, "offers": { "@type": "Offer", "price": "520", "priceCurrency": "PHP", "availability": "https://schema.org/InStock" } } },
+          { "@type": "ListItem", "position": 2, "item": { "@type": "Product", "name": "Mt. Apo Arabica, Medium Roast (250 g)", "category": "Coffee beans", "brand": { "@id": "https://pl0e.github.io/portfolio-site/projects/bean-and-brass/#cafe" }, "offers": { "@type": "Offer", "price": "560", "priceCurrency": "PHP", "availability": "https://schema.org/InStock" } } },
+          { "@type": "ListItem", "position": 3, "item": { "@type": "Product", "name": "Batangas Barako, Dark Roast (250 g)", "category": "Coffee beans", "brand": { "@id": "https://pl0e.github.io/portfolio-site/projects/bean-and-brass/#cafe" }, "offers": { "@type": "Offer", "price": "480", "priceCurrency": "PHP", "availability": "https://schema.org/InStock" } } },
+          { "@type": "ListItem", "position": 4, "item": { "@type": "Product", "name": "House Espresso Blend (250 g)", "category": "Coffee beans", "brand": { "@id": "https://pl0e.github.io/portfolio-site/projects/bean-and-brass/#cafe" }, "offers": { "@type": "Offer", "price": "540", "priceCurrency": "PHP", "availability": "https://schema.org/InStock" } } },
+          { "@type": "ListItem", "position": 5, "item": { "@type": "Product", "name": "Brass Lever Espresso Machine", "category": "Espresso machines", "brand": { "@id": "https://pl0e.github.io/portfolio-site/projects/bean-and-brass/#cafe" }, "offers": { "@type": "Offer", "price": "32500", "priceCurrency": "PHP", "availability": "https://schema.org/InStock" } } },
+          { "@type": "ListItem", "position": 6, "item": { "@type": "Product", "name": "Compact Home Espresso Machine", "category": "Espresso machines", "brand": { "@id": "https://pl0e.github.io/portfolio-site/projects/bean-and-brass/#cafe" }, "offers": { "@type": "Offer", "price": "18900", "priceCurrency": "PHP", "availability": "https://schema.org/InStock" } } },
+          { "@type": "ListItem", "position": 7, "item": { "@type": "Product", "name": "Flat Burr Grinder", "category": "Grinders", "brand": { "@id": "https://pl0e.github.io/portfolio-site/projects/bean-and-brass/#cafe" }, "offers": { "@type": "Offer", "price": "7800", "priceCurrency": "PHP", "availability": "https://schema.org/InStock" } } },
+          { "@type": "ListItem", "position": 8, "item": { "@type": "Product", "name": "Pour-Over Starter Kit", "category": "Brew gear", "brand": { "@id": "https://pl0e.github.io/portfolio-site/projects/bean-and-brass/#cafe" }, "offers": { "@type": "Offer", "price": "1950", "priceCurrency": "PHP", "availability": "https://schema.org/InStock" } } },
+          { "@type": "ListItem", "position": 9, "item": { "@type": "Product", "name": "Gooseneck Pour Kettle", "category": "Brew gear", "brand": { "@id": "https://pl0e.github.io/portfolio-site/projects/bean-and-brass/#cafe" }, "offers": { "@type": "Offer", "price": "2400", "priceCurrency": "PHP", "availability": "https://schema.org/InStock" } } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="notice" role="note">
+    Concept project by <a href="../../">Glendell S. Dia</a>. Bean &amp; Brass is a fictional brand, so nothing here is for sale.
+  </div>
+
+  <header class="header">
+    <div class="wrap header__inner">
+      <a class="brand" href="#" aria-label="Bean and Brass Coffee home">
+        <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#2b1d16"/><ellipse cx="16" cy="16" rx="7" ry="10" fill="#c08a3e" transform="rotate(30 16 16)"/><path d="M13 10c4 3 2 9 6 12" stroke="#2b1d16" stroke-width="1.8" fill="none"/></svg>
+        Bean <span class="amp">&amp;</span> Brass
+      </a>
+      <nav aria-label="Primary">
+        <ul class="menu">
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#cafe-menu">Café</a></li>
+          <li><a href="#brew">Brew guide</a></li>
+          <li><a href="#visit">Visit</a></li>
+        </ul>
+      </nav>
+      <button class="cart" type="button" aria-label="Cart, 0 items" data-cart>
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7z M9 7a3 3 0 0 1 6 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        <span class="cart__count" data-cart-count>0</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-h">
+      <div class="wrap hero__inner">
+        <div class="hero__copy">
+          <p class="eyebrow">Roastery · Café · Brew gear</p>
+          <h1 id="hero-h">Roasted in Cebu. <em>Brewed your way.</em></h1>
+          <p class="lead">Single-origin beans from Benguet, Mt. Apo, and Batangas, plus the espresso machines, grinders, and kettles to brew them well at home.</p>
+          <div class="hero__cta">
+            <a class="button" href="#shop">Shop beans &amp; gear</a>
+            <a class="button button--line" href="#cafe-menu">See the café menu</a>
+          </div>
+        </div>
+        <div class="hero__art" aria-hidden="true">
+          <svg viewBox="0 0 420 420">
+            <circle cx="210" cy="220" r="180" fill="#ead9c0"/>
+            <g class="steam" fill="none" stroke="#fffaf3" stroke-width="7" stroke-linecap="round">
+              <path d="M200 250c-14-20 14-30 0-50"/>
+              <path d="M224 250c-14-20 14-30 0-50"/>
+            </g>
+            <rect x="96" y="84" width="228" height="58" rx="14" fill="#2b1d16"/>
+            <rect x="110" y="96" width="60" height="34" rx="8" fill="#c08a3e"/>
+            <circle cx="282" cy="113" r="16" fill="#efe3d0"/>
+            <path d="M282 113l8-8" stroke="#2b1d16" stroke-width="3" stroke-linecap="round"/>
+            <rect x="110" y="142" width="200" height="160" rx="10" fill="#5a3a28"/>
+            <rect x="180" y="150" width="60" height="22" rx="6" fill="#c08a3e"/>
+            <path d="M210 172v22" stroke="#c08a3e" stroke-width="10"/>
+            <path d="M240 160l70-60" stroke="#c08a3e" stroke-width="9" stroke-linecap="round"/>
+            <circle cx="314" cy="96" r="12" fill="#2b1d16"/>
+            <path d="M184 262h52l-6 36h-40z" fill="#fffaf3"/>
+            <path d="M236 270h10a10 10 0 0 1 0 20h-12" fill="none" stroke="#fffaf3" stroke-width="6"/>
+            <rect x="96" y="302" width="228" height="22" rx="8" fill="#2b1d16"/>
+            <path d="M120 313h180" stroke="#c08a3e" stroke-width="3" stroke-dasharray="6 6"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="shop" aria-labelledby="shop-h">
+      <div class="wrap">
+        <div class="section__top">
+          <div>
+            <p class="eyebrow">The shop</p>
+            <h2 id="shop-h">Beans, machines &amp; everything in between</h2>
+          </div>
+          <div class="filters" role="group" aria-label="Filter products">
+            <button type="button" class="chip is-active" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="chip" data-filter="beans" aria-pressed="false">Beans</button>
+            <button type="button" class="chip" data-filter="machines" aria-pressed="false">Machines</button>
+            <button type="button" class="chip" data-filter="gear" aria-pressed="false">Grinders &amp; gear</button>
+          </div>
+        </div>
+
+        <ul class="grid" data-grid data-list-name="Bean and Brass shop">
+          <li class="card" data-cat="beans">
+            <div class="card__art card__art--sand">
+              <svg viewBox="0 0 200 200" aria-hidden="true"><path d="M58 40h84l10 140H48z" fill="#fffaf3" stroke="#2b1d16" stroke-width="3"/><path d="M58 40l6-12h72l6 12" fill="#e6d9c8" stroke="#2b1d16" stroke-width="3"/><rect x="66" y="84" width="68" height="62" rx="6" fill="#e9c46a"/><text x="100" y="112" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="13" font-weight="700" fill="#2b1d16">BENGUET</text><text x="100" y="130" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#2b1d16">LIGHT</text></svg>
+            </div>
+            <div class="card__body">
+              <p class="card__origin">Arabica · Benguet</p>
+              <h3>Benguet Arabica, Light Roast</h3>
+              <div class="roast" aria-label="Roast level: light, 1 of 5"><span class="on"></span><span></span><span></span><span></span><span></span></div>
+              <ul class="notes"><li>Citrus</li><li>Honey</li><li>Floral</li></ul>
+              <div class="card__foot"><span class="price">₱520 <small>/ 250 g</small></span><button type="button" class="add" data-add="Benguet Arabica, Light Roast (250 g)" data-price="520" data-category="beans">Add to cart</button></div>
+            </div>
+          </li>
+          <li class="card" data-cat="beans">
+            <div class="card__art card__art--clay">
+              <svg viewBox="0 0 200 200" aria-hidden="true"><path d="M58 40h84l10 140H48z" fill="#fffaf3" stroke="#2b1d16" stroke-width="3"/><path d="M58 40l6-12h72l6 12" fill="#e6d9c8" stroke="#2b1d16" stroke-width="3"/><rect x="66" y="84" width="68" height="62" rx="6" fill="#d9622b"/><text x="100" y="112" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="13" font-weight="700" fill="#fffaf3">MT. APO</text><text x="100" y="130" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#fffaf3">MEDIUM</text></svg>
+            </div>
+            <div class="card__body">
+              <p class="card__origin">Arabica · Davao</p>
+              <h3>Mt. Apo Arabica, Medium Roast</h3>
+              <div class="roast" aria-label="Roast level: medium, 3 of 5"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></div>
+              <ul class="notes"><li>Chocolate</li><li>Red apple</li><li>Caramel</li></ul>
+              <div class="card__foot"><span class="price">₱560 <small>/ 250 g</small></span><button type="button" class="add" data-add="Mt. Apo Arabica, Medium Roast (250 g)" data-price="560" data-category="beans">Add to cart</button></div>
+            </div>
+          </li>
+          <li class="card" data-cat="beans">
+            <div class="card__art card__art--dark">
+              <svg viewBox="0 0 200 200" aria-hidden="true"><path d="M58 40h84l10 140H48z" fill="#2b1d16" stroke="#c08a3e" stroke-width="3"/><path d="M58 40l6-12h72l6 12" fill="#5a3a28" stroke="#c08a3e" stroke-width="3"/><rect x="66" y="84" width="68" height="62" rx="6" fill="#c08a3e"/><text x="100" y="112" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="13" font-weight="700" fill="#2b1d16">BARAKO</text><text x="100" y="130" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#2b1d16">DARK</text></svg>
+            </div>
+            <div class="card__body">
+              <p class="card__origin">Liberica · Batangas</p>
+              <h3>Batangas Barako, Dark Roast</h3>
+              <div class="roast" aria-label="Roast level: dark, 5 of 5"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></div>
+              <ul class="notes"><li>Smoky</li><li>Dark cocoa</li><li>Bold</li></ul>
+              <div class="card__foot"><span class="price">₱480 <small>/ 250 g</small></span><button type="button" class="add" data-add="Batangas Barako, Dark Roast (250 g)" data-price="480" data-category="beans">Add to cart</button></div>
+            </div>
+          </li>
+          <li class="card" data-cat="beans">
+            <div class="card__art card__art--sand">
+              <svg viewBox="0 0 200 200" aria-hidden="true"><path d="M58 40h84l10 140H48z" fill="#fffaf3" stroke="#2b1d16" stroke-width="3"/><path d="M58 40l6-12h72l6 12" fill="#e6d9c8" stroke="#2b1d16" stroke-width="3"/><rect x="66" y="84" width="68" height="62" rx="6" fill="#2b1d16"/><text x="100" y="112" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="13" font-weight="700" fill="#c08a3e">HOUSE</text><text x="100" y="130" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#fffaf3">ESPRESSO</text></svg>
+            </div>
+            <div class="card__body">
+              <p class="card__origin">Blend · Arabica &amp; Robusta</p>
+              <h3>House Espresso Blend</h3>
+              <div class="roast" aria-label="Roast level: medium-dark, 4 of 5"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div>
+              <ul class="notes"><li>Toffee</li><li>Hazelnut</li><li>Thick crema</li></ul>
+              <div class="card__foot"><span class="price">₱540 <small>/ 250 g</small></span><button type="button" class="add" data-add="House Espresso Blend (250 g)" data-price="540" data-category="beans">Add to cart</button></div>
+            </div>
+          </li>
+          <li class="card" data-cat="machines">
+            <div class="card__art card__art--clay">
+              <svg viewBox="0 0 200 200" aria-hidden="true"><rect x="52" y="44" width="96" height="104" rx="10" fill="#c08a3e" stroke="#2b1d16" stroke-width="3"/><rect x="62" y="56" width="76" height="24" rx="6" fill="#2b1d16"/><circle cx="76" cy="68" r="7" fill="#efe3d0"/><path d="M118 80l38-44" stroke="#2b1d16" stroke-width="7" stroke-linecap="round"/><circle cx="158" cy="34" r="8" fill="#2b1d16"/><rect x="86" y="88" width="28" height="12" rx="3" fill="#2b1d16"/><path d="M88 120h24l-3 18H91z" fill="#fffaf3"/><rect x="44" y="148" width="112" height="14" rx="5" fill="#2b1d16"/></svg>
+              <span class="badge">Lever</span>
+            </div>
+            <div class="card__body">
+              <p class="card__origin">Espresso machine</p>
+              <h3>Brass Lever Espresso Machine</h3>
+              <ul class="notes"><li>Spring lever</li><li>9 bar</li><li>Steam wand</li></ul>
+              <div class="card__foot"><span class="price">₱32,500</span><button type="button" class="add" data-add="Brass Lever Espresso Machine" data-price="32500" data-category="machines">Add to cart</button></div>
+            </div>
+          </li>
+          <li class="card" data-cat="machines">
+            <div class="card__art card__art--sand">
+              <svg viewBox="0 0 200 200" aria-hidden="true"><rect x="58" y="40" width="84" height="116" rx="16" fill="#2b1d16"/><rect x="68" y="52" width="64" height="20" rx="5" fill="#c08a3e"/><circle cx="100" cy="92" r="10" fill="#5a3a28" stroke="#c08a3e" stroke-width="3"/><path d="M88 116h24l-3 22H91z" fill="#fffaf3"/><path d="M142 90h12v40" fill="none" stroke="#c08a3e" stroke-width="5" stroke-linecap="round"/><rect x="50" y="156" width="100" height="12" rx="5" fill="#5a3a28"/></svg>
+            </div>
+            <div class="card__body">
+              <p class="card__origin">Espresso machine</p>
+              <h3>Compact Home Espresso Machine</h3>
+              <ul class="notes"><li>PID control</li><li>58 mm</li><li>30 s heat-up</li></ul>
+              <div class="card__foot"><span class="price">₱18,900</span><button type="button" class="add" data-add="Compact Home Espresso Machine" data-price="18900" data-category="machines">Add to cart</button></div>
+            </div>
+          </li>
+          <li class="card" data-cat="gear">
+            <div class="card__art card__art--dark">
+              <svg viewBox="0 0 200 200" aria-hidden="true"><path d="M70 30h60l-16 40H86z" fill="#efe3d0" opacity=".9"/><rect x="74" y="70" width="52" height="80" rx="8" fill="#c08a3e"/><circle cx="100" cy="98" r="14" fill="#2b1d16"/><path d="M100 98l9-6" stroke="#c08a3e" stroke-width="3"/><rect x="84" y="128" width="32" height="14" rx="4" fill="#2b1d16"/><rect x="62" y="150" width="76" height="14" rx="5" fill="#efe3d0"/></svg>
+            </div>
+            <div class="card__body">
+              <p class="card__origin">Grinder</p>
+              <h3>Flat Burr Grinder</h3>
+              <ul class="notes"><li>64 mm burrs</li><li>Stepless</li><li>Low retention</li></ul>
+              <div class="card__foot"><span class="price">₱7,800</span><button type="button" class="add" data-add="Flat Burr Grinder" data-price="7800" data-category="gear">Add to cart</button></div>
+            </div>
+          </li>
+          <li class="card" data-cat="gear">
+            <div class="card__art card__art--clay">
+              <svg viewBox="0 0 200 200" aria-hidden="true"><path d="M62 52h76l-26 46H88z" fill="#fffaf3" stroke="#2b1d16" stroke-width="3"/><path d="M72 62l14 28M128 62l-14 28" stroke="#e6d9c8" stroke-width="3"/><rect x="88" y="98" width="24" height="8" fill="#2b1d16"/><path d="M70 110h60v44a16 16 0 0 1-16 16H86a16 16 0 0 1-16-16z" fill="#fffaf3" fill-opacity=".55" stroke="#2b1d16" stroke-width="3"/><path d="M72 140h56v14a14 14 0 0 1-14 14H86a14 14 0 0 1-14-14z" fill="#5a3a28"/></svg>
+            </div>
+            <div class="card__body">
+              <p class="card__origin">Brew gear</p>
+              <h3>Pour-Over Starter Kit</h3>
+              <ul class="notes"><li>Ceramic dripper</li><li>Glass server</li><li>100 filters</li></ul>
+              <div class="card__foot"><span class="price">₱1,950</span><button type="button" class="add" data-add="Pour-Over Starter Kit" data-price="1950" data-category="gear">Add to cart</button></div>
+            </div>
+          </li>
+          <li class="card" data-cat="gear">
+            <div class="card__art card__art--sand">
+              <svg viewBox="0 0 200 200" aria-hidden="true"><path d="M66 80h68l8 76H58z" fill="#2b1d16"/><path d="M76 80a24 18 0 0 1 48 0" fill="#5a3a28"/><circle cx="100" cy="60" r="6" fill="#c08a3e"/><path d="M62 120c-18 0-30-40-48-58" fill="none" stroke="#2b1d16" stroke-width="7" stroke-linecap="round"/><path d="M134 92c20 4 20 44 4 52" fill="none" stroke="#c08a3e" stroke-width="7" stroke-linecap="round"/></svg>
+            </div>
+            <div class="card__body">
+              <p class="card__origin">Brew gear</p>
+              <h3>Gooseneck Pour Kettle</h3>
+              <ul class="notes"><li>0.9 L</li><li>Thermometer</li><li>Stovetop</li></ul>
+              <div class="card__foot"><span class="price">₱2,400</span><button type="button" class="add" data-add="Gooseneck Pour Kettle" data-price="2400" data-category="gear">Add to cart</button></div>
+            </div>
+          </li>
+        </ul>
+        <p class="sr-only" role="status" aria-live="polite" data-live></p>
+      </div>
+    </section>
+
+    <section class="section section--dark" id="cafe-menu" aria-labelledby="menu-h">
+      <div class="wrap cafe">
+        <div>
+          <p class="eyebrow eyebrow--brass">At the café</p>
+          <h2 id="menu-h">Today's coffee menu</h2>
+          <p class="cafe__lead">Every drink is pulled from beans we roast in-house each week.</p>
+        </div>
+        <ul class="menu-list">
+          <li><span>Espresso</span><i aria-hidden="true"></i><strong>₱110</strong></li>
+          <li><span>Cortado</span><i aria-hidden="true"></i><strong>₱140</strong></li>
+          <li><span>Spanish Latte</span><i aria-hidden="true"></i><strong>₱170</strong></li>
+          <li><span>Benguet Pour-Over</span><i aria-hidden="true"></i><strong>₱180</strong></li>
+          <li><span>Iced Barako Black</span><i aria-hidden="true"></i><strong>₱150</strong></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="brew" aria-labelledby="brew-h">
+      <div class="wrap brew">
+        <div>
+          <p class="eyebrow">Brew guide</p>
+          <h2 id="brew-h">Get the ratio right</h2>
+          <p class="brew__lead">Choose a method and how many cups. We'll give you the coffee and water to use.</p>
+        </div>
+        <form class="calc" data-calc>
+          <div class="calc__row">
+            <label for="calc-method">Method</label>
+            <select id="calc-method" name="method">
+              <option value="16">Pour-over (1:16)</option>
+              <option value="15">French press (1:15)</option>
+              <option value="8">Cold brew concentrate (1:8)</option>
+            </select>
+          </div>
+          <div class="calc__row">
+            <label for="calc-cups">Cups (250 ml each)</label>
+            <input id="calc-cups" name="cups" type="number" min="1" max="8" step="1" value="2" inputmode="numeric">
+          </div>
+          <output class="calc__out" for="calc-method calc-cups" data-calc-out>
+            <span><strong data-coffee>31 g</strong> coffee</span>
+            <span><strong data-water>500 ml</strong> water</span>
+          </output>
+        </form>
+      </div>
+    </section>
+
+    <section class="section section--tint" id="visit" aria-labelledby="visit-h">
+      <div class="wrap visit">
+        <div>
+          <p class="eyebrow">Visit us</p>
+          <h2 id="visit-h">Come for a cup, stay for the brew bar</h2>
+          <p>Cebu City, Philippines. Free cupping sessions every Saturday at 10 AM.</p>
+        </div>
+        <dl class="hours">
+          <div><dt>Monday – Friday</dt><dd>7 AM – 9 PM</dd></div>
+          <div><dt>Saturday – Sunday</dt><dd>8 AM – 10 PM</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="news-h">
+      <div class="wrap news">
+        <h2 id="news-h">Fresh roast alerts</h2>
+        <form class="news__form" data-news novalidate>
+          <label class="sr-only" for="bb-email">Email address</label>
+          <input id="bb-email" type="email" placeholder="you@example.com" autocomplete="email" required>
+          <button class="button" type="submit">Subscribe</button>
+          <p class="news__msg" data-news-msg role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <p><strong>Bean &amp; Brass</strong>: a concept café and e-commerce design by <a href="../../">Glendell S. Dia</a>.</p>
+      <p>Fictional brand for portfolio purposes. Product names and prices are illustrative.</p>
+    </div>
+  </footer>
+
+  <script src="../shared/demo-kit.js" defer></script>
+  <script src="brew.js" defer></script>
+</body>
+</html>

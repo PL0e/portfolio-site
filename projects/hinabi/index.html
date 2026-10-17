@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="en-PH">
+<html lang="en-PH" data-currency="PHP">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hinabi | Handwoven Abaca Bags, Inabel &amp; Banig from the Philippines</title>
-  <meta name="description" content="Hinabi is a concept online store for Filipino handwoven goods: abaca bags, inabel textiles, pandan banig mats, and piña-seda scarves made with weaving communities across the Philippines.">
+  <title>Hinabi | Handwoven Abaca Bags, Inabel &amp; Banig</title>
+  <meta name="description" content="Filipino handwoven goods: abaca bags, inabel textiles, pandan banig mats, and piña-seda scarves, made with weaving communities across the Philippines.">
   <!--
     Concept project by Glendell S. Dia. Hinabi is a fictional brand and nothing is for sale,
     so the page is kept out of search results even though it carries full SEO markup.
   -->
   <meta name="robots" content="noindex, follow">
   <meta name="theme-color" content="#f6f0e4">
+  <!-- GA4: put a measurement ID (G-XXXXXXXXXX) here to send the demo's events to Google Analytics -->
+  <meta name="ga-measurement-id" content="">
   <link rel="canonical" href="https://pl0e.github.io/portfolio-site/projects/hinabi/">
 
   <meta property="og:type" content="website">
@@ -28,6 +30,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../shared/demo-kit.css">
 
   <script type="application/ld+json">
   {
@@ -177,7 +180,7 @@
           </div>
         </div>
 
-        <ul class="grid" data-grid>
+        <ul class="grid" data-grid data-list-name="Hinabi collection">
           <li class="card" data-cat="bags">
             <div class="card__art card__art--sand">
               <svg viewBox="0 0 200 200" aria-hidden="true">
@@ -191,7 +194,7 @@
               <p class="card__origin">Abaca · Catanduanes</p>
               <h3>Abaca Market Tote</h3>
               <p class="card__desc">Roomy everyday tote, hand-braided and lined with cotton.</p>
-              <div class="card__foot"><span class="price">₱1,450</span><button type="button" class="add" data-add="Abaca Market Tote">Add to cart</button></div>
+              <div class="card__foot"><span class="price">₱1,450</span><button type="button" class="add" data-add="Abaca Market Tote" data-price="1450" data-category="bags">Add to cart</button></div>
             </div>
           </li>
 
@@ -207,7 +210,7 @@
               <p class="card__origin">Abaca · Albay</p>
               <h3>Abaca Evening Clutch</h3>
               <p class="card__desc">Structured clutch with a shell-button clasp.</p>
-              <div class="card__foot"><span class="price">₱980</span><button type="button" class="add" data-add="Abaca Evening Clutch">Add to cart</button></div>
+              <div class="card__foot"><span class="price">₱980</span><button type="button" class="add" data-add="Abaca Evening Clutch" data-price="980" data-category="bags">Add to cart</button></div>
             </div>
           </li>
 
@@ -225,7 +228,7 @@
               <p class="card__origin">Buri palm · Quezon</p>
               <h3>Buri Bayong Bag</h3>
               <p class="card__desc">The classic market bayong, refreshed with dyed accents.</p>
-              <div class="card__foot"><span class="price">₱720</span><button type="button" class="add" data-add="Buri Bayong Bag">Add to cart</button></div>
+              <div class="card__foot"><span class="price">₱720</span><button type="button" class="add" data-add="Buri Bayong Bag" data-price="720" data-category="bags">Add to cart</button></div>
             </div>
           </li>
 
@@ -240,7 +243,7 @@
               <p class="card__origin">Cotton · Ilocos Norte</p>
               <h3>Inabel Table Runner</h3>
               <p class="card__desc">Loom-woven binakul-style pattern in indigo and rust.</p>
-              <div class="card__foot"><span class="price">₱1,100</span><button type="button" class="add" data-add="Inabel Table Runner">Add to cart</button></div>
+              <div class="card__foot"><span class="price">₱1,100</span><button type="button" class="add" data-add="Inabel Table Runner" data-price="1100" data-category="weaves">Add to cart</button></div>
             </div>
           </li>
 
@@ -255,7 +258,7 @@
               <p class="card__origin">Pandan · Basey, Samar</p>
               <h3>Pandan Banig Mat</h3>
               <p class="card__desc">Hand-dyed sleeping mat that rolls up for storage.</p>
-              <div class="card__foot"><span class="price">₱1,850</span><button type="button" class="add" data-add="Pandan Banig Mat">Add to cart</button></div>
+              <div class="card__foot"><span class="price">₱1,850</span><button type="button" class="add" data-add="Pandan Banig Mat" data-price="1850" data-category="home">Add to cart</button></div>
             </div>
           </li>
 
@@ -271,7 +274,7 @@
               <p class="card__origin">Piña &amp; silk · Kalibo, Aklan</p>
               <h3>Piña-Seda Scarf</h3>
               <p class="card__desc">Sheer, lightweight weave from pineapple-leaf fiber.</p>
-              <div class="card__foot"><span class="price">₱2,400</span><button type="button" class="add" data-add="Piña-Seda Scarf">Add to cart</button></div>
+              <div class="card__foot"><span class="price">₱2,400</span><button type="button" class="add" data-add="Piña-Seda Scarf" data-price="2400" data-category="weaves">Add to cart</button></div>
             </div>
           </li>
         </ul>
@@ -334,6 +337,6 @@
 
   <div class="toast" data-toast role="status" aria-live="polite"></div>
 
-  <script src="script.js" defer></script>
+  <script src="../shared/demo-kit.js" defer></script>
 </body>
 </html>
