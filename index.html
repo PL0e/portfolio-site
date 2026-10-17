@@ -3,366 +3,548 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Glendell S. Dia | Software Developer Portfolio</title>
-  <meta name="description" content="Portfolio of Glendell S. Dia showcasing data analytics, software engineering projects, and developer skills.">
-  <link rel="canonical" href="https://pl0e.github.io/portfolio-site/" />
-  <link rel="stylesheet" href="styles.css">
-  <!-- Font Awesome for icons -->
+  <title>Glendell S. Dia | Data Analyst &amp; SRE Intern Portfolio</title>
+  <meta name="description" content="Portfolio of Glendell S. Dia, a Computer Engineer from Cebu, Philippines working across data analytics, data quality, and cloud / site reliability engineering.">
+  <meta name="author" content="Glendell S. Dia">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://pl0e.github.io/portfolio-site/">
+
+  <!-- Open Graph / social previews -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Glendell S. Dia | Data Analyst &amp; SRE Intern">
+  <meta property="og:description" content="Turning raw data into clear insight, and keeping the systems behind it reliable.">
+  <meta property="og:url" content="https://pl0e.github.io/portfolio-site/">
+  <meta property="og:image" content="https://pl0e.github.io/portfolio-site/assets/img/og-image.jpg">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101010'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='28' fill='%2320c997'%3EGD%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Geist+Mono:wght@400;500&family=Shadows+Into+Light&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <script>document.documentElement.classList.add("js")</script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Glendell S. Dia",
+    "url": "https://pl0e.github.io/portfolio-site/",
+    "image": "https://pl0e.github.io/portfolio-site/assets/img/og-image.jpg",
+    "jobTitle": "Site Reliability Engineer Intern",
+    "worksFor": { "@type": "Organization", "name": "OpsWerks" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of San Jose-Recoletos" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Lapu-Lapu City", "addressRegion": "Cebu", "addressCountry": "PH" },
+    "email": "mailto:glendellsara@gmail.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/glendell-dia-49760828b/",
+      "https://github.com/PL0e"
+    ]
+  }
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
- <div class="bg-3d">
-  <div class="shape sphere"></div>
-  <div class="shape cube"></div>
-  <div class="shape pyramid"></div>
-  <div class="shape sphere2"></div>
-  <div class="shape cube2"></div>
-  <div class="shape pyramid2"></div>
-  <div class="shape diamond"></div>
-  <div class="shape disc"></div>
-</div>
-<div class="top-banner">
-  <div class="code-line">SELECT * FROM insights WHERE value > 0.95;</div>
-  <div class="code-line">Analyzing Trends → Predicting Outcomes → Delivering Clarity</div>
-  <div class="code-line"># Data is the new oil, but refined by analytics ⚙️</div>
-</div>
+  <!-- ============ HEADER / NAV ============ -->
+  <header class="site-header" id="top">
+    <div class="container site-header__inner">
+      <a class="logo" href="#top" aria-label="Glendell Dia, back to top">
+        <span class="logo__mark">GD</span>
+      </a>
 
-  <!-- Hero Section -->
-  <section class="hero">
-  <div class="hero__container">
-    <!-- Left side: Photo -->
-    <div class="hero__avatar-wrapper">
-      <img src="1762154153959.jpg" alt="Glendell Dia" class="hero__avatar" />
-    </div>
-
-    <!-- Right side: Text -->
-    <div class="hero__content">
-      <h1 class="hero__name">Glendell S. Dia</h1>
-      <p class="hero__education">
-        Computer Engineer, <br />
-        University of San Jose – Recoletos
-      </p>
-      <p class="hero__title">Aspiring Data Analyst</p>
-
-      <!-- Quote below name -->
-      <div class="hero__quote">
-        <p class="quote__text">
-          “Dedication is turning small, daily choices into meaningful progress.”
-        </p>
-        <p class="quote__explanation">
-          I apply the same dedication to data analytics — methodically cleaning,
-          exploring, and modeling data to deliver clear business insights.
-        </p>
-      </div>
-
-      <!-- Skills below quote -->
-      <div class="hero__skills">
-        <span class="skill-pill">C# / .NET</span>
-        <span class="skill-pill">SQL</span>
-        <span class="skill-pill">Node.js</span>
-        <span class="skill-pill">Tableau</span>
-        <span class="skill-pill">Power BI</span>
-        <span class="skill-pill">Python</span>
-        <span class="skill-pill">Excel</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-      <!-- Navigation Tabs -->
-      <nav class="nav" role="navigation" aria-label="Main navigation">
-        <button 
-          class="nav__tab nav__tab--active" 
-          data-tab="projects" 
-          aria-selected="true"
-          aria-controls="projects-panel"
-        >
-          <i class="fas fa-project-diagram"></i>
-          <span>Projects</span>
+      <nav class="nav" aria-label="Main navigation">
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
         </button>
-        <button 
-          class="nav__tab" 
-          data-tab="about" 
-          aria-selected="false"
-          aria-controls="about-panel"
-        >
-          <i class="fas fa-user"></i>
-          <span>About</span>
-        </button>
-        <!-- Add this inside your nav -->
-        <button class="nav__tab" data-tab="pets">
-          <i class="fas fa-paw"></i><span>Pets</span>
-        </button>
-
-        <button 
-          class="nav__tab" 
-          data-tab="contact" 
-          aria-selected="false"
-          aria-controls="contact-panel"
-        >
-          <i class="fas fa-envelope"></i>
-          <span>Contact</span>
-        </button>
+        <ul class="nav__menu" id="nav-menu">
+          <li><a class="nav__link" href="#about">About</a></li>
+          <li><a class="nav__link" href="#experience">Experience</a></li>
+          <li><a class="nav__link" href="#projects">Projects</a></li>
+          <li><a class="nav__link" href="#certificates">Certificates</a></li>
+          <li><a class="nav__link nav__link--cta" href="#contact">Hire Me</a></li>
+        </ul>
       </nav>
     </div>
-  </section>
+  </header>
 
-  <!-- Main Content -->
-  <main class="main-content">
-    <!-- Projects Tab -->
-    <section id="projects-panel" class="tab-panel tab-panel--active" role="tabpanel" aria-labelledby="projects">
-      <h2 class="tab-panel__title">Projects</h2>
-      <div class="projects-grid">
-        <!-- Project 1 -->
-        <div class="project-card" data-project-id="1">
-          <div class="project-card__header">
-            <h3 class="project-card__title">Machine Learning Market Trends Product Prediction</h3>
-            <button class="project-card__expand" aria-label="Expand project details" aria-expanded="false">
-              <i class="fas fa-chevron-down"></i>
-            </button>
-          </div>
-          <p class="project-card__objective">Predict trending products and demand spikes using historical listing and engagement data.</p>
-          
-          <div class="project-card__tools">
-            <span class="tool-badge">Python</span>
-            <span class="tool-badge">SQL</span>
-            <span class="tool-badge">Power BI</span>
-            <span class="tool-badge">scikit-learn</span>
-          </div>
-
-          <div class="project-card__details" hidden>
-            <div class="project-card__details-content">
-              <h4>Project Overview</h4>
-              <p>TikTok Shop / Shopee market trend analysis using machine learning to identify emerging products and demand patterns.</p>
-              
-              <h4>Key Steps</h4>
-              <ul>
-                <li>Data collection and cleaning from e-commerce APIs</li>
-                <li>Feature engineering: engagement metrics, seasonality, trends</li>
-                <li>Model training: Random Forest & XGBoost for prediction</li>
-                <li>Dashboard creation in Power BI for stakeholder visualization</li>
-              </ul>
-
-              <h4>Datasets & Links</h4>
-              <div class="project-links">
-                <a href="#" class="project-link">
-                  <i class="fab fa-github"></i> View GitHub Repo
-                </a>
-                <a href="#" class="project-link">
-                  <i class="fas fa-database"></i> Dataset Source
-                </a>
-              </div>
-
-              <div class="project-card__visual">
-                <img src="https://via.placeholder.com/300x150?text=Market+Trends+Dashboard" alt="Market trends visualization">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="project-card" data-project-id="2">
-          <div class="project-card__header">
-            <h3 class="project-card__title">E-commerce Customer Segmentation & Churn Analysis</h3>
-            <button class="project-card__expand" aria-label="Expand project details" aria-expanded="false">
-              <i class="fas fa-chevron-down"></i>
-            </button>
-          </div>
-          <p class="project-card__objective">Segment customers and identify high-risk churn cohorts to recommend retention actions.</p>
-          
-          <div class="project-card__tools">
-            <span class="tool-badge">SQL</span>
-            <span class="tool-badge">Python</span>
-            <span class="tool-badge">Power BI</span>
-            <span class="tool-badge">Clustering</span>
-          </div>
-
-          <div class="project-card__details" hidden>
-            <div class="project-card__details-content">
-              <h4>Project Overview</h4>
-              <p>Customer segmentation using clustering algorithms to identify at-risk groups and develop targeted retention strategies.</p>
-              
-              <h4>Key Steps</h4>
-              <ul>
-                <li>Customer data aggregation and RFM analysis</li>
-                <li>K-means clustering for customer segmentation</li>
-                <li>Churn prediction modeling with classification algorithms</li>
-                <li>Power BI dashboards for business intelligence</li>
-              </ul>
-
-              <h4>Datasets & Links</h4>
-              <div class="project-links">
-                <a href="#" class="project-link">
-                  <i class="fab fa-github"></i> View GitHub Repo
-                </a>
-                <a href="#" class="project-link">
-                  <i class="fas fa-database"></i> Dataset Source
-                </a>
-              </div>
-
-              <div class="project-card__visual">
-                <img src="https://via.placeholder.com/300x150?text=Customer+Segments" alt="Customer segmentation visualization">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="project-card" data-project-id="3">
-          <div class="project-card__header">
-            <h3 class="project-card__title">Retail Inventory Demand Forecasting</h3>
-            <button class="project-card__expand" aria-label="Expand project details" aria-expanded="false">
-              <i class="fas fa-chevron-down"></i>
-            </button>
-          </div>
-          <p class="project-card__objective">Forecast SKU-level demand to reduce stockouts and overstock for retail environments.</p>
-          
-          <div class="project-card__tools">
-            <span class="tool-badge">Python</span>
-            <span class="tool-badge">Prophet</span>
-            <span class="tool-badge">SQL</span>
-            <span class="tool-badge">Power BI</span>
-          </div>
-
-          <div class="project-card__details" hidden>
-            <div class="project-card__details-content">
-              <h4>Project Overview</h4>
-              <p>Time-series forecasting for retail inventory management using advanced statistical and ML techniques.</p>
-              
-              <h4>Key Steps</h4>
-              <ul>
-                <li>Historical sales data extraction and preparation</li>
-                <li>Seasonality and trend decomposition</li>
-                <li>Prophet & ARIMA model training and validation</li>
-                <li>Forecast integration into Power BI dashboards</li>
-              </ul>
-
-              <h4>Datasets & Links</h4>
-              <div class="project-links">
-                <a href="#" class="project-link">
-                  <i class="fab fa-github"></i> View GitHub Repo
-                </a>
-                <a href="#" class="project-link">
-                  <i class="fas fa-database"></i> Dataset Source
-                </a>
-              </div>
-
-              <div class="project-card__visual">
-                <img src="https://via.placeholder.com/300x150?text=Demand+Forecast" alt="Demand forecast visualization">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Tab -->
-    <section id="about-panel" class="tab-panel" role="tabpanel" aria-labelledby="about" hidden>
-      <h2 class="tab-panel__title">About</h2>
-      <div class="about-content">
-        <div class="about-section">
-          <h3>Professional Background</h3>
-          <p>
-            I am a Computer Engineer from the University of San Jose – Recoletos with a passion for turning complex data into actionable insights. My foundation in software engineering has equipped me with production-grade coding skills, deep backend knowledge, and a systematic approach to problem-solving. Now, I'm channeling this expertise into data analytics, where I combine technical rigor with analytical thinking to drive business decisions.
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="hero__eyebrow"><span class="status-dot" aria-hidden="true"></span> Open to data &amp; cloud opportunities</p>
+          <h1 class="hero__title" id="hero-title">
+            <span class="hero__hello">Hi, I'm</span>
+            Glendell S. Dia
+          </h1>
+          <p class="hero__role">
+            <span class="sr-only">Data Analyst, Site Reliability Engineer Intern, and Computer Engineer</span>
+            <span class="hero__role-text" aria-hidden="true" data-roles='["Data Analyst", "SRE Intern @ OpsWerks", "Computer Engineer"]'>Data Analyst</span><span class="hero__caret" aria-hidden="true"></span>
           </p>
-        </div>
+          <p class="hero__quote">“Dedication is turning small, daily choices into meaningful progress.”</p>
+          <p class="hero__lead">
+            I clean, validate, and model data to deliver clear business insights,
+            and I build the reliable cloud pipelines that keep that data trustworthy.
+          </p>
 
-        <div class="about-section">
-          <h3>What I Bring to Data Analytics</h3>
-          <ul class="skills-list">
-            <li><strong>Production Code Quality:</strong> Years of software engineering experience ensure clean, maintainable, and well-documented code.</li>
-            <li><strong>API & Backend Knowledge:</strong> Deep understanding of data pipelines, ETL processes, and system integrations.</li>
-            <li><strong>Database Expertise:</strong> Proficiency in SQL optimization, query design, and relational database architecture.</li>
-            <li><strong>End-to-End Thinking:</strong> Ability to design solutions that work seamlessly from data collection to visualization.</li>
-            <li><strong>Attention to Detail:</strong> Meticulous data validation and quality assurance practices.</li>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="assets/resume_diaglendell_.pdf" download="Glendell-Dia-Resume.pdf">
+              <i class="fas fa-download" aria-hidden="true"></i> Download CV
+            </a>
+            <a class="btn btn--ghost" href="#projects">
+              My Projects <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <ul class="socials" aria-label="Social links">
+            <li><a href="https://www.linkedin.com/in/glendell-dia-49760828b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+            <li><a href="https://github.com/PL0e" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in new tab)"><i class="fab fa-github" aria-hidden="true"></i></a></li>
+            <li><a href="mailto:glendellsara@gmail.com" aria-label="Email glendellsara@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i></a></li>
           </ul>
         </div>
 
-        <div class="about-section case-study">
-          <h3>Case Study: Power BI Visualization for Local Pharmacy</h3>
-          <div class="case-study__details">
-            <div class="case-study__item">
-              <strong>Problem:</strong>
-              <p>The pharmacy struggled with inventory tracking and couldn't identify which products drove revenue. Decision-makers relied on manual reports that were outdated within days.</p>
-            </div>
-            <div class="case-study__item">
-              <strong>My Approach:</strong>
-              <p>I designed and built an interactive Power BI dashboard that connected to their sales database, automated daily data refreshes, and provided real-time insights into product performance, stock levels, and revenue trends.</p>
-            </div>
-            <div class="case-study__item">
-              <strong>Tools Used:</strong>
-              <p>SQL (data extraction), Python (data transformation), Power BI (dashboard design and deployment)</p>
-            </div>
-            <div class="case-study__item">
-              <strong>Impact:</strong>
-              <p>Decision-making time reduced by 70%, inventory accuracy improved to 95%, and revenue-driving products identified, resulting in a 15% increase in focused promotions.</p>
-            </div>
+        <div class="hero__photo">
+          <div class="hero__photo-frame">
+            <picture>
+              <source srcset="assets/img/profile.webp" type="image/webp">
+              <img src="assets/img/profile.jpg" alt="Portrait of Glendell S. Dia" width="640" height="800" fetchpriority="high">
+            </picture>
+          </div>
+          <div class="hero__badge hero__badge--top">
+            <i class="fas fa-location-dot" aria-hidden="true"></i> Cebu, Philippines
+          </div>
+          <div class="hero__badge hero__badge--bottom">
+            <i class="fas fa-circle-check" aria-hidden="true"></i> 99.8% data accuracy
           </div>
         </div>
       </div>
+
+      <a class="hero__scroll" href="#about" aria-label="Scroll to About section">
+        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+      </a>
     </section>
-    <!-- PETS TAB -->
-    <section id="pets-panel" class="tab-panel" role="tabpanel" aria-labelledby="pets" hidden>
-      <h2 class="tab-panel__title">My Pets</h2>
-      <div class="pets-grid">
-        <div class="pet-card">
-          <img src="assets/pet1-placeholder.jpg" alt="Pet 1" class="pet-card__image" />
-          <h3 class="pet-card__name">Buta</h3>
-          <p class="pet-card__desc">A blind cat that is timid but very clingy.</p>
+
+    <!-- ============ TECH MARQUEE ============ -->
+    <div class="marquee" aria-label="Tools and technologies">
+      <ul class="marquee__track">
+        <li><i class="fas fa-database" aria-hidden="true"></i> SQL</li>
+        <li><i class="fab fa-python" aria-hidden="true"></i> Python</li>
+        <li><i class="fab fa-r-project" aria-hidden="true"></i> R</li>
+        <li><i class="fas fa-chart-column" aria-hidden="true"></i> Power BI</li>
+        <li><i class="fas fa-chart-pie" aria-hidden="true"></i> Tableau</li>
+        <li><i class="fas fa-table" aria-hidden="true"></i> Excel</li>
+        <li><i class="fab fa-aws" aria-hidden="true"></i> AWS</li>
+        <li><i class="fab fa-docker" aria-hidden="true"></i> Docker</li>
+        <li><i class="fas fa-dharmachakra" aria-hidden="true"></i> Kubernetes</li>
+        <li><i class="fab fa-linux" aria-hidden="true"></i> Linux</li>
+        <li><i class="fas fa-terminal" aria-hidden="true"></i> Bash</li>
+        <li><i class="fab fa-git-alt" aria-hidden="true"></i> Git</li>
+        <li><i class="fas fa-gauge-high" aria-hidden="true"></i> Prometheus</li>
+        <li><i class="fab fa-jira" aria-hidden="true"></i> Jira</li>
+        <li><i class="fab fa-salesforce" aria-hidden="true"></i> Salesforce</li>
+        <li><i class="fab fa-hubspot" aria-hidden="true"></i> HubSpot</li>
+      </ul>
+    </div>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="section__kicker">Introduction</p>
+          <h2 class="section__title" id="about-title">Turning raw data into <span class="accent">clear decisions</span>.</h2>
+        </header>
+
+        <div class="about">
+          <div class="about__text reveal">
+            <p>
+              I'm a Computer Engineer from the <strong>University of San Jose–Recoletos</strong> in Cebu.
+              My software engineering foundation gives me production-minded coding habits, solid backend
+              and database knowledge, and a systematic approach to problem-solving. I now apply that to
+              data analytics and reliability engineering.
+            </p>
+            <p>
+              I've audited hundreds of records a week at 99.8% accuracy, built AWS data pipelines
+              over large recruitment datasets, and I'm currently training as a Site Reliability Engineer,
+              working hands-on with Linux, Docker, Kubernetes, and Prometheus.
+            </p>
+
+            <dl class="stats">
+              <div class="stats__item"><dt>Data accuracy rate</dt><dd>99.8%</dd></div>
+              <div class="stats__item"><dt>Documents audited weekly</dt><dd>500+</dd></div>
+              <div class="stats__item"><dt>Certifications</dt><dd>6</dd></div>
+              <div class="stats__item"><dt>Professional roles</dt><dd>3</dd></div>
+            </dl>
+          </div>
+
+          <div class="about__skills">
+            <article class="skill-card reveal">
+              <div class="skill-card__icon" aria-hidden="true"><i class="fas fa-chart-line"></i></div>
+              <h3>Data &amp; Reporting</h3>
+              <p>SQL, Power BI, Tableau, and Excel (Power Query, Pivot Tables, advanced functions) for dashboards and reports that non-technical teams can act on.</p>
+            </article>
+            <article class="skill-card reveal">
+              <div class="skill-card__icon" aria-hidden="true"><i class="fas fa-shield-halved"></i></div>
+              <h3>Data Quality &amp; Operations</h3>
+              <p>Data governance, quality standards, compliance practices, API data integration, and Python validation workflows.</p>
+            </article>
+            <article class="skill-card reveal">
+              <div class="skill-card__icon" aria-hidden="true"><i class="fas fa-cloud"></i></div>
+              <h3>Cloud &amp; Reliability</h3>
+              <p>AWS (Glue, S3, Athena, EKS), Docker, Kubernetes, Prometheus, Linux, and shell scripting for dependable infrastructure.</p>
+            </article>
+          </div>
         </div>
-        <div class="pet-card">
-          <img src="cat2.jpg" alt="Pet 2" class="pet-card__image" />
-          <h3 class="pet-card__name">Garfield</h3>
-          <p class="pet-card__desc">A playful, curious cat who enjoys naps beside my laptop during coding.</p>
+
+        <div class="education reveal">
+          <h3 class="subhead"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Education</h3>
+          <ul class="education__list">
+            <li class="education__item">
+              <span class="education__years">2022 – 2026</span>
+              <div>
+                <h4>BS Computer Engineering</h4>
+                <p>University of San Jose–Recoletos, Cebu City</p>
+              </div>
+            </li>
+            <li class="education__item">
+              <span class="education__years">2014 – 2018</span>
+              <div>
+                <h4>Secondary Education <span class="tag tag--accent">With Honors</span></h4>
+                <p>Science and Technology Education Center</p>
+              </div>
+            </li>
+            <li class="education__item">
+              <span class="education__years">2010 – 2014</span>
+              <div>
+                <h4>Primary Education <span class="tag tag--accent">With Honor</span></h4>
+                <p>Marigondon Elementary School, Lapu-Lapu City</p>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- Contact Tab -->
-    <section id="contact-panel" class="tab-panel" role="tabpanel" aria-labelledby="contact" hidden>
-      <h2 class="tab-panel__title">Contact</h2>
-      <div class="contact-content">
-        <div class="contact-card">
-          <h3>Let's Connect</h3>
-          <p>I'm always open to discussing data analytics, machine learning, and exciting projects. Feel free to reach out!</p>
-          
-          <div class="contact-links">
-            <a href="mailto:glendellsara@gmail.com" class="contact-link" aria-label="Email">
-              <i class="fas fa-envelope"></i>
-              <span>glendellsara@gmail.com</span>
-            </a>
-            <a href="https://www.linkedin.com/in/glendell-dia-49760828b/" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="LinkedIn">
-              <i class="fab fa-linkedin"></i>
-              <span>LinkedIn</span>
-            </a>
-            <a href="https://github.com/PL0e" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="GitHub">
-              <i class="fab fa-github"></i>
-              <span>GitHub</span>
-            </a>
-            <a href="assets/resume_diaglendell_.pdf" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="View resume">
-              <i class="fas fa-file-pdf"></i>
-              <span>View Resume</span>
-            </a>
-          </div>
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section section--alt" id="experience" aria-labelledby="experience-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="section__kicker">Work Timeline</p>
+          <h2 class="section__title" id="experience-title">Where I've been <span class="accent">working</span>.</h2>
+        </header>
 
-          <div class="resume-actions">
-            <a class="btn btn--primary" href="assets/resume_diaglendell_.pdf" target="_blank" rel="noopener noreferrer" data-action="view-resume">
-              <i class="fas fa-eye"></i>
-              View Resume
-            </a>
-            <button class="btn btn--secondary" data-action="download-resume">
-              <i class="fas fa-download"></i>
-              Download Resume
-            </button>
+        <ol class="timeline">
+          <li class="timeline__item timeline__item--current reveal">
+            <div class="timeline__meta">
+              <span class="timeline__date">Apr 2026 – Present</span>
+              <span class="timeline__place">Cebu City · On-site</span>
+            </div>
+            <div class="timeline__card">
+              <h3>Site Reliability Engineer Intern</h3>
+              <p class="timeline__company">OpsWerks</p>
+              <p>Hands-on training in Linux, Git, Python, Docker, AWS, Kubernetes, AWS EKS, and Prometheus through practical labs and simulated production scenarios. I apply DevOps and SRE concepts to containerized workloads, cloud infrastructure, troubleshooting, and Kubernetes operations.</p>
+              <ul class="tags" aria-label="Technologies">
+                <li class="tag">Kubernetes</li><li class="tag">AWS EKS</li><li class="tag">Docker</li><li class="tag">Prometheus</li><li class="tag">Linux</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="timeline__item reveal">
+            <div class="timeline__meta">
+              <span class="timeline__date">Jan – Apr 2026</span>
+              <span class="timeline__place">Remote</span>
+            </div>
+            <div class="timeline__card">
+              <h3>Data Science Intern</h3>
+              <p class="timeline__company">JobTarget</p>
+              <p>Built end-to-end data pipelines with AWS Glue, Amazon S3, and Athena to manage and query petabyte-scale recruitment datasets. Ensured data integrity through audits across multi-table relational databases, with validation through advanced Excel reporting and automated SQL workflows.</p>
+              <ul class="tags" aria-label="Technologies">
+                <li class="tag">AWS Glue</li><li class="tag">Amazon S3</li><li class="tag">Athena</li><li class="tag">SQL</li><li class="tag">Excel</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="timeline__item reveal">
+            <div class="timeline__meta">
+              <span class="timeline__date">Sep 2025 – Apr 2026</span>
+              <span class="timeline__place">Remote · Part-time</span>
+            </div>
+            <div class="timeline__card">
+              <h3>Data Entry Specialist</h3>
+              <p class="timeline__company">Evolve Global Services</p>
+              <p>Audited 500+ source documents weekly while updating customer profiles and pipeline data in enterprise CRM platforms (Salesforce / HubSpot), maintaining a 99.8% accuracy rate and strict data hygiene.</p>
+              <ul class="tags" aria-label="Technologies">
+                <li class="tag">Salesforce</li><li class="tag">HubSpot</li><li class="tag">Quality Assurance</li><li class="tag">CRM</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="section__kicker">Projects</p>
+          <h2 class="section__title" id="projects-title">Some cool stuff I've <span class="accent">worked on</span>.</h2>
+        </header>
+
+        <!-- Featured case study -->
+        <article class="case-study reveal">
+          <div class="case-study__intro">
+            <span class="tag tag--accent"><i class="fas fa-star" aria-hidden="true"></i> Featured case study</span>
+            <h3>Power BI Visualization for a Local Pharmacy</h3>
+            <p>An interactive dashboard that replaced outdated manual reports with automated, near real-time insight into sales, stock, and revenue.</p>
+            <ul class="tags" aria-label="Tools used">
+              <li class="tag">SQL</li><li class="tag">Python</li><li class="tag">Power BI</li>
+            </ul>
           </div>
+          <dl class="case-study__grid">
+            <div class="case-study__item">
+              <dt><i class="fas fa-circle-exclamation" aria-hidden="true"></i> Problem</dt>
+              <dd>The pharmacy struggled with inventory tracking and couldn't tell which products drove revenue. Decision-makers relied on manual reports that were outdated within days.</dd>
+            </div>
+            <div class="case-study__item">
+              <dt><i class="fas fa-compass-drafting" aria-hidden="true"></i> Approach</dt>
+              <dd>Connected Power BI to the sales database, automated daily data refreshes, and built views for product performance, stock levels, and revenue trends.</dd>
+            </div>
+            <div class="case-study__item case-study__item--wide">
+              <dt><i class="fas fa-arrow-trend-up" aria-hidden="true"></i> Impact</dt>
+              <dd>
+                <ul class="impact">
+                  <li><strong>70%</strong><span>faster decision-making</span></li>
+                  <li><strong>95%</strong><span>inventory accuracy</span></li>
+                  <li><strong>+15%</strong><span>focused promotions</span></li>
+                </ul>
+              </dd>
+            </div>
+          </dl>
+        </article>
+
+        <ul class="projects">
+          <li class="project reveal">
+            <div class="project__cover project__cover--a" aria-hidden="true"><i class="fas fa-user-graduate"></i></div>
+            <div class="project__body">
+              <span class="project__year">2026</span>
+              <h3 class="project__title">Academic Performance Counseling System</h3>
+              <p>A system for monitoring student academic performance and supporting counseling workflows.</p>
+            </div>
+          </li>
+          <li class="project reveal">
+            <div class="project__cover project__cover--b" aria-hidden="true"><i class="fas fa-code-compare"></i></div>
+            <div class="project__body">
+              <span class="project__year">2025</span>
+              <h3 class="project__title">R vs. Python: Linear Regression &amp; Decision Tree</h3>
+              <p>Comparing how R and Python build and evaluate linear regression and decision tree models.</p>
+              <ul class="tags" aria-label="Technologies"><li class="tag">R</li><li class="tag">Python</li><li class="tag">Machine Learning</li></ul>
+            </div>
+          </li>
+          <li class="project reveal">
+            <div class="project__cover project__cover--c" aria-hidden="true"><i class="fas fa-ticket"></i></div>
+            <div class="project__body">
+              <span class="project__year">2025</span>
+              <h3 class="project__title">Ticketing System</h3>
+              <p>A ticketing system built during the Alliance Software Jumpstart Program.</p>
+              <ul class="tags" aria-label="Context"><li class="tag">Alliance Jumpstart</li><li class="tag">Software Engineering</li></ul>
+            </div>
+          </li>
+          <li class="project reveal">
+            <div class="project__cover project__cover--d" aria-hidden="true"><i class="fas fa-radio"></i></div>
+            <div class="project__body">
+              <span class="project__year">2024</span>
+              <h3 class="project__title">ESP32 &amp; TEA5767 Radio</h3>
+              <p>An FM radio receiver built with an ESP32 microcontroller and a TEA5767 tuner module.</p>
+              <ul class="tags" aria-label="Technologies"><li class="tag">ESP32</li><li class="tag">TEA5767</li><li class="tag">Embedded</li></ul>
+            </div>
+          </li>
+          <li class="project reveal">
+            <div class="project__cover project__cover--e" aria-hidden="true"><i class="fas fa-gamepad"></i></div>
+            <div class="project__body">
+              <span class="project__year">2019 – 2020</span>
+              <h3 class="project__title">Adventure Quest Modules</h3>
+              <p>An interactive, offline learning application with top-down gameplay.</p>
+              <ul class="tags" aria-label="Technologies"><li class="tag">Unity</li><li class="tag">Game Dev</li></ul>
+            </div>
+          </li>
+          <li class="project project--more reveal">
+            <a class="project__more" href="https://github.com/PL0e" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github" aria-hidden="true"></i>
+              <span>See more on GitHub</span>
+              <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ CERTIFICATES ============ -->
+    <section class="section section--alt" id="certificates" aria-labelledby="certificates-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="section__kicker">Awards &amp; Certificates</p>
+          <h2 class="section__title" id="certificates-title">Always <span class="accent">learning</span>.</h2>
+        </header>
+
+        <ul class="certs">
+          <li class="cert cert--award reveal">
+            <i class="fas fa-trophy" aria-hidden="true"></i>
+            <div><h3>Python Competition – 3rd Place</h3><p>ICpEP Cebu · USJ-R</p></div>
+          </li>
+          <li class="cert reveal">
+            <i class="fas fa-server" aria-hidden="true"></i>
+            <div><h3>KodeKloud Engineer Certification</h3><p>AWS, Python, Linux, Docker &amp; Kubernetes</p></div>
+          </li>
+          <li class="cert reveal">
+            <i class="fas fa-laptop-code" aria-hidden="true"></i>
+            <div><h3>Software Engineering Certificate</h3><p>Alliance Software</p></div>
+          </li>
+          <li class="cert reveal">
+            <i class="fas fa-chart-simple" aria-hidden="true"></i>
+            <div><h3>Data Analytics Essentials</h3><p>Cisco</p></div>
+          </li>
+          <li class="cert reveal">
+            <i class="fab fa-python" aria-hidden="true"></i>
+            <div><h3>Data Analytics with Python</h3><p>CodeCamp</p></div>
+          </li>
+          <li class="cert reveal">
+            <i class="fas fa-database" aria-hidden="true"></i>
+            <div><h3>SQL and Relational Databases</h3><p>Cognitive Class</p></div>
+          </li>
+          <li class="cert reveal">
+            <i class="fas fa-leaf" aria-hidden="true"></i>
+            <div><h3>Introduction &amp; CRUD Operations</h3><p>MongoDB</p></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ OFF THE CLOCK (PETS) ============ -->
+    <section class="section" id="pets" aria-labelledby="pets-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="section__kicker">Off the clock</p>
+          <h2 class="section__title" id="pets-title">My <span class="accent">co-workers</span>.</h2>
+        </header>
+
+        <div class="pets">
+          <figure class="pet reveal">
+            <picture>
+              <source srcset="assets/img/garfield.webp" type="image/webp">
+              <img class="pet__img" src="assets/img/garfield.jpg" alt="Garfield, an orange cat, peeking out of a drawer labeled Dog and Cat Food" width="576" height="1024" loading="lazy">
+            </picture>
+            <figcaption>
+              <h3>Garfield</h3>
+              <p>A playful, curious cat who enjoys naps beside my laptop while I code.</p>
+            </figcaption>
+          </figure>
+          <figure class="pet reveal">
+            <div class="pet__img pet__img--placeholder" aria-hidden="true"><i class="fas fa-cat"></i></div>
+            <figcaption>
+              <h3>Buta</h3>
+              <p>A blind cat who is timid but very clingy.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CV CTA ============ -->
+    <section class="cta" aria-labelledby="cta-title">
+      <div class="container cta__inner reveal">
+        <div>
+          <h2 class="cta__title" id="cta-title">Want to know more?</h2>
+          <p>Grab a copy of my CV for the full picture of my experience and skills.</p>
+        </div>
+        <div class="cta__actions">
+          <a class="btn btn--primary" href="assets/resume_diaglendell_.pdf" download="Glendell-Dia-Resume.pdf">
+            <i class="fas fa-download" aria-hidden="true"></i> Download CV
+          </a>
+          <a class="btn btn--ghost" href="assets/resume_diaglendell_.pdf" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-eye" aria-hidden="true"></i> View online
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container contact">
+        <div class="contact__info reveal">
+          <p class="section__kicker">Hire Me</p>
+          <h2 class="section__title" id="contact-title">Let's build something <span class="accent">together</span>.</h2>
+          <p>I'm open to roles and projects in data analytics, data quality, and cloud / site reliability engineering. Send a message and I'll get back to you.</p>
+
+          <ul class="contact__list">
+            <li>
+              <a href="mailto:glendellsara@gmail.com">
+                <span class="contact__icon" aria-hidden="true"><i class="fas fa-envelope"></i></span>
+                <span><small>Email</small>glendellsara@gmail.com</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/glendell-dia-49760828b/" target="_blank" rel="noopener noreferrer">
+                <span class="contact__icon" aria-hidden="true"><i class="fab fa-linkedin-in"></i></span>
+                <span><small>LinkedIn</small>Glendell Dia</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/PL0e" target="_blank" rel="noopener noreferrer">
+                <span class="contact__icon" aria-hidden="true"><i class="fab fa-github"></i></span>
+                <span><small>GitHub</small>@PL0e</span>
+              </a>
+            </li>
+            <li>
+              <span class="contact__static">
+                <span class="contact__icon" aria-hidden="true"><i class="fas fa-location-dot"></i></span>
+                <span><small>Location</small>Lapu-Lapu City, Cebu, PH</span>
+              </span>
+            </li>
+          </ul>
         </div>
 
-        <div class="resume-preview" aria-label="Resume preview panel">
-          <iframe src="assets/resume_diaglendell_.pdf" title="Resume preview"></iframe>
-        </div>
+        <form class="form reveal" id="contact-form" novalidate>
+          <div class="form__row">
+            <label for="cf-name">Name</label>
+            <input id="cf-name" name="name" type="text" autocomplete="name" required placeholder="Your name">
+          </div>
+          <div class="form__row">
+            <label for="cf-email">Email</label>
+            <input id="cf-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+          </div>
+          <div class="form__row">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" rows="5" required placeholder="Tell me about your project or role..."></textarea>
+          </div>
+          <button class="btn btn--primary btn--block" type="submit">
+            <i class="fas fa-paper-plane" aria-hidden="true"></i> Send message
+          </button>
+          <p class="form__note" id="form-status" role="status" aria-live="polite">This opens your email app with the message ready to send.</p>
+        </form>
+      </div>
+    </section>
+  </main>
 
-  <script src="script.js"></script>
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="year">2026</span> Glendell S. Dia. All rights reserved.</p>
+      <ul class="socials socials--small" aria-label="Social links">
+        <li><a href="https://www.linkedin.com/in/glendell-dia-49760828b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+        <li><a href="https://github.com/PL0e" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in new tab)"><i class="fab fa-github" aria-hidden="true"></i></a></li>
+        <li><a href="mailto:glendellsara@gmail.com" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a></li>
+      </ul>
+      <a class="footer__top" href="#top">Back to top <i class="fas fa-arrow-up" aria-hidden="true"></i></a>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
