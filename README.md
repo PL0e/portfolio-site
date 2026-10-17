@@ -50,6 +50,9 @@ portfolio-site/
   `.project__cover--a` … `--g` in `styles.css`. Add `project--wide` to make a card span two columns on desktop.
 - **Add a job:** copy an `<li class="timeline__item">` block. Add `timeline__item--current` to highlight the current role.
 - **Profile photo:** replace `assets/img/profile.jpg` and `profile.webp` (4:5 ratio, ~640×800).
+- **Pixel octopus logo:** `assets/img/octopus.svg` (16×16 pixel grid). The same shapes are inlined in `index.html`
+  as `<symbol id="octo">` (used by the header, footer, and background) and in the favicon data URI, so update all three
+  together. The drifting background octopi and bubbles are the `.bg-play` elements right after `<body>`.
 
 ## Hinabi concept store
 
