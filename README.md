@@ -77,11 +77,15 @@ All four load `projects/shared/demo-kit.js`, which provides:
     Performance.
   - **Keywords:** each target keyword from `<html data-target-keywords="kw one|kw two">`, with its placement in the
     title, meta description, H1, H2s, and first 100 words, plus count, density, and the page's most frequent terms.
+  - **Search:** a Google Search Console-style performance report (clicks, impressions, CTR, average position,
+    a 28-day chart, top queries, devices). **This tab is generated sample data**, clearly labeled in the UI: it is
+    seeded per page so it stays stable and internally consistent (clicks = impressions × CTR, totals = sum of days),
+    with queries built from the page's target keywords.
   - **Vitals:** LCP, CLS, FCP, and TTFB measured in the browser, plus requests and transfer size.
   - **Events:** every GA4 event as it fires.
 
-  Search volume, rankings, traffic, and backlinks are deliberately not shown: they need real search data, which a
-  noindexed concept site doesn't have.
+  Apart from the labeled sample Search tab, no search volume, rankings, traffic, or backlinks are shown: real figures
+  need real search data, which a noindexed concept site doesn't have.
 
 ## Contact form
 

@@ -363,6 +363,106 @@
   }
 
   // ---------------------------------------------------------------------------
+  // SAMPLE search performance (Search Console-style). These numbers are
+  // generated, not real: the concept stores are noindexed and have no search
+  // traffic. The panel labels them as sample data everywhere they appear.
+  // Generation is seeded per page, so values are stable across reloads and
+  // internally consistent (clicks = impressions × CTR, totals = sum of days).
+  // ---------------------------------------------------------------------------
+  function seededRandom(text) {
+    let h = 1779033703 ^ text.length
+    for (let i = 0; i < text.length; i++) {
+      h = Math.imul(h ^ text.charCodeAt(i), 3432918353)
+      h = (h << 13) | (h >>> 19)
+    }
+    let a = h >>> 0
+    return () => {
+      a = (a + 0x6d2b79f5) | 0
+      let t = Math.imul(a ^ (a >>> 15), 1 | a)
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296
+    }
+  }
+
+  let searchCache
+  function searchSample() {
+    if (searchCache) return searchCache
+    const rand = seededRandom(doc.title)
+    const between = (lo, hi) => lo + rand() * (hi - lo)
+    // Approximate organic CTR by position (~28% at #1, ~8% at #5, ~2% at #10).
+    const ctrAt = (pos) => Math.max(0.004, 0.28 * Math.exp(-0.3 * (pos - 1)) * between(0.8, 1.2))
+
+    const brand = (($('meta[property="og:site_name"]') || {}).content || doc.title.split("|")[0]).trim().toLowerCase()
+    const targets = (doc.documentElement.dataset.targetKeywords || "").split("|").map((k) => k.trim().toLowerCase()).filter(Boolean)
+    const rows = [{ query: brand, impressions: Math.round(between(320, 640)), position: between(1, 1.6) }]
+    targets.forEach((kw, i) => {
+      rows.push({ query: kw, impressions: Math.round(between(900, 3200) / (i + 1)), position: between(7, 18) })
+      rows.push({ query: `${kw} cebu`, impressions: Math.round(between(140, 520)), position: between(2.5, 8) })
+      if (i < 2) rows.push({ query: `best ${kw}`, impressions: Math.round(between(200, 700)), position: between(9, 24) })
+    })
+    rows.forEach((r) => {
+      r.clicks = Math.round(r.impressions * ctrAt(r.position))
+      r.ctr = r.impressions ? r.clicks / r.impressions : 0
+    })
+    rows.sort((a, b) => b.clicks - a.clicks || b.impressions - a.impressions)
+
+    const clicks = rows.reduce((t, r) => t + r.clicks, 0)
+    const impressions = rows.reduce((t, r) => t + r.impressions, 0)
+    const position = rows.reduce((t, r) => t + r.position * r.impressions, 0) / impressions
+
+    // Spread totals over 28 days: gentle upward trend, softer weekends, noise.
+    const DAYS = 28
+    const end = new Date()
+    end.setHours(0, 0, 0, 0)
+    const dates = Array.from({ length: DAYS }, (_, i) => new Date(end.getTime() - (DAYS - 1 - i) * 86400000))
+    const weights = dates.map((d, i) => (1 + 0.35 * (i / (DAYS - 1))) * ([0, 6].includes(d.getDay()) ? 0.82 : 1.06) * between(0.85, 1.15))
+    // Largest-remainder rounding: integer days that sum exactly to the total,
+    // without piling the rounding leftovers onto a single day.
+    const spread = (total) => {
+      const sum = weights.reduce((t, w) => t + w, 0)
+      const exact = weights.map((w) => (total * w) / sum)
+      const out = exact.map(Math.floor)
+      let left = total - out.reduce((t, v) => t + v, 0)
+      exact
+        .map((v, i) => [v - Math.floor(v), i])
+        .sort((a, b) => b[0] - a[0])
+        .forEach(([, i]) => {
+          if (left > 0) {
+            out[i]++
+            left--
+          }
+        })
+      return out
+    }
+    const dailyImpressions = spread(impressions)
+    const dailyClicks = spread(clicks).map((c, i) => Math.min(c, dailyImpressions[i]))
+    // Re-add anything the clamp removed, one click at a time, to days with room.
+    let missing = clicks - dailyClicks.reduce((t, v) => t + v, 0)
+    for (let i = 0; missing > 0 && i < DAYS * 4; i++) {
+      const d = i % DAYS
+      if (dailyClicks[d] < dailyImpressions[d]) {
+        dailyClicks[d]++
+        missing--
+      }
+    }
+
+    const mobile = between(0.66, 0.76)
+    const tablet = between(0.03, 0.06)
+    searchCache = {
+      dates,
+      daily: { clicks: dailyClicks, impressions: dailyImpressions },
+      totals: { clicks, impressions, ctr: clicks / impressions, position },
+      rows,
+      devices: [
+        ["Mobile", mobile],
+        ["Desktop", 1 - mobile - tablet],
+        ["Tablet", tablet],
+      ],
+    }
+    return searchCache
+  }
+
+  // ---------------------------------------------------------------------------
   // Panel UI
   // ---------------------------------------------------------------------------
   const panel = (() => {
@@ -380,13 +480,15 @@
           <button class="dk-close" type="button" aria-label="Close panel">×</button>
         </header>
         <div class="dk-tabs" role="group" aria-label="Panel views">
-          <button type="button" class="dk-tab is-active" data-tab="audit" aria-pressed="true">Site audit</button>
+          <button type="button" class="dk-tab is-active" data-tab="audit" aria-pressed="true">Audit</button>
           <button type="button" class="dk-tab" data-tab="keywords" aria-pressed="false">Keywords</button>
+          <button type="button" class="dk-tab" data-tab="search" aria-pressed="false">Search</button>
           <button type="button" class="dk-tab" data-tab="vitals" aria-pressed="false">Vitals</button>
           <button type="button" class="dk-tab" data-tab="events" aria-pressed="false">Events <span class="dk-count">0</span></button>
         </div>
         <div class="dk-body" data-view="audit"></div>
         <div class="dk-body" data-view="keywords" hidden></div>
+        <div class="dk-body" data-view="search" hidden></div>
         <div class="dk-body" data-view="vitals" hidden></div>
         <div class="dk-body" data-view="events" hidden></div>
         <p class="dk-foot">${gaId ? `Sending to GA4 property <code>${gaId.replace(/</g, "")}</code>` : "GA4 ID not set: events stay in <code>dataLayer</code> (demo mode)."}</p>
@@ -404,6 +506,7 @@
       if (state) {
         renderAudit()
         renderKeywords()
+        renderSearch()
         renderVitals()
         renderEvents()
       }
@@ -490,6 +593,122 @@
         <p class="dk-note">${k.totalWords} words analyzed. Placement and density are measured from the live page; no search-volume data.</p>`
     }
 
+    // Search tab: sample Search Console-style report (see searchSample()).
+    let searchMetric = "clicks"
+    const nf = new Intl.NumberFormat("en-US")
+    const shortDate = (d) => d.toLocaleDateString("en-US", { month: "short", day: "numeric" })
+
+    function renderSearch() {
+      if (box.hidden) return
+      const s = searchSample()
+      const tile = (key, label, value, chartable) =>
+        chartable
+          ? `<button type="button" class="dk-stat${searchMetric === key ? " is-active" : ""}" data-metric="${key}" aria-pressed="${searchMetric === key}"><span>${label}</span><strong>${value}</strong></button>`
+          : `<div class="dk-stat dk-stat--static"><span>${label}</span><strong>${value}</strong></div>`
+
+      views.search.innerHTML = `
+        <p class="dk-sample"><strong>Sample data</strong> · illustrative only, not real search traffic</p>
+        <p class="dk-range">Search performance · last 28 days</p>
+        <div class="dk-stats">
+          ${tile("clicks", "Total clicks", nf.format(s.totals.clicks), true)}
+          ${tile("impressions", "Impressions", nf.format(s.totals.impressions), true)}
+          ${tile("ctr", "Avg. CTR", `${(s.totals.ctr * 100).toFixed(1)}%`, false)}
+          ${tile("position", "Avg. position", s.totals.position.toFixed(1), false)}
+        </div>
+        <div class="dk-chart" tabindex="0" role="img" aria-label="">
+          <svg class="dk-chart__svg" viewBox="0 0 360 140" aria-hidden="true"></svg>
+          <div class="dk-tip" hidden></div>
+        </div>
+        <p class="dk-sr" aria-live="polite"></p>
+        <h3 class="dk-h">Top queries</h3>
+        <div class="dk-table-wrap">
+          <table class="dk-table">
+            <caption class="dk-sr">Sample top search queries, last 28 days</caption>
+            <thead><tr><th scope="col">Query</th><th scope="col">Clicks</th><th scope="col">Impr.</th><th scope="col">CTR</th><th scope="col">Pos.</th></tr></thead>
+            <tbody>${s.rows
+              .slice(0, 8)
+              .map((r) => `<tr><th scope="row">${esc(r.query)}</th><td>${nf.format(r.clicks)}</td><td>${nf.format(r.impressions)}</td><td>${(r.ctr * 100).toFixed(1)}%</td><td>${r.position.toFixed(1)}</td></tr>`)
+              .join("")}</tbody>
+          </table>
+        </div>
+        <h3 class="dk-h">Clicks by device</h3>
+        <ul class="dk-bars">${s.devices
+          .map(([d, share]) => `<li><span>${d}</span><span class="dk-bar"><span class="dk-bar--series" style="width:${(share * 100).toFixed(1)}%"></span></span><em>${Math.round(share * 100)}%</em></li>`)
+          .join("")}</ul>
+        <p class="dk-note">Generated sample data in the shape of a Google Search Console performance report. The live audit, keywords, vitals, and events tabs are measured from this page.</p>`
+
+      $$(".dk-stat[data-metric]", views.search).forEach((b) =>
+        b.addEventListener("click", () => {
+          searchMetric = b.dataset.metric
+          renderSearch()
+        }),
+      )
+      drawChart(s)
+    }
+
+    function drawChart(s) {
+      const wrap = $(".dk-chart", views.search)
+      const svg = $(".dk-chart__svg", wrap)
+      const tip = $(".dk-tip", wrap)
+      const live = $(".dk-sr", views.search)
+      const values = s.daily[searchMetric]
+      const label = searchMetric === "clicks" ? "Clicks" : "Impressions"
+      const W = 360, H = 140, L = 34, R = 6, T = 8, B = 20
+      const max = Math.max(...values)
+      const step = Math.pow(10, Math.floor(Math.log10(max || 1)))
+      const top = Math.ceil(max / step) * step || 1
+      const x = (i) => L + (i * (W - L - R)) / (values.length - 1)
+      const y = (v) => T + (1 - v / top) * (H - T - B)
+      const grid = [0, 0.5, 1].map((f) => {
+        const v = Math.round(top * f)
+        return `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" class="dk-grid"/><text x="${L - 6}" y="${y(v) + 3}" class="dk-axis" text-anchor="end">${nf.format(v)}</text>`
+      })
+      const pts = values.map((v, i) => `${x(i).toFixed(1)},${y(v).toFixed(1)}`)
+      svg.innerHTML = `
+        ${grid.join("")}
+        <path d="M${pts.join("L")}L${x(values.length - 1)},${y(0)}L${x(0)},${y(0)}Z" class="dk-area"/>
+        <path d="M${pts.join("L")}" class="dk-line"/>
+        <text x="${L}" y="${H - 5}" class="dk-axis">${shortDate(s.dates[0])}</text>
+        <text x="${W - R}" y="${H - 5}" class="dk-axis" text-anchor="end">${shortDate(s.dates[s.dates.length - 1])}</text>
+        <line class="dk-cross" y1="${T}" y2="${H - B}" visibility="hidden"/>
+        <circle class="dk-dot" r="4" visibility="hidden"/>`
+      wrap.setAttribute("aria-label", `${label} per day, sample data, ${shortDate(s.dates[0])} to ${shortDate(s.dates[s.dates.length - 1])}. Use left and right arrow keys to read each day.`)
+
+      const cross = $(".dk-cross", svg)
+      const dot = $(".dk-dot", svg)
+      let current = -1
+      const show = (i, announce) => {
+        current = Math.max(0, Math.min(values.length - 1, i))
+        const cx = x(current), cy = y(values[current])
+        cross.setAttribute("x1", cx); cross.setAttribute("x2", cx); cross.setAttribute("visibility", "visible")
+        dot.setAttribute("cx", cx); dot.setAttribute("cy", cy); dot.setAttribute("visibility", "visible")
+        tip.hidden = false
+        tip.innerHTML = `<span>${shortDate(s.dates[current])}</span><strong>${nf.format(values[current])}</strong> ${label.toLowerCase()}`
+        const pct = cx / W
+        tip.style.left = `${pct * 100}%`
+        tip.style.transform = `translateX(${pct > 0.7 ? "-100%" : pct < 0.3 ? "0" : "-50%"})`
+        if (announce) live.textContent = `${shortDate(s.dates[current])}: ${nf.format(values[current])} ${label.toLowerCase()}`
+      }
+      const hide = () => {
+        cross.setAttribute("visibility", "hidden")
+        dot.setAttribute("visibility", "hidden")
+        tip.hidden = true
+      }
+      wrap.addEventListener("pointermove", (e) => {
+        const r = wrap.getBoundingClientRect()
+        const px = ((e.clientX - r.left) / r.width) * W
+        show(Math.round(((px - L) / (W - L - R)) * (values.length - 1)), false)
+      })
+      wrap.addEventListener("pointerleave", hide)
+      wrap.addEventListener("blur", hide)
+      wrap.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+          e.preventDefault()
+          show(current < 0 ? values.length - 1 : current + (e.key === "ArrowRight" ? 1 : -1), true)
+        }
+      })
+    }
+
     function renderVitals() {
       if (box.hidden) return
       const w = pageWeight()
@@ -521,7 +740,7 @@
     }
 
     doc.body.appendChild(root)
-    return { renderAudit, renderKeywords, renderVitals, renderEvents }
+    return { renderAudit, renderKeywords, renderSearch, renderVitals, renderEvents }
   })()
 
   // ---------------------------------------------------------------------------
@@ -550,5 +769,5 @@
   )
 
   // Exposed for testing and for the portfolio's audit script.
-  window.DemoKit = { audit, keywords, vitals, events, pageWeight, track }
+  window.DemoKit = { audit, keywords, searchSample, vitals, events, pageWeight, track }
 })()
