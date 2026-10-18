@@ -41,11 +41,12 @@
     const ctrAt = (pos) => Math.max(0.004, 0.28 * Math.exp(-0.3 * (pos - 1)) * between(0.8, 1.2))
 
     const targets = keywords.map((k) => k.trim().toLowerCase()).filter(Boolean)
-    const rows = [{ query: brand.trim().toLowerCase(), impressions: Math.round(between(320, 640)), position: between(1, 1.6) }]
+    // Volumes sized for a small, new store: roughly 25–45 clicks per 28 days.
+    const rows = [{ query: brand.trim().toLowerCase(), impressions: Math.round(between(45, 90)), position: between(1, 1.6) }]
     targets.forEach((kw, i) => {
-      rows.push({ query: kw, impressions: Math.round(between(900, 3200) / (i + 1)), position: between(7, 18) })
-      rows.push({ query: `${kw} cebu`, impressions: Math.round(between(140, 520)), position: between(2.5, 8) })
-      if (i < 2) rows.push({ query: `best ${kw}`, impressions: Math.round(between(200, 700)), position: between(9, 24) })
+      rows.push({ query: kw, impressions: Math.round(between(130, 460) / (i + 1)), position: between(7, 18) })
+      rows.push({ query: `${kw} cebu`, impressions: Math.round(between(20, 75)), position: between(2.5, 8) })
+      if (i < 2) rows.push({ query: `best ${kw}`, impressions: Math.round(between(30, 100)), position: between(9, 24) })
     })
     rows.forEach((r) => {
       r.clicks = Math.round(r.impressions * ctrAt(r.position))
@@ -83,7 +84,16 @@
       return out
     }
     const dailyImpressions = spread(impressions)
-    const dailyClicks = spread(clicks).map((c, i) => Math.min(c, dailyImpressions[i]))
+    // Clicks are few per day, so even spreading would give an unnatural run of
+    // 1s and 2s. Instead, drop each click on a random day weighted by that
+    // day's impressions: realistic 0–4 click days that still sum exactly.
+    const dailyClicks = new Array(DAYS).fill(0)
+    for (let c = 0; c < clicks; c++) {
+      let r = rand() * impressions
+      let d = 0
+      while (d < DAYS - 1 && r >= dailyImpressions[d]) r -= dailyImpressions[d++]
+      dailyClicks[d] = Math.min(dailyClicks[d] + 1, dailyImpressions[d])
+    }
     // Re-add anything the clamp removed, one click at a time, to days with room.
     let missing = clicks - dailyClicks.reduce((t, v) => t + v, 0)
     for (let i = 0; missing > 0 && i < DAYS * 4; i++) {
