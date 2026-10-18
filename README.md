@@ -65,6 +65,11 @@ portfolio-site/
 and JSON-LD (store type, products with offers, plus FAQPage / BreadcrumbList / Menu where relevant). Because the
 brands and prices are made up, every demo uses `noindex` so none appears in search results as a real store.
 
+**Photos:** each store's `img/` folder holds web-optimized photos (WebP + JPEG fallback) found through
+[Openverse](https://openverse.org) and limited to **CC0** or **CC BY** licenses. `img/credits.json` records each
+photo's title, author, source, and license, and every store lists those credits in its footer as CC BY requires.
+Photos with third-party logos/branded products or prominent identifiable faces were deliberately avoided.
+
 All four load `projects/shared/demo-kit.js`, which provides:
 
 - **Store behavior:** category filters, demo cart, newsletter form (nothing is stored).

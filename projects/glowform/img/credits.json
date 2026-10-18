@@ -1,0 +1,54 @@
+{
+ "g1": {
+  "title": "Edison bulbs",
+  "creator": "tom_bullock",
+  "creator_url": "https://www.flickr.com/photos/22206162@N03",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0/",
+  "source": "flickr",
+  "source_url": "https://www.flickr.com/photos/22206162@N03/26451322542",
+  "size": [
+   800,
+   600
+  ]
+ },
+ "g2": {
+  "title": "Edison Bulb Chandelier",
+  "creator": "nan palmero",
+  "creator_url": "https://www.flickr.com/photos/97402086@N00",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0/",
+  "source": "flickr",
+  "source_url": "https://www.flickr.com/photos/97402086@N00/16858314872",
+  "size": [
+   800,
+   600
+  ]
+ },
+ "g3": {
+  "title": "Edison Bulbs",
+  "creator": "wwward0",
+  "creator_url": "https://www.flickr.com/photos/15802578@N00",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0/",
+  "source": "flickr",
+  "source_url": "https://www.flickr.com/photos/15802578@N00/36983787345",
+  "size": [
+   800,
+   600
+  ]
+ },
+ "g4": {
+  "title": "Tungsten light bulb inside rusty old holder",
+  "creator": "Horia Varlan",
+  "creator_url": "https://www.flickr.com/photos/10361931@N06",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0/",
+  "source": "flickr",
+  "source_url": "https://www.flickr.com/photos/10361931@N06/4273926684",
+  "size": [
+   800,
+   600
+  ]
+ }
+}

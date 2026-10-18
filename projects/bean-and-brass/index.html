@@ -121,28 +121,10 @@
             <a class="button button--line" href="#cafe-menu">See the café menu</a>
           </div>
         </div>
-        <div class="hero__art" aria-hidden="true">
-          <svg viewBox="0 0 420 420">
-            <circle cx="210" cy="220" r="180" fill="#ead9c0"/>
-            <g class="steam" fill="none" stroke="#fffaf3" stroke-width="7" stroke-linecap="round">
-              <path d="M200 250c-14-20 14-30 0-50"/>
-              <path d="M224 250c-14-20 14-30 0-50"/>
-            </g>
-            <rect x="96" y="84" width="228" height="58" rx="14" fill="#2b1d16"/>
-            <rect x="110" y="96" width="60" height="34" rx="8" fill="#c08a3e"/>
-            <circle cx="282" cy="113" r="16" fill="#efe3d0"/>
-            <path d="M282 113l8-8" stroke="#2b1d16" stroke-width="3" stroke-linecap="round"/>
-            <rect x="110" y="142" width="200" height="160" rx="10" fill="#5a3a28"/>
-            <rect x="180" y="150" width="60" height="22" rx="6" fill="#c08a3e"/>
-            <path d="M210 172v22" stroke="#c08a3e" stroke-width="10"/>
-            <path d="M240 160l70-60" stroke="#c08a3e" stroke-width="9" stroke-linecap="round"/>
-            <circle cx="314" cy="96" r="12" fill="#2b1d16"/>
-            <path d="M184 262h52l-6 36h-40z" fill="#fffaf3"/>
-            <path d="M236 270h10a10 10 0 0 1 0 20h-12" fill="none" stroke="#fffaf3" stroke-width="6"/>
-            <rect x="96" y="302" width="228" height="22" rx="8" fill="#2b1d16"/>
-            <path d="M120 313h180" stroke="#c08a3e" stroke-width="3" stroke-dasharray="6 6"/>
-          </svg>
-        </div>
+        <figure class="hero__art hero__art--photo">
+          <picture><source srcset="img/hero.webp" type="image/webp"><img src="img/hero.jpg" alt="Hot water poured from a kettle into a pour-over coffee dripper" width="880" height="1100" fetchpriority="high" decoding="async"></picture>
+          <span class="hero__stamp" aria-hidden="true">Fresh<br>roast</span>
+        </figure>
       </div>
     </section>
 
@@ -271,6 +253,18 @@
       </div>
     </section>
 
+
+    <section class="section gallery" aria-labelledby="gallery-h">
+      <div class="wrap">
+        <p class="eyebrow">From bean to cup</p>
+        <h2 id="gallery-h">Coffee beans, espresso &amp; pour-over</h2>
+        <ul class="gallery__grid">
+          <li><figure><picture><source srcset="img/g1.webp" type="image/webp"><img src="img/g1.jpg" alt="Roasted coffee beans spilling from a burlap sack" width="800" height="600" loading="lazy" decoding="async"></picture><figcaption>Roasted coffee beans</figcaption></figure></li>
+          <li><figure><picture><source srcset="img/g2.webp" type="image/webp"><img src="img/g2.jpg" alt="Close-up of an espresso machine group head and portafilter" width="800" height="600" loading="lazy" decoding="async"></picture><figcaption>Pulling an espresso shot</figcaption></figure></li>
+          <li><figure><picture><source srcset="img/g3.webp" type="image/webp"><img src="img/g3.jpg" alt="Pour-over drippers and glass servers lined up on a café bar" width="800" height="600" loading="lazy" decoding="async"></picture><figcaption>The pour-over bar</figcaption></figure></li>
+        </ul>
+      </div>
+    </section>
     <section class="section section--dark" id="cafe-menu" aria-labelledby="menu-h">
       <div class="wrap cafe">
         <div>
@@ -347,6 +341,16 @@
     <div class="wrap footer__inner">
       <p><strong>Bean &amp; Brass</strong>: a concept café and e-commerce design by <a href="../../">Glendell S. Dia</a>.</p>
       <p>Fictional brand for portfolio purposes. Product names and prices are illustrative.</p>
+
+      <div class="credits">
+        <p class="credits__title">Photo credits</p>
+        <ul>
+          <li>“<a href="https://commons.wikimedia.org/w/index.php?curid=70214599">Manual drip (pour-over) coffee</a>” by <a href="https://pixabay.com/users/0102oxy-5706240">Kim Sanso</a>, via Wikimedia Commons, <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.en">CC0 1.0</a></li>
+          <li>“<a href="https://www.flickr.com/photos/98678037@N00/2295096211">Coffee Beans</a>” by <a href="https://www.flickr.com/photos/98678037@N00">Stirling Noyes</a>, via Flickr, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></li>
+          <li>“<a href="https://www.flickr.com/photos/31383674@N00/10529091736">Espresso machine</a>” by <a href="https://www.flickr.com/photos/31383674@N00">JMacPherson</a>, via Flickr, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></li>
+          <li>“<a href="https://www.flickr.com/photos/97402086@N00/14373506594">Pour Over Coffee with a Hario V60 at Fourteen Eighteen Coffehouse</a>” by <a href="https://www.flickr.com/photos/97402086@N00">nan palmero</a>, via Flickr, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></li>
+        </ul>
+      </div>
     </div>
   </footer>
 
