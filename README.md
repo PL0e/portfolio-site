@@ -65,8 +65,8 @@ portfolio-site/
 and JSON-LD (store type, products with offers, plus FAQPage / BreadcrumbList / Menu where relevant). Because the
 brands and prices are made up, every demo uses `noindex` so none appears in search results as a real store.
 
-**Hinabi woven art:** `projects/hinabi/img/art/` holds flat SVG art used as CSS backgrounds: a basket-weave page
-texture (`weave-tile.svg`), an over/under plain-weave medallion (`medallion.svg`), an inabel-style divider band
+**Hinabi woven art:** Hinabi uses a dark luxe editorial theme. `projects/hinabi/img/art/` holds flat SVG art used as CSS backgrounds: basket-weave page
+textures (`weave-tile-dark.svg`, plus the light `weave-tile.svg`), an over/under plain-weave medallion (`medallion.svg`), an inabel-style divider band
 (`inabel-band.svg`), and a banig diamond tile (`banig-tile.svg`). Keeping them as CSS backgrounds keeps the HTML lean.
 
 **Photos:** each store's `img/` folder holds web-optimized photos (WebP + JPEG fallback) found through
