@@ -65,6 +65,10 @@ portfolio-site/
 and JSON-LD (store type, products with offers, plus FAQPage / BreadcrumbList / Menu where relevant). Because the
 brands and prices are made up, every demo uses `noindex` so none appears in search results as a real store.
 
+**Hinabi woven art:** `projects/hinabi/img/art/` holds flat SVG art used as CSS backgrounds: a basket-weave page
+texture (`weave-tile.svg`), an over/under plain-weave medallion (`medallion.svg`), an inabel-style divider band
+(`inabel-band.svg`), and a banig diamond tile (`banig-tile.svg`). Keeping them as CSS backgrounds keeps the HTML lean.
+
 **Photos:** each store's `img/` folder holds web-optimized photos (WebP + JPEG fallback) found through
 [Openverse](https://openverse.org) and limited to **CC0** or **CC BY** licenses. `img/credits.json` records each
 photo's title, author, source, and license, and every store lists those credits in its footer as CC BY requires.
