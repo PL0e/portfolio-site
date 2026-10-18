@@ -200,6 +200,100 @@
     setStatus(`Opening your email app… If nothing happens, email me directly at ${EMAIL_TO}.`, "success")
   })
 
+  // ---------- Store cards: sample search performance mini dashboards ----------
+  // Same generator as the demo pages (projects/shared/search-sample.js), so the
+  // numbers match each store's own "Search" tab. Clearly labeled sample data.
+  const perfEls = document.querySelectorAll("[data-search-sample]")
+  if (perfEls.length && window.SearchSample) {
+    const nf = new Intl.NumberFormat("en-US")
+    const day = (d) => d.toLocaleDateString("en-US", { month: "short", day: "numeric" })
+
+    perfEls.forEach((el) => {
+      const s = window.SearchSample.generate({
+        title: el.dataset.title,
+        brand: el.dataset.brand,
+        keywords: el.dataset.keywords.split("|"),
+      })
+      const values = s.daily.clicks
+      const W = 300, H = 56, P = 4
+      const max = Math.max(...values) || 1
+      const min = Math.min(...values)
+      const x = (i) => P + (i * (W - 2 * P)) / (values.length - 1)
+      const y = (v) => P + (1 - v / max) * (H - 2 * P)
+      const pts = values.map((v, i) => `${x(i).toFixed(1)},${y(v).toFixed(1)}`)
+      const first = day(s.dates[0])
+      const last = day(s.dates[s.dates.length - 1])
+
+      el.innerHTML = `
+        <div class="perf__head">
+          <span>Search performance · last 28 days</span>
+          <span class="perf__badge">Sample data</span>
+        </div>
+        <dl class="perf__stats">
+          <div><dt>Clicks</dt><dd>${nf.format(s.totals.clicks)}</dd></div>
+          <div><dt>Impressions</dt><dd>${nf.format(s.totals.impressions)}</dd></div>
+          <div><dt>Avg. CTR</dt><dd>${(s.totals.ctr * 100).toFixed(1)}%</dd></div>
+          <div><dt>Avg. position</dt><dd>${s.totals.position.toFixed(1)}</dd></div>
+        </dl>
+        <div class="perf__spark" tabindex="0" role="img"
+             aria-label="Daily clicks, sample data, ${first} to ${last}, between ${min} and ${max} per day. Use left and right arrow keys to read each day.">
+          <svg viewBox="0 0 ${W} ${H}" aria-hidden="true">
+            <path class="perf__area" d="M${pts.join("L")}L${x(values.length - 1)},${H - P}L${x(0)},${H - P}Z"/>
+            <path class="perf__line" d="M${pts.join("L")}"/>
+            <line class="perf__cross" y1="${P}" y2="${H - P}" visibility="hidden"/>
+            <circle class="perf__dot" r="3.5" visibility="hidden"/>
+          </svg>
+          <div class="perf__tip" hidden></div>
+        </div>
+        <div class="perf__axis" aria-hidden="true"><span>${first}</span><span>Daily clicks</span><span>${last}</span></div>
+        <p class="sr-only" aria-live="polite"></p>`
+
+      const spark = el.querySelector(".perf__spark")
+      const cross = el.querySelector(".perf__cross")
+      const dot = el.querySelector(".perf__dot")
+      const tip = el.querySelector(".perf__tip")
+      const live = el.querySelector(".sr-only")
+      let current = -1
+
+      const show = (i, announce) => {
+        current = Math.max(0, Math.min(values.length - 1, i))
+        const cx = x(current)
+        cross.setAttribute("x1", cx)
+        cross.setAttribute("x2", cx)
+        cross.setAttribute("visibility", "visible")
+        dot.setAttribute("cx", cx)
+        dot.setAttribute("cy", y(values[current]))
+        dot.setAttribute("visibility", "visible")
+        const text = `${day(s.dates[current])} · ${values[current]} click${values[current] === 1 ? "" : "s"}`
+        tip.textContent = text
+        tip.hidden = false
+        const pct = cx / W
+        tip.style.left = `${pct * 100}%`
+        tip.style.transform = `translateX(${pct > 0.7 ? "-100%" : pct < 0.3 ? "0" : "-50%"})`
+        if (announce) live.textContent = text
+      }
+      const hide = () => {
+        cross.setAttribute("visibility", "hidden")
+        dot.setAttribute("visibility", "hidden")
+        tip.hidden = true
+      }
+
+      spark.addEventListener("pointermove", (e) => {
+        const r = spark.getBoundingClientRect()
+        const px = ((e.clientX - r.left) / r.width) * W
+        show(Math.round(((px - P) / (W - 2 * P)) * (values.length - 1)), false)
+      })
+      spark.addEventListener("pointerleave", hide)
+      spark.addEventListener("blur", hide)
+      spark.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+          e.preventDefault()
+          show(current < 0 ? values.length - 1 : current + (e.key === "ArrowRight" ? 1 : -1), true)
+        }
+      })
+    })
+  }
+
   // ---------- Footer year ----------
   const year = document.getElementById("year")
   if (year) year.textContent = new Date().getFullYear()

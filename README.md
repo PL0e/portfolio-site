@@ -80,7 +80,10 @@ All four load `projects/shared/demo-kit.js`, which provides:
   - **Search:** a Google Search Console-style performance report (clicks, impressions, CTR, average position,
     a 28-day chart, top queries, devices). **This tab is generated sample data**, clearly labeled in the UI: it is
     seeded per page so it stays stable and internally consistent (clicks = impressions × CTR, totals = sum of days),
-    with queries built from the page's target keywords.
+    with queries built from the page's target keywords. The generator is `projects/shared/search-sample.js`; the
+    portfolio's storefront cards load the same file to show a mini dashboard (totals + daily-clicks sparkline), so the
+    card and the store always show identical numbers. Each card's `data-title`, `data-brand`, and `data-keywords` must
+    match that store's `<title>`, `og:site_name`, and `data-target-keywords`.
   - **Vitals:** LCP, CLS, FCP, and TTFB measured in the browser, plus requests and transfer size.
   - **Events:** every GA4 event as it fires.
 
