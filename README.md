@@ -99,6 +99,15 @@ All four load `projects/shared/demo-kit.js`, which provides:
   Apart from the labeled sample Search tab, no search volume, rankings, traffic, or backlinks are shown: real figures
   need real search data, which a noindexed concept site doesn't have.
 
+## Blog
+
+`blog/` holds the Writing section: `blog/index.html` (the list) and one folder per article, e.g.
+`blog/seo-and-geo-in-web-development/` with its own `og-image.jpg`. Article pages reuse `../styles.css` for the
+header, footer, and theme, plus `blog/blog.css` (reading layout) and `blog/blog.js` (mobile menu, table-of-contents
+highlight). Each article carries BlogPosting, BreadcrumbList, and (where the Q&A is visible on the page) FAQPage
+JSON-LD. `sitemap.xml` lists the homepage and blog pages; the noindexed concept stores are deliberately excluded.
+Submit it in Google Search Console after deploying.
+
 ## Contact form
 
 GitHub Pages can't run a server, so the form builds a `mailto:` link to open the visitor's email app with the

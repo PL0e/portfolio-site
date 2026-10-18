@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Concept store demos under /projects/ are noindex (fictional brands), so they are intentionally left out. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://pl0e.github.io/portfolio-site/</loc>
+    <lastmod>2026-10-18</lastmod>
+  </url>
+  <url>
+    <loc>https://pl0e.github.io/portfolio-site/blog/</loc>
+    <lastmod>2026-10-18</lastmod>
+  </url>
+  <url>
+    <loc>https://pl0e.github.io/portfolio-site/blog/seo-and-geo-in-web-development/</loc>
+    <lastmod>2026-10-18</lastmod>
+  </url>
+</urlset>
