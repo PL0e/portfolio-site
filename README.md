@@ -48,6 +48,11 @@ portfolio-site/
 ## Common edits
 
 - **Colors / fonts:** change the variables in `:root` at the top of `styles.css` (accent is `--accent`).
+- **Landing gate:** on a first visit (no `#hash` in the URL) the page shows only the word-search hero; everything
+  below it stays rendered for search engines but is `inert` and scroll-locked until "View portfolio" or any in-page
+  link is clicked (`is-gated` is set in `<head>`, handled at the top of `script.js`, remembered for the session).
+- **Portrait:** `assets/img/profile-cutout.webp/.png` is a background-removed cut-out (U²-Net human segmentation, run
+  locally) shown on a faded panel with three animated pixel octopi.
 - **Word-search hero:** the letters and hidden words live in `index.html` (`data-words="WORD,row,col,dRow,dCol;..."`
   on `.wordsearch`); `script.js` draws a ring around each word from the live letter positions. Change a word in both
   the grid letters and `data-words`. Theme: white with `--accent` #c63d24 for text (5.1:1 on white) and

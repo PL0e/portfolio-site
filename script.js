@@ -8,6 +8,48 @@
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
 
+  // ---------- Landing gate ----------
+  // <head> adds .is-gated on a first visit with no #hash. Until the visitor proceeds,
+  // everything below the hero is inert (unfocusable) and scrolling is locked by CSS.
+  const root = document.documentElement
+  const behind = [...document.querySelectorAll("main > :not(.hero), .footer")]
+  const setInert = (on) => behind.forEach((el) => (on ? el.setAttribute("inert", "") : el.removeAttribute("inert")))
+
+  function enterPortfolio(targetId) {
+    root.classList.remove("is-gated")
+    setInert(false)
+    try {
+      sessionStorage.setItem("gd-entered", "1")
+    } catch {
+      /* storage blocked: the gate simply shows again next visit */
+    }
+    const target = document.getElementById(targetId) || document.getElementById("intro")
+    requestAnimationFrame(() => {
+      target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" })
+      const heading = target.querySelector("h1, h2") || target
+      if (!heading.hasAttribute("tabindex")) heading.setAttribute("tabindex", "-1")
+      heading.focus({ preventScroll: true })
+    })
+    history.replaceState(null, "", `#${target.id}`)
+  }
+
+  if (root.classList.contains("is-gated")) {
+    setInert(true)
+    // Any in-page link (View portfolio, nav, skip link) opens the portfolio first.
+    document.addEventListener(
+      "click",
+      (e) => {
+        const link = e.target.closest('a[href^="#"]')
+        if (!link || !root.classList.contains("is-gated")) return
+        const id = link.getAttribute("href").slice(1)
+        if (!id || id === "top") return
+        e.preventDefault()
+        enterPortfolio(id === "main" ? "intro" : id)
+      },
+      true,
+    )
+  }
+
   // ---------- Header background on scroll ----------
   const header = document.querySelector(".site-header")
   const updateHeader = () => header.classList.toggle("is-scrolled", window.scrollY > 10)

@@ -27,7 +27,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 
-  <script>document.documentElement.classList.add("js")</script>
+  <script>
+    document.documentElement.classList.add("js")
+    // Landing gate: first visit shows only the hero until "View portfolio" is clicked.
+    try {
+      if (!location.hash && !sessionStorage.getItem("gd-entered")) document.documentElement.classList.add("is-gated")
+    } catch (e) {
+      if (!location.hash) document.documentElement.classList.add("is-gated")
+    }
+  </script>
 
   <script type="application/ld+json">
   {
@@ -100,20 +108,36 @@
 
   <main id="main">
     <!-- ============ HERO ============ -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="container">
+    <section class="hero" aria-label="Welcome">
+      <div class="container hero__gate">
         <div class="wordsearch" data-wordsearch data-words="GLENDELL,0,1,0,1;DEVELOPER,4,2,0,1;CODE,1,2,1,1;CEBU,3,0,0,1;WEB,1,6,0,1;SEO,2,6,0,1" aria-hidden="true">
           <div class="ws__grid"><span class="ws__cell" data-r="0" data-c="0">Q</span><span class="ws__cell is-hit" data-r="0" data-c="1">G</span><span class="ws__cell is-hit" data-r="0" data-c="2">L</span><span class="ws__cell is-hit" data-r="0" data-c="3">E</span><span class="ws__cell is-hit" data-r="0" data-c="4">N</span><span class="ws__cell is-hit" data-r="0" data-c="5">D</span><span class="ws__cell is-hit" data-r="0" data-c="6">E</span><span class="ws__cell is-hit" data-r="0" data-c="7">L</span><span class="ws__cell is-hit" data-r="0" data-c="8">L</span><span class="ws__cell" data-r="0" data-c="9">Z</span><span class="ws__cell" data-r="0" data-c="10">A</span><span class="ws__cell" data-r="1" data-c="0">H</span><span class="ws__cell" data-r="1" data-c="1">T</span><span class="ws__cell is-hit" data-r="1" data-c="2">C</span><span class="ws__cell" data-r="1" data-c="3">Y</span><span class="ws__cell" data-r="1" data-c="4">R</span><span class="ws__cell" data-r="1" data-c="5">S</span><span class="ws__cell is-hit" data-r="1" data-c="6">W</span><span class="ws__cell is-hit" data-r="1" data-c="7">E</span><span class="ws__cell is-hit" data-r="1" data-c="8">B</span><span class="ws__cell" data-r="1" data-c="9">I</span><span class="ws__cell" data-r="1" data-c="10">X</span><span class="ws__cell" data-r="2" data-c="0">M</span><span class="ws__cell" data-r="2" data-c="1">A</span><span class="ws__cell" data-r="2" data-c="2">K</span><span class="ws__cell is-hit" data-r="2" data-c="3">O</span><span class="ws__cell" data-r="2" data-c="4">F</span><span class="ws__cell" data-r="2" data-c="5">U</span><span class="ws__cell is-hit" data-r="2" data-c="6">S</span><span class="ws__cell is-hit" data-r="2" data-c="7">E</span><span class="ws__cell is-hit" data-r="2" data-c="8">O</span><span class="ws__cell" data-r="2" data-c="9">J</span><span class="ws__cell" data-r="2" data-c="10">P</span><span class="ws__cell is-hit" data-r="3" data-c="0">C</span><span class="ws__cell is-hit" data-r="3" data-c="1">E</span><span class="ws__cell is-hit" data-r="3" data-c="2">B</span><span class="ws__cell is-hit" data-r="3" data-c="3">U</span><span class="ws__cell is-hit" data-r="3" data-c="4">D</span><span class="ws__cell" data-r="3" data-c="5">T</span><span class="ws__cell" data-r="3" data-c="6">N</span><span class="ws__cell" data-r="3" data-c="7">H</span><span class="ws__cell" data-r="3" data-c="8">R</span><span class="ws__cell" data-r="3" data-c="9">A</span><span class="ws__cell" data-r="3" data-c="10">V</span><span class="ws__cell" data-r="4" data-c="0">I</span><span class="ws__cell" data-r="4" data-c="1">Y</span><span class="ws__cell is-hit" data-r="4" data-c="2">D</span><span class="ws__cell is-hit" data-r="4" data-c="3">E</span><span class="ws__cell is-hit" data-r="4" data-c="4">V</span><span class="ws__cell is-hit" data-r="4" data-c="5">E</span><span class="ws__cell is-hit" data-r="4" data-c="6">L</span><span class="ws__cell is-hit" data-r="4" data-c="7">O</span><span class="ws__cell is-hit" data-r="4" data-c="8">P</span><span class="ws__cell is-hit" data-r="4" data-c="9">E</span><span class="ws__cell is-hit" data-r="4" data-c="10">R</span></div>
           <svg class="ws__rings" focusable="false"></svg>
         </div>
         <p class="sr-only">A word search spelling Glendell, developer, Cebu, code, web, and SEO.</p>
 
+        <p class="hero__tag">Glendell S. Dia <span aria-hidden="true">·</span> Front-end web developer <span aria-hidden="true">·</span> Cebu</p>
+        <a class="btn btn--primary hero__proceed" href="#intro" data-proceed>
+          View portfolio <i class="fas fa-arrow-down" aria-hidden="true"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ INTRO ============ -->
+    <section class="section intro" id="intro" aria-labelledby="hero-title">
+      <div class="container">
         <div class="hero__intro">
-          <figure class="hero__photo">
+          <figure class="portrait">
+            <span class="portrait__panel" aria-hidden="true"></span>
+            <svg class="portrait__octo portrait__octo--peek" aria-hidden="true"><use href="#octo"/></svg>
             <picture>
-              <source srcset="assets/img/profile.webp" type="image/webp">
-              <img src="assets/img/profile.jpg" alt="Portrait of Glendell S. Dia" width="640" height="800" fetchpriority="high">
+              <source srcset="assets/img/profile-cutout.webp" type="image/webp">
+              <img class="portrait__img" src="assets/img/profile-cutout.png" alt="Portrait of Glendell S. Dia in a graduation gown" width="760" height="752" loading="lazy" decoding="async">
             </picture>
+            <svg class="portrait__octo portrait__octo--swim" aria-hidden="true"><use href="#octo"/></svg>
+            <svg class="portrait__octo portrait__octo--hop" aria-hidden="true"><use href="#octo"/></svg>
+            <span class="portrait__bubble" aria-hidden="true"></span>
+            <span class="portrait__bubble portrait__bubble--2" aria-hidden="true"></span>
           </figure>
 
           <div class="hero__content">
