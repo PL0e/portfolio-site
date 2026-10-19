@@ -466,6 +466,30 @@ strong {
   text-align: center;
 }
 
+.js .hero__gate > .wordsearch {
+  animation: hero-rise 850ms var(--ease) both;
+}
+
+.js .hero__gate > .hero__tag {
+  animation: hero-rise 700ms var(--ease) 180ms both;
+}
+
+.js .hero__gate > .hero__proceed {
+  animation: hero-rise 700ms var(--ease) 340ms both;
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .hero__tag {
   margin-top: clamp(2rem, 6vw, 3.25rem);
   color: var(--text-muted);
@@ -925,6 +949,14 @@ html.is-gated body {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 700ms var(--ease), transform 700ms var(--ease);
+}
+
+.js .hero__intro > .portrait.reveal {
+  transform: translateX(-24px);
+}
+
+.js .hero__intro > .hero__content.reveal {
+  transition-delay: 140ms;
 }
 
 .js .reveal.is-visible {

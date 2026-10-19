@@ -13,7 +13,7 @@ Live: https://pl0e.github.io/portfolio-site/
 | Tech marquee | Tools and technologies (auto-scrolling, pauses on hover) |
 | About | Intro, key stats, skill areas, education |
 | Experience | Work timeline, newest first |
-| Projects | Concept storefront gallery (4 demos) + project cards |
+| Projects | Concept storefront gallery (4 demos), concept sites (5 demos), client work, and project cards |
 | Certificates | Awards and certifications |
 | Off the clock | Pets |
 | Contact | Contact details + a form that opens the visitor's email app |
