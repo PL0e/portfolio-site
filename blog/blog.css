@@ -128,7 +128,7 @@
 
 /* Reading typography */
 .post__body {
-  color: #d9d9de;
+  color: #2f2b29;
   font-size: 1.075rem;
   line-height: 1.8;
 }
@@ -226,7 +226,7 @@
   border-radius: 6px;
   background: var(--surface-2);
   color: var(--text);
-  font-family: var(--font-mono);
+  font-family: var(--font-code);
   font-size: 0.86em;
 }
 
@@ -236,9 +236,9 @@
   padding: 2.4rem 1.25rem 1.25rem;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  background: #111114;
-  color: #e4e4e7;
-  font-family: var(--font-mono);
+  background: #1c1a19;
+  color: #f2ece8;
+  font-family: var(--font-code);
   font-size: 0.85rem;
   line-height: 1.65;
   tab-size: 2;

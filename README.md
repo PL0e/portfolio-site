@@ -48,6 +48,10 @@ portfolio-site/
 ## Common edits
 
 - **Colors / fonts:** change the variables in `:root` at the top of `styles.css` (accent is `--accent`).
+- **Word-search hero:** the letters and hidden words live in `index.html` (`data-words="WORD,row,col,dRow,dCol;..."`
+  on `.wordsearch`); `script.js` draws a ring around each word from the live letter positions. Change a word in both
+  the grid letters and `data-words`. Theme: white with `--accent` #c63d24 for text (5.1:1 on white) and
+  `--accent-bright` #e2502f for rings and large shapes; font is Jost.
 - **Rotating hero roles:** edit the `data-roles` attribute on `.hero__role-text` in `index.html`.
 - **Resume:** replace `assets/resume_diaglendell_.pdf` (keep the same filename, or update the links).
 - **Add a project:** copy an `<li class="project">` block in the Projects section. Cover colors come from

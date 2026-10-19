@@ -200,6 +200,56 @@
     setStatus(`Opening your email app… If nothing happens, email me directly at ${EMAIL_TO}.`, "success")
   })
 
+  // ---------- Hero word search: draw a ring around each hidden word ----------
+  const ws = document.querySelector("[data-wordsearch]")
+  if (ws) {
+    const svg = ws.querySelector(".ws__rings")
+    const words = ws.dataset.words.split(";").map((w) => {
+      const [word, r, c, dr, dc] = w.split(",")
+      return { word, r: +r, c: +c, dr: +dr, dc: +dc }
+    })
+    const cellAt = (r, c) => ws.querySelector(`.ws__cell[data-r="${r}"][data-c="${c}"]`)
+    const NS = "http://www.w3.org/2000/svg"
+    const rings = words.map(() => {
+      const rect = document.createElementNS(NS, "rect")
+      rect.setAttribute("class", "ws__ring")
+      rect.setAttribute("pathLength", "1")
+      svg.appendChild(rect)
+      return rect
+    })
+
+    // Position every ring from the live letter positions (no re-creation, so animations survive).
+    const drawRings = () => {
+      const box = ws.getBoundingClientRect()
+      if (!box.width) return
+      svg.setAttribute("viewBox", `0 0 ${box.width} ${box.height}`)
+      const center = (el) => {
+        const r = el.getBoundingClientRect()
+        return [r.left - box.left + r.width / 2, r.top - box.top + r.height / 2, r.width]
+      }
+      words.forEach(({ word, r, c, dr, dc }, i) => {
+        const [x1, y1, size] = center(cellAt(r, c))
+        const n = word.length - 1
+        const [x2, y2] = center(cellAt(r + dr * n, c + dc * n))
+        const h = size * 0.84
+        const len = Math.hypot(x2 - x1, y2 - y1) + h
+        const angle = (Math.atan2(y2 - y1, x2 - x1) * 180) / Math.PI
+        const cx = (x1 + x2) / 2
+        const cy = (y1 + y2) / 2
+        const set = { x: cx - len / 2, y: cy - h / 2, width: len, height: h, rx: h / 2, transform: `rotate(${angle} ${cx} ${cy})` }
+        Object.entries(set).forEach(([k, v]) => rings[i].setAttribute(k, v))
+      })
+      ws.classList.add("is-ready")
+    }
+
+    drawRings()
+    if (reduceMotion) rings.forEach((r) => r.classList.add("is-drawn"))
+    else rings.forEach((r, i) => setTimeout(() => r.classList.add("is-drawn"), 400 + i * 350))
+    // Reposition when the grid resizes or the web font swaps in.
+    if ("ResizeObserver" in window) new ResizeObserver(drawRings).observe(ws)
+    document.fonts?.ready.then(drawRings)
+  }
+
   // ---------- Store cards: sample search performance mini dashboards ----------
   // Same generator as the demo pages (projects/shared/search-sample.js), so the
   // numbers match each store's own "Search" tab. Clearly labeled sample data.
