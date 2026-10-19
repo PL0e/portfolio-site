@@ -27,6 +27,14 @@ python -m http.server 8000
 # then visit http://localhost:8000
 ```
 
+## Search indexing
+
+The homepage includes a descriptive title and summary, canonical URL, social preview metadata, and `Person` structured
+data. After the site is deployed, add and verify the site in [Google Search Console](https://search.google.com/search-console/),
+then submit `https://pl0e.github.io/portfolio-site/sitemap.xml` and use URL Inspection to request indexing of the
+homepage. Indexing and ranking are controlled by search engines and are not immediate or guaranteed. Keep the canonical
+URL, structured-data URLs, Open Graph URLs, and sitemap URLs in sync if the site moves to a custom domain.
+
 ## File structure
 
 ```
