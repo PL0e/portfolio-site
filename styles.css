@@ -1097,6 +1097,30 @@ strong {
     var(--surface);
 }
 
+.stores + .stores {
+  margin-top: 2rem;
+}
+
+.stores--sites .stores__grid > :last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 961px) {
+  .stores--sites .stores__grid > :last-child:nth-child(odd) {
+    flex-direction: row;
+  }
+
+  .stores--sites .stores__grid > :last-child:nth-child(odd) .store__shot {
+    flex: 0 0 50%;
+    border-bottom: 0;
+    border-right: 1px solid var(--border);
+  }
+
+  .stores--sites .stores__grid > :last-child:nth-child(odd) .store__shot img {
+    height: 100%;
+  }
+}
+
 .stores__head {
   display: flex;
   flex-wrap: wrap;

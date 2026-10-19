@@ -1,0 +1,67 @@
+{
+ "hero": {
+  "title": "Ülker Sports Arena basketball court",
+  "creator": "David Jones",
+  "creator_url": "https://www.flickr.com/photos/45457437@N00",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0/",
+  "source": "flickr",
+  "source_url": "https://www.flickr.com/photos/45457437@N00/6930804369",
+  "size": [
+   1023,
+   575
+  ]
+ },
+ "g1": {
+  "title": "Basketball hoop",
+  "creator": "Håkan Dahlström",
+  "creator_url": "https://www.flickr.com/photos/93755244@N00",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0/",
+  "source": "flickr",
+  "source_url": "https://www.flickr.com/photos/93755244@N00/7189993560",
+  "size": [
+   800,
+   600
+  ]
+ },
+ "g2": {
+  "title": "Crowded School Football Stadium",
+  "creator": "Image Catalog",
+  "creator_url": "https://www.flickr.com/photos/132795455@N08",
+  "license": "CC0 1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "flickr",
+  "source_url": "https://www.flickr.com/photos/132795455@N08/22309015996",
+  "size": [
+   800,
+   600
+  ]
+ },
+ "g3": {
+  "title": "Pratt civitan basketball court",
+  "creator": "EdiSellsTulsa",
+  "creator_url": "https://www.flickr.com/photos/79938137@N03",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0/",
+  "source": "flickr",
+  "source_url": "https://www.flickr.com/photos/79938137@N03/7177981837",
+  "size": [
+   800,
+   600
+  ]
+ },
+ "g4": {
+  "title": "Football stadium in Trenčín, Slovakia",
+  "creator": "Tumi-1983",
+  "creator_url": "https://commons.wikimedia.org/wiki/User:Tumi-1983",
+  "license": "CC0 1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en/",
+  "source": "wikimedia",
+  "source_url": "https://commons.wikimedia.org/w/index.php?curid=17195183",
+  "size": [
+   800,
+   600
+  ]
+ }
+}

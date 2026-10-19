@@ -49,7 +49,21 @@
       if (i < 2) rows.push({ query: `best ${kw}`, impressions: Math.round(between(30, 100)), position: between(9, 24) })
     })
     rows.forEach((r) => {
-      r.clicks = Math.round(r.impressions * ctrAt(r.position))
+      r.ctrRate = ctrAt(r.position)
+      r.clicks = Math.round(r.impressions * r.ctrRate)
+    })
+    // Keep every demo a small, new site: under 50 clicks per 28 days.
+    const MAX_CLICKS = 45
+    const raw = rows.reduce((t, r) => t + r.clicks, 0)
+    if (raw > MAX_CLICKS) {
+      const k = MAX_CLICKS / raw
+      rows.forEach((r) => {
+        r.impressions = Math.max(1, Math.round(r.impressions * k))
+        r.clicks = Math.round(r.impressions * r.ctrRate)
+      })
+    }
+    rows.forEach((r) => {
+      delete r.ctrRate
       r.ctr = r.impressions ? r.clicks / r.impressions : 0
     })
     rows.sort((a, b) => b.clicks - a.clicks || b.impressions - a.impressions)

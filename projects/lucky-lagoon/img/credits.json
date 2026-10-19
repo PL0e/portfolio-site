@@ -1,0 +1,67 @@
+{
+ "hero": {
+  "title": "Roulette - detail",
+  "creator": "Conor Ogle from London, UK",
+  "creator_url": "https://www.flickr.com/people/37855887@N00",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0/",
+  "source": "wikimedia",
+  "source_url": "https://commons.wikimedia.org/w/index.php?curid=7094566",
+  "size": [
+   1200,
+   675
+  ]
+ },
+ "g1": {
+  "title": "Poker Chips with houses on",
+  "creator": "Images_of_Money",
+  "creator_url": "https://www.flickr.com/photos/59937401@N07",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0/",
+  "source": "flickr",
+  "source_url": "https://www.flickr.com/photos/59937401@N07/5857853866",
+  "size": [
+   700,
+   525
+  ]
+ },
+ "g2": {
+  "title": "Casino Lights",
+  "creator": "DocBrownX",
+  "creator_url": "https://www.flickr.com/photos/40693555@N02",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0/",
+  "source": "flickr",
+  "source_url": "https://www.flickr.com/photos/40693555@N02/8041365480",
+  "size": [
+   700,
+   525
+  ]
+ },
+ "g3": {
+  "title": "Poker chips",
+  "creator": "russelljsmith",
+  "creator_url": "https://www.flickr.com/photos/48889087714@N01",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0/",
+  "source": "flickr",
+  "source_url": "https://www.flickr.com/photos/48889087714@N01/9487077",
+  "size": [
+   700,
+   525
+  ]
+ },
+ "g4": {
+  "title": "Vintage French playing cards",
+  "creator": "crackdog",
+  "creator_url": "https://www.flickr.com/photos/88645472@N00",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0/",
+  "source": "flickr",
+  "source_url": "https://www.flickr.com/photos/88645472@N00/5379514209",
+  "size": [
+   700,
+   525
+  ]
+ }
+}

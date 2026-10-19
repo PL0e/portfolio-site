@@ -65,6 +65,14 @@ portfolio-site/
 and JSON-LD (store type, products with offers, plus FAQPage / BreadcrumbList / Menu where relevant). Because the
 brands and prices are made up, every demo uses `noindex` so none appears in search results as a real store.
 
+**Concept sites & web apps:** five more fictional brands, inspired by real sites but with original names, copy, and
+teams: `rallyo/` (pickleball scoring app landing page with a working side-out scorer), `tala-shs/` (senior high
+school site with ARIA strand tabs), `lucky-lagoon/` (game lobby UI; demo only, no accounts or real-money play, with
+18+ and responsible-gaming notices), `tally/` (working scoreboard web app: presets, sets, caps, serve rotation, undo,
+keyboard shortcuts), and `vcal/` (collegiate league hub with a sport filter, standings, and schedule). They use the
+same shared demo kit, sample search data, noindex, and Openverse photos with footer credits. The sample search
+generator caps every demo below 50 clicks per 28 days.
+
 **Hinabi woven art:** Hinabi uses a dark luxe editorial theme. `projects/hinabi/img/art/` holds flat SVG art used as CSS backgrounds: basket-weave page
 textures (`weave-tile-dark.svg`, plus the light `weave-tile.svg`), an over/under plain-weave medallion (`medallion.svg`), an inabel-style divider band
 (`inabel-band.svg`), and a banig diamond tile (`banig-tile.svg`). Keeping them as CSS backgrounds keeps the HTML lean.

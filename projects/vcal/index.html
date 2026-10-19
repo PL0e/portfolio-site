@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en-PH" data-currency="PHP" data-target-keywords="visayas collegiate athletic league|college basketball standings|collegiate sports in cebu|sports news from cebu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VCAL | Visayas Collegiate Athletic League Scores &amp; News</title>
+  <meta name="description" content="Scores, schedules, and college basketball standings from the Visayas Collegiate Athletic League, plus sports news from Cebu's collegiate sports scene.">
+  <!-- Concept project by Glendell S. Dia. Fictional league, teams, and results; kept out of search results. -->
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#0b0d0b">
+  <!-- GA4: put a measurement ID (G-XXXXXXXXXX) here to send the demo's events to Google Analytics -->
+  <meta name="ga-measurement-id" content="">
+  <link rel="canonical" href="https://pl0e.github.io/portfolio-site/projects/vcal/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="VCAL">
+  <meta property="og:title" content="VCAL | Visayas Collegiate Athletic League">
+  <meta property="og:description" content="Scores, standings, schedules, and news from a concept collegiate league in Cebu.">
+  <meta property="og:url" content="https://pl0e.github.io/portfolio-site/projects/vcal/">
+  <meta property="og:image" content="https://pl0e.github.io/portfolio-site/projects/vcal/og-image.jpg">
+  <meta property="og:locale" content="en_PH">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230b0d0b'/%3E%3Cpath d='M14 16h10l8 22 8-22h10L37 50H27z' fill='%23f5b50a'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../shared/demo-kit.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SportsOrganization",
+        "@id": "https://pl0e.github.io/portfolio-site/projects/vcal/#league",
+        "name": "Visayas Collegiate Athletic League",
+        "alternateName": "VCAL",
+        "url": "https://pl0e.github.io/portfolio-site/projects/vcal/",
+        "description": "Concept collegiate sports league in Cebu. Fictional teams and results.",
+        "sport": ["Basketball", "Football", "Volleyball", "Badminton", "Chess"],
+        "address": { "@type": "PostalAddress", "addressLocality": "Cebu City", "addressCountry": "PH" }
+      },
+      {
+        "@type": "ItemList",
+        "name": "Upcoming games",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "item": { "@type": "SportsEvent", "name": "Mactan Mariners vs Talisay Tamaraws", "sport": "Basketball", "startDate": "2026-10-24T16:00+08:00", "location": { "@type": "Place", "name": "VCAL Arena, Cebu City" }, "homeTeam": { "@type": "SportsTeam", "name": "Mactan Mariners" }, "awayTeam": { "@type": "SportsTeam", "name": "Talisay Tamaraws" } } },
+          { "@type": "ListItem", "position": 2, "item": { "@type": "SportsEvent", "name": "Danao Dolphins vs Carcar Kestrels", "sport": "Football", "startDate": "2026-10-25T15:00+08:00", "location": { "@type": "Place", "name": "VCAL Field, Cebu City" }, "homeTeam": { "@type": "SportsTeam", "name": "Danao Dolphins" }, "awayTeam": { "@type": "SportsTeam", "name": "Carcar Kestrels" } } },
+          { "@type": "ListItem", "position": 3, "item": { "@type": "SportsEvent", "name": "Mandaue Mustangs vs Liloan Lynx", "sport": "Volleyball", "startDate": "2026-10-26T13:00+08:00", "location": { "@type": "Place", "name": "VCAL Gym, Cebu City" }, "homeTeam": { "@type": "SportsTeam", "name": "Mandaue Mustangs" }, "awayTeam": { "@type": "SportsTeam", "name": "Liloan Lynx" } } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="notice" role="note">
+    Concept project by <a href="../../">Glendell S. Dia</a>. VCAL, its teams, and every result here are fictional.
+  </div>
+
+  <header class="header">
+    <div class="wrap header__inner">
+      <a class="brand" href="#" aria-label="VCAL home"><span class="brand__mark" aria-hidden="true">V</span>VCAL</a>
+      <nav aria-label="Primary">
+        <ul class="menu">
+          <li><a href="#news">News</a></li>
+          <li><a href="#scores">Scores</a></li>
+          <li><a href="#standings">Standings</a></li>
+          <li><a href="#schedule">Schedule</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--gold" href="#subscribe">Subscribe</a>
+    </div>
+    <div class="sports-bar">
+      <div class="wrap">
+        <div class="sports-bar__tabs" role="group" aria-label="Filter by sport">
+          <button type="button" class="sport is-active" data-sport-filter="all" aria-pressed="true">All sports</button>
+          <button type="button" class="sport" data-sport-filter="basketball" aria-pressed="false">Basketball</button>
+          <button type="button" class="sport" data-sport-filter="football" aria-pressed="false">Football</button>
+          <button type="button" class="sport" data-sport-filter="volleyball" aria-pressed="false">Volleyball</button>
+          <button type="button" class="sport" data-sport-filter="badminton" aria-pressed="false">Badminton</button>
+          <button type="button" class="sport" data-sport-filter="chess" aria-pressed="false">Chess</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="scores" id="scores" aria-labelledby="scores-h">
+      <div class="wrap">
+        <h2 id="scores-h" class="sr-only">Latest scores in collegiate sports in Cebu</h2>
+        <ul class="scores__strip">
+          <li data-sport="basketball"><span class="scores__meta">Final · Basketball</span><p><b>Mariners</b><b>78</b></p><p><span>Mustangs</span><span>71</span></p></li>
+          <li data-sport="football"><span class="scores__meta">Final · Football</span><p><b>Dolphins</b><b>2</b></p><p><span>Lynx</span><span>1</span></p></li>
+          <li data-sport="volleyball"><span class="scores__meta">Final · Volleyball</span><p><b>Tamaraws</b><b>3</b></p><p><span>Kestrels</span><span>0</span></p></li>
+          <li data-sport="badminton"><span class="scores__meta">Final · Badminton</span><p><b>Monarchs</b><b>3</b></p><p><span>Comets</span><span>2</span></p></li>
+          <li data-sport="chess"><span class="scores__meta">Final · Chess</span><p><b>Lynx</b><b>2.5</b></p><p><span>Dolphins</span><span>1.5</span></p></li>
+          <li data-sport="basketball" class="is-upcoming"><span class="scores__meta">Fri · 4:00 PM</span><p><b>Mariners</b></p><p><span>Tamaraws</span></p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="lead-news wrap" id="news" aria-labelledby="news-h">
+      <article class="feature" data-sport="basketball">
+        <picture><source srcset="img/hero.webp" type="image/webp"><img src="img/hero.jpg" alt="Wide view of an indoor basketball arena with blue seats" width="1023" height="575" fetchpriority="high" decoding="async"></picture>
+        <div class="feature__body">
+          <p class="feature__kicker"><span class="flag">Featured</span> Basketball · Game recap</p>
+          <h1 id="news-h">Mariners stay unbeaten, hold off Mustangs 78–71</h1>
+          <p>The Mactan Mariners improved to 6–0 in Visayas Collegiate Athletic League play, closing on a 10–2 run to beat the Mandaue Mustangs in a rematch of last season's final.</p>
+        </div>
+      </article>
+
+      <aside class="headlines" aria-labelledby="headlines-h">
+        <h2 id="headlines-h">Headlines</h2>
+        <ol>
+          <li data-sport="football"><span class="num">01</span><div><a href="#news">Dolphins edge Lynx 2–1 with a late header</a><small>2 days ago · Football · Recap</small></div></li>
+          <li data-sport="volleyball"><span class="num">02</span><div><a href="#news">Tamaraws sweep Kestrels in straight sets</a><small>3 days ago · Volleyball · Recap</small></div></li>
+          <li data-sport="badminton"><span class="num">03</span><div><a href="#news">Monarchs take the deciding doubles to beat Comets 3–2</a><small>4 days ago · Badminton · Recap</small></div></li>
+          <li data-sport="chess"><span class="num">04</span><div><a href="#news">Lynx win the first chess round on board one</a><small>5 days ago · Chess · Recap</small></div></li>
+        </ol>
+      </aside>
+    </section>
+
+    <section class="section wrap two-col" aria-label="Standings and schedule">
+      <div id="standings" data-sport="basketball">
+        <div class="section__head"><p class="eyebrow">Men's basketball</p><h2>College basketball standings</h2></div>
+        <div class="table-wrap">
+          <table class="standings">
+            <caption class="sr-only">Men's basketball standings, collegiate sports in Cebu</caption>
+            <thead><tr><th scope="col">#</th><th scope="col">Team</th><th scope="col">W</th><th scope="col">L</th><th scope="col">PCT</th><th scope="col">Streak</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><th scope="row"><span class="dot" style="--c:#2563eb"></span>Mactan Mariners</th><td>6</td><td>0</td><td>1.000</td><td>W6</td></tr>
+              <tr><td>2</td><th scope="row"><span class="dot" style="--c:#dc2626"></span>Mandaue Mustangs</th><td>5</td><td>1</td><td>.833</td><td>L1</td></tr>
+              <tr><td>3</td><th scope="row"><span class="dot" style="--c:#16a34a"></span>Talisay Tamaraws</th><td>4</td><td>2</td><td>.667</td><td>W2</td></tr>
+              <tr><td>4</td><th scope="row"><span class="dot" style="--c:#0891b2"></span>Danao Dolphins</th><td>3</td><td>3</td><td>.500</td><td>W1</td></tr>
+              <tr><td>5</td><th scope="row"><span class="dot" style="--c:#9333ea"></span>Minglanilla Monarchs</th><td>3</td><td>3</td><td>.500</td><td>L1</td></tr>
+              <tr><td>6</td><th scope="row"><span class="dot" style="--c:#ea580c"></span>Carcar Kestrels</th><td>2</td><td>4</td><td>.333</td><td>L2</td></tr>
+              <tr><td>7</td><th scope="row"><span class="dot" style="--c:#ca8a04"></span>Liloan Lynx</th><td>1</td><td>5</td><td>.167</td><td>W1</td></tr>
+              <tr><td>8</td><th scope="row"><span class="dot" style="--c:#64748b"></span>Consolacion Comets</th><td>0</td><td>6</td><td>.000</td><td>L6</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="schedule">
+        <div class="section__head"><p class="eyebrow">This week</p><h2>Schedule</h2></div>
+        <ul class="schedule">
+          <li data-sport="basketball"><time datetime="2026-10-24T16:00+08:00"><b>Oct 24</b>4:00 PM</time><div><strong>Mariners vs Tamaraws</strong><small>Basketball · VCAL Arena</small></div></li>
+          <li data-sport="football"><time datetime="2026-10-25T15:00+08:00"><b>Oct 25</b>3:00 PM</time><div><strong>Dolphins vs Kestrels</strong><small>Football · VCAL Field</small></div></li>
+          <li data-sport="volleyball"><time datetime="2026-10-26T13:00+08:00"><b>Oct 26</b>1:00 PM</time><div><strong>Mustangs vs Lynx</strong><small>Volleyball · VCAL Gym</small></div></li>
+          <li data-sport="badminton"><time datetime="2026-10-27T10:00+08:00"><b>Oct 27</b>10:00 AM</time><div><strong>Comets vs Mariners</strong><small>Badminton · VCAL Gym</small></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section wrap" aria-labelledby="venues-h">
+      <div class="section__head"><p class="eyebrow">Game day</p><h2 id="venues-h">Where collegiate sports in Cebu come alive</h2></div>
+      <ul class="venues">
+        <li><figure><picture><source srcset="img/g2.webp" type="image/webp"><img src="img/g2.jpg" alt="Packed stadium stands around a football field under a blue sky" width="800" height="600" loading="lazy" decoding="async"></picture><figcaption>Football finals</figcaption></figure></li>
+        <li><figure><picture><source srcset="img/g1.webp" type="image/webp"><img src="img/g1.jpg" alt="Basketball hoop seen from below against a blue sky" width="800" height="600" loading="lazy" decoding="async"></picture><figcaption>Basketball</figcaption></figure></li>
+        <li><figure><picture><source srcset="img/g3.webp" type="image/webp"><img src="img/g3.jpg" alt="Outdoor basketball court with a blue hoop surrounded by trees" width="800" height="600" loading="lazy" decoding="async"></picture><figcaption>Practice courts</figcaption></figure></li>
+        <li><figure><picture><source srcset="img/g4.webp" type="image/webp"><img src="img/g4.jpg" alt="Aerial view of a football stadium beside a town and river" width="800" height="600" loading="lazy" decoding="async"></picture><figcaption>Home grounds</figcaption></figure></li>
+      </ul>
+    </section>
+
+    <section class="section subscribe" id="subscribe" aria-labelledby="sub-h">
+      <div class="wrap subscribe__inner">
+        <div>
+          <h2 id="sub-h">Sports news from Cebu, after every final buzzer</h2>
+          <p>Scores, recaps, and sports news from Cebu, delivered after every game day.</p>
+        </div>
+        <form class="news__form" data-news novalidate>
+          <label class="sr-only" for="vc-email">Email address</label>
+          <input id="vc-email" type="email" placeholder="you@example.com" autocomplete="email" required>
+          <button class="btn btn--gold" type="submit">Subscribe</button>
+          <p class="news__msg" data-news-msg role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <p><strong>VCAL</strong>: a concept sports league website by <a href="../../">Glendell S. Dia</a>.</p>
+      <p>Fictional league, teams, venues, and results for portfolio purposes.</p>
+      <div class="credits">
+        <p class="credits__title">Photo credits</p>
+        <ul>
+          <li>“<a href="https://www.flickr.com/photos/45457437@N00/6930804369">Ülker Sports Arena basketball court</a>” by <a href="https://www.flickr.com/photos/45457437@N00">David Jones</a>, via Flickr, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></li>
+          <li>“<a href="https://www.flickr.com/photos/93755244@N00/7189993560">Basketball hoop</a>” by <a href="https://www.flickr.com/photos/93755244@N00">Håkan Dahlström</a>, via Flickr, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></li>
+          <li>“<a href="https://www.flickr.com/photos/132795455@N08/22309015996">Crowded School Football Stadium</a>” by <a href="https://www.flickr.com/photos/132795455@N08">Image Catalog</a>, via Flickr, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></li>
+          <li>“<a href="https://www.flickr.com/photos/79938137@N03/7177981837">Pratt civitan basketball court</a>” by <a href="https://www.flickr.com/photos/79938137@N03">EdiSellsTulsa</a>, via Flickr, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></li>
+          <li>“<a href="https://commons.wikimedia.org/w/index.php?curid=17195183">Football stadium in Trenčín, Slovakia</a>” by <a href="https://commons.wikimedia.org/wiki/User:Tumi-1983">Tumi-1983</a>, via Wikimedia Commons, <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.en/">CC0 1.0</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../shared/search-sample.js" defer></script>
+  <script src="../shared/demo-kit.js" defer></script>
+  <script src="league.js" defer></script>
+</body>
+</html>
