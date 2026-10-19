@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Writing | Glendell S. Dia, Front-End Web Developer</title>
+  <meta name="description" content="Articles by Glendell S. Dia on front-end development, technical SEO, and generative engine optimization (GEO) for sites that rank and get cited by AI.">
+  <meta name="author" content="Glendell S. Dia">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light">
+  <link rel="canonical" href="https://pl0e.github.io/portfolio-site/blog/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Glendell S. Dia">
+  <meta property="og:title" content="Writing | Glendell S. Dia">
+  <meta property="og:description" content="Articles on front-end development, technical SEO, and generative engine optimization.">
+  <meta property="og:url" content="https://pl0e.github.io/portfolio-site/blog/">
+  <meta property="og:image" content="https://pl0e.github.io/portfolio-site/blog/seo-and-geo-in-web-development/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' shape-rendering='crispEdges'%3E%3Crect width='18' height='18' rx='4' fill='%23fff3ee'/%3E%3Cg transform='translate%281 1.5%29'%3E%3Crect x='6' y='0' width='4' height='1' fill='%23e2502f'/%3E%3Crect x='4' y='1' width='8' height='1' fill='%23e2502f'/%3E%3Crect x='3' y='2' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='5' y='2' width='2' height='1' fill='%23f4a08a'/%3E%3Crect x='7' y='2' width='6' height='1' fill='%23e2502f'/%3E%3Crect x='2' y='3' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='4' y='3' width='1' height='1' fill='%23f4a08a'/%3E%3Crect x='5' y='3' width='9' height='1' fill='%23e2502f'/%3E%3Crect x='2' y='4' width='12' height='1' fill='%23e2502f'/%3E%3Crect x='1' y='5' width='14' height='1' fill='%23e2502f'/%3E%3Crect x='1' y='6' width='3' height='1' fill='%23e2502f'/%3E%3Crect x='4' y='6' width='1' height='1' fill='%2318181b'/%3E%3Crect x='5' y='6' width='1' height='1' fill='%23ffffff'/%3E%3Crect x='6' y='6' width='4' height='1' fill='%23e2502f'/%3E%3Crect x='10' y='6' width='1' height='1' fill='%2318181b'/%3E%3Crect x='11' y='6' width='1' height='1' fill='%23ffffff'/%3E%3Crect x='12' y='6' width='3' height='1' fill='%23e2502f'/%3E%3Crect x='1' y='7' width='3' height='1' fill='%23e2502f'/%3E%3Crect x='4' y='7' width='2' height='1' fill='%2318181b'/%3E%3Crect x='6' y='7' width='4' height='1' fill='%23e2502f'/%3E%3Crect x='10' y='7' width='2' height='1' fill='%2318181b'/%3E%3Crect x='12' y='7' width='3' height='1' fill='%23e2502f'/%3E%3Crect x='1' y='8' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='3' y='8' width='2' height='1' fill='%23f29bbf'/%3E%3Crect x='5' y='8' width='6' height='1' fill='%23e2502f'/%3E%3Crect x='11' y='8' width='2' height='1' fill='%23f29bbf'/%3E%3Crect x='13' y='8' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='1' y='9' width='5' height='1' fill='%23e2502f'/%3E%3Crect x='6' y='9' width='1' height='1' fill='%23b83a24'/%3E%3Crect x='7' y='9' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='9' y='9' width='1' height='1' fill='%23b83a24'/%3E%3Crect x='10' y='9' width='5' height='1' fill='%23e2502f'/%3E%3Crect x='1' y='10' width='6' height='1' fill='%23e2502f'/%3E%3Crect x='7' y='10' width='2' height='1' fill='%23b83a24'/%3E%3Crect x='9' y='10' width='6' height='1' fill='%23e2502f'/%3E%3Crect x='1' y='11' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='4' y='11' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='7' y='11' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='10' y='11' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='13' y='11' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='1' y='12' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='4' y='12' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='7' y='12' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='10' y='12' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='13' y='12' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='0' y='13' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='4' y='13' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='7' y='13' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='10' y='13' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='14' y='13' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='0' y='14' width='1' height='1' fill='%23b83a24'/%3E%3Crect x='3' y='14' width='2' height='1' fill='%23b83a24'/%3E%3Crect x='7' y='14' width='2' height='1' fill='%23b83a24'/%3E%3Crect x='11' y='14' width='2' height='1' fill='%23b83a24'/%3E%3Crect x='15' y='14' width='1' height='1' fill='%23b83a24'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="../assets/img/octopus-180.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300..700&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="blog.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Blog",
+        "@id": "https://pl0e.github.io/portfolio-site/blog/#blog",
+        "name": "Writing by Glendell S. Dia",
+        "url": "https://pl0e.github.io/portfolio-site/blog/",
+        "author": { "@type": "Person", "name": "Glendell S. Dia", "url": "https://pl0e.github.io/portfolio-site/" },
+        "blogPost": [
+          { "@type": "BlogPosting", "headline": "SEO and GEO in Web Development: Building Sites That Rank and Get Cited", "url": "https://pl0e.github.io/portfolio-site/blog/seo-and-geo-in-web-development/", "datePublished": "2026-10-18" }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pl0e.github.io/portfolio-site/" },
+          { "@type": "ListItem", "position": 2, "name": "Writing", "item": "https://pl0e.github.io/portfolio-site/blog/" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="blog">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs><symbol id="octo" viewBox="0 0 16 16"><rect x="6" y="0" width="4" height="1" fill="#e2502f"/><rect x="4" y="1" width="8" height="1" fill="#e2502f"/><rect x="3" y="2" width="2" height="1" fill="#e2502f"/><rect x="5" y="2" width="2" height="1" fill="#f4a08a"/><rect x="7" y="2" width="6" height="1" fill="#e2502f"/><rect x="2" y="3" width="2" height="1" fill="#e2502f"/><rect x="4" y="3" width="1" height="1" fill="#f4a08a"/><rect x="5" y="3" width="9" height="1" fill="#e2502f"/><rect x="2" y="4" width="12" height="1" fill="#e2502f"/><rect x="1" y="5" width="14" height="1" fill="#e2502f"/><rect x="1" y="6" width="3" height="1" fill="#e2502f"/><rect x="4" y="6" width="1" height="1" fill="#18181b"/><rect x="5" y="6" width="1" height="1" fill="#ffffff"/><rect x="6" y="6" width="4" height="1" fill="#e2502f"/><rect x="10" y="6" width="1" height="1" fill="#18181b"/><rect x="11" y="6" width="1" height="1" fill="#ffffff"/><rect x="12" y="6" width="3" height="1" fill="#e2502f"/><rect x="1" y="7" width="3" height="1" fill="#e2502f"/><rect x="4" y="7" width="2" height="1" fill="#18181b"/><rect x="6" y="7" width="4" height="1" fill="#e2502f"/><rect x="10" y="7" width="2" height="1" fill="#18181b"/><rect x="12" y="7" width="3" height="1" fill="#e2502f"/><rect x="1" y="8" width="2" height="1" fill="#e2502f"/><rect x="3" y="8" width="2" height="1" fill="#f29bbf"/><rect x="5" y="8" width="6" height="1" fill="#e2502f"/><rect x="11" y="8" width="2" height="1" fill="#f29bbf"/><rect x="13" y="8" width="2" height="1" fill="#e2502f"/><rect x="1" y="9" width="5" height="1" fill="#e2502f"/><rect x="6" y="9" width="1" height="1" fill="#b83a24"/><rect x="7" y="9" width="2" height="1" fill="#e2502f"/><rect x="9" y="9" width="1" height="1" fill="#b83a24"/><rect x="10" y="9" width="5" height="1" fill="#e2502f"/><rect x="1" y="10" width="6" height="1" fill="#e2502f"/><rect x="7" y="10" width="2" height="1" fill="#b83a24"/><rect x="9" y="10" width="6" height="1" fill="#e2502f"/><rect x="1" y="11" width="2" height="1" fill="#e2502f"/><rect x="4" y="11" width="2" height="1" fill="#e2502f"/><rect x="7" y="11" width="2" height="1" fill="#e2502f"/><rect x="10" y="11" width="2" height="1" fill="#e2502f"/><rect x="13" y="11" width="2" height="1" fill="#e2502f"/><rect x="1" y="12" width="2" height="1" fill="#e2502f"/><rect x="4" y="12" width="2" height="1" fill="#e2502f"/><rect x="7" y="12" width="2" height="1" fill="#e2502f"/><rect x="10" y="12" width="2" height="1" fill="#e2502f"/><rect x="13" y="12" width="2" height="1" fill="#e2502f"/><rect x="0" y="13" width="2" height="1" fill="#e2502f"/><rect x="4" y="13" width="2" height="1" fill="#e2502f"/><rect x="7" y="13" width="2" height="1" fill="#e2502f"/><rect x="10" y="13" width="2" height="1" fill="#e2502f"/><rect x="14" y="13" width="2" height="1" fill="#e2502f"/><rect x="0" y="14" width="1" height="1" fill="#b83a24"/><rect x="3" y="14" width="2" height="1" fill="#b83a24"/><rect x="7" y="14" width="2" height="1" fill="#b83a24"/><rect x="11" y="14" width="2" height="1" fill="#b83a24"/><rect x="15" y="14" width="1" height="1" fill="#b83a24"/></symbol></defs>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="container site-header__inner">
+      <a class="logo" href="../" aria-label="Glendell Dia, home">
+        <span class="logo__mark"><svg class="logo__octo" aria-hidden="true"><use href="#octo"/></svg></span>
+        <span class="logo__text">Glendell<span class="accent">.</span></span>
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
+        </button>
+        <ul class="nav__menu" id="nav-menu">
+          <li><a class="nav__link" href="../#about">About</a></li>
+          <li><a class="nav__link" href="../#experience">Experience</a></li>
+          <li><a class="nav__link" href="../#projects">Projects</a></li>
+          <li><a class="nav__link" href="../#certificates">Certificates</a></li>
+          <li><a class="nav__link is-active" aria-current="page" href="./">Writing</a></li>
+          <li><a class="nav__link nav__link--cta" href="../#contact">Hire Me</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="post-main">
+    <div class="container blog-index">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../">Home</a></li>
+          <li aria-current="page">Writing</li>
+        </ol>
+      </nav>
+      <p class="section__kicker">Writing</p>
+      <h1 class="post__title">Notes on building for search and AI.</h1>
+      <p class="post__dek">Practical articles on front-end development, technical SEO, and generative engine optimization.</p>
+
+      <ul class="post-list">
+        <li>
+          <article class="post-card">
+            <p class="post-card__meta"><time datetime="2026-10-18">October 18, 2026</time> · 10 min read</p>
+            <h2 class="post-card__title"><a href="seo-and-geo-in-web-development/">SEO and GEO in Web Development: Building Sites That Rank and Get Cited</a></h2>
+            <p>How semantic HTML, server rendering, Core Web Vitals, and structured data decide whether Google ranks your pages and whether AI answer engines quote them.</p>
+            <ul class="tags" aria-label="Topics"><li class="tag">Technical SEO</li><li class="tag">GEO</li><li class="tag">Core Web Vitals</li><li class="tag">JSON-LD</li></ul>
+          </article>
+        </li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__brand"><svg class="footer__octo" aria-hidden="true"><use href="#octo"/></svg><span>© <span id="year">2026</span> Glendell S. Dia. All rights reserved.</span></p>
+      <ul class="socials socials--small" aria-label="Social links">
+        <li><a href="https://www.linkedin.com/in/glendell-dia-49760828b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+        <li><a href="https://github.com/PL0e" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in new tab)"><i class="fab fa-github" aria-hidden="true"></i></a></li>
+        <li><a href="mailto:glendellsara@gmail.com" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a></li>
+      </ul>
+      <a class="footer__top" href="#main">Back to top <i class="fas fa-arrow-up" aria-hidden="true"></i></a>
+    </div>
+  </footer>
+
+  <script src="blog.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en-PH" data-currency="PHP" data-target-keywords="online scoreboard|badminton score counter|digital scoreboard|table tennis scoreboard">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tally | Online Scoreboard &amp; Badminton Score Counter</title>
+  <meta name="description" content="A free online scoreboard and digital scoreboard: a badminton score counter and table tennis scoreboard with sets, serve tracking, themes, and full screen.">
+  <!-- Concept project by Glendell S. Dia. Fictional brand, so it is kept out of search results. -->
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#0d0f13">
+  <!-- GA4: put a measurement ID (G-XXXXXXXXXX) here to send the demo's events to Google Analytics -->
+  <meta name="ga-measurement-id" content="">
+  <link rel="canonical" href="https://pl0e.github.io/portfolio-site/projects/tally/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tally">
+  <meta property="og:title" content="Tally | Free Online Scoreboard">
+  <meta property="og:description" content="A digital scoreboard for badminton, table tennis, pickleball, and volleyball.">
+  <meta property="og:url" content="https://pl0e.github.io/portfolio-site/projects/tally/">
+  <meta property="og:image" content="https://pl0e.github.io/portfolio-site/projects/tally/og-image.jpg">
+  <meta property="og:locale" content="en_PH">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d0f13'/%3E%3Crect x='8' y='14' width='22' height='36' rx='5' fill='%233b82f6'/%3E%3Crect x='34' y='14' width='22' height='36' rx='5' fill='%23ef4444'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Share+Tech+Mono&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../shared/demo-kit.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Tally",
+        "url": "https://pl0e.github.io/portfolio-site/projects/tally/",
+        "description": "Free online scoreboard for badminton, table tennis, pickleball, and volleyball.",
+        "applicationCategory": "SportsApplication",
+        "operatingSystem": "Any (web browser)",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "PHP" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "How do I keep score with the badminton score counter?", "acceptedAnswer": { "@type": "Answer", "text": "Choose the Badminton preset (best of 3, 21 points, win by 2, capped at 30), then press +1 for whoever wins each rally. The rally winner serves next and sets advance automatically." } },
+          { "@type": "Question", "name": "Can I use the online scoreboard on a TV?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Open Tally in a browser on a laptop connected to the TV and press Full screen. Scores update instantly from the keyboard." } },
+          { "@type": "Question", "name": "Does the table tennis scoreboard switch serve?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Table tennis preset switches serve every 2 points, and every point once both players reach 10." } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="notice" role="note">
+    Concept project by <a href="../../">Glendell S. Dia</a>. Tally is a fictional brand, but the scoreboard below works.
+  </div>
+
+  <header class="header">
+    <div class="wrap header__inner">
+      <a class="brand" href="#" aria-label="Tally home"><span class="brand__mark" aria-hidden="true"><span></span><span></span></span>Tally</a>
+      <nav aria-label="Primary">
+        <ul class="menu">
+          <li><a href="#board">Scoreboard</a></li>
+          <li><a href="#sports">Sports</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="intro wrap" aria-labelledby="intro-h">
+      <div>
+        <p class="eyebrow">Free online scoreboard</p>
+        <h1 id="intro-h">Keep score like a pro. <span>No app to install.</span></h1>
+        <p class="lead">A digital scoreboard, badminton score counter, and table tennis scoreboard in one, with pickleball and volleyball presets too. Set the rules, press +1, and let Tally handle sets, serve, and match point.</p>
+      </div>
+      <figure class="intro__photo"><picture><source srcset="img/hero.webp" type="image/webp"><img src="img/hero.jpg" alt="Three white badminton shuttlecocks standing on green grass" width="910" height="683" fetchpriority="high" decoding="async"></picture></figure>
+    </section>
+
+    <section class="tool wrap" id="board" aria-labelledby="board-h">
+      <h2 id="board-h" class="sr-only">Scoreboard</h2>
+      <form class="config" data-config aria-label="Match settings">
+        <p class="panel-label">Match</p>
+        <div class="field">
+          <label for="t-title">Match title</label>
+          <input id="t-title" name="title" type="text" value="Club night final" maxlength="40">
+        </div>
+        <div class="field field--vs">
+          <div><label for="t-p1">Side A</label><input id="t-p1" name="p1" type="text" value="Home" maxlength="18"></div>
+          <span aria-hidden="true">vs</span>
+          <div><label for="t-p2">Side B</label><input id="t-p2" name="p2" type="text" value="Visitor" maxlength="18"></div>
+        </div>
+
+        <p class="panel-label">Sport preset</p>
+        <div class="presets" role="group" aria-label="Sport preset">
+          <button type="button" class="preset is-active" data-preset="badminton" aria-pressed="true">Badminton</button>
+          <button type="button" class="preset" data-preset="tabletennis" aria-pressed="false">Table tennis</button>
+          <button type="button" class="preset" data-preset="pickleball" aria-pressed="false">Pickleball</button>
+          <button type="button" class="preset" data-preset="volleyball" aria-pressed="false">Volleyball</button>
+        </div>
+
+        <p class="panel-label">Match format</p>
+        <div class="grid2">
+          <div class="field"><label for="t-best">Best of</label><select id="t-best" name="bestOf"><option>1</option><option selected>3</option><option>5</option></select></div>
+          <div class="field"><label for="t-points">Points to win</label><input id="t-points" name="points" type="number" min="5" max="50" value="21" inputmode="numeric"></div>
+          <div class="field"><label for="t-cap">Point cap</label><input id="t-cap" name="cap" type="number" min="0" max="60" value="30" inputmode="numeric"></div>
+          <div class="field"><label for="t-swap">Serve</label><select id="t-swap" name="serve"><option value="rally" selected>Rally winner</option><option value="2">Every 2 points</option><option value="5">Every 5 points</option></select></div>
+        </div>
+        <label class="check" for="t-win2"><input id="t-win2" type="checkbox" name="winBy2" checked> Must win by 2</label>
+
+        <p class="panel-label">First serve</p>
+        <div class="seg" role="group" aria-label="First serve">
+          <button type="button" class="seg__btn is-active" data-first="0" aria-pressed="true">Side A</button>
+          <button type="button" class="seg__btn" data-first="1" aria-pressed="false">Side B</button>
+        </div>
+
+        <p class="panel-label">Theme</p>
+        <div class="themes" role="group" aria-label="Scoreboard theme">
+          <button type="button" class="theme is-active" data-theme="classic" aria-pressed="true" aria-label="Classic"><span style="--a:#3b82f6;--b:#ef4444"></span></button>
+          <button type="button" class="theme" data-theme="court" aria-pressed="false" aria-label="Court"><span style="--a:#22c55e;--b:#facc15"></span></button>
+          <button type="button" class="theme" data-theme="sunset" aria-pressed="false" aria-label="Sunset"><span style="--a:#f97316;--b:#ec4899"></span></button>
+          <button type="button" class="theme" data-theme="mono" aria-pressed="false" aria-label="Mono"><span style="--a:#e5e7eb;--b:#9ca3af"></span></button>
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--block">Start new match</button>
+      </form>
+
+      <div class="board-wrap">
+        <div class="board" data-board data-theme="classic">
+          <div class="board__head">
+            <strong data-title>Club night final</strong>
+            <span data-status>Set 1 · Best of 3</span>
+          </div>
+          <div class="board__cols" aria-hidden="true"><span></span><span>Sets</span><span>Points</span></div>
+          <div class="row" data-row="0">
+            <span class="row__name"><i class="serve" aria-hidden="true"></i><b data-name="0">Home</b></span>
+            <span class="row__sets" data-sets="0">0</span>
+            <span class="row__pts" data-pts="0">0</span>
+          </div>
+          <div class="row" data-row="1">
+            <span class="row__name"><i class="serve" aria-hidden="true"></i><b data-name="1">Visitor</b></span>
+            <span class="row__sets" data-sets="1">0</span>
+            <span class="row__pts" data-pts="1">0</span>
+          </div>
+          <div class="board__history" data-history aria-label="Completed sets"></div>
+        </div>
+        <p class="sr-only" aria-live="polite" data-announce></p>
+
+        <div class="controls">
+          <div class="side">
+            <button type="button" class="pt pt--a" data-point="0" aria-label="Point to side A">+1 <small data-btn-name="0">Home</small></button>
+            <button type="button" class="minus" data-minus="0" aria-label="Remove a point from side A">−1</button>
+          </div>
+          <div class="side">
+            <button type="button" class="pt pt--b" data-point="1" aria-label="Point to side B">+1 <small data-btn-name="1">Visitor</small></button>
+            <button type="button" class="minus" data-minus="1" aria-label="Remove a point from side B">−1</button>
+          </div>
+        </div>
+        <div class="toolbar">
+          <button type="button" class="tool-btn" data-undo>Undo</button>
+          <button type="button" class="tool-btn" data-swap>Swap sides</button>
+          <button type="button" class="tool-btn" data-full>Full screen</button>
+        </div>
+        <p class="keys">Keyboard: <kbd>A</kbd> point to side A · <kbd>L</kbd> point to side B · <kbd>Z</kbd> undo</p>
+      </div>
+    </section>
+
+    <section class="section wrap" id="sports" aria-labelledby="sports-h">
+      <p class="eyebrow">One digital scoreboard, four sports</p>
+      <h2 id="sports-h">A digital scoreboard with presets that know the rules</h2>
+      <ul class="sports">
+        <li><figure><picture><source srcset="img/g2.webp" type="image/webp"><img src="img/g2.jpg" alt="Close-up of a white feather badminton shuttlecock on a wooden surface" width="700" height="525" loading="lazy" decoding="async"></picture></figure><h3>Badminton score counter</h3><p>Best of 3 games to 21, win by 2, capped at 30. The rally winner serves.</p></li>
+        <li><figure><picture><source srcset="img/g1.webp" type="image/webp"><img src="img/g1.jpg" alt="A table tennis paddle and an orange ball on a table" width="700" height="525" loading="lazy" decoding="async"></picture></figure><h3>Table tennis scoreboard</h3><p>Games to 11, serve switches every 2 points and every point from deuce.</p></li>
+        <li><figure><picture><source srcset="img/g3.webp" type="image/webp"><img src="img/g3.jpg" alt="A row of colorful table tennis paddles against a brick wall" width="700" height="525" loading="lazy" decoding="async"></picture></figure><h3>Pickleball &amp; volleyball</h3><p>Rally scoring to 11 or 25, with the deciding set shortened to 15 for volleyball.</p></li>
+      </ul>
+    </section>
+
+    <section class="section wrap faq" id="faq" aria-labelledby="faq-h">
+      <div><p class="eyebrow">FAQ</p><h2 id="faq-h">Using the online scoreboard</h2></div>
+      <div class="faq__list">
+        <details><summary>How do I keep score with the badminton score counter?</summary><p>Choose the Badminton preset (best of 3, 21 points, win by 2, capped at 30), then press +1 for whoever wins each rally. The rally winner serves next and sets advance automatically.</p></details>
+        <details><summary>Can I use the online scoreboard on a TV?</summary><p>Yes. Open Tally in a browser on a laptop connected to the TV and press Full screen. Scores update instantly from the keyboard.</p></details>
+        <details><summary>Does the table tennis scoreboard switch serve?</summary><p>Yes. The Table tennis preset switches serve every 2 points, and every point once both players reach 10.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <p><strong>Tally</strong>: a concept web app by <a href="../../">Glendell S. Dia</a>.</p>
+      <p>Fictional brand for portfolio purposes. The scoreboard runs entirely in your browser.</p>
+      <div class="credits">
+        <p class="credits__title">Photo credits</p>
+        <ul>
+          <li>“<a href="https://www.rawpixel.com/image/5917075/image-public-domain-free-grass">Free badminton shuttlecocks grass photo</a>” by Unknown, via rawpixel, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></li>
+          <li>“<a href="https://www.flickr.com/photos/55608722@N06/8322410752">Ping Pong ~ Table Tennis</a>” by <a href="https://www.flickr.com/photos/55608722@N06">Dusty J</a>, via Flickr, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></li>
+          <li>“<a href="https://www.flickr.com/photos/26344495@N05/47541589452">Badminton shuttlecock close-up</a>” by <a href="https://www.flickr.com/photos/26344495@N05">Ivan Radic</a>, via Flickr, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></li>
+          <li>“<a href="https://www.flickr.com/photos/27532236@N00/5852432882">Table tennis bats in the garage</a>” by <a href="https://www.flickr.com/photos/27532236@N00">humbert15</a>, via Flickr, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../shared/search-sample.js" defer></script>
+  <script src="../shared/demo-kit.js" defer></script>
+  <script src="board.js" defer></script>
+</body>
+</html>

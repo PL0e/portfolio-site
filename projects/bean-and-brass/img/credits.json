@@ -1,0 +1,54 @@
+{
+ "hero": {
+  "title": "Manual drip (pour-over) coffee",
+  "creator": "Kim Sanso",
+  "creator_url": "https://pixabay.com/users/0102oxy-5706240",
+  "license": "CC0 1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "source": "wikimedia",
+  "source_url": "https://commons.wikimedia.org/w/index.php?curid=70214599",
+  "size": [
+   880,
+   1100
+  ]
+ },
+ "g1": {
+  "title": "Coffee Beans",
+  "creator": "Stirling Noyes",
+  "creator_url": "https://www.flickr.com/photos/98678037@N00",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0/",
+  "source": "flickr",
+  "source_url": "https://www.flickr.com/photos/98678037@N00/2295096211",
+  "size": [
+   800,
+   600
+  ]
+ },
+ "g2": {
+  "title": "Espresso machine",
+  "creator": "JMacPherson",
+  "creator_url": "https://www.flickr.com/photos/31383674@N00",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0/",
+  "source": "flickr",
+  "source_url": "https://www.flickr.com/photos/31383674@N00/10529091736",
+  "size": [
+   800,
+   600
+  ]
+ },
+ "g3": {
+  "title": "Pour Over Coffee with a Hario V60 at Fourteen Eighteen Coffehouse",
+  "creator": "nan palmero",
+  "creator_url": "https://www.flickr.com/photos/97402086@N00",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0/",
+  "source": "flickr",
+  "source_url": "https://www.flickr.com/photos/97402086@N00/14373506594",
+  "size": [
+   800,
+   600
+  ]
+ }
+}

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO and GEO in Web Development: Rank in Google, Get Cited by AI</title>
+  <meta name="description" content="A developer's guide to SEO and GEO: semantic HTML, Core Web Vitals, server rendering, JSON-LD, and a CI checklist for sites that rank and get cited by AI.">
+  <meta name="author" content="Glendell S. Dia">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light">
+  <link rel="canonical" href="https://pl0e.github.io/portfolio-site/blog/seo-and-geo-in-web-development/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Glendell S. Dia">
+  <meta property="og:title" content="SEO and GEO in Web Development: Rank in Google, Get Cited by AI">
+  <meta property="og:description" content="Semantic HTML, Core Web Vitals, server rendering, JSON-LD, and a CI checklist for sites that rank and get cited by AI answer engines.">
+  <meta property="og:url" content="https://pl0e.github.io/portfolio-site/blog/seo-and-geo-in-web-development/">
+  <meta property="og:image" content="https://pl0e.github.io/portfolio-site/blog/seo-and-geo-in-web-development/og-image.jpg">
+  <meta property="article:published_time" content="2026-10-18">
+  <meta property="article:modified_time" content="2026-10-18">
+  <meta property="article:author" content="Glendell S. Dia">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' shape-rendering='crispEdges'%3E%3Crect width='18' height='18' rx='4' fill='%23fff3ee'/%3E%3Cg transform='translate%281 1.5%29'%3E%3Crect x='6' y='0' width='4' height='1' fill='%23e2502f'/%3E%3Crect x='4' y='1' width='8' height='1' fill='%23e2502f'/%3E%3Crect x='3' y='2' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='5' y='2' width='2' height='1' fill='%23f4a08a'/%3E%3Crect x='7' y='2' width='6' height='1' fill='%23e2502f'/%3E%3Crect x='2' y='3' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='4' y='3' width='1' height='1' fill='%23f4a08a'/%3E%3Crect x='5' y='3' width='9' height='1' fill='%23e2502f'/%3E%3Crect x='2' y='4' width='12' height='1' fill='%23e2502f'/%3E%3Crect x='1' y='5' width='14' height='1' fill='%23e2502f'/%3E%3Crect x='1' y='6' width='3' height='1' fill='%23e2502f'/%3E%3Crect x='4' y='6' width='1' height='1' fill='%2318181b'/%3E%3Crect x='5' y='6' width='1' height='1' fill='%23ffffff'/%3E%3Crect x='6' y='6' width='4' height='1' fill='%23e2502f'/%3E%3Crect x='10' y='6' width='1' height='1' fill='%2318181b'/%3E%3Crect x='11' y='6' width='1' height='1' fill='%23ffffff'/%3E%3Crect x='12' y='6' width='3' height='1' fill='%23e2502f'/%3E%3Crect x='1' y='7' width='3' height='1' fill='%23e2502f'/%3E%3Crect x='4' y='7' width='2' height='1' fill='%2318181b'/%3E%3Crect x='6' y='7' width='4' height='1' fill='%23e2502f'/%3E%3Crect x='10' y='7' width='2' height='1' fill='%2318181b'/%3E%3Crect x='12' y='7' width='3' height='1' fill='%23e2502f'/%3E%3Crect x='1' y='8' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='3' y='8' width='2' height='1' fill='%23f29bbf'/%3E%3Crect x='5' y='8' width='6' height='1' fill='%23e2502f'/%3E%3Crect x='11' y='8' width='2' height='1' fill='%23f29bbf'/%3E%3Crect x='13' y='8' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='1' y='9' width='5' height='1' fill='%23e2502f'/%3E%3Crect x='6' y='9' width='1' height='1' fill='%23b83a24'/%3E%3Crect x='7' y='9' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='9' y='9' width='1' height='1' fill='%23b83a24'/%3E%3Crect x='10' y='9' width='5' height='1' fill='%23e2502f'/%3E%3Crect x='1' y='10' width='6' height='1' fill='%23e2502f'/%3E%3Crect x='7' y='10' width='2' height='1' fill='%23b83a24'/%3E%3Crect x='9' y='10' width='6' height='1' fill='%23e2502f'/%3E%3Crect x='1' y='11' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='4' y='11' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='7' y='11' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='10' y='11' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='13' y='11' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='1' y='12' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='4' y='12' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='7' y='12' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='10' y='12' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='13' y='12' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='0' y='13' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='4' y='13' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='7' y='13' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='10' y='13' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='14' y='13' width='2' height='1' fill='%23e2502f'/%3E%3Crect x='0' y='14' width='1' height='1' fill='%23b83a24'/%3E%3Crect x='3' y='14' width='2' height='1' fill='%23b83a24'/%3E%3Crect x='7' y='14' width='2' height='1' fill='%23b83a24'/%3E%3Crect x='11' y='14' width='2' height='1' fill='%23b83a24'/%3E%3Crect x='15' y='14' width='1' height='1' fill='%23b83a24'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="../../assets/img/octopus-180.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300..700&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../blog.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://pl0e.github.io/portfolio-site/blog/seo-and-geo-in-web-development/#post",
+        "headline": "SEO and GEO in Web Development: Building Sites That Rank and Get Cited",
+        "description": "A developer's guide to SEO and generative engine optimization: semantic HTML, Core Web Vitals, server rendering, JSON-LD structured data, and a CI checklist.",
+        "datePublished": "2026-10-18",
+        "dateModified": "2026-10-18",
+        "image": "https://pl0e.github.io/portfolio-site/blog/seo-and-geo-in-web-development/og-image.jpg",
+        "wordCount": 2132,
+        "keywords": ["SEO and GEO in web development", "generative engine optimization", "technical SEO for AI search", "core web vitals", "structured data markup", "LLM-friendly web architecture", "semantic HTML"],
+        "inLanguage": "en",
+        "author": { "@type": "Person", "name": "Glendell S. Dia", "url": "https://pl0e.github.io/portfolio-site/" },
+        "publisher": { "@type": "Person", "name": "Glendell S. Dia", "url": "https://pl0e.github.io/portfolio-site/" },
+        "mainEntityOfPage": "https://pl0e.github.io/portfolio-site/blog/seo-and-geo-in-web-development/"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pl0e.github.io/portfolio-site/" },
+          { "@type": "ListItem", "position": 2, "name": "Writing", "item": "https://pl0e.github.io/portfolio-site/blog/" },
+          { "@type": "ListItem", "position": 3, "name": "SEO and GEO in Web Development", "item": "https://pl0e.github.io/portfolio-site/blog/seo-and-geo-in-web-development/" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is generative engine optimization?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Generative engine optimization (GEO) is the practice of making content easy for AI answer engines to retrieve, understand, and cite when they generate a response." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="blog">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs><symbol id="octo" viewBox="0 0 16 16"><rect x="6" y="0" width="4" height="1" fill="#e2502f"/><rect x="4" y="1" width="8" height="1" fill="#e2502f"/><rect x="3" y="2" width="2" height="1" fill="#e2502f"/><rect x="5" y="2" width="2" height="1" fill="#f4a08a"/><rect x="7" y="2" width="6" height="1" fill="#e2502f"/><rect x="2" y="3" width="2" height="1" fill="#e2502f"/><rect x="4" y="3" width="1" height="1" fill="#f4a08a"/><rect x="5" y="3" width="9" height="1" fill="#e2502f"/><rect x="2" y="4" width="12" height="1" fill="#e2502f"/><rect x="1" y="5" width="14" height="1" fill="#e2502f"/><rect x="1" y="6" width="3" height="1" fill="#e2502f"/><rect x="4" y="6" width="1" height="1" fill="#18181b"/><rect x="5" y="6" width="1" height="1" fill="#ffffff"/><rect x="6" y="6" width="4" height="1" fill="#e2502f"/><rect x="10" y="6" width="1" height="1" fill="#18181b"/><rect x="11" y="6" width="1" height="1" fill="#ffffff"/><rect x="12" y="6" width="3" height="1" fill="#e2502f"/><rect x="1" y="7" width="3" height="1" fill="#e2502f"/><rect x="4" y="7" width="2" height="1" fill="#18181b"/><rect x="6" y="7" width="4" height="1" fill="#e2502f"/><rect x="10" y="7" width="2" height="1" fill="#18181b"/><rect x="12" y="7" width="3" height="1" fill="#e2502f"/><rect x="1" y="8" width="2" height="1" fill="#e2502f"/><rect x="3" y="8" width="2" height="1" fill="#f29bbf"/><rect x="5" y="8" width="6" height="1" fill="#e2502f"/><rect x="11" y="8" width="2" height="1" fill="#f29bbf"/><rect x="13" y="8" width="2" height="1" fill="#e2502f"/><rect x="1" y="9" width="5" height="1" fill="#e2502f"/><rect x="6" y="9" width="1" height="1" fill="#b83a24"/><rect x="7" y="9" width="2" height="1" fill="#e2502f"/><rect x="9" y="9" width="1" height="1" fill="#b83a24"/><rect x="10" y="9" width="5" height="1" fill="#e2502f"/><rect x="1" y="10" width="6" height="1" fill="#e2502f"/><rect x="7" y="10" width="2" height="1" fill="#b83a24"/><rect x="9" y="10" width="6" height="1" fill="#e2502f"/><rect x="1" y="11" width="2" height="1" fill="#e2502f"/><rect x="4" y="11" width="2" height="1" fill="#e2502f"/><rect x="7" y="11" width="2" height="1" fill="#e2502f"/><rect x="10" y="11" width="2" height="1" fill="#e2502f"/><rect x="13" y="11" width="2" height="1" fill="#e2502f"/><rect x="1" y="12" width="2" height="1" fill="#e2502f"/><rect x="4" y="12" width="2" height="1" fill="#e2502f"/><rect x="7" y="12" width="2" height="1" fill="#e2502f"/><rect x="10" y="12" width="2" height="1" fill="#e2502f"/><rect x="13" y="12" width="2" height="1" fill="#e2502f"/><rect x="0" y="13" width="2" height="1" fill="#e2502f"/><rect x="4" y="13" width="2" height="1" fill="#e2502f"/><rect x="7" y="13" width="2" height="1" fill="#e2502f"/><rect x="10" y="13" width="2" height="1" fill="#e2502f"/><rect x="14" y="13" width="2" height="1" fill="#e2502f"/><rect x="0" y="14" width="1" height="1" fill="#b83a24"/><rect x="3" y="14" width="2" height="1" fill="#b83a24"/><rect x="7" y="14" width="2" height="1" fill="#b83a24"/><rect x="11" y="14" width="2" height="1" fill="#b83a24"/><rect x="15" y="14" width="1" height="1" fill="#b83a24"/></symbol></defs>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="container site-header__inner">
+      <a class="logo" href="../../" aria-label="Glendell Dia, home">
+        <span class="logo__mark"><svg class="logo__octo" aria-hidden="true"><use href="#octo"/></svg></span>
+        <span class="logo__text">Glendell<span class="accent">.</span></span>
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
+        </button>
+        <ul class="nav__menu" id="nav-menu">
+          <li><a class="nav__link" href="../../#about">About</a></li>
+          <li><a class="nav__link" href="../../#experience">Experience</a></li>
+          <li><a class="nav__link" href="../../#projects">Projects</a></li>
+          <li><a class="nav__link" href="../../#certificates">Certificates</a></li>
+          <li><a class="nav__link is-active" aria-current="page" href="../">Writing</a></li>
+          <li><a class="nav__link nav__link--cta" href="../../#contact">Hire Me</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="post-main">
+    <article class="post" aria-labelledby="post-title">
+      <header class="post__head container">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="../../">Home</a></li>
+            <li><a href="../">Writing</a></li>
+            <li aria-current="page">SEO and GEO</li>
+          </ol>
+        </nav>
+        <p class="post__kicker">Technical SEO · Generative engine optimization</p>
+        <h1 class="post__title" id="post-title">SEO and GEO in Web Development: Building Sites That Rank and Get Cited</h1>
+        <p class="post__dek">How semantic HTML, server rendering, Core Web Vitals, and structured data decide whether Google ranks your pages and whether AI answer engines quote them.</p>
+        <p class="post__meta">
+          <span>By <a href="../../#about" rel="author">Glendell S. Dia</a></span>
+          <span aria-hidden="true">·</span>
+          <time datetime="2026-10-18">October 18, 2026</time>
+          <span aria-hidden="true">·</span>
+          <span>10 min read</span>
+        </p>
+      </header>
+
+      <div class="post__layout container">
+        <aside class="post__toc" aria-label="Table of contents">
+          <p class="post__toc-title">On this page</p>
+          <ol>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#evolution">From SEO to GEO</a></li>
+            <li><a href="#foundations">Technical foundations</a></li>
+            <li><a href="#citations">Content for AI citations</a></li>
+            <li><a href="#checklist">Developer checklist</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+          </ol>
+        </aside>
+
+        <div class="post__body">
+          <section id="introduction" aria-labelledby="introduction-h">
+            <h2 id="introduction-h">Introduction</h2>
+            <p>For twenty years, search meant ten blue links. A user typed a query, a search engine retrieved a ranked list of pages, and the user clicked through to read. Your job as a developer was to make that page crawlable, fast, and relevant enough to earn a high slot on the list.</p>
+            <p>That model still exists, but it is no longer the only one. ChatGPT, Perplexity, Google's AI Overviews and AI Mode, Gemini, and Claude now answer many questions directly. They read several sources, synthesize one response, and cite a handful of pages along the way. Often the user never sees a results page at all.</p>
+            <p>The shift is from <strong>retrieval</strong> to <strong>synthesis</strong>. A search engine retrieves documents and lets the human assemble the answer. An answer engine assembles the answer itself and decides which sources deserve credit. That changes what "visible" means. Ranking first matters less if the answer is written above the links; being the source the answer quotes matters more.</p>
+            <p>For developers, the consequence is concrete. The same things that always helped crawlers, such as clean HTML, fast server responses, and explicit structure, now decide whether a language model can parse your page, trust it, and lift an accurate passage from it. <strong>SEO and GEO in web development</strong> are no longer two disciplines. They are one engineering practice with two audiences: ranking algorithms and generative engines.</p>
+          </section>
+
+          <section id="evolution" aria-labelledby="evolution-h">
+            <h2 id="evolution-h">Section 1: The evolution from SEO to GEO</h2>
+
+            <h3>What SEO means in modern web development</h3>
+            <p>Modern technical SEO is the work of making a site easy for search engines to <strong>find, render, understand, and trust</strong>. In practice it rests on four pillars:</p>
+            <ul>
+              <li><strong>Crawlability:</strong> bots can reach every important URL through links, a sitemap, and a <code>robots.txt</code> that blocks only what it should.</li>
+              <li><strong>Indexability:</strong> each page returns the right status code, has one canonical URL, and isn't hidden behind <code>noindex</code>, login walls, or client-only rendering.</li>
+              <li><strong>Speed and experience:</strong> pages meet Google's Core Web Vitals thresholds: Largest Contentful Paint (LCP) under 2.5 s, Interaction to Next Paint (INP) under 200 ms, and Cumulative Layout Shift (CLS) under 0.1.</li>
+              <li><strong>Meaning:</strong> semantic HTML and structured data (schema.org in JSON-LD) tell the engine what each page is about and how its entities relate.</li>
+            </ul>
+            <p>None of that is new. What is new is that a second kind of reader now consumes the same output.</p>
+
+            <h3 id="what-is-geo">What is generative engine optimization?</h3>
+            <p><strong>Generative engine optimization (GEO) is the practice of making content easy for AI answer engines to retrieve, understand, and cite when they generate a response.</strong> The term comes from a 2023 research paper by Aggarwal and colleagues, <cite>GEO: Generative Engine Optimization</cite>, which found that adding citations, quotations, and statistics to source content measurably increased how often generative engines surfaced it.</p>
+            <p>Generative engines work differently from a ranked index:</p>
+            <ol>
+              <li><strong>Retrieve.</strong> The engine runs one or more searches, often several reformulated queries, and fetches candidate pages.</li>
+              <li><strong>Extract.</strong> It splits those pages into passages and keeps the ones that best match the question.</li>
+              <li><strong>Synthesize.</strong> A language model writes a single answer from those passages.</li>
+              <li><strong>Attribute.</strong> It links the sources it relied on, usually only a few.</li>
+            </ol>
+            <p>The unit of competition shrinks from the <strong>page</strong> to the <strong>passage</strong>. A page can rank well and still never be cited if no single passage answers the question cleanly. A smaller site can be cited often if its passages are precise, verifiable, and easy to extract.</p>
+
+            <h3>SEO vs. GEO at a glance</h3>
+            <div class="post__table">
+              <table>
+                <caption class="sr-only">Comparison of traditional SEO and generative engine optimization</caption>
+                <thead>
+                  <tr><th scope="col">Dimension</th><th scope="col">Traditional SEO</th><th scope="col">Generative engine optimization (GEO)</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Goal</th><td>Rank high in a list of links</td><td>Be quoted and cited inside an AI answer</td></tr>
+                  <tr><th scope="row">Unit that competes</th><td>Whole page</td><td>Individual passage or fact</td></tr>
+                  <tr><th scope="row">Primary reader</th><td>Ranking algorithm, then a human</td><td>Retrieval system and a language model, then a human</td></tr>
+                  <tr><th scope="row">Success metric</th><td>Rankings, impressions, click-through rate</td><td>Citations, brand mentions, referral traffic from AI tools</td></tr>
+                  <tr><th scope="row">Key technical levers</th><td>Crawlability, Core Web Vitals, links, schema</td><td>The same, plus server-rendered text, clear passages, explicit entities</td></tr>
+                  <tr><th scope="row">Content style that wins</th><td>Comprehensive, keyword-relevant pages</td><td>Direct answers, factual density, verifiable claims</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>The overlap is the point. Almost every GEO lever is an SEO lever done more rigorously.</p>
+          </section>
+
+          <section id="foundations" aria-labelledby="foundations-h">
+            <h2 id="foundations-h">Section 2: Technical foundations for dual optimization (SEO + GEO)</h2>
+
+            <h3>Semantic HTML: structure that machines can read</h3>
+            <p>Semantic HTML is the cheapest, highest-leverage optimization you control. When a crawler or an AI pipeline converts your page into text, it uses your tags to decide what is navigation, what is the main content, and how ideas nest. A page built from anonymous <code>&lt;div&gt;</code>s forces it to guess.</p>
+            <ul>
+              <li><strong><code>&lt;main&gt;</code> and <code>&lt;article&gt;</code></strong> mark the content worth extracting, so boilerplate is easier to discard.</li>
+              <li><strong><code>&lt;nav&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, and <code>&lt;aside&gt;</code></strong> label the chrome that should <em>not</em> be quoted as an answer.</li>
+              <li><strong><code>&lt;section&gt;</code> with a heading</strong> groups one idea, which maps neatly onto the passages a retrieval system chunks.</li>
+              <li><strong>One <code>&lt;h1&gt;</code>, then <code>&lt;h2&gt;</code>–<code>&lt;h6&gt;</code> in order</strong> gives a real outline. Never skip levels to get a smaller font; style with CSS instead.</li>
+              <li><strong>Lists, tables, <code>&lt;figure&gt;</code>/<code>&lt;figcaption&gt;</code>, <code>&lt;time datetime&gt;</code>, and <code>&lt;dl&gt;</code></strong> carry structure that survives conversion to text, unlike visual layouts.</li>
+            </ul>
+<pre class="code" data-lang="html"><code>&lt;main&gt;
+  &lt;article&gt;
+    &lt;header&gt;
+      &lt;h1&gt;SEO and GEO in Web Development&lt;/h1&gt;
+      &lt;p&gt;By &lt;a href="/about"&gt;Glendell S. Dia&lt;/a&gt; ·
+         &lt;time datetime="2026-10-18"&gt;October 18, 2026&lt;/time&gt;&lt;/p&gt;
+    &lt;/header&gt;
+
+    &lt;section aria-labelledby="what-is-geo"&gt;
+      &lt;h2 id="what-is-geo"&gt;What is generative engine optimization?&lt;/h2&gt;
+      &lt;p&gt;Generative engine optimization (GEO) is the practice of making content
+         easy for AI answer engines to retrieve, understand, and cite.&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/article&gt;
+&lt;/main&gt;</code></pre>
+
+            <h3>Performance and Core Web Vitals: speed is access</h3>
+            <p>Speed used to be a ranking tiebreaker. For AI retrieval it is closer to a gate. Answer engines fetch pages at question time and under tight latency budgets, so a slow origin can simply time out of the candidate set.</p>
+            <ul>
+              <li><strong>Server-side rendering (SSR)</strong> sends complete HTML on the first response, so the text exists before any JavaScript runs.</li>
+              <li><strong>Static site generation (SSG) and incremental static regeneration (ISR)</strong> pre-build pages and refresh them in the background, which gives CDN-cached speed with reasonably fresh content.</li>
+              <li><strong>A low Time to First Byte (TTFB)</strong> comes from edge caching, efficient data fetching, and avoiding blocking work in the request path. Aim for under 800 ms, Google's "good" threshold.</li>
+              <li><strong>Core Web Vitals</strong> (LCP, INP, CLS) remain Google ranking signals, and the same habits that pass them, such as optimized images, minimal render-blocking resources, and reserved space for media, also make pages cheaper for any bot to process.</li>
+            </ul>
+
+            <h3>JavaScript rendering pitfalls for AI crawlers</h3>
+            <p>Googlebot renders JavaScript, though in a deferred second wave. Many AI crawlers, including OpenAI's GPTBot and Anthropic's ClaudeBot, have been observed fetching raw HTML without executing JavaScript. If your single-page application ships an empty <code>&lt;div id="root"&gt;&lt;/div&gt;</code> and builds everything client-side, those crawlers may see a blank page.</p>
+            <p>Common client-side rendering (CSR) failure modes:</p>
+            <ul>
+              <li><strong>Empty shell HTML:</strong> the main content, headings, and links exist only after hydration.</li>
+              <li><strong>Client-only routing:</strong> URLs that resolve only inside the app, with every path returning the same shell.</li>
+              <li><strong>Content behind interactions:</strong> text revealed by tabs, accordions, or "load more" buttons that fetch on click.</li>
+              <li><strong>Metadata injected late:</strong> titles, canonical tags, and JSON-LD added by JavaScript after load.</li>
+            </ul>
+            <p>The fix is to render meaningful HTML on the server: SSR or SSG with frameworks such as Next.js, Nuxt, Astro, SvelteKit, or Remix; prerendering for marketing routes; or at minimum server-rendered metadata and a <code>&lt;noscript&gt;</code> summary. Test it the way a bot sees it:</p>
+<pre class="code" data-lang="bash"><code># What does a non-rendering crawler receive?
+curl -s -A "GPTBot" https://example.com/blog/seo-and-geo | grep -i "&lt;h1"</code></pre>
+            <p>If your headline isn't in that output, neither is your chance of being cited.</p>
+          </section>
+
+          <section id="citations" aria-labelledby="citations-h">
+            <h2 id="citations-h">Section 3: Content structure and information architecture for AI citations</h2>
+
+            <h3>Writing citation-worthy copy</h3>
+            <p>A language model cites the passage that answers the question most clearly and with the least risk of being wrong. Write for that.</p>
+            <ul>
+              <li><strong>Factual density:</strong> prefer specific numbers, names, versions, and dates over adjectives. "INP under 200 ms" beats "fast interactions."</li>
+              <li><strong>Verifiable claims:</strong> link primary sources such as specs, documentation, and research, and quote them accurately.</li>
+              <li><strong>Self-contained passages:</strong> each paragraph should make sense when lifted out alone. Repeat the subject instead of relying on "this" or "it" from three paragraphs earlier.</li>
+              <li><strong>Authoritative, neutral tone:</strong> state what is true and under what conditions. Hedge only where real uncertainty exists.</li>
+              <li><strong>No fluff:</strong> intros that restate the title and filler like "in today's fast-paced digital world" dilute the passages a retriever scores.</li>
+              <li><strong>Visible expertise:</strong> author names, bylines, credentials, and "last updated" dates help both Google's quality systems and an engine deciding whom to trust.</li>
+            </ul>
+
+            <h3>The direct-answer format</h3>
+            <p>Put the answer first. Under every question-shaped heading, the first one or two sentences should answer it completely, and supporting detail follows.</p>
+<pre class="code" data-lang="html"><code>&lt;h2&gt;What is generative engine optimization?&lt;/h2&gt;
+&lt;p&gt;Generative engine optimization (GEO) is the practice of making content
+   easy for AI answer engines to retrieve, understand, and cite. It extends
+   technical SEO from ranking pages to being quoted inside AI answers.&lt;/p&gt;
+&lt;!-- Then: how it works, examples, caveats --&gt;</code></pre>
+            <p>This mirrors how featured snippets were won for years, and it maps directly onto passage extraction: the heading matches the user's question, and the sentence beneath it is a ready-made citation.</p>
+
+            <h3>JSON-LD structured data: machine-readable context</h3>
+            <p>Structured data turns implicit meaning into explicit facts: who wrote this, when, about what, for which organization, and where it sits in the site. Use JSON-LD in a <code>&lt;script type="application/ld+json"&gt;</code> block, rendered on the server.</p>
+            <ul>
+              <li><strong>Article / BlogPosting:</strong> headline, author, dates, image, publisher.</li>
+              <li><strong>Organization or Person:</strong> the entity behind the content, with <code>sameAs</code> links to official profiles.</li>
+              <li><strong>BreadcrumbList:</strong> the page's place in your hierarchy.</li>
+              <li><strong>FAQPage:</strong> question-and-answer pairs. Since 2023 Google shows FAQ rich results mainly for well-known government and health sites, but the markup still gives machines clean Q&amp;A pairs.</li>
+            </ul>
+<pre class="code" data-lang="json"><code>{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "SEO and GEO in Web Development",
+      "description": "How to build sites that rank in search and get cited by AI answer engines.",
+      "datePublished": "2026-10-18",
+      "dateModified": "2026-10-18",
+      "author": { "@type": "Person", "name": "Glendell S. Dia", "url": "https://pl0e.github.io/portfolio-site/" },
+      "mainEntityOfPage": "https://pl0e.github.io/portfolio-site/blog/seo-and-geo-in-web-development/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pl0e.github.io/portfolio-site/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://pl0e.github.io/portfolio-site/blog/" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What is generative engine optimization?",
+        "acceptedAnswer": { "@type": "Answer", "text": "GEO is the practice of making content easy for AI answer engines to retrieve, understand, and cite." }
+      }]
+    }
+  ]
+}</code></pre>
+            <p>Two rules keep structured data honest. Mark up only what is <strong>visible on the page</strong>, since markup that contradicts the content can be ignored or penalized. And keep it <strong>in sync with the content source</strong>, ideally generated from the same data, never hand-maintained separately.</p>
+          </section>
+
+          <section id="checklist" aria-labelledby="checklist-h">
+            <h2 id="checklist-h">Section 4: Developer checklist for 2026 and beyond</h2>
+            <p>Treat visibility like accessibility or security: a set of checks that runs on every pull request, not a quarterly audit.</p>
+
+            <h3>Crawling and access</h3>
+            <ul class="checklist">
+              <li><strong>Manage <code>robots.txt</code> as code.</strong> Keep it in the repo, review changes in PRs, and decide explicitly which AI user agents to allow, such as <code>GPTBot</code>, <code>OAI-SearchBot</code>, <code>ClaudeBot</code>, <code>PerplexityBot</code>, and the <code>Google-Extended</code> token. Blocking search-oriented bots also removes you from their answers.</li>
+              <li><strong>Generate the XML sitemap at build time</strong> from your routes or CMS, with accurate <code>lastmod</code> dates, and fail the build if it is empty or contains non-canonical URLs.</li>
+              <li><strong>Ping changes</strong> with IndexNow (supported by Bing and others) when content publishes or updates.</li>
+              <li><strong>Return correct status codes:</strong> real 404s and 410s, 301s for moved content, and no soft-404 shells.</li>
+              <li><strong>Keep staging out of the index</strong> with authentication or <code>noindex</code> headers enforced by environment, never by memory.</li>
+            </ul>
+
+            <h3>Rendering and performance</h3>
+            <ul class="checklist">
+              <li><strong>Assert server-rendered content in tests:</strong> fetch key routes without JavaScript and check that the <code>&lt;h1&gt;</code>, main copy, and JSON-LD are present.</li>
+              <li><strong>Set performance budgets in CI</strong> with Lighthouse CI or similar: LCP under 2.5 s, CLS under 0.1, and bundle-size limits per route.</li>
+              <li><strong>Track real-user Core Web Vitals</strong> (field data, including INP) and alert on regressions after deploys.</li>
+              <li><strong>Cache aggressively at the edge</strong> and watch TTFB on dynamic routes.</li>
+            </ul>
+
+            <h3>Markup and metadata</h3>
+            <ul class="checklist">
+              <li><strong>Lint HTML semantics:</strong> one <code>&lt;h1&gt;</code>, no skipped heading levels, landmarks present, images with <code>alt</code>.</li>
+              <li><strong>Validate JSON-LD on every build</strong> against schema.org types and your own required fields, such as <code>headline</code>, <code>author</code>, <code>datePublished</code>, and <code>image</code> for articles.</li>
+              <li><strong>Map schema in your headless CMS:</strong> model authors, dates, FAQs, and breadcrumbs as structured fields so markup is generated from content, not typed by hand.</li>
+              <li><strong>Check unique titles, meta descriptions, and canonicals</strong> across all routes, and flag duplicates in CI.</li>
+              <li><strong>Generate Open Graph and social metadata</strong> from the same source as the page content.</li>
+            </ul>
+
+            <h3>Content and measurement</h3>
+            <ul class="checklist">
+              <li><strong>Add a direct-answer check to content review:</strong> does the first sentence under each heading answer it?</li>
+              <li><strong>Show bylines and <code>dateModified</code></strong>, and update them only when content materially changes.</li>
+              <li><strong>Measure AI referrals:</strong> segment analytics traffic from chatgpt.com, perplexity.ai, gemini.google.com, and claude.ai, and track citations of your brand in the answer engines you care about.</li>
+              <li><strong>Consider an <code>llms.txt</code> file</strong> that summarizes your key pages for language models. It is an emerging proposal, not a standard any engine guarantees to use, so treat it as low-cost and optional.</li>
+            </ul>
+<pre class="code" data-lang="yaml"><code># Example CI job (GitHub Actions)
+seo-geo-checks:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v4
+    - run: npm ci &amp;&amp; npm run build
+    - run: npm run test:ssr-content     # curl key routes, assert &lt;h1&gt; + JSON-LD
+    - run: npm run lint:html            # headings, landmarks, alt text
+    - run: npm run validate:jsonld      # schema checks on built pages
+    - run: npx lhci autorun             # performance budgets</code></pre>
+          </section>
+
+          <section id="conclusion" aria-labelledby="conclusion-h">
+            <h2 id="conclusion-h">Conclusion</h2>
+            <p>The line between "building the site" and "getting the site found" has disappeared. Search engines and generative engines read the same HTML, hit the same servers, and parse the same structured data. What they reward is also the same: pages that render fully on the first response, load fast, say clearly what they are, and back their claims with specifics.</p>
+            <p>That means the levers sit with developers. Semantic HTML, server-side rendering, Core Web Vitals, structured data markup, and LLM-friendly web architecture are not a marketing add-on bolted on before launch. They are the product's interface to every machine that decides whether a person will ever see it.</p>
+            <p>Code quality, site architecture, and content clarity are no longer separate from visibility. <strong>They are the visibility strategy.</strong> Build pages a machine can understand in one pass, write passages worth quoting, and both the ranking algorithms and the answer engines will have every reason to send people your way.</p>
+          </section>
+
+          <aside class="post__author" aria-label="About the author">
+            <span class="post__author-mark" aria-hidden="true"><svg><use href="#octo"/></svg></span>
+            <div>
+              <p class="post__author-name">Written by Glendell S. Dia</p>
+              <p>Front-end web developer in Cebu, Philippines, focused on fast, accessible, SEO-ready websites. <a href="../../#projects">See my projects</a> or <a href="../../#contact">get in touch</a>.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__brand"><svg class="footer__octo" aria-hidden="true"><use href="#octo"/></svg><span>© <span id="year">2026</span> Glendell S. Dia. All rights reserved.</span></p>
+      <ul class="socials socials--small" aria-label="Social links">
+        <li><a href="https://www.linkedin.com/in/glendell-dia-49760828b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+        <li><a href="https://github.com/PL0e" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in new tab)"><i class="fab fa-github" aria-hidden="true"></i></a></li>
+        <li><a href="mailto:glendellsara@gmail.com" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a></li>
+      </ul>
+      <a class="footer__top" href="#main">Back to top <i class="fas fa-arrow-up" aria-hidden="true"></i></a>
+    </div>
+  </footer>
+
+  <script src="../blog.js" defer></script>
+</body>
+</html>
