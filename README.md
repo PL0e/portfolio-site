@@ -42,7 +42,7 @@ portfolio-site/
 │   └── bean-and-brass/   # Coffee shop: beans, machines, café menu, brew calculator
 └── assets/
     ├── resume_diaglendell_.pdf   # The CV linked from the site
-    └── img/                      # Web-optimized images (profile, og-image, pets)
+    └── img/                      # Web-optimized images (profile, og-image, pets, and project previews)
 ```
 
 ## Common edits
