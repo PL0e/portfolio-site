@@ -1749,6 +1749,26 @@ html.is-gated body {
   font-size: 0.86rem;
 }
 
+.cert__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.cert__link:hover,
+.cert__link:focus-visible {
+  text-decoration: underline;
+}
+
+.cert__link i {
+  font-size: 0.7rem;
+}
+
 .cert--award {
   border-color: rgba(217, 119, 6, 0.4);
   background: linear-gradient(135deg, rgba(250, 204, 21, 0.08), transparent 60%), var(--surface);
