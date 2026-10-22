@@ -10,6 +10,14 @@
  *   [data-words]    statement whose words light up as it scrolls in
  *   .reveal         fades up when it enters the viewport
  *
+ * Optional on [data-scrolly]:
+ *   data-max-width="1100"  cap the frame's on-screen width (CSS px) so small frames
+ *                          stay sharp; the frame is feathered into its backdrop
+ *   data-night-at="0.45"   add .is-night to <html> once progress passes this point
+ *   data-blend             cross-fade between neighbouring frames while scrubbing
+ *   data-smooth            ease the shown progress toward the scroll position
+ * Every render dispatches "scrollhero:progress" on the section with { p, cover }.
+ *
  * The section is 400vh tall with a sticky 100vh stage (see scroll-hero.css).
  * The first 200vh of scrolling scrubs the frames on a canvas and fades the
  * beats; over the last 100vh the next section slides up over the stage
@@ -38,9 +46,14 @@
     return { el, start, end }
   })
 
+  const maxWidth = Number(root.dataset.maxWidth) || 0
+  const blend = "blend" in root.dataset
+  const smooth = "smooth" in root.dataset
+  const nightAt = root.dataset.nightAt === undefined ? null : Number(root.dataset.nightAt)
+
   const frames = new Array(FRAME_COUNT)
   let current = -1
-  let ticking = false
+  let raf = 0 // one pending animation frame at most
 
   // ---------------------------------------------------------------------------
   // Frames
@@ -108,41 +121,36 @@
     current = -1
   }
 
-  function draw(i) {
-    const idx = nearest(i)
-    if (idx < 0 || idx === current) return
-    current = idx
-    const img = frames[idx]
-    const [r, g, b] = img.tone
-    const w = canvas.width
-    const h = canvas.height
-    const ir = img.naturalWidth / img.naturalHeight
-
-    ctx.fillStyle = `rgb(${r},${g},${b})`
-    ctx.fillRect(0, 0, w, h)
-
-    // Landscape frames on a portrait screen: a wide band (sides cropped a little)
-    // with the top and bottom feathered into the frame's backdrop. Covering the
-    // screen would crop away most of the frame.
+  /**
+   * Where a frame sits on the stage, and which of its edges to feather into the
+   * backdrop. Edges are [x0, y0, x1, y1] gradients from opaque to clear.
+   */
+  function layout(ir, w, h) {
+    // Landscape frames on a portrait screen: a wide band (sides cropped a little),
+    // high on the stage and clear of the copy card. Covering would crop most of it.
     if (ir > 1 && w / h < 1) {
       const dw = Math.min(h * ir, w * 1.6)
       const dh = dw / ir
       const dx = (w - dw) / 2
-      const dy = h * 0.32 - dh / 2 // high, clear of the copy card at the bottom
-      ctx.drawImage(img, dx, dy, dw, dh)
+      const dy = h * 0.32 - dh / 2
       const f = dh * 0.16
-      for (const [y0, y1] of [[dy, dy + f], [dy + dh, dy + dh - f]]) {
-        const grad = ctx.createLinearGradient(0, y0, 0, y1)
-        grad.addColorStop(0, `rgba(${r},${g},${b},1)`)
-        grad.addColorStop(1, `rgba(${r},${g},${b},0)`)
-        ctx.fillStyle = grad
-        ctx.fillRect(0, Math.min(y0, y1), w, f)
-      }
-      stage.style.setProperty("--tone", `rgb(${r},${g},${b})`)
-      stage.classList.add("is-ready")
-      return
+      return { dx, dy, dw, dh, edges: [[0, dy, 0, dy + f], [0, dy + dh, 0, dy + dh - f]] }
     }
-
+    // Capped width (data-max-width): cover, but never wider than the cap, and
+    // feather whichever edges stop short of the stage.
+    if (maxWidth) {
+      const scale = canvas.width / stage.clientWidth // device pixels per CSS px
+      const dw = Math.min(Math.max(w, h * ir), maxWidth * scale)
+      const dh = dw / ir
+      const dx = (w - dw) / 2
+      const dy = (h - dh) / 2
+      const fx = dw * 0.14
+      const fy = dh * 0.16
+      const edges = []
+      if (dx > 0) edges.push([dx, 0, dx + fx, 0], [dx + dw, 0, dx + dw - fx, 0])
+      if (dy > 0) edges.push([0, dy, 0, dy + fy], [0, dy + dh, 0, dy + dh - fy])
+      return { dx, dy, dw, dh, edges }
+    }
     // Narrow (portrait) screens: cover. Wide screens: fit the height and feather the sides.
     let dw, dh
     if (w / h < ir * 1.35) {
@@ -154,20 +162,58 @@
     }
     const dx = (w - dw) / 2
     const dy = (h - dh) / 2
-    ctx.drawImage(img, dx, dy, dw, dh)
+    const f = dw * 0.14
+    return { dx, dy, dw, dh, edges: dw < w ? [[dx, 0, dx + f, 0], [dx + dw, 0, dx + dw - f, 0]] : [] }
+  }
 
-    if (dw < w) {
-      const f = dw * 0.14
-      for (const [x0, x1] of [[dx, dx + f], [dx + dw, dx + dw - f]]) {
-        const grad = ctx.createLinearGradient(x0, 0, x1, 0)
-        grad.addColorStop(0, `rgba(${r},${g},${b},1)`)
-        grad.addColorStop(1, `rgba(${r},${g},${b},0)`)
-        ctx.fillStyle = grad
-        ctx.fillRect(Math.min(x0, x1), 0, f, h)
-      }
+  let painted = ""
+
+  /**
+   * Paint frame position f (fractional). With data-blend the two neighbouring
+   * frames are cross-faded, so 40 frames scrub as smoothly as many more.
+   */
+  function draw(f) {
+    const base = blend ? Math.floor(f) : Math.round(f)
+    const a = nearest(base)
+    if (a < 0) return
+    let b = -1
+    let t = 0
+    if (blend && a === base && f - base > 0.004 && frames[base + 1]) {
+      b = base + 1
+      t = f - base
+    }
+    const key = b < 0 ? `${a}` : `${a}:${t.toFixed(3)}`
+    if (key === painted) return
+    painted = key
+    current = a
+
+    const imgA = frames[a]
+    const imgB = b < 0 ? null : frames[b]
+    const tone = imgB ? imgA.tone.map((v, k) => Math.round(v + (imgB.tone[k] - v) * t)) : imgA.tone
+    const [r, g, bl] = tone
+    const w = canvas.width
+    const h = canvas.height
+    const { dx, dy, dw, dh, edges } = layout(imgA.naturalWidth / imgA.naturalHeight, w, h)
+
+    ctx.globalAlpha = 1
+    ctx.fillStyle = `rgb(${r},${g},${bl})`
+    ctx.fillRect(0, 0, w, h)
+    ctx.drawImage(imgA, dx, dy, dw, dh)
+    if (imgB) {
+      ctx.globalAlpha = t
+      ctx.drawImage(imgB, dx, dy, dw, dh)
+      ctx.globalAlpha = 1
+    }
+    for (const [x0, y0, x1, y1] of edges) {
+      const grad = ctx.createLinearGradient(x0, y0, x1, y1)
+      grad.addColorStop(0, `rgba(${r},${g},${bl},1)`)
+      grad.addColorStop(1, `rgba(${r},${g},${bl},0)`)
+      ctx.fillStyle = grad
+      if (x0 !== x1) ctx.fillRect(Math.min(x0, x1), 0, Math.abs(x1 - x0), h)
+      else ctx.fillRect(0, Math.min(y0, y1), w, Math.abs(y1 - y0))
     }
 
-    stage.style.setProperty("--tone", `rgb(${r},${g},${b})`)
+    stage.style.setProperty("--tone", `rgb(${r},${g},${bl})`)
     stage.classList.add("is-ready")
   }
 
@@ -195,11 +241,32 @@
     el.toggleAttribute("inert", o < 0.5)
   }
 
+  // With data-smooth the shown progress eases toward the scroll position instead
+  // of jumping with it, so wheel steps glide and the scene settles gently.
+  let shown = -1
+  let lastTime = 0
+
+  function schedule() {
+    if (!raf) raf = requestAnimationFrame(() => {
+      raf = 0
+      render(false)
+    })
+  }
+
   function render(force) {
-    ticking = false
-    const { p, cover } = progress()
-    if (force) current = -1
-    draw(Math.round(p * (FRAME_COUNT - 1)))
+    const { p: target, cover } = progress()
+    const now = performance.now()
+    if (!smooth || shown < 0 || reduceMotion.matches) {
+      shown = target
+    } else {
+      const dt = Math.min(64, now - (lastTime || now))
+      shown += (target - shown) * (1 - Math.exp(-dt / 110))
+      if (Math.abs(target - shown) < 0.0005) shown = target
+    }
+    lastTime = now
+    const p = shown
+    if (force) painted = ""
+    draw(p * (FRAME_COUNT - 1))
 
     stage.style.setProperty("--p", p.toFixed(4))
     stage.style.setProperty("--cover", cover.toFixed(4))
@@ -221,14 +288,14 @@
     const heroEnd = root.getBoundingClientRect().bottom - window.innerHeight
     header?.classList.toggle("is-solid", heroEnd <= 0 || (reduceMotion.matches && window.scrollY > 40))
 
-    words()
-  }
+    if (nightAt !== null) document.documentElement.classList.toggle("is-night", p >= nightAt)
+    root.dispatchEvent(new CustomEvent("scrollhero:progress", { detail: { p, cover } }))
 
-  function onScroll() {
-    if (!ticking) {
-      ticking = true
-      requestAnimationFrame(() => render(false))
-    }
+    words()
+
+    // Keep easing until the shown progress catches up with the scroll position
+    if (shown !== target) schedule()
+    else lastTime = 0
   }
 
   // ---------------------------------------------------------------------------
@@ -290,7 +357,7 @@
       for (let i = 1; i < FRAME_COUNT - 1; i++) load(i)
     })
 
-  window.addEventListener("scroll", onScroll, { passive: true })
+  window.addEventListener("scroll", schedule, { passive: true })
   window.addEventListener("resize", () => {
     sizeCanvas()
     render(true)

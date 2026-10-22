@@ -51,4 +51,28 @@
   })
 
   applyWarmth()
+
+  // Hero clock: scroll progress runs the room from 4:00 PM to 10:00 PM
+  // (../shared/scroll-hero.js dispatches "scrollhero:progress").
+  const hero = document.querySelector("[data-scrolly]")
+  const clock = document.querySelector("[data-clock]")
+  const phase = document.querySelector("[data-phase]")
+  if (hero && clock) {
+    const START = 16 * 60 // minutes after midnight
+    const SPAN = 6 * 60
+    const phases = [
+      [0.2, "Afternoon"],
+      [0.33, "Golden hour"],
+      [0.5, "Dusk"],
+      [1.01, "Night"],
+    ]
+    hero.addEventListener("scrollhero:progress", (e) => {
+      const p = e.detail.p
+      const mins = Math.round((START + p * SPAN) / 5) * 5
+      const h = Math.floor(mins / 60)
+      const m = mins % 60
+      clock.textContent = `${((h + 11) % 12) + 1}:${String(m).padStart(2, "0")} ${h < 12 ? "AM" : "PM"}`
+      phase.textContent = phases.find(([until]) => p < until)[1]
+    })
+  }
 })()
