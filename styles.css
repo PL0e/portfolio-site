@@ -3682,12 +3682,6 @@ body::before {
     bottom: 0.7rem;
     gap: 0.25rem;
     padding: 0.3rem 0.5rem;
-    font-size: 0;
-  }
-
-  #projects .store__link::before,
-  #projects .project__link::before {
-    content: "demo";
     font-size: 0.7rem;
     line-height: 1;
   }
