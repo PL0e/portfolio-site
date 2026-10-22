@@ -403,68 +403,67 @@
           <h2 class="section__title" id="projects-title">Some cool stuff I've <span class="accent">worked on</span>.</h2>
         </header>
 
-        <!-- Concept storefronts -->
+        <!-- Scroll-animated heroes: hovering a preview plays its hero (script.js) -->
         <div class="stores reveal">
           <div class="stores__head">
             <div>
-              <p class="stores__label"><i class="fas fa-store" aria-hidden="true"></i> Concept storefronts</p>
-              <p class="stores__intro">Four e-commerce front ends I designed and built from scratch, each with its own brand and full SEO and analytics setup. Open a demo and click <strong>SEO &amp; Analytics</strong> for a Semrush-style site audit, an on-page keyword report, a Search Console-style performance dashboard (sample data), live Core Web Vitals, and every GA4 event as it fires.</p>
+              <p class="stores__label"><i class="fas fa-film" aria-hidden="true"></i> Scroll-animated heroes</p>
+              <p class="stores__intro">Four concept brands built around a cinematic hero: as you scroll, a 50-frame animation plays on a pinned canvas while the copy changes beat by beat. <strong>Hover a preview</strong> to watch it here. Open a demo and click <strong>SEO &amp; Analytics</strong> for a Semrush-style site audit, an on-page keyword report, a Search Console-style performance dashboard (sample data), live Core Web Vitals, and every GA4 event as it fires.</p>
             </div>
-            <ul class="stores__legend" aria-label="Included in every storefront">
+            <ul class="stores__legend" aria-label="Included in every featured site">
+              <li><i class="fas fa-check" aria-hidden="true"></i> 50-frame scroll-scrubbed hero</li>
               <li><i class="fas fa-check" aria-hidden="true"></i> Semrush-style site audit</li>
               <li><i class="fas fa-check" aria-hidden="true"></i> Target keyword report</li>
               <li><i class="fas fa-check" aria-hidden="true"></i> Search performance dashboard (sample data)</li>
               <li><i class="fas fa-check" aria-hidden="true"></i> JSON-LD structured data</li>
-              <li><i class="fas fa-check" aria-hidden="true"></i> GA4 e-commerce events</li>
-              <li><i class="fas fa-check" aria-hidden="true"></i> Live Core Web Vitals</li>
+              <li><i class="fas fa-check" aria-hidden="true"></i> GA4 events &amp; live Core Web Vitals</li>
             </ul>
           </div>
 
           <ul class="stores__grid">
             <li class="store">
-              <a class="store__shot" href="projects/kitchen-line/" aria-label="Open the Kitchen Line demo">
+              <a class="store__shot" href="projects/rallyo/" data-hero-frames="projects/rallyo/frames/frame-{n}.jpg" aria-label="Open the Rallyo demo">
                 <picture>
-                  <source srcset="assets/img/kitchen-line-preview.webp" type="image/webp">
-                  <img src="assets/img/kitchen-line-preview.jpg" alt="Kitchen Line pickleball store homepage with the headline 'Own the kitchen line'" width="960" height="600" loading="lazy">
+                  <source srcset="assets/img/rallyo-preview.webp" type="image/webp">
+                  <img src="assets/img/rallyo-preview.jpg" alt="Rallyo app landing page with a phone showing a live pickleball score beside the headline Score every rally" width="960" height="600" loading="lazy">
                 </picture>
               </a>
               <div class="store__body">
-                <h3 class="store__title">Kitchen Line <span>Pickleball shop</span></h3>
-                <p>Paddles, balls, and gear, with a paddle-finder quiz and an FAQ marked up for rich results.</p>
+                <h3 class="store__title">Rallyo <span>Pickleball scoring app</span></h3>
+                <p>An app landing page with a working pickleball scorer inside a phone mock-up: real side-out calls, server numbers, and games to 11.</p>
                 <!-- Sample search data: must match the demo page's title, og:site_name, and target keywords -->
-                <div class="perf" data-search-sample data-title="Kitchen Line | Pickleball Paddles, Balls &amp; Gear in Cebu" data-brand="Kitchen Line" data-keywords="pickleball paddles|pickleball balls|pickleball gear|pickleball clinics"></div>
+                <div class="perf" data-search-sample data-title="Rallyo | Pickleball Scoring App for Tournaments &amp; Leagues" data-brand="Rallyo" data-keywords="pickleball scoring app|pickleball tournament app|pickleball rankings|pickleball leagues"></div>
                 <ul class="store__seo" aria-label="SEO and analytics">
                   <li class="store__score">Site Health <strong>100%</strong></li>
                   <li>0 errors · 0 warnings · 0 notices</li>
-                  <li>SportingGoodsStore · Product · FAQPage</li>
-                  <li>7 GA4 event types</li>
+                  <li>MobileApplication · FAQPage</li>
                 </ul>
-                <a class="store__link" href="projects/kitchen-line/">View live demo <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                <a class="store__link" href="projects/rallyo/">View live demo <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
               </div>
             </li>
             <li class="store">
-              <a class="store__shot" href="projects/glowform/" aria-label="Open the Glowform demo">
+              <a class="store__shot" href="projects/hinabi/" data-hero-frames="projects/hinabi/frames/frame-{n}.jpg" aria-label="Open the Hinabi demo">
                 <picture>
-                  <source srcset="assets/img/glowform-preview.webp" type="image/webp">
-                  <img src="assets/img/glowform-preview.jpg" alt="Glowform lamp store homepage with a glowing floor lamp and a light switch" width="960" height="600" loading="lazy">
+                  <source srcset="assets/img/hinabi-preview.webp" type="image/webp">
+                  <img src="assets/img/hinabi-preview.jpg" alt="Hinabi handwoven goods store homepage with an abaca tote beside the headline Every strand tells a story of where it was woven" width="960" height="600" loading="lazy">
                 </picture>
               </a>
               <div class="store__body">
-                <h3 class="store__title">Glowform <span>Lamp shop</span></h3>
-                <p>A moody lighting store with a working light switch and a warmth slider that re-tints every lamp.</p>
+                <h3 class="store__title">Hinabi <span>Filipino handwoven goods</span></h3>
+                <p>Abaca bags, inabel weaves, and banig mats. The hero unspools a tote's threads as you scroll, and every weave is hand-drawn SVG.</p>
                 <!-- Sample search data: must match the demo page's title, og:site_name, and target keywords -->
-                <div class="perf" data-search-sample data-title="Glowform | Table Lamps, Floor Lamps &amp; Pendant Lights" data-brand="Glowform" data-keywords="table lamps|floor lamps|pendant lights|warm light"></div>
+                <div class="perf" data-search-sample data-title="Hinabi | Handwoven Abaca Bags, Inabel &amp; Banig" data-brand="Hinabi" data-keywords="abaca bags|handwoven|inabel|banig"></div>
                 <ul class="store__seo" aria-label="SEO and analytics">
-                  <li class="store__score">Site Health <strong>98%</strong></li>
-                  <li>0 errors · 0 warnings · 1 notice</li>
-                  <li>HomeGoodsStore · Product · BreadcrumbList</li>
+                  <li class="store__score">Site Health <strong>100%</strong></li>
+                  <li>0 errors · 0 warnings · 0 notices</li>
+                  <li>Organization · WebSite · Product</li>
                   <li>7 GA4 event types</li>
                 </ul>
-                <a class="store__link" href="projects/glowform/">View live demo <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                <a class="store__link" href="projects/hinabi/">View live demo <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
               </div>
             </li>
             <li class="store">
-              <a class="store__shot" href="projects/the-daily-brew/" aria-label="Open The Daily Brew demo">
+              <a class="store__shot" href="projects/the-daily-brew/" data-hero-frames="projects/the-daily-brew/frames/frame-{n}.jpg" aria-label="Open The Daily Brew demo">
                 <picture>
                   <source srcset="assets/img/the-daily-brew-preview.webp" type="image/webp">
                   <img src="assets/img/the-daily-brew-preview.jpg" alt="The Daily Brew homepage with an iced latte beside the headline Coffee for the everyday ritual" width="960" height="600" loading="lazy">
@@ -485,35 +484,35 @@
               </div>
             </li>
             <li class="store">
-              <a class="store__shot" href="projects/hinabi/" aria-label="Open the Hinabi demo">
+              <a class="store__shot" href="projects/glowform/" data-hero-frames="projects/glowform/frames/frame-{n}.jpg" aria-label="Open the Glowform demo">
                 <picture>
-                  <source srcset="assets/img/hinabi-preview.webp" type="image/webp">
-                  <img src="assets/img/hinabi-preview.jpg" alt="Hinabi handwoven goods store homepage with a woven abaca tote illustration" width="960" height="600" loading="lazy">
+                  <source srcset="assets/img/glowform-preview.webp" type="image/webp">
+                  <img src="assets/img/glowform-preview.jpg" alt="Glowform lamp store homepage with a linen-shade table lamp beside the headline Warm light that sets the mood" width="960" height="600" loading="lazy">
                 </picture>
               </a>
               <div class="store__body">
-                <h3 class="store__title">Hinabi <span>Filipino handwoven goods</span></h3>
-                <p>Abaca bags, inabel weaves, and banig mats, with hand-drawn SVG weave patterns instead of photos.</p>
+                <h3 class="store__title">Glowform <span>Lamp shop</span></h3>
+                <p>A moody lighting store whose hero switches a lamp on and pulls it apart as you scroll, plus a warmth slider that re-tints every lamp.</p>
                 <!-- Sample search data: must match the demo page's title, og:site_name, and target keywords -->
-                <div class="perf" data-search-sample data-title="Hinabi | Handwoven Abaca Bags, Inabel &amp; Banig" data-brand="Hinabi" data-keywords="abaca bags|handwoven|inabel|banig"></div>
+                <div class="perf" data-search-sample data-title="Glowform | Table Lamps, Floor Lamps &amp; Pendant Lights" data-brand="Glowform" data-keywords="table lamps|floor lamps|pendant lights|warm light"></div>
                 <ul class="store__seo" aria-label="SEO and analytics">
-                  <li class="store__score">Site Health <strong>100%</strong></li>
-                  <li>0 errors · 0 warnings · 0 notices</li>
-                  <li>Organization · WebSite · Product</li>
+                  <li class="store__score">Site Health <strong>98%</strong></li>
+                  <li>0 errors · 0 warnings · 1 notice</li>
+                  <li>HomeGoodsStore · Product · BreadcrumbList</li>
                   <li>7 GA4 event types</li>
                 </ul>
-                <a class="store__link" href="projects/hinabi/">View live demo <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                <a class="store__link" href="projects/glowform/">View live demo <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
               </div>
             </li>
           </ul>
         </div>
 
-        <!-- Concept sites and web apps -->
+        <!-- More concept storefronts and web apps -->
         <div class="stores stores--sites reveal">
           <div class="stores__head">
             <div>
-              <p class="stores__label"><i class="fas fa-window-maximize" aria-hidden="true"></i> Concept sites &amp; web apps</p>
-              <p class="stores__intro">Five more front ends, each a fictional brand with its own design system: an app landing page, a school site, a game lobby, a scoreboard web app, and a sports league hub. Every one carries the same live <strong>SEO &amp; Analytics</strong> panel.</p>
+              <p class="stores__label"><i class="fas fa-window-maximize" aria-hidden="true"></i> More storefronts &amp; web apps</p>
+              <p class="stores__intro">Five more front ends, each a fictional brand with its own design system: a pickleball shop, a school site, a game lobby, a scoreboard web app, and a sports league hub. Every one carries the same live <strong>SEO &amp; Analytics</strong> panel.</p>
             </div>
             <ul class="stores__legend" aria-label="Included in every site">
               <li><i class="fas fa-check" aria-hidden="true"></i> Working interactive features</li>
@@ -523,23 +522,24 @@
           </div>
           <ul class="stores__grid">
             <li class="store">
-              <a class="store__shot" href="projects/rallyo/" aria-label="Open the Rallyo demo">
+              <a class="store__shot" href="projects/kitchen-line/" aria-label="Open the Kitchen Line demo">
                 <picture>
-                  <source srcset="assets/img/rallyo-preview.webp" type="image/webp">
-                  <img src="assets/img/rallyo-preview.jpg" alt="Rallyo app landing page with a phone mock-up showing a live pickleball score" width="960" height="600" loading="lazy">
+                  <source srcset="assets/img/kitchen-line-preview.webp" type="image/webp">
+                  <img src="assets/img/kitchen-line-preview.jpg" alt="Kitchen Line pickleball store homepage with the headline 'Own the kitchen line'" width="960" height="600" loading="lazy">
                 </picture>
               </a>
               <div class="store__body">
-                <h3 class="store__title">Rallyo <span>Pickleball scoring app</span></h3>
-                <p>An app landing page with a working pickleball scorer inside a phone mock-up: real side-out calls, server numbers, and games to 11.</p>
+                <h3 class="store__title">Kitchen Line <span>Pickleball shop</span></h3>
+                <p>Paddles, balls, and gear, with a paddle-finder quiz and an FAQ marked up for rich results.</p>
                 <!-- Sample search data: must match the demo page's title, og:site_name, and target keywords -->
-                <div class="perf" data-search-sample data-title="Rallyo | Pickleball Scoring App for Tournaments &amp; Leagues" data-brand="Rallyo" data-keywords="pickleball scoring app|pickleball tournament app|pickleball rankings|pickleball leagues"></div>
+                <div class="perf" data-search-sample data-title="Kitchen Line | Pickleball Paddles, Balls &amp; Gear in Cebu" data-brand="Kitchen Line" data-keywords="pickleball paddles|pickleball balls|pickleball gear|pickleball clinics"></div>
                 <ul class="store__seo" aria-label="SEO and analytics">
                   <li class="store__score">Site Health <strong>100%</strong></li>
                   <li>0 errors · 0 warnings · 0 notices</li>
-                  <li>MobileApplication · FAQPage</li>
+                  <li>SportingGoodsStore · Product · FAQPage</li>
+                  <li>7 GA4 event types</li>
                 </ul>
-                <a class="store__link" href="projects/rallyo/">View live demo <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                <a class="store__link" href="projects/kitchen-line/">View live demo <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
               </div>
             </li>
             <li class="store">

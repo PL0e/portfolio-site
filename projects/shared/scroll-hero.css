@@ -1,0 +1,81 @@
+/* ============================================
+   Scroll hero shared by the concept storefronts (pairs with scroll-hero.js).
+   Each site themes it with these tokens:
+     --sh-header-h  height of the sticky header the stage slides under
+     --sh-text      headline colour        --sh-muted   body copy colour
+     --sh-accent    eyebrow / numbers      --sh-chip    number pill background
+     --sh-chip-text number pill text       --sh-panel   mobile card background
+     --sh-display   headline font
+   ============================================ */
+.scrolly { position: relative; margin-top: calc(-1 * var(--sh-header-h, 68px)); }
+.scrolly__stage { position: relative; height: 100vh; height: 100svh; overflow: hidden; background: var(--tone, #111); }
+.scrolly__poster,
+.scrolly__canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.scrolly__poster { object-fit: contain; }
+.scrolly__canvas { opacity: 0; transform: scale(calc(1 - var(--cover, 0) * .08)); transform-origin: 50% 40%; }
+
+.beat { position: absolute; z-index: 2; max-width: 380px; color: var(--sh-text); }
+.beat--left { left: clamp(1.25rem, 6vw, 6rem); top: 50%; translate: 0 -50%; }
+.beat--right { right: clamp(1.25rem, 6vw, 6rem); top: 50%; translate: 0 -50%; }
+.beat--intro, .beat--outro { max-width: 460px; }
+.beat h1 { font-family: var(--sh-display); font-size: clamp(3rem, 5.8vw, 5.2rem); line-height: 1.02; }
+.beat h2 { font-family: var(--sh-display); font-size: clamp(2rem, 3.6vw, 3rem); line-height: 1.05; margin: 0; }
+.beat p { margin-top: .9rem; color: var(--sh-muted); font-size: 1.04rem; }
+.beat .eyebrow { margin: 0 0 1rem; color: var(--sh-accent); }
+.beat__lead { max-width: 40ch; }
+.beat__cta { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.8rem; }
+.beat__num { display: inline-block; margin-bottom: .8rem; padding: .2rem .7rem; border-radius: 999px; background: var(--sh-chip); color: var(--sh-chip-text); font-size: .75rem; font-weight: 700; letter-spacing: .12em; }
+.beat__big { margin: 0 0 1.4rem !important; color: var(--sh-text) !important; font-family: var(--sh-display); font-size: clamp(2.2rem, 4.4vw, 3.6rem) !important; line-height: 1.05; }
+.beat__big em { display: block; }
+
+.scrolly__cue { position: absolute; z-index: 2; left: 50%; bottom: 1.6rem; display: flex; flex-direction: column; align-items: center; gap: .5rem; translate: -50% 0; color: var(--sh-muted); font-size: .7rem; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; opacity: calc(1 - var(--p, 0) * 12); }
+.scrolly__cue span { width: 1px; height: 40px; background: linear-gradient(var(--sh-text), transparent); animation: sh-cue 1.8s cubic-bezier(.2, .7, .2, 1) infinite; transform-origin: top; }
+@keyframes sh-cue { 0% { transform: scaleY(0); } 60% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(1); opacity: 0; } }
+
+.scrolly__progress { position: absolute; z-index: 2; right: clamp(1rem, 3vw, 2rem); top: 50%; width: 2px; height: 120px; translate: 0 -50%; border-radius: 2px; background: color-mix(in srgb, var(--sh-text) 16%, transparent); overflow: hidden; }
+.scrolly__progress span { display: block; width: 100%; height: 100%; background: var(--sh-accent); transform: scaleY(var(--p, 0)); transform-origin: top; }
+
+/* With JS: pin the stage for 400vh and let scroll-hero.js drive the frames and copy */
+.js .scrolly { height: 400vh; }
+.js .scrolly__stage { position: sticky; top: 0; }
+.js .scrolly__stage.is-ready .scrolly__poster { opacity: 0; }
+.js .scrolly__stage.is-ready .scrolly__canvas { opacity: 1; }
+.js .beat { opacity: 0; visibility: hidden; }
+.js .beat--intro { opacity: 1; visibility: visible; }
+
+/* The section after the hero slides up over the pinned stage. It is at least a
+   screen tall so the stage is fully covered by the time it unpins. */
+.slide-over { position: relative; z-index: 3; min-height: 100vh; min-height: 100svh; border-radius: 36px 36px 0 0; box-shadow: 0 -30px 60px rgba(0, 0, 0, .35); }
+.js .slide-over { margin-top: -100vh; margin-top: -100svh; }
+
+/* Statement words light up as they scroll in */
+[data-words] .w { opacity: .2; transition: opacity .35s ease; }
+[data-words] .w.is-lit { opacity: 1; }
+
+/* Reveal on scroll */
+.js .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s cubic-bezier(.2, .7, .2, 1), transform .8s cubic-bezier(.2, .7, .2, 1); }
+.js .reveal.is-in { opacity: 1; transform: none; }
+
+/* Narrow screens: the product fills the stage, so the copy sits on a card at the bottom,
+   clear of the demo kit's floating button; the intro also clears the notice bar */
+@media (max-width: 760px) {
+  .beat--left, .beat--right { left: 1.25rem; right: 1.25rem; top: auto; bottom: 4.5rem; translate: none; max-width: none; padding: 1.2rem 1.25rem; border-radius: 20px; background: var(--sh-panel); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+  .beat--intro { bottom: calc(4.5rem + 60px); }
+  .beat h1 { font-size: clamp(2.3rem, 10.5vw, 3.1rem); }
+  .beat p { font-size: .95rem; margin-top: .6rem; }
+  .beat__cta { margin-top: 1.1rem; }
+  .beat__cta > a { flex: 1 1 auto; }
+  .beat__big em { display: inline; }
+  .scrolly__cue, .scrolly__progress { display: none; }
+  .scrolly__poster { object-fit: cover; }
+  .slide-over { border-radius: 26px 26px 0 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .scrolly { height: auto; }
+  .js .scrolly__stage { position: relative; }
+  .js .slide-over { margin-top: 0; }
+  .js .reveal { opacity: 1; transform: none; }
+  [data-words] .w { opacity: 1; }
+  .scrolly__cue span { animation: none; }
+}

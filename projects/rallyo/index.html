@@ -23,11 +23,14 @@
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2308110d'/%3E%3Ccircle cx='32' cy='32' r='15' fill='%232ee66b'/%3E%3Cpath d='M24 40l16-16' stroke='%2308110d' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
 
+  <link rel="preload" as="image" href="frames/frame-01.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../shared/scroll-hero.css">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="../shared/demo-kit.css">
+  <script>document.documentElement.classList.add("js")</script>
 
   <script type="application/ld+json">
   {
@@ -71,7 +74,7 @@
     Concept project by <a href="../../">Glendell S. Dia</a>. Rallyo is a fictional app, so there is nothing to download.
   </div>
 
-  <header class="header">
+  <header class="header" data-header>
     <div class="wrap header__inner">
       <a class="brand" href="#" aria-label="Rallyo home">
         <span class="brand__mark" aria-hidden="true"></span>Rallyo
@@ -89,24 +92,76 @@
   </header>
 
   <main id="main">
-    <section class="hero" aria-labelledby="hero-h">
-      <div class="wrap hero__inner">
-        <div class="hero__copy">
+    <!-- Scroll-driven hero: 50 frames scrubbed on a pinned canvas (../shared/scroll-hero.js) -->
+    <section class="scrolly" aria-labelledby="hero-h" data-scrolly data-frames="frames/frame-{n}.jpg" data-count="50">
+      <div class="scrolly__stage">
+        <img class="scrolly__poster" src="frames/frame-01.jpg" alt="The Rallyo app on a phone, showing a live pickleball score of 9 to 7" width="720" height="1280" fetchpriority="high">
+        <canvas class="scrolly__canvas" role="img" aria-label="As you scroll, the scoreboard, court, and score buttons float out of the phone while a pickleball pops out and the score climbs to 11 for the win"></canvas>
+
+        <div class="beat beat--left beat--intro" data-beat="0,0.16">
           <p class="pill">For players &amp; organizers</p>
           <h1 id="hero-h">Score every rally. <span class="hl">Run every tournament.</span></h1>
-          <p class="hero__sub">The pickleball scoring app and pickleball tournament app that calls the score for you, runs your brackets, and keeps your pickleball leagues honest.</p>
-          <div class="hero__cta">
+          <p class="beat__lead">The pickleball scoring app that calls the score for you, runs your brackets, and keeps your leagues honest.</p>
+          <div class="beat__cta">
             <a class="btn btn--primary" href="#download">Get the app</a>
             <a class="btn btn--ghost" href="#try">Try the live scorer</a>
           </div>
-          <ul class="hero__facts">
+        </div>
+
+        <div class="beat beat--right" data-beat="0.2,0.4">
+          <span class="beat__num">01</span>
+          <h2>Every rally, called</h2>
+          <p>Side-out and rally scoring, with the server number tracked and announced for you.</p>
+        </div>
+
+        <div class="beat beat--left" data-beat="0.46,0.64">
+          <span class="beat__num">02</span>
+          <h2>Brackets that run themselves</h2>
+          <p>Round robins, pools, and court assignments update the moment a score is confirmed.</p>
+        </div>
+
+        <div class="beat beat--right" data-beat="0.68,0.86">
+          <span class="beat__num">03</span>
+          <h2>Game point. Match.</h2>
+          <p>Results both teams confirm feed honest rankings across your club and league.</p>
+        </div>
+
+        <div class="beat beat--left beat--outro" data-beat="0.9,1">
+          <p class="beat__big">Your next game <span class="hl">starts here.</span></p>
+          <a class="btn btn--primary" href="#download">Get the app</a>
+        </div>
+
+        <p class="scrolly__cue" aria-hidden="true"><span></span>Scroll</p>
+        <div class="scrolly__progress" aria-hidden="true"><span data-progress></span></div>
+      </div>
+    </section>
+
+    <section class="statement slide-over" aria-labelledby="statement-h">
+      <div class="wrap">
+        <h2 class="sr-only" id="statement-h">About Rallyo</h2>
+        <p class="statement__text" data-words>Rallyo keeps score so you can keep playing: one tap per rally, a called score every serve, and standings that update before you leave the court.</p>
+        <dl class="stats">
+          <div class="reveal"><dt>Scoring</dt><dd>Side-out &amp; rally</dd></div>
+          <div class="reveal"><dt>Events</dt><dd>Brackets &amp; round robins</dd></div>
+          <div class="reveal"><dt>Rankings</dt><dd>Verified results only</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section try" id="try" aria-labelledby="try-h">
+      <div class="wrap try__inner">
+        <div class="try__copy reveal">
+          <p class="eyebrow">Try it</p>
+          <h2 id="try-h">Score a game right here</h2>
+          <p class="try__lead">Tap who won each rally. Rallyo calls the score, switches servers, and stops at 11, win by 2, just like on court.</p>
+          <ul class="try__facts">
             <li>Side-out &amp; rally scoring</li>
             <li>Brackets &amp; round robins</li>
             <li>Verified rankings</li>
           </ul>
         </div>
 
-        <div class="phones" id="try">
+        <div class="phones reveal">
           <!-- Phone 1: a working doubles scorer -->
           <div class="phone phone--front" role="group" aria-labelledby="scorer-h">
             <div class="phone__notch" aria-hidden="true"></div>
@@ -155,22 +210,22 @@
 
     <section class="section" id="features" aria-labelledby="features-h">
       <div class="wrap">
-        <p class="eyebrow">Features</p>
-        <h2 id="features-h">A pickleball scoring app built for the whole club</h2>
+        <p class="eyebrow reveal">Features</p>
+        <h2 class="reveal" id="features-h">A pickleball scoring app built for the whole club</h2>
         <ul class="features">
-          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><h3>Calls the score</h3><p>Side-out doubles, singles, and rally scoring, with the server number tracked and announced every rally.</p></li>
-          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8 20h8"/></svg></span><h3>Tournaments in minutes</h3><p>A pickleball tournament app for round robins, pools, and brackets, with court assignments and live results.</p></li>
-          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h16M6 15l4-4 3 3 5-6"/><path d="M15 8h3v3"/></svg></span><h3>Honest rankings</h3><p>Pickleball rankings built only from results both teams confirm, weighted by the strength of the opponents you beat.</p></li>
-          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 19a6 6 0 0 1 12 0M15 19a4.5 4.5 0 0 1 6-4"/></svg></span><h3>Clubs &amp; leagues</h3><p>Run pickleball leagues and open-play sessions with sign-ups, waitlists, and a club feed in one place.</p></li>
-          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3"/></svg></span><h3>Review your game</h3><p>Rally-by-rally history shows where points were won, so players can see patterns after every match.</p></li>
-          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2M4 4l16 16"/></svg></span><h3>Works offline</h3><p>Score on courts with no signal. Matches sync the moment the phone is back online.</p></li>
+          <li class="reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><h3>Calls the score</h3><p>Side-out doubles, singles, and rally scoring, with the server number tracked and announced every rally.</p></li>
+          <li class="reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8 20h8"/></svg></span><h3>Tournaments in minutes</h3><p>A pickleball tournament app for round robins, pools, and brackets, with court assignments and live results.</p></li>
+          <li class="reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h16M6 15l4-4 3 3 5-6"/><path d="M15 8h3v3"/></svg></span><h3>Honest rankings</h3><p>Pickleball rankings built only from results both teams confirm, weighted by the strength of the opponents you beat.</p></li>
+          <li class="reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 19a6 6 0 0 1 12 0M15 19a4.5 4.5 0 0 1 6-4"/></svg></span><h3>Clubs &amp; leagues</h3><p>Run pickleball leagues and open-play sessions with sign-ups, waitlists, and a club feed in one place.</p></li>
+          <li class="reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3"/></svg></span><h3>Review your game</h3><p>Rally-by-rally history shows where points were won, so players can see patterns after every match.</p></li>
+          <li class="reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2M4 4l16 16"/></svg></span><h3>Works offline</h3><p>Score on courts with no signal. Matches sync the moment the phone is back online.</p></li>
         </ul>
       </div>
     </section>
 
     <section class="section section--alt" id="how" aria-labelledby="how-h">
       <div class="wrap how">
-        <div>
+        <div class="reveal">
           <p class="eyebrow">How it works</p>
           <h2 id="how-h">From sign-up to pickleball rankings in three steps</h2>
           <ol class="steps">
@@ -179,7 +234,7 @@
             <li><span>3</span><div><h3>Standings update live</h3><p>Brackets advance automatically and rankings refresh as results come in.</p></div></li>
           </ol>
         </div>
-        <ul class="photos">
+        <ul class="photos reveal">
           <li><figure><picture><source srcset="img/g1.webp" type="image/webp"><img src="img/g1.jpg" alt="Doubles players rallying on an outdoor pickleball court" width="800" height="600" loading="lazy" decoding="async"></picture><figcaption>Open play</figcaption></figure></li>
           <li><figure><picture><source srcset="img/g2.webp" type="image/webp"><img src="img/g2.jpg" alt="Several pickleball games running side by side on outdoor courts" width="800" height="600" loading="lazy" decoding="async"></picture><figcaption>Club nights</figcaption></figure></li>
           <li><figure><picture><source srcset="img/g3.webp" type="image/webp"><img src="img/g3.jpg" alt="Empty blue and red outdoor pickleball court with a net" width="800" height="600" loading="lazy" decoding="async"></picture><figcaption>Tournament courts</figcaption></figure></li>
@@ -189,12 +244,12 @@
 
     <section class="section" id="pricing" aria-labelledby="pricing-h">
       <div class="wrap">
-        <p class="eyebrow">Pricing</p>
-        <h2 id="pricing-h">Free for players. Simple for pickleball leagues.</h2>
+        <p class="eyebrow reveal">Pricing</p>
+        <h2 class="reveal" id="pricing-h">Free for players. Simple for pickleball leagues.</h2>
         <ul class="plans">
-          <li class="plan"><h3>Player</h3><p class="plan__price">₱0</p><ul><li>Unlimited scoring</li><li>Match history</li><li>Public rankings</li></ul></li>
-          <li class="plan plan--pop"><span class="plan__tag">Most popular</span><h3>Club</h3><p class="plan__price">₱499<small>/ month</small></p><ul><li>Leagues &amp; open play</li><li>Up to 200 members</li><li>Club rankings</li></ul></li>
-          <li class="plan"><h3>Events</h3><p class="plan__price">Custom</p><ul><li>Multi-day tournaments</li><li>Brackets &amp; court control</li><li>Live results page</li></ul></li>
+          <li class="reveal plan"><h3>Player</h3><p class="plan__price">₱0</p><ul><li>Unlimited scoring</li><li>Match history</li><li>Public rankings</li></ul></li>
+          <li class="reveal plan plan--pop"><span class="plan__tag">Most popular</span><h3>Club</h3><p class="plan__price">₱499<small>/ month</small></p><ul><li>Leagues &amp; open play</li><li>Up to 200 members</li><li>Club rankings</li></ul></li>
+          <li class="reveal plan"><h3>Events</h3><p class="plan__price">Custom</p><ul><li>Multi-day tournaments</li><li>Brackets &amp; court control</li><li>Live results page</li></ul></li>
         </ul>
       </div>
     </section>
@@ -205,7 +260,7 @@
           <p class="eyebrow">FAQ</p>
           <h2 id="faq-h">Pickleball tournament app FAQ</h2>
         </div>
-        <div class="faq__list">
+        <div class="faq__list reveal">
           <details><summary>How does pickleball side-out scoring work in Rallyo?</summary><p>Only the serving team scores. Rallyo calls the score as server score, receiver score, and server number, switches to the second server after a lost rally, and hands the serve over on a side-out.</p></details>
           <details><summary>Can I run a tournament with the pickleball tournament app?</summary><p>Yes. Organizers can build round robins and brackets, assign courts, and let players score their own matches, with results flowing into the standings.</p></details>
           <details><summary>How are pickleball rankings calculated?</summary><p>Rankings use verified match results only, weighted by opponent strength, so scores entered by both teams count and disputed matches wait for an organizer.</p></details>
@@ -214,7 +269,7 @@
     </section>
 
     <section class="section cta" id="download" aria-labelledby="download-h">
-      <div class="wrap cta__inner">
+      <div class="wrap cta__inner reveal">
         <h2 id="download-h">Ready for your next game?</h2>
         <p>Rallyo is a concept app, so the store buttons below are for show.</p>
         <div class="stores" role="group" aria-label="App stores">
@@ -242,6 +297,7 @@
 
   <script src="../shared/search-sample.js" defer></script>
   <script src="../shared/demo-kit.js" defer></script>
+  <script src="../shared/scroll-hero.js" defer></script>
   <script src="scorer.js" defer></script>
 </body>
 </html>
