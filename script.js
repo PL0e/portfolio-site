@@ -386,6 +386,121 @@
     })
   }
 
+  // ---------- Featured cards: hovering a preview plays its scroll hero ----------
+  // Each preview is a screenshot of the demo's first hero frame, drawn at full
+  // height and centered. A canvas over it replays the same 50 frames in that
+  // column, so the headline beside it stays put. Frames load on first hover.
+  // Touch screens play it once the card scrolls into view.
+  const heroShots = document.querySelectorAll("[data-hero-frames]")
+  const FRAME_COUNT = 50
+  const canHover = window.matchMedia("(hover: hover)").matches
+
+  heroShots.forEach((shot) => {
+    if (reduceMotion) return
+    const card = shot.closest(".store")
+    const canvas = document.createElement("canvas")
+    canvas.className = "store__anim"
+    canvas.setAttribute("aria-hidden", "true")
+    shot.append(canvas)
+    const ctx = canvas.getContext("2d")
+    const frames = []
+    let loaded = false
+    let pos = 0 // current frame, fractional
+    let target = 0
+    let last = 0
+    let raf = 0
+
+    function tone(img) {
+      try {
+        const c = document.createElement("canvas")
+        c.width = 36
+        c.height = 64
+        const g = c.getContext("2d", { willReadFrequently: true })
+        g.drawImage(img, 0, 0, 36, 64)
+        const px = [[0, 0], [35, 0], [0, 63], [35, 63]].map(([x, y]) => g.getImageData(x, y, 1, 1).data)
+        return [0, 1, 2].map((i) => Math.round(px.reduce((s, d) => s + d[i], 0) / px.length))
+      } catch {
+        return null // file:// taints the canvas; skip the side blend
+      }
+    }
+
+    function load() {
+      if (loaded) return
+      loaded = true
+      for (let i = 0; i < FRAME_COUNT; i++) {
+        const img = new Image()
+        img.decoding = "async"
+        img.onload = () => {
+          img.tone = tone(img)
+          frames[i] = img
+        }
+        img.src = shot.dataset.heroFrames.replace("{n}", String(i + 1).padStart(2, "0"))
+      }
+    }
+
+    function draw(i) {
+      let img
+      for (let d = 0; d < FRAME_COUNT && !img; d++) img = frames[i - d] || frames[i + d]
+      if (!img) return
+      const dpr = Math.min(window.devicePixelRatio || 1, 2)
+      const w = (canvas.width = Math.round(shot.clientWidth * dpr))
+      const h = (canvas.height = Math.round(shot.clientHeight * dpr))
+      const dw = (h * img.naturalWidth) / img.naturalHeight
+      const dx = (w - dw) / 2
+      ctx.drawImage(img, dx, 0, dw, h)
+      // Blend the column's sides into the frame's background, as the hero does
+      if (img.tone) {
+        const [r, g, b] = img.tone
+        const f = dw * 0.14
+        const pad = dw * 0.06
+        for (const [x0, x1] of [[dx - pad, dx + f], [dx + dw + pad, dx + dw - f]]) {
+          const grad = ctx.createLinearGradient(x0, 0, x1, 0)
+          grad.addColorStop(0, `rgba(${r},${g},${b},0)`)
+          grad.addColorStop(pad / (pad + f), `rgba(${r},${g},${b},1)`)
+          grad.addColorStop(1, `rgba(${r},${g},${b},0)`)
+          ctx.fillStyle = grad
+          ctx.fillRect(Math.min(x0, x1), 0, pad + f, h)
+        }
+      }
+    }
+
+    function tick(now) {
+      const dt = Math.min(64, now - (last || now))
+      last = now
+      // ~2 s forward; rewinds twice as fast
+      const step = (dt / 1000) * (target > pos ? 24 : 48)
+      pos = target > pos ? Math.min(target, pos + step) : Math.max(target, pos - step)
+      draw(Math.round(pos))
+      if (pos !== target) {
+        raf = requestAnimationFrame(tick)
+      } else {
+        raf = 0
+        if (target === 0) card.classList.remove("is-playing")
+      }
+    }
+
+    function play(forward) {
+      if (forward) load()
+      target = forward ? FRAME_COUNT - 1 : 0
+      if (forward) card.classList.add("is-playing")
+      if (!raf) {
+        last = 0
+        raf = requestAnimationFrame(tick)
+      }
+    }
+
+    if (canHover) {
+      card.addEventListener("pointerenter", () => play(true))
+      card.addEventListener("pointerleave", () => play(false))
+    } else if ("IntersectionObserver" in window) {
+      new IntersectionObserver((entries) => entries.forEach((e) => play(e.isIntersecting)), { threshold: 0.6 }).observe(shot)
+    }
+    card.addEventListener("focusin", () => play(true))
+    card.addEventListener("focusout", (e) => {
+      if (!card.contains(e.relatedTarget)) play(false)
+    })
+  })
+
   // ---------- Footer year ----------
   const year = document.getElementById("year")
   if (year) year.textContent = new Date().getFullYear()

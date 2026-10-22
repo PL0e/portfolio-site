@@ -1295,6 +1295,7 @@ html.is-gated body {
 }
 
 .store__shot {
+  position: relative;
   display: block;
   overflow: hidden;
   border-bottom: 1px solid var(--border);
@@ -1309,7 +1310,23 @@ html.is-gated body {
   transition: transform var(--t-base);
 }
 
-.store:hover .store__shot img {
+/* Hero player for featured cards (script.js): sits exactly over the screenshot */
+.store__anim {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform var(--t-base);
+}
+
+.store.is-playing .store__anim {
+  opacity: 1;
+}
+
+.store:hover .store__shot img,
+.store:hover .store__anim {
   transform: scale(1.03);
 }
 
