@@ -23,11 +23,14 @@
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2312100e'/%3E%3Ccircle cx='32' cy='38' r='16' fill='%23f6b85c' opacity='.35'/%3E%3Cpath d='M18 30a14 14 0 0 1 28 0z' fill='%23f3ede4'/%3E%3Crect x='30' y='30' width='4' height='18' fill='%23f3ede4'/%3E%3Crect x='24' y='48' width='16' height='4' rx='2' fill='%23f3ede4'/%3E%3C/svg%3E">
 
+  <link rel="preload" as="image" href="frames/frame-01.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="../shared/scroll-hero.css">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="../shared/demo-kit.css">
+  <script>document.documentElement.classList.add("js")</script>
 
   <script type="application/ld+json">
   {
@@ -79,12 +82,13 @@
     Concept project by <a href="../../">Glendell S. Dia</a>. Glowform is a fictional brand, so nothing here is for sale.
   </div>
 
-  <header class="header">
+  <header class="header" data-header>
     <div class="wrap header__inner">
       <a class="brand" href="#" aria-label="Glowform home">Glow<em>form</em></a>
       <nav aria-label="Primary">
         <ul class="menu">
           <li><a href="#shop">Lamps</a></li>
+          <li><a href="#warmth">Warmth</a></li>
           <li><a href="#rooms">By room</a></li>
           <li><a href="#craft">Craft</a></li>
         </ul>
@@ -96,13 +100,67 @@
   </header>
 
   <main id="main">
-    <section class="hero" aria-labelledby="hero-h">
-      <div class="wrap hero__inner">
-        <div class="hero__copy">
+    <!-- Scroll-driven hero: 50 frames scrubbed on a pinned canvas (../shared/scroll-hero.js) -->
+    <section class="scrolly" aria-labelledby="hero-h" data-scrolly data-frames="frames/frame-{n}.jpg" data-count="50">
+      <div class="scrolly__stage">
+        <img class="scrolly__poster" src="frames/frame-01.jpg" alt="A Glowform table lamp with a linen shade and brass stem, switched off" width="720" height="1280" fetchpriority="high">
+        <canvas class="scrolly__canvas" role="img" aria-label="As you scroll, the lamp switches on and its shade, bulb, and brass parts lift apart into an exploded view"></canvas>
+
+        <div class="beat beat--left beat--intro" data-beat="0,0.16">
           <p class="eyebrow">Sculptural lighting</p>
           <h1 id="hero-h">Warm light that sets the <em>mood.</em></h1>
-          <p class="lead">Table lamps, floor lamps, and pendant lights shaped like objects you want to keep, with warm light you can dim. Flip the switch and slide the warmth to see how each one glows.</p>
+          <p class="beat__lead">Table lamps, floor lamps, and pendant lights shaped like objects you want to keep, with warm light you can dim.</p>
+          <div class="beat__cta">
+            <a class="button" href="#shop">Explore the lamps</a>
+          </div>
+        </div>
 
+        <div class="beat beat--right" data-beat="0.2,0.4">
+          <span class="beat__num">01</span>
+          <h2>Flip it on</h2>
+          <p>Dimmable LEDs with CRI 95+, so wood, linen, and skin look true at any warmth.</p>
+        </div>
+
+        <div class="beat beat--left" data-beat="0.46,0.64">
+          <span class="beat__num">02</span>
+          <h2>Linen, glass, brass</h2>
+          <p>Hand-finished shades, mouth-blown glass, and solid brass stems that age well.</p>
+        </div>
+
+        <div class="beat beat--right" data-beat="0.68,0.86">
+          <span class="beat__num">03</span>
+          <h2>Made to come apart</h2>
+          <p>Every shade, bulb, and cord swaps out, so your lamp lasts for decades.</p>
+        </div>
+
+        <div class="beat beat--left beat--outro" data-beat="0.9,1">
+          <p class="beat__big">Light that lasts. <em>Warmth that stays.</em></p>
+          <a class="button" href="#shop">Shop the collection</a>
+        </div>
+
+        <p class="scrolly__cue" aria-hidden="true"><span></span>Scroll</p>
+        <div class="scrolly__progress" aria-hidden="true"><span data-progress></span></div>
+      </div>
+    </section>
+
+    <section class="statement slide-over" id="craft" aria-labelledby="craft-h">
+      <div class="wrap">
+        <h2 class="sr-only" id="craft-h">Made slowly, lit warmly</h2>
+        <p class="statement__text" data-words>Every Glowform lamp is made slowly, by hand, and lit warmly: glass, oak, linen, and brass shaped into objects you want to keep, with light you can dim from candle to daylight.</p>
+        <dl class="stats">
+          <div class="reveal"><dt>Bulbs</dt><dd>Dimmable LED, CRI 95+</dd></div>
+          <div class="reveal"><dt>Materials</dt><dd>Glass, oak, linen, brass</dd></div>
+          <div class="reveal"><dt>Warranty</dt><dd>2 years on wiring</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" id="warmth" aria-labelledby="warmth-h">
+      <div class="wrap tune">
+        <div class="tune__copy reveal">
+          <p class="eyebrow">Try it</p>
+          <h2 id="warmth-h">Find your <em>warmth.</em></h2>
+          <p class="lead">Flip the switch and slide from candlelight to neutral white. Every lamp on this page follows along.</p>
           <div class="controls">
             <button type="button" class="switch" aria-pressed="true" data-light-switch>
               <span class="switch__track" aria-hidden="true"><span class="switch__knob"></span></span>
@@ -114,11 +172,8 @@
               <div class="warmth__scale" aria-hidden="true"><span>Candle</span><span>Warm</span><span>Neutral</span></div>
             </div>
           </div>
-
-          <a class="button" href="#shop">Explore the lamps</a>
         </div>
-
-        <div class="hero__art" aria-hidden="true">
+        <div class="tune__art reveal" aria-hidden="true">
           <svg viewBox="0 0 400 460">
             <ellipse class="glow" cx="200" cy="250" rx="190" ry="170" fill="url(#gf-glow)"/>
             <path d="M120 230a80 80 0 0 1 160 0z" fill="#efe6d8"/>
@@ -137,7 +192,7 @@
         <nav class="crumbs" aria-label="Breadcrumb">
           <ol><li><a href="#">Home</a></li><li aria-current="page">Lighting</li></ol>
         </nav>
-        <div class="section__top">
+        <div class="section__top reveal">
           <h2 id="shop-h">Table lamps, floor lamps &amp; pendant lights</h2>
           <div class="filters" role="group" aria-label="Filter lamps">
             <button type="button" class="chip is-active" data-filter="all" aria-pressed="true">All</button>
@@ -148,7 +203,7 @@
         </div>
 
         <ul class="grid" data-grid data-list-name="Glowform collection">
-          <li class="card" data-cat="floor">
+          <li class="card reveal" data-cat="floor">
             <div class="card__art">
               <svg viewBox="0 0 200 220" aria-hidden="true">
                 <ellipse class="glow" cx="150" cy="110" rx="70" ry="80" fill="url(#gf-glow)"/>
@@ -164,7 +219,7 @@
               <div class="card__foot"><span class="price">₱12,500</span><button type="button" class="add" data-add="Crescent Arc Floor Lamp" data-price="12500" data-category="floor">Add to cart</button></div>
             </div>
           </li>
-          <li class="card" data-cat="table">
+          <li class="card reveal" data-cat="table">
             <div class="card__art">
               <svg viewBox="0 0 200 220" aria-hidden="true">
                 <ellipse class="glow" cx="100" cy="120" rx="90" ry="80" fill="url(#gf-glow)"/>
@@ -180,7 +235,7 @@
               <div class="card__foot"><span class="price">₱3,900</span><button type="button" class="add" data-add="Morel Mushroom Table Lamp" data-price="3900" data-category="table">Add to cart</button></div>
             </div>
           </li>
-          <li class="card" data-cat="ceiling">
+          <li class="card reveal" data-cat="ceiling">
             <div class="card__art">
               <svg viewBox="0 0 200 220" aria-hidden="true">
                 <ellipse class="glow" cx="100" cy="130" rx="90" ry="90" fill="url(#gf-glow)"/>
@@ -195,7 +250,7 @@
               <div class="card__foot"><span class="price">₱5,800</span><button type="button" class="add" data-add="Halo Globe Pendant" data-price="5800" data-category="ceiling">Add to cart</button></div>
             </div>
           </li>
-          <li class="card" data-cat="table">
+          <li class="card reveal" data-cat="table">
             <div class="card__art">
               <svg viewBox="0 0 200 220" aria-hidden="true">
                 <ellipse class="glow" cx="100" cy="100" rx="90" ry="80" fill="url(#gf-glow)"/>
@@ -211,7 +266,7 @@
               <div class="card__foot"><span class="price">₱2,900</span><button type="button" class="add" data-add="Fold Pleated Table Lamp" data-price="2900" data-category="table">Add to cart</button></div>
             </div>
           </li>
-          <li class="card" data-cat="floor">
+          <li class="card reveal" data-cat="floor">
             <div class="card__art">
               <svg viewBox="0 0 200 220" aria-hidden="true">
                 <ellipse class="glow" cx="100" cy="80" rx="90" ry="76" fill="url(#gf-glow)"/>
@@ -226,7 +281,7 @@
               <div class="card__foot"><span class="price">₱8,400</span><button type="button" class="add" data-add="Tripod Oak Floor Lamp" data-price="8400" data-category="floor">Add to cart</button></div>
             </div>
           </li>
-          <li class="card" data-cat="ceiling">
+          <li class="card reveal" data-cat="ceiling">
             <div class="card__art">
               <svg viewBox="0 0 200 220" aria-hidden="true">
                 <ellipse class="glow" cx="120" cy="130" rx="80" ry="80" fill="url(#gf-glow)"/>
@@ -250,41 +305,34 @@
 
     <section class="section gallery" aria-labelledby="gallery-h">
       <div class="wrap">
-        <p class="eyebrow">Inspiration</p>
-        <h2 id="gallery-h">Warm light in real spaces</h2>
+        <div class="reveal">
+          <p class="eyebrow">Inspiration</p>
+          <h2 id="gallery-h">Warm light in real spaces</h2>
+        </div>
         <ul class="gallery__grid">
-          <li><figure><picture><source srcset="img/g1.webp" type="image/webp"><img src="img/g1.jpg" alt="Edison filament bulb glowing by a window at dusk" width="800" height="600" loading="lazy" decoding="async"></picture><figcaption>Filament glow at dusk</figcaption></figure></li>
-          <li><figure><picture><source srcset="img/g2.webp" type="image/webp"><img src="img/g2.jpg" alt="Cluster of exposed filament bulbs hanging at different heights" width="800" height="600" loading="lazy" decoding="async"></picture><figcaption>Layered pendants</figcaption></figure></li>
-          <li><figure><picture><source srcset="img/g3.webp" type="image/webp"><img src="img/g3.jpg" alt="Single shaded pendant bulb glowing in a dark room" width="800" height="600" loading="lazy" decoding="async"></picture><figcaption>One warm pool of light</figcaption></figure></li>
-          <li><figure><picture><source srcset="img/g4.webp" type="image/webp"><img src="img/g4.jpg" alt="Warm tungsten bulb inside an old metal holder" width="800" height="600" loading="lazy" decoding="async"></picture><figcaption>Tungsten warmth, up close</figcaption></figure></li>
+          <li class="reveal"><figure><picture><source srcset="img/g1.webp" type="image/webp"><img src="img/g1.jpg" alt="Edison filament bulb glowing by a window at dusk" width="800" height="600" loading="lazy" decoding="async"></picture><figcaption>Filament glow at dusk</figcaption></figure></li>
+          <li class="reveal"><figure><picture><source srcset="img/g2.webp" type="image/webp"><img src="img/g2.jpg" alt="Cluster of exposed filament bulbs hanging at different heights" width="800" height="600" loading="lazy" decoding="async"></picture><figcaption>Layered pendants</figcaption></figure></li>
+          <li class="reveal"><figure><picture><source srcset="img/g3.webp" type="image/webp"><img src="img/g3.jpg" alt="Single shaded pendant bulb glowing in a dark room" width="800" height="600" loading="lazy" decoding="async"></picture><figcaption>One warm pool of light</figcaption></figure></li>
+          <li class="reveal"><figure><picture><source srcset="img/g4.webp" type="image/webp"><img src="img/g4.jpg" alt="Warm tungsten bulb inside an old metal holder" width="800" height="600" loading="lazy" decoding="async"></picture><figcaption>Tungsten warmth, up close</figcaption></figure></li>
         </ul>
       </div>
     </section>
     <section class="section section--soft" id="rooms" aria-labelledby="rooms-h">
       <div class="wrap">
-        <p class="eyebrow">Lighting guide</p>
-        <h2 id="rooms-h">The right warm light for every room</h2>
+        <div class="reveal">
+          <p class="eyebrow">Lighting guide</p>
+          <h2 id="rooms-h">The right warm light for every room</h2>
+        </div>
         <ul class="rooms">
-          <li><span class="rooms__k">2700K</span><h3>Living room</h3><p>Layer a floor lamp with a table lamp at eye level for a warm, even glow.</p></li>
-          <li><span class="rooms__k">2200–2700K</span><h3>Bedroom</h3><p>Go warmer and dimmer at night. Amber light is easier on your eyes before sleep.</p></li>
-          <li><span class="rooms__k">3000–4000K</span><h3>Workspace</h3><p>Neutral, focused task light reduces eye strain while you read or work.</p></li>
+          <li class="reveal"><span class="rooms__k">2700K</span><h3>Living room</h3><p>Layer a floor lamp with a table lamp at eye level for a warm, even glow.</p></li>
+          <li class="reveal"><span class="rooms__k">2200–2700K</span><h3>Bedroom</h3><p>Go warmer and dimmer at night. Amber light is easier on your eyes before sleep.</p></li>
+          <li class="reveal"><span class="rooms__k">3000–4000K</span><h3>Workspace</h3><p>Neutral, focused task light reduces eye strain while you read or work.</p></li>
         </ul>
       </div>
     </section>
 
-    <section class="section" id="craft" aria-labelledby="craft-h">
-      <div class="wrap craft">
-        <h2 id="craft-h">Made slowly, <em>lit warmly.</em></h2>
-        <dl class="craft__facts">
-          <div><dt>Bulbs</dt><dd>Dimmable LED, CRI 95+</dd></div>
-          <div><dt>Materials</dt><dd>Glass, oak, linen, brass</dd></div>
-          <div><dt>Warranty</dt><dd>2 years on wiring</dd></div>
-        </dl>
-      </div>
-    </section>
-
     <section class="section section--soft" aria-labelledby="news-h">
-      <div class="wrap news">
+      <div class="wrap news reveal">
         <div>
           <h2 id="news-h">Notes on light</h2>
           <p>Styling ideas and new arrivals, a few times a year.</p>
@@ -318,6 +366,7 @@
 
   <script src="../shared/search-sample.js" defer></script>
   <script src="../shared/demo-kit.js" defer></script>
+  <script src="../shared/scroll-hero.js" defer></script>
   <script src="lights.js" defer></script>
 </body>
 </html>

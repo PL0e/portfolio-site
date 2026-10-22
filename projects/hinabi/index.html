@@ -26,11 +26,14 @@
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233b2a1e'/%3E%3Cpath d='M14 22h36M14 32h36M14 42h36M22 14v36M32 14v36M42 14v36' stroke='%23d9b47a' stroke-width='4'/%3E%3C/svg%3E">
 
+  <link rel="preload" as="image" href="frames/frame-01.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../shared/scroll-hero.css">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="../shared/demo-kit.css">
+  <script>document.documentElement.classList.add("js")</script>
 
   <script type="application/ld+json">
   {
@@ -110,7 +113,7 @@
     Concept project by <a href="../../">Glendell S. Dia</a>. Hinabi is a fictional brand, so nothing here is for sale.
   </div>
 
-  <header class="header">
+  <header class="header" data-header>
     <div class="wrap">
       <div class="header__bar">
         <a class="brand" href="#" aria-label="Hinabi home">
@@ -135,35 +138,59 @@
   </header>
 
   <main id="main">
-    <!-- Hero -->
-    <section class="hero" aria-labelledby="hero-h">
-      <div class="wrap hero__inner">
-        <div class="hero__copy">
+    <!-- Scroll-driven hero: 50 frames scrubbed on a pinned canvas (../shared/scroll-hero.js) -->
+    <section class="scrolly" aria-labelledby="hero-h" data-scrolly data-frames="frames/frame-{n}.jpg" data-count="50">
+      <div class="scrolly__stage">
+        <img class="scrolly__poster" src="frames/frame-01.jpg" alt="A handwoven abaca tote with an indigo inabel band and braided handles" width="720" height="1280" fetchpriority="high">
+        <canvas class="scrolly__canvas" role="img" aria-label="As you scroll, the tote's handles lift away and gold, rust, cream, and indigo threads rise out of the bag with small woven banig squares"></canvas>
+
+        <div class="beat beat--left beat--intro" data-beat="0,0.16">
           <p class="pill"><span class="pill__dot" aria-hidden="true"></span>Handwoven in the Philippines</p>
           <h1 id="hero-h">Every strand tells a story of where it was <em>woven</em>.</h1>
-          <p class="hero__lead">Abaca bags from Bicol, inabel from Ilocos, and banig from Samar, made by hand with weaving communities and built to last for years.</p>
-          <div class="hero__cta">
+          <p class="beat__lead">Abaca bags from Bicol, inabel from Ilocos, and banig from Samar, made by hand with weaving communities.</p>
+          <div class="beat__cta">
             <a class="button" href="#shop">Shop the collection <span aria-hidden="true">→</span></a>
             <a class="button button--ghost" href="#makers">Meet the makers</a>
           </div>
-          <dl class="hero__stats">
-            <div><dt>Weaving regions</dt><dd>4</dd></div>
-            <div><dt>Natural fibers</dt><dd>100%</dd></div>
-            <div><dt>Made by hand</dt><dd>Every piece</dd></div>
-          </dl>
         </div>
 
-        <div class="hero__visual">
-          <div class="hero__medallion" aria-hidden="true"></div>
-          <figure class="hero__photo">
-            <picture><source srcset="img/hero.webp" type="image/webp"><img src="img/hero.jpg" alt="Market stall packed with handwoven bags, baskets, and hats at Carbon Market, Cebu" width="880" height="1100" fetchpriority="high" decoding="async"></picture>
-          </figure>
-          <div class="hero__card" aria-hidden="true">
-            <svg viewBox="0 0 40 40" width="44" height="44"><rect width="40" height="40" rx="10" fill="url(#p-abaca)"/></svg>
-            <div><strong>Abaca</strong><span>Hand-stripped · Bicol</span></div>
-          </div>
-          <span class="hero__chip" aria-hidden="true">Carbon Market, Cebu</span>
+        <div class="beat beat--right" data-beat="0.2,0.4">
+          <span class="beat__num">01</span>
+          <h2>Hand-stripped abaca</h2>
+          <p>Bicol fiber, stripped and sun-dried by hand before a single row is braided.</p>
         </div>
+
+        <div class="beat beat--left" data-beat="0.46,0.64">
+          <span class="beat__num">02</span>
+          <h2>Threads with a hometown</h2>
+          <p>Inabel stripes from Ilocos looms, dyed in indigo, rust, and gold.</p>
+        </div>
+
+        <div class="beat beat--right" data-beat="0.68,0.86">
+          <span class="beat__num">03</span>
+          <h2>Woven to last</h2>
+          <p>Banig squares and braided handles, made to carry your market haul for years.</p>
+        </div>
+
+        <div class="beat beat--left beat--outro" data-beat="0.9,1">
+          <p class="beat__big">Every strand, <em>a story.</em></p>
+          <a class="button" href="#shop">Shop the collection <span aria-hidden="true">→</span></a>
+        </div>
+
+        <p class="scrolly__cue" aria-hidden="true"><span></span>Scroll</p>
+        <div class="scrolly__progress" aria-hidden="true"><span data-progress></span></div>
+      </div>
+    </section>
+
+    <section class="statement slide-over" aria-labelledby="statement-h">
+      <div class="wrap">
+        <h2 class="sr-only" id="statement-h">About Hinabi</h2>
+        <p class="statement__text" data-words>We work with weaving families in Bicol, Ilocos, Samar, and Aklan, paying fairly for pieces that take days to make by hand and years to wear out.</p>
+        <dl class="stats">
+          <div class="reveal"><dt>Weaving regions</dt><dd>4</dd></div>
+          <div class="reveal"><dt>Natural fibers</dt><dd>100%</dd></div>
+          <div class="reveal"><dt>Made by hand</dt><dd>Every piece</dd></div>
+        </dl>
       </div>
     </section>
 
@@ -172,7 +199,7 @@
     <!-- Shop -->
     <section class="section" id="shop" aria-labelledby="shop-h">
       <div class="wrap">
-        <div class="section__top">
+        <div class="section__top reveal">
           <div>
             <p class="eyebrow">The collection</p>
             <h2 id="shop-h">Handwoven abaca bags, inabel &amp; banig</h2>
@@ -186,7 +213,7 @@
         </div>
 
         <ul class="grid" data-grid data-list-name="Hinabi collection">
-          <li class="card card--feature" data-cat="bags">
+          <li class="card card--feature reveal" data-cat="bags">
             <div class="card__art card__art--sand">
               <svg viewBox="0 0 200 200" aria-hidden="true">
                 <path d="M68 78 C68 28 132 28 132 78" fill="none" stroke="#8a5a33" stroke-width="9" stroke-linecap="round"/>
@@ -203,7 +230,7 @@
             </div>
           </li>
 
-          <li class="card" data-cat="bags">
+          <li class="card reveal" data-cat="bags">
             <div class="card__art card__art--clay">
               <svg viewBox="0 0 200 200" aria-hidden="true">
                 <rect x="38" y="70" width="124" height="80" rx="14" fill="url(#p-abaca)"/>
@@ -219,7 +246,7 @@
             </div>
           </li>
 
-          <li class="card" data-cat="bags">
+          <li class="card reveal" data-cat="bags">
             <div class="card__art card__art--leaf">
               <svg viewBox="0 0 200 200" aria-hidden="true">
                 <path d="M74 70 Q74 40 100 40 Q126 40 126 70" fill="none" stroke="#7d5a2a" stroke-width="8"/>
@@ -237,7 +264,7 @@
             </div>
           </li>
 
-          <li class="card" data-cat="weaves">
+          <li class="card reveal" data-cat="weaves">
             <div class="card__art card__art--indigo">
               <svg viewBox="0 0 200 200" aria-hidden="true">
                 <rect x="30" y="62" width="140" height="76" fill="url(#p-inabel)"/>
@@ -252,7 +279,7 @@
             </div>
           </li>
 
-          <li class="card" data-cat="home">
+          <li class="card reveal" data-cat="home">
             <div class="card__art card__art--clay">
               <svg viewBox="0 0 200 200" aria-hidden="true">
                 <rect x="40" y="48" width="104" height="104" rx="4" fill="url(#p-banig)" transform="rotate(-8 92 100)"/>
@@ -267,7 +294,7 @@
             </div>
           </li>
 
-          <li class="card" data-cat="weaves">
+          <li class="card reveal" data-cat="weaves">
             <div class="card__art card__art--sand">
               <svg viewBox="0 0 200 200" aria-hidden="true">
                 <path d="M40 60 Q100 40 160 60 L150 120 Q100 150 50 120 Z" fill="url(#p-pina)" stroke="#d2c19d"/>
@@ -290,7 +317,7 @@
     <!-- Makers -->
     <section class="section section--makers" id="makers" aria-labelledby="makers-h">
       <div class="wrap">
-        <div class="section__top">
+        <div class="section__top reveal">
           <div>
             <p class="eyebrow">Where it's woven</p>
             <h2 id="makers-h">Four regions, four weaving traditions</h2>
@@ -298,19 +325,19 @@
           <p class="section__lead">Each region works its own fiber with techniques passed down through families.</p>
         </div>
         <ol class="regions">
-          <li class="region">
+          <li class="region reveal">
             <svg class="region__weave" viewBox="0 0 120 64" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="120" height="64" fill="url(#p-abaca)"/></svg>
             <div class="region__body"><span class="region__n">01</span><h3>Bicol</h3><p>Abaca fiber, stripped and dried by hand, braided into bags and accessories.</p></div>
           </li>
-          <li class="region">
+          <li class="region reveal">
             <svg class="region__weave" viewBox="0 0 120 64" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="120" height="64" fill="url(#p-inabel)"/></svg>
             <div class="region__body"><span class="region__n">02</span><h3>Ilocos</h3><p>Inabel cotton weaving on wooden looms, known for its geometric patterns.</p></div>
           </li>
-          <li class="region">
+          <li class="region reveal">
             <svg class="region__weave" viewBox="0 0 120 64" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="120" height="64" fill="url(#p-banig)"/></svg>
             <div class="region__body"><span class="region__n">03</span><h3>Samar</h3><p>Banig mats woven from dyed pandan leaves in bold, colorful motifs.</p></div>
           </li>
-          <li class="region">
+          <li class="region reveal">
             <svg class="region__weave" viewBox="0 0 120 64" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="120" height="64" fill="url(#p-pina)"/></svg>
             <div class="region__body"><span class="region__n">04</span><h3>Aklan</h3><p>Piña cloth, a fine, sheer fabric made from pineapple-leaf fibers.</p></div>
           </li>
@@ -321,12 +348,14 @@
     <!-- Gallery -->
     <section class="section gallery" aria-labelledby="gallery-h">
       <div class="wrap">
-        <p class="eyebrow">From fiber to market</p>
-        <h2 id="gallery-h">The craft behind handwoven goods</h2>
+        <div class="reveal">
+          <p class="eyebrow">From fiber to market</p>
+          <h2 id="gallery-h">The craft behind handwoven goods</h2>
+        </div>
         <ul class="gallery__grid">
-          <li class="gallery__item gallery__item--tall"><figure><picture><source srcset="img/g2.webp" type="image/webp"><img src="img/g2.jpg" alt="Woven baskets, bags, and souvenirs for sale at a Cebu market stall" width="800" height="600" loading="lazy" decoding="async"></picture><figcaption>Carbon Market, Cebu</figcaption></figure></li>
-          <li class="gallery__item"><figure><picture><source srcset="img/g1.webp" type="image/webp"><img src="img/g1.jpg" alt="Workers stripping and drying abaca fiber" width="800" height="600" loading="lazy" decoding="async"></picture><figcaption>Processing abaca fiber</figcaption></figure></li>
-          <li class="gallery__item"><figure><picture><source srcset="img/g3.webp" type="image/webp"><img src="img/g3.jpg" alt="Close-up of a basket woven in a geometric pattern" width="800" height="600" loading="lazy" decoding="async"></picture><figcaption>Woven by hand, row by row</figcaption></figure></li>
+          <li class="reveal gallery__item gallery__item--tall"><figure><picture><source srcset="img/g2.webp" type="image/webp"><img src="img/g2.jpg" alt="Woven baskets, bags, and souvenirs for sale at a Cebu market stall" width="800" height="600" loading="lazy" decoding="async"></picture><figcaption>Carbon Market, Cebu</figcaption></figure></li>
+          <li class="reveal gallery__item"><figure><picture><source srcset="img/g1.webp" type="image/webp"><img src="img/g1.jpg" alt="Workers stripping and drying abaca fiber" width="800" height="600" loading="lazy" decoding="async"></picture><figcaption>Processing abaca fiber</figcaption></figure></li>
+          <li class="reveal gallery__item"><figure><picture><source srcset="img/g3.webp" type="image/webp"><img src="img/g3.jpg" alt="Close-up of a basket woven in a geometric pattern" width="800" height="600" loading="lazy" decoding="async"></picture><figcaption>Woven by hand, row by row</figcaption></figure></li>
         </ul>
       </div>
     </section>
@@ -334,20 +363,22 @@
     <!-- Process -->
     <section class="section section--process" id="process" aria-labelledby="process-h">
       <div class="wrap">
-        <p class="eyebrow">How it's made</p>
-        <h2 id="process-h">From plant to product</h2>
+        <div class="reveal">
+          <p class="eyebrow">How it's made</p>
+          <h2 id="process-h">From plant to product</h2>
+        </div>
         <ol class="steps">
-          <li><span class="steps__n">01</span><h3>Harvest</h3><p>Fibers come from abaca, pandan, buri, and pineapple plants.</p></li>
-          <li><span class="steps__n">02</span><h3>Strip &amp; dry</h3><p>Fibers are stripped, sun-dried, and sorted by hand.</p></li>
-          <li><span class="steps__n">03</span><h3>Dye</h3><p>Strands are colored, often with plant-based dyes.</p></li>
-          <li><span class="steps__n">04</span><h3>Weave</h3><p>Artisans braid or loom-weave each piece by hand.</p></li>
+          <li class="reveal"><span class="steps__n">01</span><h3>Harvest</h3><p>Fibers come from abaca, pandan, buri, and pineapple plants.</p></li>
+          <li class="reveal"><span class="steps__n">02</span><h3>Strip &amp; dry</h3><p>Fibers are stripped, sun-dried, and sorted by hand.</p></li>
+          <li class="reveal"><span class="steps__n">03</span><h3>Dye</h3><p>Strands are colored, often with plant-based dyes.</p></li>
+          <li class="reveal"><span class="steps__n">04</span><h3>Weave</h3><p>Artisans braid or loom-weave each piece by hand.</p></li>
         </ol>
       </div>
     </section>
 
     <!-- Journal / newsletter -->
     <section class="section section--dark" id="journal" aria-labelledby="journal-h">
-      <div class="wrap news">
+      <div class="wrap news reveal">
         <div>
           <p class="eyebrow eyebrow--light">The Hinabi journal</p>
           <h2 id="journal-h">Stories from the loom, once a month</h2>
@@ -371,7 +402,6 @@
       <div class="credits">
         <p class="credits__title">Photo credits</p>
         <ul>
-          <li>“<a href="https://commons.wikimedia.org/w/index.php?curid=155950619">The Barracks in Carbon Market 13</a>” by <a href="https://commons.wikimedia.org/w/index.php?title=User:Bim24&amp;action=edit&amp;redlink=1">Bim24</a>, via Wikimedia Commons, <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.en/">CC0 1.0</a></li>
           <li>“<a href="https://www.flickr.com/photos/38872730@N00/8223921119">Processing Abaca Fiber</a>” by <a href="https://www.flickr.com/photos/38872730@N00">kamsky</a>, via Flickr, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></li>
           <li>“<a href="https://commons.wikimedia.org/w/index.php?curid=155950615">The Barracks in Carbon Market 10</a>” by <a href="https://commons.wikimedia.org/w/index.php?title=User:Bim24&amp;action=edit&amp;redlink=1">Bim24</a>, via Wikimedia Commons, <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.en/">CC0 1.0</a></li>
           <li>“<a href="https://www.flickr.com/photos/21162417@N07/29235340704">Woven basket, Constitutional Court, Johannesburg, Gauteng, South Africa</a>” by <a href="https://www.flickr.com/photos/21162417@N07">flowcomm</a>, via Flickr, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></li>
@@ -384,5 +414,6 @@
 
   <script src="../shared/search-sample.js" defer></script>
   <script src="../shared/demo-kit.js" defer></script>
+  <script src="../shared/scroll-hero.js" defer></script>
 </body>
 </html>
