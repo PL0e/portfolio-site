@@ -47,7 +47,7 @@ portfolio-site/
 │   ├── hinabi/           # Filipino handwoven goods store
 │   ├── kitchen-line/     # Pickleball shop (paddle finder, FAQ rich results)
 │   ├── glowform/         # Lamp shop (light switch, color-temperature slider)
-│   └── bean-and-brass/   # Coffee shop: beans, machines, café menu, brew calculator
+│   └── the-daily-brew/   # Coffee shop: scroll-scrubbed hero, drinks & beans menu, brew calculator
 └── assets/
     ├── resume_diaglendell_.pdf   # The CV linked from the site
     └── img/                      # Web-optimized images (profile, og-image, pets, and project previews)
@@ -78,7 +78,7 @@ portfolio-site/
 ## Concept storefronts
 
 `projects/` holds four self-contained demos for **fictional** brands: Hinabi (handwoven goods), Kitchen Line
-(pickleball), Glowform (lamps), and Bean & Brass (coffee). Each has its own design, Open Graph tags, canonical URL,
+(pickleball), Glowform (lamps), and The Daily Brew (coffee). Each has its own design, Open Graph tags, canonical URL,
 and JSON-LD (store type, products with offers, plus FAQPage / BreadcrumbList / Menu where relevant). Because the
 brands and prices are made up, every demo uses `noindex` so none appears in search results as a real store.
 
