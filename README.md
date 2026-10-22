@@ -13,7 +13,7 @@ Live: https://pl0e.github.io/portfolio-site/
 | Tech marquee | Tools and technologies (auto-scrolling, pauses on hover) |
 | About | Intro, key stats, skill areas, education |
 | Experience | Work timeline, newest first |
-| Projects | Concept storefront gallery (4 demos), concept sites (5 demos), client work, and project cards |
+| Projects | Bangis FC (newest), scroll-animated heroes (4 demos, hero plays on hover), more concept sites (5 demos), client work, and project cards |
 | Certificates | Awards and certifications |
 | Off the clock | Pets |
 | Contact | Contact details + a form that opens the visitor's email app |
@@ -43,7 +43,8 @@ portfolio-site/
 ├── styles.css            # Design tokens (top of file), layout, responsive rules
 ├── script.js             # Nav, scroll-spy, reveal animations, typewriter, marquee, contact form
 ├── projects/
-│   ├── shared/           # demo-kit.js/.css: cart, filters, GA4 events, SEO & Analytics panel
+│   ├── shared/           # demo-kit.js/.css (cart, filters, GA4 events, SEO & Analytics panel); scroll-hero.js/.css
+│   ├── bangis-fc/        # MMA promotion site: story carousel, countdown, fight card tabs, rankings (no analytics)
 │   ├── hinabi/           # Filipino handwoven goods store
 │   ├── kitchen-line/     # Pickleball shop (paddle finder, FAQ rich results)
 │   ├── glowform/         # Lamp shop (light switch, color-temperature slider)
@@ -76,6 +77,15 @@ portfolio-site/
   together. The drifting background octopi and bubbles are the `.bg-play` elements right after `<body>`.
 
 ## Concept storefronts
+
+**Bangis FC** (`projects/bangis-fc/`) is a fictional MMA promotion homepage modeled on how big fight leagues lay out
+fight night: a split-photo story carousel beside a numbered top-stories rail, a countdown to the next event, fight
+card tabs, and division rankings. It has no demo kit or analytics panel. Its photos were generated with AI (Figma)
+and show no real people.
+
+**Scroll heroes:** The Daily Brew, Glowform, Hinabi, and Rallyo pin a 50-frame sequence (`<site>/frames/`) that
+plays as you scroll, using `projects/shared/scroll-hero.js/.css` (The Daily Brew keeps its own `scrolly.js`). On the
+portfolio page, hovering their cards replays the same frames over the preview (`[data-hero-frames]` in `script.js`).
 
 `projects/` holds four self-contained demos for **fictional** brands: Hinabi (handwoven goods), Kitchen Line
 (pickleball), Glowform (lamps), and The Daily Brew (coffee). Each has its own design, Open Graph tags, canonical URL,
