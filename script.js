@@ -301,6 +301,53 @@
   const heroShots = document.querySelectorAll("[data-hero-frames]")
   const canHover = window.matchMedia("(hover: hover)").matches
 
+  // Project previews keep only the website title on the visual hero.
+  // Supporting copy is shown in a short tooltip attached to the info control.
+  document.querySelectorAll(".store, .project:not(.project--more)").forEach((card) => {
+    const shot = card.querySelector(".store__shot, .project__cover")
+    const body = card.querySelector(".store__body, .project__body")
+    const title = card.querySelector(".store__title, .project__title")
+    const description = body?.querySelector(":scope > p")
+    const liveDemo = body?.querySelector(".store__link, .project__link")
+    if (!shot || !body || !title || !description) return
+
+    if (liveDemo) shot.append(liveDemo)
+
+    const overlay = document.createElement("div")
+    overlay.className = "project__title-overlay"
+    overlay.setAttribute("aria-hidden", "true")
+    overlay.textContent = title.firstChild.textContent.trim()
+    shot.append(overlay)
+
+    const info = document.createElement("button")
+    info.className = "project__info-toggle"
+    info.type = "button"
+    info.setAttribute("aria-expanded", "false")
+    info.setAttribute("aria-label", "Project info")
+    info.innerHTML = '<i class="fas fa-circle-info" aria-hidden="true"></i>'
+    shot.append(info)
+
+    const sourceText = description.textContent.trim()
+    const firstSentence = sourceText.match(/^.*?[.!?](?:\s|$)/)?.[0].trim() || sourceText
+    const shortDescription = firstSentence.length > 150
+      ? `${firstSentence.slice(0, 147).trimEnd()}...`
+      : firstSentence
+    const tooltip = document.createElement("div")
+    const tooltipId = `project-info-${document.querySelectorAll(".project__info-cloud").length + 1}`
+    tooltip.className = "project__info-cloud"
+    tooltip.id = tooltipId
+    tooltip.setAttribute("role", "tooltip")
+    tooltip.textContent = shortDescription
+    shot.append(tooltip)
+    info.setAttribute("aria-describedby", tooltipId)
+    description.classList.add("project__description-source")
+
+    info.addEventListener("click", () => {
+      const open = card.classList.toggle("is-info-open")
+      info.setAttribute("aria-expanded", String(open))
+    })
+  })
+
   heroShots.forEach((shot) => {
     if (reduceMotion) return
     const FRAME_COUNT = Number(shot.dataset.heroCount) || 50
