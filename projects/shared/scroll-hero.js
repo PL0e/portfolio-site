@@ -121,6 +121,28 @@
     ctx.fillStyle = `rgb(${r},${g},${b})`
     ctx.fillRect(0, 0, w, h)
 
+    // Landscape frames on a portrait screen: a wide band (sides cropped a little)
+    // with the top and bottom feathered into the frame's backdrop. Covering the
+    // screen would crop away most of the frame.
+    if (ir > 1 && w / h < 1) {
+      const dw = Math.min(h * ir, w * 1.6)
+      const dh = dw / ir
+      const dx = (w - dw) / 2
+      const dy = h * 0.32 - dh / 2 // high, clear of the copy card at the bottom
+      ctx.drawImage(img, dx, dy, dw, dh)
+      const f = dh * 0.16
+      for (const [y0, y1] of [[dy, dy + f], [dy + dh, dy + dh - f]]) {
+        const grad = ctx.createLinearGradient(0, y0, 0, y1)
+        grad.addColorStop(0, `rgba(${r},${g},${b},1)`)
+        grad.addColorStop(1, `rgba(${r},${g},${b},0)`)
+        ctx.fillStyle = grad
+        ctx.fillRect(0, Math.min(y0, y1), w, f)
+      }
+      stage.style.setProperty("--tone", `rgb(${r},${g},${b})`)
+      stage.classList.add("is-ready")
+      return
+    }
+
     // Narrow (portrait) screens: cover. Wide screens: fit the height and feather the sides.
     let dw, dh
     if (w / h < ir * 1.35) {

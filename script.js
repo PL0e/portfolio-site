@@ -387,16 +387,18 @@
   }
 
   // ---------- Featured cards: hovering a preview plays its scroll hero ----------
-  // Each preview is a screenshot of the demo's first hero frame, drawn at full
-  // height and centered. A canvas over it replays the same 50 frames in that
-  // column, so the headline beside it stays put. Frames load on first hover.
-  // Touch screens play it once the card scrolls into view.
+  // Each preview is a screenshot of the demo's first hero frame, placed the way
+  // the hero places it. Portrait frames sit in a full-height column, so the canvas
+  // replays them there and the headline beside it stays put. Landscape frames
+  // cover the whole preview, with the hero's side shading (data-hero-shade).
+  // Frames load on first hover; touch screens play once the card scrolls into view.
   const heroShots = document.querySelectorAll("[data-hero-frames]")
-  const FRAME_COUNT = 50
   const canHover = window.matchMedia("(hover: hover)").matches
 
   heroShots.forEach((shot) => {
     if (reduceMotion) return
+    const FRAME_COUNT = Number(shot.dataset.heroCount) || 50
+    const shade = "heroShade" in shot.dataset
     const card = shot.closest(".store")
     const canvas = document.createElement("canvas")
     canvas.className = "store__anim"
@@ -445,7 +447,24 @@
       const dpr = Math.min(window.devicePixelRatio || 1, 2)
       const w = (canvas.width = Math.round(shot.clientWidth * dpr))
       const h = (canvas.height = Math.round(shot.clientHeight * dpr))
-      const dw = (h * img.naturalWidth) / img.naturalHeight
+      const ir = img.naturalWidth / img.naturalHeight
+      // Same rule as the hero: cover unless the box is much wider than the frame
+      if (w / h < ir * 1.35) {
+        const cw = Math.max(w, h * ir)
+        const ch = cw / ir
+        ctx.drawImage(img, (w - cw) / 2, (h - ch) / 2, cw, ch)
+        if (shade) {
+          const grad = ctx.createLinearGradient(0, 0, w, 0)
+          grad.addColorStop(0, "rgba(20,20,20,.78)")
+          grad.addColorStop(0.4, "rgba(20,20,20,0)")
+          grad.addColorStop(0.6, "rgba(20,20,20,0)")
+          grad.addColorStop(1, "rgba(20,20,20,.78)")
+          ctx.fillStyle = grad
+          ctx.fillRect(0, 0, w, h)
+        }
+        return
+      }
+      const dw = h * ir
       const dx = (w - dw) / 2
       ctx.drawImage(img, dx, 0, dw, h)
       // Blend the column's sides into the frame's background, as the hero does
