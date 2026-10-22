@@ -1,67 +1,57 @@
 {
  "hero": {
-  "title": "Ülker Sports Arena basketball court",
-  "creator": "David Jones",
-  "creator_url": "https://www.flickr.com/photos/45457437@N00",
-  "license": "CC BY 2.0",
-  "license_url": "https://creativecommons.org/licenses/by/2.0/",
-  "source": "flickr",
-  "source_url": "https://www.flickr.com/photos/45457437@N00/6930804369",
+  "title": "Cebu City skyline, CCLEX Bridge, Cebu Strait (Cebu City; 01-17-2025)",
+  "creator": "Patrickroque01",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Cebu_City_skyline,_CCLEX_Bridge,_Cebu_Strait_(Cebu_City;_01-17-2025).jpg",
   "size": [
-   1023,
-   575
+   1600,
+   1200
   ]
  },
- "g1": {
-  "title": "Basketball hoop",
-  "creator": "Håkan Dahlström",
-  "creator_url": "https://www.flickr.com/photos/93755244@N00",
-  "license": "CC BY 2.0",
-  "license_url": "https://creativecommons.org/licenses/by/2.0/",
-  "source": "flickr",
-  "source_url": "https://www.flickr.com/photos/93755244@N00/7189993560",
+ "stadium": {
+  "title": "Cebu City Sports Center Track and Bleachers",
+  "creator": "Lucy Mae Caballes",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Cebu_City_Sports_Center_Track_and_Bleachers.jpg",
   "size": [
-   800,
-   600
+   1200,
+   675
   ]
  },
- "g2": {
-  "title": "Crowded School Football Stadium",
-  "creator": "Image Catalog",
-  "creator_url": "https://www.flickr.com/photos/132795455@N08",
-  "license": "CC0 1.0",
-  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "source": "flickr",
-  "source_url": "https://www.flickr.com/photos/132795455@N08/22309015996",
+ "sports-center": {
+  "title": "Cebu City Sports Center, Osmeña Boulevard drone (Cebu City; 01-18-2026)",
+  "creator": "Patrickroque01",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Cebu_City_Sports_Center,_Osme%C3%B1a_Boulevard_drone_(Cebu_City;_01-18-2026).jpg",
   "size": [
-   800,
-   600
+   1000,
+   750
   ]
  },
- "g3": {
-  "title": "Pratt civitan basketball court",
-  "creator": "EdiSellsTulsa",
-  "creator_url": "https://www.flickr.com/photos/79938137@N03",
-  "license": "CC BY 2.0",
-  "license_url": "https://creativecommons.org/licenses/by/2.0/",
-  "source": "flickr",
-  "source_url": "https://www.flickr.com/photos/79938137@N03/7177981837",
+ "coliseum": {
+  "title": "Cebu downtown, Cebu Coliseum drone (Cebu City; 01-20-2026)",
+  "creator": "Patrickroque01",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Cebu_downtown,_Cebu_Coliseum_drone_(Cebu_City;_01-20-2026).jpg",
   "size": [
-   800,
-   600
+   1000,
+   750
   ]
  },
- "g4": {
-  "title": "Football stadium in Trenčín, Slovakia",
-  "creator": "Tumi-1983",
-  "creator_url": "https://commons.wikimedia.org/wiki/User:Tumi-1983",
-  "license": "CC0 1.0",
-  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en/",
-  "source": "wikimedia",
-  "source_url": "https://commons.wikimedia.org/w/index.php?curid=17195183",
+ "skyline": {
+  "title": "Cebu city skyline 2025",
+  "creator": "DisRaptor18",
+  "license": "CC0",
+  "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Cebu_city_skyline_2025.jpg",
   "size": [
-   800,
-   600
+   1000,
+   750
   ]
  }
 }

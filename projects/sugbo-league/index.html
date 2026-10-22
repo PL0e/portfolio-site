@@ -1,28 +1,29 @@
 <!DOCTYPE html>
-<html lang="en-PH" data-currency="PHP" data-target-keywords="visayas collegiate athletic league|college basketball standings|collegiate sports in cebu|sports news from cebu">
+<html lang="en-PH" data-currency="PHP" data-target-keywords="sugbo league|collegiate sports in cebu|college basketball standings|sports news from cebu">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VCAL | Visayas Collegiate Athletic League Scores &amp; News</title>
-  <meta name="description" content="Scores, schedules, and college basketball standings from the Visayas Collegiate Athletic League, plus sports news from Cebu's collegiate sports scene.">
+  <title>Sugbo League | Cebu Collegiate Sports Scores, Standings &amp; News</title>
+  <meta name="description" content="Scores, schedules, and college basketball standings from the Sugbo League, eight schools from Danao to Carcar playing collegiate sports across Cebu.">
   <!-- Concept project by Glendell S. Dia. Fictional league, teams, and results; kept out of search results. -->
   <meta name="robots" content="noindex, follow">
-  <meta name="theme-color" content="#0b0d0b">
+  <meta name="theme-color" content="#07111c">
   <!-- GA4: put a measurement ID (G-XXXXXXXXXX) here to send the demo's events to Google Analytics -->
   <meta name="ga-measurement-id" content="">
-  <link rel="canonical" href="https://pl0e.github.io/portfolio-site/projects/vcal/">
+  <link rel="canonical" href="https://pl0e.github.io/portfolio-site/projects/sugbo-league/">
 
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="VCAL">
-  <meta property="og:title" content="VCAL | Visayas Collegiate Athletic League">
-  <meta property="og:description" content="Scores, standings, schedules, and news from a concept collegiate league in Cebu.">
-  <meta property="og:url" content="https://pl0e.github.io/portfolio-site/projects/vcal/">
-  <meta property="og:image" content="https://pl0e.github.io/portfolio-site/projects/vcal/og-image.jpg">
+  <meta property="og:site_name" content="Sugbo League">
+  <meta property="og:title" content="Sugbo League | Collegiate sports across Cebu">
+  <meta property="og:description" content="Eight towns, one island: scores, standings, schedules, and news from a concept collegiate league in Cebu.">
+  <meta property="og:url" content="https://pl0e.github.io/portfolio-site/projects/sugbo-league/">
+  <meta property="og:image" content="https://pl0e.github.io/portfolio-site/projects/sugbo-league/og-image.jpg">
   <meta property="og:locale" content="en_PH">
   <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230b0d0b'/%3E%3Cpath d='M14 16h10l8 22 8-22h10L37 50H27z' fill='%23f5b50a'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307111c'/%3E%3Ccircle cx='32' cy='30' r='13' fill='%23ffc233'/%3E%3Cpath d='M8 44c8-5 16-5 24 0s16 5 24 0v12H8z' fill='%231fb5d6'/%3E%3C/svg%3E">
 
+  <link rel="preload" as="image" href="img/hero.webp" type="image/webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap">
@@ -35,21 +36,22 @@
     "@graph": [
       {
         "@type": "SportsOrganization",
-        "@id": "https://pl0e.github.io/portfolio-site/projects/vcal/#league",
-        "name": "Visayas Collegiate Athletic League",
-        "alternateName": "VCAL",
-        "url": "https://pl0e.github.io/portfolio-site/projects/vcal/",
-        "description": "Concept collegiate sports league in Cebu. Fictional teams and results.",
+        "@id": "https://pl0e.github.io/portfolio-site/projects/sugbo-league/#league",
+        "name": "Sugbo Collegiate League",
+        "alternateName": "Sugbo League",
+        "url": "https://pl0e.github.io/portfolio-site/projects/sugbo-league/",
+        "description": "Concept collegiate sports league for eight schools across Cebu. Fictional teams and results.",
         "sport": ["Basketball", "Football", "Volleyball", "Badminton", "Chess"],
-        "address": { "@type": "PostalAddress", "addressLocality": "Cebu City", "addressCountry": "PH" }
+        "areaServed": { "@type": "AdministrativeArea", "name": "Cebu" },
+        "address": { "@type": "PostalAddress", "addressLocality": "Cebu City", "addressRegion": "Cebu", "addressCountry": "PH" }
       },
       {
         "@type": "ItemList",
         "name": "Upcoming games",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "item": { "@type": "SportsEvent", "name": "Mactan Mariners vs Talisay Tamaraws", "sport": "Basketball", "startDate": "2026-10-24T16:00+08:00", "location": { "@type": "Place", "name": "VCAL Arena, Cebu City" }, "homeTeam": { "@type": "SportsTeam", "name": "Mactan Mariners" }, "awayTeam": { "@type": "SportsTeam", "name": "Talisay Tamaraws" } } },
-          { "@type": "ListItem", "position": 2, "item": { "@type": "SportsEvent", "name": "Danao Dolphins vs Carcar Kestrels", "sport": "Football", "startDate": "2026-10-25T15:00+08:00", "location": { "@type": "Place", "name": "VCAL Field, Cebu City" }, "homeTeam": { "@type": "SportsTeam", "name": "Danao Dolphins" }, "awayTeam": { "@type": "SportsTeam", "name": "Carcar Kestrels" } } },
-          { "@type": "ListItem", "position": 3, "item": { "@type": "SportsEvent", "name": "Mandaue Mustangs vs Liloan Lynx", "sport": "Volleyball", "startDate": "2026-10-26T13:00+08:00", "location": { "@type": "Place", "name": "VCAL Gym, Cebu City" }, "homeTeam": { "@type": "SportsTeam", "name": "Mandaue Mustangs" }, "awayTeam": { "@type": "SportsTeam", "name": "Liloan Lynx" } } }
+          { "@type": "ListItem", "position": 1, "item": { "@type": "SportsEvent", "name": "Mactan Mariners vs Talisay Tamaraws", "sport": "Basketball", "startDate": "2026-10-24T16:00+08:00", "location": { "@type": "Place", "name": "Sugbo Arena, Cebu City" }, "homeTeam": { "@type": "SportsTeam", "name": "Mactan Mariners" }, "awayTeam": { "@type": "SportsTeam", "name": "Talisay Tamaraws" } } },
+          { "@type": "ListItem", "position": 2, "item": { "@type": "SportsEvent", "name": "Danao Dolphins vs Carcar Kestrels", "sport": "Football", "startDate": "2026-10-25T15:00+08:00", "location": { "@type": "Place", "name": "Sugbo Field, Cebu City" }, "homeTeam": { "@type": "SportsTeam", "name": "Danao Dolphins" }, "awayTeam": { "@type": "SportsTeam", "name": "Carcar Kestrels" } } },
+          { "@type": "ListItem", "position": 3, "item": { "@type": "SportsEvent", "name": "Mandaue Mustangs vs Liloan Lynx", "sport": "Volleyball", "startDate": "2026-10-26T13:00+08:00", "location": { "@type": "Place", "name": "Sugbo Gym, Mandaue City" }, "homeTeam": { "@type": "SportsTeam", "name": "Mandaue Mustangs" }, "awayTeam": { "@type": "SportsTeam", "name": "Liloan Lynx" } } }
         ]
       }
     ]
@@ -60,21 +62,25 @@
   <a class="skip" href="#main">Skip to content</a>
 
   <div class="notice" role="note">
-    Concept project by <a href="../../">Glendell S. Dia</a>. VCAL, its teams, and every result here are fictional.
+    Concept project by <a href="../../">Glendell S. Dia</a>. The Sugbo League, its teams, and every result are fictional; the photos show real places in Cebu.
   </div>
 
   <header class="header">
     <div class="wrap header__inner">
-      <a class="brand" href="#" aria-label="VCAL home"><span class="brand__mark" aria-hidden="true">V</span>VCAL</a>
+      <a class="brand" href="#" aria-label="Sugbo League home">
+        <svg class="brand__mark" viewBox="0 0 40 40" width="40" height="40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#0f1f30"/><circle cx="20" cy="18" r="8.5" fill="#ffc233"/><path d="M4 28c5-3.4 10.5-3.4 16 0s11 3.4 16 0v8H4z" fill="#1fb5d6"/></svg>
+        <span class="brand__name">Sugbo<small>League · Cebu</small></span>
+      </a>
       <nav aria-label="Primary">
         <ul class="menu">
           <li><a href="#news">News</a></li>
           <li><a href="#scores">Scores</a></li>
+          <li><a href="#island">Teams</a></li>
           <li><a href="#standings">Standings</a></li>
           <li><a href="#schedule">Schedule</a></li>
         </ul>
       </nav>
-      <a class="btn btn--gold" href="#subscribe">Subscribe</a>
+      <a class="btn btn--sun" href="#subscribe">Subscribe</a>
     </div>
     <div class="sports-bar">
       <div class="wrap">
@@ -106,24 +112,82 @@
     </section>
 
     <section class="lead-news wrap" id="news" aria-labelledby="news-h">
-      <article class="feature" data-sport="basketball">
-        <picture><source srcset="img/hero.webp" type="image/webp"><img src="img/hero.jpg" alt="Wide view of an indoor basketball arena with blue seats" width="1023" height="575" fetchpriority="high" decoding="async"></picture>
+      <article class="feature">
+        <picture><source srcset="img/hero.webp" type="image/webp"><img src="img/hero.jpg" alt="Cebu City skyline and the CCLEX bridge seen across the Cebu Strait" width="1600" height="1200" fetchpriority="high" decoding="async"></picture>
         <div class="feature__body">
-          <p class="feature__kicker"><span class="flag">Featured</span> Basketball · Game recap</p>
-          <h1 id="news-h">Mariners stay unbeaten, hold off Mustangs 78–71</h1>
-          <p>The Mactan Mariners improved to 6–0 in Visayas Collegiate Athletic League play, closing on a 10–2 run to beat the Mandaue Mustangs in a rematch of last season's final.</p>
+          <p class="feature__kicker"><span class="flag">Season 2026</span> Cebu, Philippines</p>
+          <h1 id="news-h">Eight towns. One island. <span>Game on, Cebu.</span></h1>
+          <p>From Danao in the north to Carcar in the south, the Sugbo League brings eight Cebu schools together for a season of basketball, football, volleyball, badminton, and chess.</p>
+          <a class="btn btn--sun feature__cta" href="#island">Meet the teams</a>
         </div>
       </article>
 
       <aside class="headlines" aria-labelledby="headlines-h">
         <h2 id="headlines-h">Headlines</h2>
         <ol>
-          <li data-sport="football"><span class="num">01</span><div><a href="#news">Dolphins edge Lynx 2–1 with a late header</a><small>2 days ago · Football · Recap</small></div></li>
-          <li data-sport="volleyball"><span class="num">02</span><div><a href="#news">Tamaraws sweep Kestrels in straight sets</a><small>3 days ago · Volleyball · Recap</small></div></li>
-          <li data-sport="badminton"><span class="num">03</span><div><a href="#news">Monarchs take the deciding doubles to beat Comets 3–2</a><small>4 days ago · Badminton · Recap</small></div></li>
-          <li data-sport="chess"><span class="num">04</span><div><a href="#news">Lynx win the first chess round on board one</a><small>5 days ago · Chess · Recap</small></div></li>
+          <li data-sport="basketball"><span class="num">01</span><div><a href="#news">Mariners stay unbeaten, hold off Mustangs 78–71</a><small>Yesterday · Basketball · Recap</small></div></li>
+          <li data-sport="football"><span class="num">02</span><div><a href="#news">Dolphins edge Lynx 2–1 with a late header</a><small>2 days ago · Football · Recap</small></div></li>
+          <li data-sport="volleyball"><span class="num">03</span><div><a href="#news">Tamaraws sweep Kestrels in straight sets</a><small>3 days ago · Volleyball · Recap</small></div></li>
+          <li data-sport="badminton"><span class="num">04</span><div><a href="#news">Monarchs take the deciding doubles to beat Comets 3–2</a><small>4 days ago · Badminton · Recap</small></div></li>
+          <li data-sport="chess"><span class="num">05</span><div><a href="#news">Lynx win the first chess round on board one</a><small>5 days ago · Chess · Recap</small></div></li>
         </ol>
       </aside>
+    </section>
+
+    <!-- The island: every team's hometown pinned on a map of Cebu (league.js links pins, list, and standings) -->
+    <section class="section wrap island" id="island" aria-labelledby="island-h">
+      <div class="island__copy">
+        <div class="section__head"><p class="eyebrow">Eight towns, one island</p><h2 id="island-h">Every team plays for a corner of Cebu</h2></div>
+        <p class="island__lead">Hover a team to find its hometown. Mactan sits just across the channel from Mandaue; Danao and Carcar are the long road trips.</p>
+        <ol class="teams" data-team-list>
+          <li data-team="mariners" tabindex="0"><span class="dot" style="--c:#2563eb">1</span><div><strong>Mactan Mariners</strong><small>Lapu-Lapu City · Mactan Island</small></div><b>6–0</b></li>
+          <li data-team="mustangs" tabindex="0"><span class="dot" style="--c:#dc2626">2</span><div><strong>Mandaue Mustangs</strong><small>Mandaue City</small></div><b>5–1</b></li>
+          <li data-team="tamaraws" tabindex="0"><span class="dot" style="--c:#16a34a">3</span><div><strong>Talisay Tamaraws</strong><small>Talisay City</small></div><b>4–2</b></li>
+          <li data-team="dolphins" tabindex="0"><span class="dot" style="--c:#0891b2">4</span><div><strong>Danao Dolphins</strong><small>Danao City · north</small></div><b>3–3</b></li>
+          <li data-team="monarchs" tabindex="0"><span class="dot" style="--c:#9333ea">5</span><div><strong>Minglanilla Monarchs</strong><small>Minglanilla</small></div><b>3–3</b></li>
+          <li data-team="kestrels" tabindex="0"><span class="dot" style="--c:#ea580c">6</span><div><strong>Carcar Kestrels</strong><small>Carcar City · south</small></div><b>2–4</b></li>
+          <li data-team="lynx" tabindex="0"><span class="dot" style="--c:#ca8a04">7</span><div><strong>Liloan Lynx</strong><small>Liloan</small></div><b>1–5</b></li>
+          <li data-team="comets" tabindex="0"><span class="dot" style="--c:#64748b">8</span><div><strong>Consolacion Comets</strong><small>Consolacion</small></div><b>0–6</b></li>
+        </ol>
+      </div>
+
+      <figure class="map">
+        <svg viewBox="96 196 235 300" role="img" aria-labelledby="map-title map-desc">
+          <title id="map-title">Map of central Cebu</title>
+          <desc id="map-desc">An outline of central Cebu, from Danao in the north to Carcar in the south, with Mactan Island off the east coast, showing the hometowns of the eight teams and the league office in Cebu City.</desc>
+          <defs>
+            <linearGradient id="land" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a3a52"/><stop offset="1" stop-color="#12293d"/></linearGradient>
+            <pattern id="waves" width="14" height="10" patternUnits="userSpaceOnUse"><path d="M0 5q3.5-4 7 0t7 0" fill="none" stroke="#1fb5d6" stroke-opacity=".12" stroke-width="1"/></pattern>
+          </defs>
+          <rect x="96" y="196" width="235" height="300" fill="url(#waves)"/>
+          <g fill="url(#land)" stroke="#2f6b8f" stroke-width="1.5" stroke-linejoin="round">
+            <path d="M304.0,15.2C309.1,21.5 314.8,57.0 315.4,76.0C316.0,95.0 311.0,108.9 307.8,129.2C304.6,149.5 297.7,176.1 296.4,197.6C295.1,219.1 298.9,240.7 300.2,258.4C301.5,276.1 306.5,290.1 304.0,304.0C301.5,317.9 291.3,331.2 285.0,342.0C278.7,352.8 272.3,361.0 266.0,368.6C259.7,376.2 254.0,381.3 247.0,387.6C240.0,393.9 233.1,399.6 224.2,406.6C215.3,413.6 203.9,419.9 193.8,429.4C183.7,438.9 172.3,451.6 163.4,463.6C154.5,475.6 147.6,487.7 140.6,501.6C133.6,515.5 127.3,531.4 121.6,547.2C115.9,563.0 112.7,578.9 106.4,596.6C100.1,614.3 91.8,635.9 83.6,653.6C75.4,671.3 65.9,691.6 57.0,703.0C48.1,714.4 37.4,723.9 30.4,722.0C23.4,720.1 15.2,706.8 15.2,691.6C15.2,676.4 24.7,652.3 30.4,630.8C36.1,609.3 42.4,583.9 49.4,562.4C56.4,540.9 64.6,520.6 72.2,501.6C79.8,482.6 86.1,466.1 95.0,448.4C103.9,430.7 116.5,411.7 125.4,395.2C134.3,378.7 140.6,364.8 148.2,349.6C155.8,334.4 162.1,320.5 171.0,304.0C179.9,287.5 191.9,268.5 201.4,250.8C210.9,233.1 219.1,216.0 228.0,197.6C236.9,179.2 247.0,159.6 254.6,140.6C262.2,121.6 268.5,100.7 273.6,83.6C278.7,66.5 279.9,49.4 285.0,38.0C290.1,26.6 298.9,8.9 304.0,15.2Z"/>
+            <path d="M269.8,372.4C274.2,371.1 286.3,373.0 292.6,376.2C298.9,379.4 307.2,386.3 307.8,391.4C308.4,396.5 302.1,405.3 296.4,406.6C290.7,407.9 278.7,402.8 273.6,399.0C268.5,395.2 266.6,388.2 266.0,383.8C265.4,379.4 265.4,373.7 269.8,372.4Z"/>
+          </g>
+          <g class="map__labels" aria-hidden="true">
+            <text x="196" y="300">CEBU</text>
+            <text x="287" y="418" class="map__small" text-anchor="middle">Mactan</text>
+            <text x="104" y="330" class="map__small">Tañon Strait</text>
+            <text x="326" y="250" class="map__small" text-anchor="end">Camotes Sea</text>
+            <text x="200" y="478" class="map__small">Bohol Strait</text>
+          </g>
+          <g class="map__hq">
+            <circle cx="245.1" cy="383.8" r="9" fill="none" stroke="#ffc233" stroke-width="1.5" stroke-dasharray="2 2"/>
+            <path d="M245.1 377.8l1.8 3.8 4.2.5-3.1 2.9.8 4.1-3.7-2.1-3.7 2.1.8-4.1-3.1-2.9 4.2-.5z" fill="#ffc233"/>
+          </g>
+          <g class="map__pins">
+            <g class="pin" data-team="mariners" style="--c:#2563eb"><circle cx="285.0" cy="387.6" r="6"/><text x="285.0" y="390.6">1</text></g>
+            <g class="pin" data-team="mustangs" style="--c:#dc2626"><circle cx="260.3" cy="374.3" r="6"/><text x="260.3" y="377.3">2</text></g>
+            <g class="pin" data-team="tamaraws" style="--c:#16a34a"><circle cx="228.0" cy="404.7" r="6"/><text x="228.0" y="407.7">3</text></g>
+            <g class="pin" data-team="dolphins" style="--c:#0891b2"><circle cx="294.5" cy="304.0" r="6"/><text x="294.5" y="307.0">4</text></g>
+            <g class="pin" data-team="monarchs" style="--c:#9333ea"><circle cx="207.1" cy="408.5" r="6"/><text x="207.1" y="411.5">5</text></g>
+            <g class="pin" data-team="kestrels" style="--c:#ea580c"><circle cx="150.1" cy="459.8" r="6"/><text x="150.1" y="462.8">6</text></g>
+            <g class="pin" data-team="lynx" style="--c:#ca8a04"><circle cx="283.1" cy="349.6" r="6"/><text x="283.1" y="352.6">7</text></g>
+            <g class="pin" data-team="comets" style="--c:#64748b"><circle cx="267.9" cy="359.1" r="6"/><text x="267.9" y="362.1">8</text></g>
+          </g>
+        </svg>
+        <figcaption><span class="map__star" aria-hidden="true">★</span> League office and Sugbo Arena, Cebu City · Central Cebu, simplified</figcaption>
+      </figure>
     </section>
 
     <section class="section wrap two-col" aria-label="Standings and schedule">
@@ -134,14 +198,14 @@
             <caption class="sr-only">Men's basketball standings, collegiate sports in Cebu</caption>
             <thead><tr><th scope="col">#</th><th scope="col">Team</th><th scope="col">W</th><th scope="col">L</th><th scope="col">PCT</th><th scope="col">Streak</th></tr></thead>
             <tbody>
-              <tr><td>1</td><th scope="row"><span class="dot" style="--c:#2563eb"></span>Mactan Mariners</th><td>6</td><td>0</td><td>1.000</td><td>W6</td></tr>
-              <tr><td>2</td><th scope="row"><span class="dot" style="--c:#dc2626"></span>Mandaue Mustangs</th><td>5</td><td>1</td><td>.833</td><td>L1</td></tr>
-              <tr><td>3</td><th scope="row"><span class="dot" style="--c:#16a34a"></span>Talisay Tamaraws</th><td>4</td><td>2</td><td>.667</td><td>W2</td></tr>
-              <tr><td>4</td><th scope="row"><span class="dot" style="--c:#0891b2"></span>Danao Dolphins</th><td>3</td><td>3</td><td>.500</td><td>W1</td></tr>
-              <tr><td>5</td><th scope="row"><span class="dot" style="--c:#9333ea"></span>Minglanilla Monarchs</th><td>3</td><td>3</td><td>.500</td><td>L1</td></tr>
-              <tr><td>6</td><th scope="row"><span class="dot" style="--c:#ea580c"></span>Carcar Kestrels</th><td>2</td><td>4</td><td>.333</td><td>L2</td></tr>
-              <tr><td>7</td><th scope="row"><span class="dot" style="--c:#ca8a04"></span>Liloan Lynx</th><td>1</td><td>5</td><td>.167</td><td>W1</td></tr>
-              <tr><td>8</td><th scope="row"><span class="dot" style="--c:#64748b"></span>Consolacion Comets</th><td>0</td><td>6</td><td>.000</td><td>L6</td></tr>
+              <tr data-team="mariners"><td>1</td><th scope="row"><span class="dot" style="--c:#2563eb"></span>Mactan Mariners</th><td>6</td><td>0</td><td>1.000</td><td>W6</td></tr>
+              <tr data-team="mustangs"><td>2</td><th scope="row"><span class="dot" style="--c:#dc2626"></span>Mandaue Mustangs</th><td>5</td><td>1</td><td>.833</td><td>L1</td></tr>
+              <tr data-team="tamaraws"><td>3</td><th scope="row"><span class="dot" style="--c:#16a34a"></span>Talisay Tamaraws</th><td>4</td><td>2</td><td>.667</td><td>W2</td></tr>
+              <tr data-team="dolphins"><td>4</td><th scope="row"><span class="dot" style="--c:#0891b2"></span>Danao Dolphins</th><td>3</td><td>3</td><td>.500</td><td>W1</td></tr>
+              <tr data-team="monarchs"><td>5</td><th scope="row"><span class="dot" style="--c:#9333ea"></span>Minglanilla Monarchs</th><td>3</td><td>3</td><td>.500</td><td>L1</td></tr>
+              <tr data-team="kestrels"><td>6</td><th scope="row"><span class="dot" style="--c:#ea580c"></span>Carcar Kestrels</th><td>2</td><td>4</td><td>.333</td><td>L2</td></tr>
+              <tr data-team="lynx"><td>7</td><th scope="row"><span class="dot" style="--c:#ca8a04"></span>Liloan Lynx</th><td>1</td><td>5</td><td>.167</td><td>W1</td></tr>
+              <tr data-team="comets"><td>8</td><th scope="row"><span class="dot" style="--c:#64748b"></span>Consolacion Comets</th><td>0</td><td>6</td><td>.000</td><td>L6</td></tr>
             </tbody>
           </table>
         </div>
@@ -150,21 +214,21 @@
       <div id="schedule">
         <div class="section__head"><p class="eyebrow">This week</p><h2>Schedule</h2></div>
         <ul class="schedule">
-          <li data-sport="basketball"><time datetime="2026-10-24T16:00+08:00"><b>Oct 24</b>4:00 PM</time><div><strong>Mariners vs Tamaraws</strong><small>Basketball · VCAL Arena</small></div></li>
-          <li data-sport="football"><time datetime="2026-10-25T15:00+08:00"><b>Oct 25</b>3:00 PM</time><div><strong>Dolphins vs Kestrels</strong><small>Football · VCAL Field</small></div></li>
-          <li data-sport="volleyball"><time datetime="2026-10-26T13:00+08:00"><b>Oct 26</b>1:00 PM</time><div><strong>Mustangs vs Lynx</strong><small>Volleyball · VCAL Gym</small></div></li>
-          <li data-sport="badminton"><time datetime="2026-10-27T10:00+08:00"><b>Oct 27</b>10:00 AM</time><div><strong>Comets vs Mariners</strong><small>Badminton · VCAL Gym</small></div></li>
+          <li data-sport="basketball"><time datetime="2026-10-24T16:00+08:00"><b>Oct 24</b>4:00 PM</time><div><strong>Mariners vs Tamaraws</strong><small>Basketball · Sugbo Arena, Cebu City</small></div></li>
+          <li data-sport="football"><time datetime="2026-10-25T15:00+08:00"><b>Oct 25</b>3:00 PM</time><div><strong>Dolphins vs Kestrels</strong><small>Football · Sugbo Field, Cebu City</small></div></li>
+          <li data-sport="volleyball"><time datetime="2026-10-26T13:00+08:00"><b>Oct 26</b>1:00 PM</time><div><strong>Mustangs vs Lynx</strong><small>Volleyball · Sugbo Gym, Mandaue</small></div></li>
+          <li data-sport="badminton"><time datetime="2026-10-27T10:00+08:00"><b>Oct 27</b>10:00 AM</time><div><strong>Comets vs Mariners</strong><small>Badminton · Sugbo Gym, Mandaue</small></div></li>
         </ul>
       </div>
     </section>
 
     <section class="section wrap" aria-labelledby="venues-h">
-      <div class="section__head"><p class="eyebrow">Game day</p><h2 id="venues-h">Where collegiate sports in Cebu come alive</h2></div>
+      <div class="section__head"><p class="eyebrow">Game day in Cebu</p><h2 id="venues-h">Where collegiate sports in Cebu come alive</h2></div>
       <ul class="venues">
-        <li><figure><picture><source srcset="img/g2.webp" type="image/webp"><img src="img/g2.jpg" alt="Packed stadium stands around a football field under a blue sky" width="800" height="600" loading="lazy" decoding="async"></picture><figcaption>Football finals</figcaption></figure></li>
-        <li><figure><picture><source srcset="img/g1.webp" type="image/webp"><img src="img/g1.jpg" alt="Basketball hoop seen from below against a blue sky" width="800" height="600" loading="lazy" decoding="async"></picture><figcaption>Basketball</figcaption></figure></li>
-        <li><figure><picture><source srcset="img/g3.webp" type="image/webp"><img src="img/g3.jpg" alt="Outdoor basketball court with a blue hoop surrounded by trees" width="800" height="600" loading="lazy" decoding="async"></picture><figcaption>Practice courts</figcaption></figure></li>
-        <li><figure><picture><source srcset="img/g4.webp" type="image/webp"><img src="img/g4.jpg" alt="Aerial view of a football stadium beside a town and river" width="800" height="600" loading="lazy" decoding="async"></picture><figcaption>Home grounds</figcaption></figure></li>
+        <li><figure><picture><source srcset="img/stadium.webp" type="image/webp"><img src="img/stadium.jpg" alt="Grandstand and running track at the Cebu City Sports Center" width="1200" height="675" loading="lazy" decoding="async"></picture><figcaption>Cebu City Sports Center</figcaption></figure></li>
+        <li><figure><picture><source srcset="img/sports-center.webp" type="image/webp"><img src="img/sports-center.jpg" alt="Drone view of the Cebu City Sports Center with festival colors painted on its stands" width="1000" height="750" loading="lazy" decoding="async"></picture><figcaption>The Sports Center from above</figcaption></figure></li>
+        <li><figure><picture><source srcset="img/coliseum.webp" type="image/webp"><img src="img/coliseum.jpg" alt="Aerial view of downtown Cebu City with the white-roofed Cebu Coliseum" width="1000" height="750" loading="lazy" decoding="async"></picture><figcaption>Cebu Coliseum, downtown</figcaption></figure></li>
+        <li><figure><picture><source srcset="img/skyline.webp" type="image/webp"><img src="img/skyline.jpg" alt="Cebu City skyline under a bright blue sky" width="1000" height="750" loading="lazy" decoding="async"></picture><figcaption>Home city</figcaption></figure></li>
       </ul>
     </section>
 
@@ -172,12 +236,12 @@
       <div class="wrap subscribe__inner">
         <div>
           <h2 id="sub-h">Sports news from Cebu, after every final buzzer</h2>
-          <p>Scores, recaps, and sports news from Cebu, delivered after every game day.</p>
+          <p>Scores, recaps, and road-trip notes from Danao to Carcar, delivered after every game day.</p>
         </div>
         <form class="news__form" data-news novalidate>
-          <label class="sr-only" for="vc-email">Email address</label>
-          <input id="vc-email" type="email" placeholder="you@example.com" autocomplete="email" required>
-          <button class="btn btn--gold" type="submit">Subscribe</button>
+          <label class="sr-only" for="sl-email">Email address</label>
+          <input id="sl-email" type="email" placeholder="you@example.com" autocomplete="email" required>
+          <button class="btn btn--sun" type="submit">Subscribe</button>
           <p class="news__msg" data-news-msg role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -186,16 +250,16 @@
 
   <footer class="footer">
     <div class="wrap footer__inner">
-      <p><strong>VCAL</strong>: a concept sports league website by <a href="../../">Glendell S. Dia</a>.</p>
-      <p>Fictional league, teams, venues, and results for portfolio purposes.</p>
+      <p><strong>Sugbo League</strong>: a concept sports league website by <a href="../../">Glendell S. Dia</a>.</p>
+      <p>Fictional league, teams, venues, and results. Photos show real places in Cebu.</p>
       <div class="credits">
         <p class="credits__title">Photo credits</p>
         <ul>
-          <li>“<a href="https://www.flickr.com/photos/45457437@N00/6930804369">Ülker Sports Arena basketball court</a>” by <a href="https://www.flickr.com/photos/45457437@N00">David Jones</a>, via Flickr, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></li>
-          <li>“<a href="https://www.flickr.com/photos/93755244@N00/7189993560">Basketball hoop</a>” by <a href="https://www.flickr.com/photos/93755244@N00">Håkan Dahlström</a>, via Flickr, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></li>
-          <li>“<a href="https://www.flickr.com/photos/132795455@N08/22309015996">Crowded School Football Stadium</a>” by <a href="https://www.flickr.com/photos/132795455@N08">Image Catalog</a>, via Flickr, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></li>
-          <li>“<a href="https://www.flickr.com/photos/79938137@N03/7177981837">Pratt civitan basketball court</a>” by <a href="https://www.flickr.com/photos/79938137@N03">EdiSellsTulsa</a>, via Flickr, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></li>
-          <li>“<a href="https://commons.wikimedia.org/w/index.php?curid=17195183">Football stadium in Trenčín, Slovakia</a>” by <a href="https://commons.wikimedia.org/wiki/User:Tumi-1983">Tumi-1983</a>, via Wikimedia Commons, <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.en/">CC0 1.0</a></li>
+          <li>“<a href="https://commons.wikimedia.org/wiki/File:Cebu_City_skyline,_CCLEX_Bridge,_Cebu_Strait_(Cebu_City;_01-17-2025).jpg">Cebu City skyline, CCLEX Bridge, Cebu Strait</a>” by Patrickroque01, via Wikimedia Commons, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a></li>
+          <li>“<a href="https://commons.wikimedia.org/wiki/File:Cebu_City_Sports_Center_Track_and_Bleachers.jpg">Cebu City Sports Center Track and Bleachers</a>” by Lucy Mae Caballes, via Wikimedia Commons, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a></li>
+          <li>“<a href="https://commons.wikimedia.org/wiki/File:Cebu_City_Sports_Center,_Osme%C3%B1a_Boulevard_drone_(Cebu_City;_01-18-2026).jpg">Cebu City Sports Center, Osmeña Boulevard drone</a>” by Patrickroque01, via Wikimedia Commons, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a></li>
+          <li>“<a href="https://commons.wikimedia.org/wiki/File:Cebu_downtown,_Cebu_Coliseum_drone_(Cebu_City;_01-20-2026).jpg">Cebu downtown, Cebu Coliseum drone</a>” by Patrickroque01, via Wikimedia Commons, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a></li>
+          <li>“<a href="https://commons.wikimedia.org/wiki/File:Cebu_city_skyline_2025.jpg">Cebu city skyline 2025</a>” by DisRaptor18, via Wikimedia Commons, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></li>
         </ul>
       </div>
     </div>
