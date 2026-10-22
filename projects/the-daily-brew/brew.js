@@ -1,5 +1,5 @@
 /**
- * Bean & Brass brew-ratio calculator.
+ * The Daily Brew brew-ratio calculator.
  * Loaded after ../shared/demo-kit.js, which provides window.DemoKit.track.
  */
 ;(() => {
