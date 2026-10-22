@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atelier Lune | Interior Architecture &amp; Design</title>
+  <meta name="description" content="Atelier Lune designs quiet, considered residences: interior architecture, furniture, and art curation for private homes.">
+  <!--
+    Ongoing concept by Glendell S. Dia: an HTML/CSS-only draft. Atelier Lune is a fictional studio,
+    the hero photo is AI-generated, and the page is kept out of search results.
+  -->
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#e9e1d4">
+  <link rel="canonical" href="https://pl0e.github.io/portfolio-site/projects/atelier-lune/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23e9e1d4'/%3E%3Cpath d='M40 14a18 18 0 1 0 0 36 14 14 0 1 1 0-36z' fill='%235b4a3a'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Archivo:wght@400;500&display=swap">
+  <link rel="preload" as="image" href="img/hero.webp" type="image/webp">
+  <link rel="stylesheet" href="../shared/wip.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="nav">
+    <nav class="nav__links" aria-label="Main">
+      <a href="#work">Projects</a>
+      <a href="#">Services</a>
+      <a href="#">Studio <span aria-hidden="true">+</span></a>
+      <a href="#">Insights</a>
+    </nav>
+    <a class="nav__mark" href="#top" aria-label="Atelier Lune home">
+      <span>A</span><span>L</span>
+    </a>
+    <a class="nav__contact" href="#">Contact us</a>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <picture class="hero__photo">
+        <source srcset="img/hero.webp" type="image/webp">
+        <img src="img/hero.jpg" alt="A sunlit cream sitting room with an arched walnut mirror, two pale blue armchairs, and a round travertine table" width="1536" height="864" fetchpriority="high">
+      </picture>
+
+      <h1 id="hero-title" class="hero__title">
+        <span>Quiet</span>
+        <span>Considered</span>
+        <span>Rooms</span>
+      </h1>
+    </section>
+
+    <section class="statement" aria-labelledby="statement-title">
+      <p class="label">Studio</p>
+      <h2 id="statement-title">We design homes that feel <em>inevitable</em>: as if the light, the stone, and the people who live there had always belonged together.</h2>
+    </section>
+
+    <section class="work" id="work" aria-labelledby="work-title">
+      <header class="work__head">
+        <p class="label">Selected residences</p>
+        <h2 id="work-title">Recent work</h2>
+      </header>
+      <ol class="work__list">
+        <li>
+          <a href="#">
+            <span class="work__no">01</span>
+            <span class="work__name">Belgravia Townhouse</span>
+            <span class="work__meta">London · 2026</span>
+            <span class="work__tone" style="--tone: #c9b9a2" aria-hidden="true"></span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="work__no">02</span>
+            <span class="work__name">Maison sur la Colline</span>
+            <span class="work__meta">Provence · 2025</span>
+            <span class="work__tone" style="--tone: #8f9a8c" aria-hidden="true"></span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="work__no">03</span>
+            <span class="work__name">Fifth Avenue Apartment</span>
+            <span class="work__meta">New York · 2025</span>
+            <span class="work__tone" style="--tone: #9aa6b3" aria-hidden="true"></span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="work__no">04</span>
+            <span class="work__name">Casa del Faro</span>
+            <span class="work__meta">Mallorca · 2024</span>
+            <span class="work__tone" style="--tone: #d4b48f" aria-hidden="true"></span>
+          </a>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p class="foot__big">Begin a conversation</p>
+    <p class="foot__small">Atelier Lune is a fictional studio · Concept by Glendell S. Dia</p>
+  </footer>
+
+  <a class="wip" href="../../#ongoing">Ongoing <span>· HTML/CSS draft</span></a>
+</body>
+</html>

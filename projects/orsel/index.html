@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orsel | Cognac from the Petite Champagne</title>
+  <meta name="description" content="Orsel is a small cognac house in the Petite Champagne, ageing eaux-de-vie in Limousin oak since 1862.">
+  <!--
+    Ongoing concept by Glendell S. Dia: an HTML/CSS-only draft. Orsel is a fictional brand,
+    the hero photo is AI-generated, and the page is kept out of search results.
+  -->
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#12100e">
+  <link rel="canonical" href="https://pl0e.github.io/portfolio-site/projects/orsel/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2312100e'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='%23c9a46a' stroke-width='4'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap">
+  <link rel="preload" as="image" href="img/hero.webp" type="image/webp">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../shared/wip.css">
+</head>
+<body>
+  <header class="top">
+    <a class="crest" href="#top" aria-label="Orsel home">
+      <svg viewBox="0 0 60 40" aria-hidden="true"><path d="M4 30c8-2 12-10 20-12s10 4 16 2 10-8 16-8" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M36 14l4-6 3 6" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+      <strong>Orsel</strong>
+      <small>Cognac</small>
+    </a>
+    <nav class="top__tools" aria-label="Utilities">
+      <a href="#" class="top__lang">EN <span aria-hidden="true">▾</span></a>
+      <a href="#" aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M16 16l4 4"/></svg></a>
+      <a href="#" class="top__menu" aria-label="Menu"><i></i><i></i></a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <picture class="hero__photo">
+        <source srcset="img/hero.webp" type="image/webp">
+        <img src="img/hero.jpg" alt="A round amber cognac flask in a dim cellar while a man in a dark suit savours a glass behind it" width="1536" height="864" fetchpriority="high">
+      </picture>
+
+      <p class="hero__brand" aria-hidden="true">Orsel</p>
+
+      <div class="hero__copy">
+        <p class="hero__eyebrow">Maison fondée en 1862</p>
+        <h1 id="hero-title">Patience is not a virtue.<br>It is our recipe.</h1>
+      </div>
+
+      <aside class="hero__social" aria-label="Social links">
+        <span class="hero__rule" aria-hidden="true"></span>
+        <a href="#" aria-label="Instagram">Ig</a>
+        <a href="#" aria-label="Facebook">Fb</a>
+      </aside>
+
+      <p class="hero__scroll" aria-hidden="true">Scroll</p>
+    </section>
+
+    <section class="range" aria-labelledby="range-title">
+      <header class="range__head">
+        <p class="kicker">The range</p>
+        <h2 id="range-title">Three ages, <em>one cellar</em></h2>
+      </header>
+      <ul class="range__list">
+        <li class="cask">
+          <span class="cask__bottle cask__bottle--vs" aria-hidden="true"></span>
+          <h3>V.S.</h3>
+          <p>Four years in young oak. Pear, toasted almond, a bright finish.</p>
+          <span class="cask__age">4 yrs</span>
+        </li>
+        <li class="cask cask--lead">
+          <span class="cask__bottle cask__bottle--xo" aria-hidden="true"></span>
+          <h3>X.O.</h3>
+          <p>Twenty years under the eaves. Fig, cigar box, and a long spiced close.</p>
+          <span class="cask__age">20 yrs</span>
+        </li>
+        <li class="cask">
+          <span class="cask__bottle cask__bottle--vsop" aria-hidden="true"></span>
+          <h3>V.S.O.P.</h3>
+          <p>Eight years in seasoned casks. Apricot, vanilla pod, soft leather.</p>
+          <span class="cask__age">8 yrs</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="cellar" aria-labelledby="cellar-title">
+      <div class="cellar__text">
+        <p class="kicker">The cellar</p>
+        <h2 id="cellar-title">What the angels leave behind</h2>
+        <p>Each year, two percent of every cask rises into the rafters. The rest waits, darkening in Limousin oak, until the cellar master decides it is ready. Not before.</p>
+        <a class="link" href="#">Visit the maison <span aria-hidden="true">→</span></a>
+      </div>
+      <dl class="cellar__facts">
+        <div><dt>Casks resting</dt><dd>3,400</dd></div>
+        <div><dt>Oldest eau-de-vie</dt><dd>1924</dd></div>
+        <div><dt>Cellar masters</dt><dd>6</dd></div>
+      </dl>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Please enjoy responsibly. Orsel is a fictional brand.</p>
+  </footer>
+
+  <a class="wip" href="../../#ongoing">Ongoing <span>· HTML/CSS draft</span></a>
+</body>
+</html>
