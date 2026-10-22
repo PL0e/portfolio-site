@@ -1,0 +1,32 @@
+/* ============================================
+   ONGOING TAG
+   Plain-text label pinned to HTML/CSS-only drafts that are still in progress.
+   ============================================ */
+.wip {
+  position: fixed;
+  left: 1.1rem;
+  bottom: 1rem;
+  z-index: 100;
+  color: #fff;
+  font: 600 0.72rem/1 system-ui, -apple-system, "Segoe UI", sans-serif;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+  /* inverts against whatever is behind it, so it reads on dark heroes and light sections */
+  mix-blend-mode: difference;
+}
+
+.wip span {
+  color: rgb(255 255 255 / 0.7);
+  font-weight: 500;
+}
+
+.wip:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+.wip:focus-visible {
+  outline: 2px solid #e2502f;
+  outline-offset: 4px;
+}

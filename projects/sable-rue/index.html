@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sable &amp; Rue | Botanical Skin, Hair &amp; Fragrance</title>
+  <meta name="description" content="Botanical formulations for skin, hair, and home, bottled in amber glass. Introducing the Ember Editions eaux de parfum.">
+  <!--
+    Ongoing concept by Glendell S. Dia: an HTML/CSS-only draft. Sable & Rue is a fictional brand,
+    the hero photo is AI-generated, and the page is kept out of search results.
+  -->
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#1c140e">
+  <link rel="canonical" href="https://pl0e.github.io/portfolio-site/projects/sable-rue/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c140e'/%3E%3Crect x='22' y='22' width='20' height='30' rx='4' fill='%238a4b1c'/%3E%3Crect x='25' y='12' width='14' height='10' rx='2' fill='%23111'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;1,400&family=Instrument+Sans:wght@400;500;600&display=swap">
+  <link rel="preload" as="image" href="img/hero.webp" type="image/webp">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../shared/wip.css">
+</head>
+<body>
+  <header class="head">
+    <div class="head__util">
+      <nav aria-label="Help"><a href="#">Stores</a><a href="#">Customer service</a></nav>
+      <a class="head__logo" href="#top">Sable &amp; Rue<span>.</span></a>
+      <nav aria-label="Account"><a href="#">Email sign up</a><a href="#">Account</a><a href="#">My cart</a></nav>
+    </div>
+    <div class="head__nav">
+      <nav class="head__cats" aria-label="Shop">
+        <a href="#">Shop all</a>
+        <a href="#">New &amp; notable</a>
+        <a href="#">Skin care</a>
+        <a href="#">Hand &amp; body</a>
+        <a href="#" aria-current="page">Fragrance</a>
+        <a href="#">Home</a>
+        <a href="#">Hair</a>
+        <a href="#">Travel</a>
+        <a href="#">Gifts</a>
+        <a href="#">Library</a>
+      </nav>
+      <label class="search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M16 16l4 4"/></svg>
+        <span class="sr-only">Search</span>
+        <input type="search" placeholder="Search...">
+      </label>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <picture class="hero__photo">
+        <source srcset="img/hero.webp" type="image/webp">
+        <img src="img/hero.jpg" alt="A long row of amber glass perfume bottles with black caps receding along a dark shelf" width="1536" height="864" fetchpriority="high">
+      </picture>
+
+      <a class="hero__arrow hero__arrow--prev" href="#" aria-label="Previous story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></a>
+      <a class="hero__arrow hero__arrow--next" href="#" aria-label="Next story"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></a>
+
+      <div class="hero__copy">
+        <p class="hero__intro">Introducing</p>
+        <h1 id="hero-title">The Ember Editions</h1>
+        <p>Ten eaux de parfum, each built around a single resin, wood, or root, then left to rest in amber glass.</p>
+        <a class="btn" href="#">Explore the story <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </section>
+
+    <section class="shop" aria-labelledby="shop-title">
+      <header class="shop__head">
+        <h2 id="shop-title">Formulations for the season</h2>
+        <a href="#">View all fragrance</a>
+      </header>
+      <ul class="shop__grid">
+        <li class="item">
+          <div class="item__stage"><span class="mini mini--tall"><b>Ember</b></span></div>
+          <h3>Ember Eau de Parfum</h3>
+          <p>Labdanum, smoked birch, pink pepper</p>
+          <span class="item__price">50 mL · ₱ 9,800</span>
+        </li>
+        <li class="item">
+          <div class="item__stage item__stage--sage"><span class="mini mini--pump"><b>Rue</b></span></div>
+          <h3>Rue Botanical Hand Wash</h3>
+          <p>Rue leaf, rosemary, cedar atlas</p>
+          <span class="item__price">500 mL · ₱ 2,450</span>
+        </li>
+        <li class="item">
+          <div class="item__stage item__stage--clay"><span class="mini mini--dropper"><b>Serum</b></span></div>
+          <h3>Parsley Seed Night Serum</h3>
+          <p>For dry and tired skin</p>
+          <span class="item__price">60 mL · ₱ 5,100</span>
+        </li>
+        <li class="item">
+          <div class="item__stage item__stage--stone"><span class="mini mini--jar"><b>Balm</b></span></div>
+          <h3>Resurrection Body Balm</h3>
+          <p>Mandarin, rosemary, shea</p>
+          <span class="item__price">120 mL · ₱ 3,300</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="visit" aria-labelledby="visit-title">
+      <div class="visit__art" aria-hidden="true"></div>
+      <div class="visit__text">
+        <p class="eyebrow">Our stores</p>
+        <h2 id="visit-title">Each space is designed by a different architect, in conversation with its street.</h2>
+        <a class="btn btn--dark" href="#">Find a store <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Sable &amp; Rue is a fictional brand · Concept by Glendell S. Dia</p>
+  </footer>
+
+  <a class="wip" href="../../#ongoing">Ongoing <span>· HTML/CSS draft</span></a>
+</body>
+</html>

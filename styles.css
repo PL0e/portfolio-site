@@ -236,22 +236,19 @@ strong {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.2rem 0.65rem;
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-full);
-  background: var(--surface-2);
   color: var(--text-muted);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: 1.6;
-  white-space: nowrap;
+  font-size: 0.78rem;
+}
+
+/* Plain-text tags: a dot separates each one from the last */
+.tags .tag + .tag::before {
+  content: "·";
+  margin-right: 0.15rem;
+  color: var(--text-subtle);
 }
 
 .tag--accent {
-  background: var(--accent-soft);
-  border-color: var(--accent-line);
   color: var(--accent);
 }
 
@@ -1312,6 +1309,20 @@ html.is-gated body {
   transition: transform var(--t-base);
 }
 
+/* "Ongoing" tag pinned over a work-in-progress preview: plain text, shadowed to stay legible */
+.store__badge {
+  position: absolute;
+  top: 0.9rem;
+  left: 1rem;
+  z-index: 1;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-shadow: 0 1px 8px rgb(0 0 0 / 0.85);
+  text-transform: uppercase;
+}
+
 /* Hero player for featured cards (script.js): sits exactly over the screenshot */
 .store__anim {
   position: absolute;
@@ -1478,13 +1489,15 @@ html.is-gated body {
 }
 
 .store__seo li {
-  padding: 0.2rem 0.6rem;
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-full);
-  background: var(--surface-2);
   color: var(--text-muted);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
+}
+
+.store__seo li + li::before {
+  content: "·";
+  margin-right: 0.5rem;
+  color: var(--text-subtle);
 }
 
 .store__seo .store__score {
@@ -2688,8 +2701,6 @@ body::before {
 }
 
 .tag {
-  border-color: #2b4a60;
-  background: rgb(255 255 255 / 0.035);
   color: #a7c1c4;
 }
 
@@ -3506,7 +3517,7 @@ body::before {
 
 #projects .project__title-overlay {
   position: absolute;
-  right: 1rem;
+  right: 5.5rem;
   bottom: 1rem;
   left: 1rem;
   z-index: 3;
@@ -3531,10 +3542,9 @@ body::before {
   width: 2rem;
   height: 2rem;
   padding: 0;
-  border: 1px solid rgb(255 255 255 / 0.22);
-  border-radius: 50%;
+  border: 0;
   color: #fff;
-  background: rgb(0 0 0 / 0.55);
+  background: none;
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -3544,12 +3554,11 @@ body::before {
 
 #projects .project__info-toggle:hover,
 #projects .project__info-toggle[aria-expanded="true"] {
-  color: #fff;
-  background: rgb(0 0 0 / 0.78);
+  color: #f08a68;
 }
 
 #projects .project__info-toggle i {
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 #projects .project__description-source,
@@ -3608,6 +3617,8 @@ body::before {
   transform: none;
 }
 
+/* Demo and live-site links (moved onto the preview by script.js): plain white text,
+   bottom-right of the image across from the title, no button chrome */
 #projects .store__link,
 #projects .project__link {
   position: absolute;
@@ -3615,20 +3626,24 @@ body::before {
   bottom: 1rem;
   z-index: 4;
   margin: 0;
-  padding: 0.45rem 0.65rem;
-  border: 1px solid rgb(255 255 255 / 0.2);
-  border-radius: 999px;
+  padding: 0;
   color: #fff;
-  background: rgb(0 0 0 / 0.62);
-  text-shadow: 0 2px 10px rgb(0 0 0 / 0.8);
+  font-size: clamp(0.8rem, 1.6vw, 0.95rem);
+  line-height: 1.4;
+  text-shadow: 0 2px 12px rgb(0 0 0 / 0.85);
 }
 
 #projects .store__link:hover,
-#projects .store__link:focus-visible,
-#projects .project__link:hover,
-#projects .project__link:focus-visible {
+#projects .project__link:hover {
   color: #fff;
-  background: rgb(0 0 0 / 0.82);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+#projects .store__link:focus-visible,
+#projects .project__link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
 }
 
 #projects .project--more {
@@ -3675,19 +3690,3 @@ body::before {
   padding: 1.1rem 0 0;
 }
 
-@media (max-width: 760px) {
-  #projects .store__link,
-  #projects .project__link {
-    right: 0.7rem;
-    bottom: 0.7rem;
-    gap: 0.25rem;
-    padding: 0.3rem 0.5rem;
-    font-size: 0.7rem;
-    line-height: 1;
-  }
-
-  #projects .store__link i,
-  #projects .project__link i {
-    font-size: 0.62rem;
-  }
-}

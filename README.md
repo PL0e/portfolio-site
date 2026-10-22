@@ -13,7 +13,7 @@ Live: https://pl0e.github.io/portfolio-site/
 | Tech marquee | Tools and technologies (auto-scrolling, pauses on hover) |
 | About | Intro, key stats, skill areas, education |
 | Experience | Work timeline, newest first |
-| Projects | Bangis FC (newest), scroll-animated heroes (4 demos, hero plays on hover), more concept sites (5 demos), client work, and project cards |
+| Projects | Bangis FC (newest), scroll-animated heroes (4 demos, hero plays on hover), more concept sites (5 demos), ongoing premium UI drafts (4, HTML/CSS only), client work, and project cards |
 | Certificates | Awards and certifications |
 | Off the clock | Pets |
 | Contact | Contact details + a form that opens the visitor's email app |
@@ -43,12 +43,16 @@ portfolio-site/
 ├── styles.css            # Design tokens (top of file), layout, responsive rules
 ├── script.js             # Nav, scroll-spy, reveal animations, typewriter, marquee, contact form
 ├── projects/
-│   ├── shared/           # demo-kit.js/.css (cart, filters, GA4 events, SEO & Analytics panel); scroll-hero.js/.css
+│   ├── shared/           # demo-kit.js/.css (cart, filters, GA4 events, SEO & Analytics panel); scroll-hero.js/.css; wip.css (Ongoing tag)
 │   ├── bangis-fc/        # MMA promotion site: story carousel, countdown, fight card tabs, rankings (no analytics)
 │   ├── hinabi/           # Filipino handwoven goods store
 │   ├── kitchen-line/     # Pickleball shop (paddle finder, FAQ rich results)
 │   ├── glowform/         # Lamp shop (light switch, color-temperature slider)
-│   └── the-daily-brew/   # Coffee shop: scroll-scrubbed hero, drinks & beans menu, brew calculator
+│   ├── the-daily-brew/   # Coffee shop: scroll-scrubbed hero, drinks & beans menu, brew calculator
+│   ├── orsel/            # Ongoing HTML/CSS draft: cognac house
+│   ├── ashcombe/         # Ongoing HTML/CSS draft: leather furniture
+│   ├── atelier-lune/     # Ongoing HTML/CSS draft: interiors studio
+│   └── sable-rue/        # Ongoing HTML/CSS draft: apothecary (hero photos in each img/ are AI-generated)
 └── assets/
     ├── resume_diaglendell_.pdf   # The CV linked from the site
     └── img/                      # Web-optimized images (profile, og-image, pets, and project previews)
