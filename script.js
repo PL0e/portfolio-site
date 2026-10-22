@@ -311,7 +311,16 @@
     const liveDemo = body?.querySelector(".store__link, .project__link")
     if (!shot || !body || !title || !description) return
 
-    if (liveDemo) shot.append(liveDemo)
+    if (liveDemo) {
+      const icon = liveDemo.querySelector("i")
+      const label = document.createElement("span")
+      label.className = "project__link-label"
+      label.textContent = "demo"
+      liveDemo.textContent = ""
+      liveDemo.append(label)
+      if (icon) liveDemo.append(icon)
+      shot.append(liveDemo)
+    }
 
     const overlay = document.createElement("div")
     overlay.className = "project__title-overlay"
