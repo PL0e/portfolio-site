@@ -100,7 +100,7 @@ brands and prices are made up, every demo uses `noindex` so none appears in sear
 teams: `rallyo/` (pickleball scoring app landing page with a working side-out scorer), `tala-shs/` (senior high
 school site with ARIA strand tabs), `lucky-lagoon/` (game lobby UI; demo only, no accounts or real-money play, with
 18+ and responsible-gaming notices), `tally/` (working scoreboard web app: presets, sets, caps, serve rotation, undo,
-keyboard shortcuts), and `sugbo-league/` (Cebu collegiate league hub, featured at the top of Projects: an
+keyboard shortcuts), and `sugbo-league/` (Cebu collegiate league hub: an
 interactive Cebu map linked to the team list and standings, a sport filter, and photos of real Cebu venues from
 Wikimedia Commons). They use the same shared demo kit, sample search data, noindex, and openly licensed photos with
 footer credits. The sample search
